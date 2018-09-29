@@ -1,0 +1,59 @@
+body{
+    background-color: #116466
+}
+
+.contains{
+    width: 100vw;
+    height: 100vh;
+}
+
+.squirrel-container{
+    position: relative;
+    height: 10%;
+    top: 3vh;
+    right: 5%;
+    display: inline-block;
+}
+
+.squirrel{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    height: 90%;
+}
+
+.title{
+    position: relative;
+    left: 10%;
+    font-size: 9em;
+    color: #98FFA8;
+    display: inline-block;
+}
+
+
+.btn-style{
+    position: relative;
+    background-color: #DEF2F1;
+    color: black;
+    width:100vw;
+    height:9vh;
+    font-size: 4em;
+    margin-top: 10px;
+}
+
+.btn-position{
+    position: relative;
+}
+
+.input-style{
+    position: relative;
+    color: black;
+    background-color: rgb(46, 147, 149);
+    width:100vw;
+    height:9vh;
+    font-size: 4em;
+    margin-top: 10px;
+}

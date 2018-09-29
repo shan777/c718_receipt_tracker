@@ -1,0 +1,69 @@
+body{
+    background-color: #116466
+}
+
+.contains{
+    width: 100vw;
+    height: 100vh;
+}
+
+.squirrel-container{
+    position: relative;
+    height: 10%;
+    top: 4vh;
+    left: 5%;
+    display: inline-block;
+}
+
+.dotcontainer{
+    position: relative;
+    height: 10%;
+    bottom: 18.5vh;
+    right: 2%;
+    display: inline-block;
+}
+
+.dot{
+    height: 90%;
+}
+
+.squirrel{
+    height: 90%;
+}
+
+.title{
+    position: relative;
+    font-size: 9em;
+    color: white;
+    bottom: 8%;
+}
+
+.btn-style{
+    position: relative;
+    background-color: #DEF2F1;
+    color: black;
+    width:100vw;
+    height:9vh;
+    font-size: 4em;
+    margin-top: 10px;
+}
+
+.btn-position{
+    position: relative;
+    bottom: 15%;
+}
+
+.menu{
+    position: relative;
+    height: 20vh;
+    bottom: 13%;
+    border-top: 3px solid black;
+    width: 100%;
+}
+
+.addNew, .notifications, .overview, .reports{
+    position: relative;
+    height: 60%;
+    margin-left: 4%;
+}
+
