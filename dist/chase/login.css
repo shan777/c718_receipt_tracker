@@ -1,3 +1,63 @@
+body{
+    background-color: #116466
+}
 
+.container{
+    height:100vh;
+    width:100vw;
+}
 
+.squirrel-container{
+    position: relative;
+    top: 3%;
+    height: 33%;
+}
 
+.squirrel{
+    height:100%;
+}
+
+.title{
+    position: relative;
+    top: 5%;
+    color: white;
+    font-size: 7em;
+}
+
+.inputs{
+    position: relative;
+    top: 10%;
+}
+
+.input-style{
+    background-color: #DEF2F1;
+    width:50%;
+    height:7vh;
+    font-size: 4em;
+}
+
+.forgot{
+    position: relative;
+    top: 10%;
+    font-size: 3em;
+    color: #98FFA8;
+}
+
+.button-container{
+    position: relative;
+    top: 15%;
+}
+
+.btn-style{
+    width:40%;
+    height: 9vh;
+    font-size: 4em;
+    background-color: black;
+}
+
+.sign-up{
+    position: relative;
+    top: 15%;
+    color: white;
+    font-size: 3em;
+}
