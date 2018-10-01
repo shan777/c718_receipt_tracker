@@ -1,0 +1,22 @@
+{
+  "name": "mern_example",
+  "version": "1.0.0",
+  "description": "mern stack setup example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nebevets/mern_example.git"
+  },
+  "author": "steve benedict",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nebevets/mern_example/issues"
+  },
+  "homepage": "https://github.com/nebevets/mern_example#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
