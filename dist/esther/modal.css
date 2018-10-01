@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #116466;
+}
+
+h1 {
+    display: inline-block;
+    font-size: 35px;
+    padding-left: 5%;
+}
+
+.heading {
+    padding-top: 22%;
+}
+
+.fontColor {
+    color: #F2F2F2;
+}
+
+.squirrelLogo {
+    width: 120%;
+    padding-top: 15%;
+}
+
+p {
+    font-size: 21px;
+    color: #98FFA8;
+}
+
+.description {
+    padding-top: 18%;
+    text-align: center;
+}
