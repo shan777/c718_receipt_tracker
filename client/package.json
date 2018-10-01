@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "Starting setup for react redux project",
   "main": "index.js",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:9000" 
+    }
+  },
   "scripts": {
     "start": "node dev_server.js",
+    "dev": "npm run dev --prefix ..",
     "bundle": "webpack --config webpack.prod.js --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +21,7 @@
     "url": "https://github.com/Learning-Fuze/react_starter.git"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
