@@ -5,7 +5,7 @@ import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
 import '../assets/css/add_new.css';
-import cameraImage from '../assets/images/camera.png';
+// import cameraImage from '../assets/images/camera.png';
 import Camera from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
 
@@ -104,7 +104,7 @@ class AddNew extends Component {
                                     type="text"
                                     value={receiptImageSrc}
                                 />
-                                <img className="camera_img" src={cameraImage}/>
+                                {/* <img className="camera_img" src={cameraImage}/> */}
                             </div>
                         </div>
 
