@@ -1,11 +1,11 @@
 import React from 'react';
-import '../assets/css/app.css';
-import Test from './test';
+// import '../assets/css/app.css';
+import Overview from './overview';
 
 const App = () => (
     <div>
         <div className="app">
-            <Test/>
+            <Overview/>
         </div>
     </div>
 );
