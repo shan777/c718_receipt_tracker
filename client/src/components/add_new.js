@@ -7,26 +7,38 @@ import axios from 'axios';
 import '../assets/css/add_new.css';
 import camera from '../assets/images/camera.png';
 
+
 class AddNew extends Component {    
+    calcDate() {
+        var curr = new Date();
+        curr.setDate(curr.getDate());
+        var today = curr.toISOString().substr(0,10);
+        return {today};
+{/* <input id="dateRequired" type="date" name="dateRequired" defaultValue={date} />  */}
+    }
     state = {
         merchantName: '',
-        dateOfPurchase: new Date().toDateString(),
+        dateOfPurchase: this.calcDate().today,
         totalAmount: '0.00',
         category: '',
         note: '',
         receiptImageSrc: ''
     }
 
+    
+
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, receiptImageSrc} = this.state;
+
         return (
             <div>
                 <Header/>
                 <div className="main_container">
-                    <form>
-                        <button className="cancelBtn" type="reset" value="X">X</button>
-                        <button className="doneBtn"  type="submit" value="Done" onSubmit={this.handleAddItem}>Done</button>
-                        
+                    <form action="#">
+                        <div className="btn_container">
+                            <button className="cancel_btn" type="reset" value="X">X</button>
+                            <button className="done_btn"  type="submit" value="Done" onSubmit={this.handleAddItem}>Done</button>
+                        </div>    
                         <div className="row content_container">
                             <div>
                                 <label className="input_title">Merchant Name:</label>
@@ -41,8 +53,8 @@ class AddNew extends Component {
                             <div className="col s8 offset-s2">
                                 <label className="input_title">Date of Purchase:</label>
                                 {/* <input onChange={ (e) => this.setState({dateOfPurchase: e.target.value})} */}
-                                <input onChange={ (e) => this.setState({dateOfPurchase: new Date().toLocaleDateString()})}
-                                    type="text"
+                                <input onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
+                                    type="date"
                                     value={dateOfPurchase}
                                 />
                             </div>
@@ -60,10 +72,16 @@ class AddNew extends Component {
                         <div className="row content_container">
                             <div className="col s8 offset-s2">
                                 <label className="input_title">Category:</label>
-                                <input className="merchName input_field" placeholder="Not specified" onChange={ (e) => this.setState({category: e.target.value})}
+                                <select name="category">
+                                    <option value={category}>Dining</option>
+                                    <option value={category}>Groceries</option>
+                                    <option value={category}>Beauty</option>
+                                    <option value={category}>Health</option>
+                                </select>
+                                {/* <input className="merchName input_field" placeholder="Not specified" onChange={ (e) => this.setState({category: e.target.value})}
                                     type="text"
                                     value={category}
-                                />
+                                /> */}
                             </div>
                         </div>
                         <div className="row content_container">
@@ -78,11 +96,11 @@ class AddNew extends Component {
                         <div className="row content_container">
                             <div className="col s8 offset-s2">
                                 <label className="input_title">Receipt Image:</label>
-                                <input className="receiptImgInput input_field" placeholder="Upload" onChange={ (e) => this.setState({receiptImageSrc: e.target.value})}
+                                <input className="receipt_img_input input_field" placeholder="Upload" onChange={ (e) => this.setState({receiptImageSrc: e.target.value})}
                                     type="text"
                                     value={receiptImageSrc}
                                 />
-                                <img className="cameraImg" src={camera}/>
+                                <img className="camera_img" src={camera}/>
                             </div>
                         </div>
 

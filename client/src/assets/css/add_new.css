@@ -46,7 +46,7 @@
 
 }
 
-.cameraImg {
+.camera_img {
     width: 6%;
     padding-left: 1%;
     display: inline-block;
@@ -54,14 +54,20 @@
     margin-right: auto; */
 }
 
-.noteInput {
-    height: 4em;
+/* .noteInput {
+    height: 2em;
+}
+*/
+.receipt_img_input {
+    height: 2.5em;
+} 
+
+.done_btn {
+    float: right;
 }
 
-.receiptImgInput {
-    height: 4em;
-}
+.btn_container {
+    width: 100%;
+    background-color: #D9DDE1;
 
-.doneBtn {
-    right: 0;
 }
