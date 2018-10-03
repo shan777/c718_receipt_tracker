@@ -1,11 +1,12 @@
 import React from 'react';
-import '../assets/css/app.css';
-import Test from './test';
+import Header from './header';
 
 const App = () => (
     <div>
         <div className="app">
-            <Test/>
+            <h1>HEllo!</h1>
+            <Header/>
+            {/* <Footer/> */}
         </div>
     </div>
 );
