@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link, Route } from 'react-router-dom';
+import Overview from './overview';
 import axios from 'axios';
 
-class AddNewReceipt extends component {
+class AddNew extends component {
     state = {
         merchantName: '',
         dateOfPurchase: new Date().toDateString(),
@@ -41,4 +43,4 @@ class AddNewReceipt extends component {
     }
 }
 
-export default AddNewReceipt;
+export default AddNew;
