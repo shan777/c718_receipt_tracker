@@ -9,12 +9,14 @@ import AddNew from './add_new';
 import Login from './login';
 import SignUp from './signUp';
 import Header from './header';
+import Footer from './footer';
 import AboutUs from './about_us';
+
 
 const App = () => (
     <Router>
         <div>
-        <div className="app">
+        {/* <div className="app">
             <Splash/>
         </div>
         <ul>
@@ -30,13 +32,14 @@ const App = () => (
             <li>
                 <Link to='/signup'>Sign Up</Link>
             </li>
-        </ul>
+        </ul> */}
         <Route path ="/add_new" component={AddNew}/>
         <Route exact path="/" component={Splash}/>
         <Route path ="/overview" component={Overview}/>
         <Route path = "/login" component = {Login}/>
         <Route path="/signup" component ={SignUp}/>
         <Route path="/about_us" component={AboutUs}/>
+        <Route path="/footer" component={Footer}/>
         </div>
         </Router>
 );
