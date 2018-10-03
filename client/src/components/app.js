@@ -4,10 +4,10 @@ import Overview from './overview';
 import {BrowserRouter as Router,
         Link, 
         Route } from 'react-router-dom';
-import Splash from './splashPage';
+import Splash from './splash_page';
 import AddNew from './add_new';
 import Login from './login';
-import SignUp from './signUp';
+import SignUp from './signup';
 
 const App = () => (
     <Router>
@@ -29,11 +29,12 @@ const App = () => (
                     <Link to='/signup'>Sign Up</Link>
                 </li>
             </ul>
-            <Route path ="/addnew" component={AddNew}/>
+            <Route path ="/add_new" component={AddNew}/>
             <Route exact path="/" component={Splash}/>
             <Route path ="/overview" component={Overview}/>
             <Route path = "/login" component={Login}/>
             <Route path="/signup" component={SignUp}/>
+            <Route path="/aboutus" component={AboutUs}/>
         </div>
     </Router>
 
