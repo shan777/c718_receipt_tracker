@@ -1,12 +1,7 @@
-
 import React from 'react';
 // import '../assets/css/app.css';
 import Overview from './overview';
-import {
-    BrowserRouter as Router,
-    Link,
-    Route
-} from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import Splash from './splashPage';
 import AddNew from './add-new';
 import Login from './login';
