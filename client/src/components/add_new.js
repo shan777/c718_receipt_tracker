@@ -3,7 +3,7 @@ import { Link, Route } from 'react-router-dom';
 import Overview from './overview';
 import axios from 'axios';
 
-class AddNew extends component {
+class AddNew extends Component {
     state = {
         merchantName: '',
         dateOfPurchase: new Date().toDateString(),
