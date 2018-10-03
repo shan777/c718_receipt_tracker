@@ -12,6 +12,7 @@
             confirmPassword: ''
         }
 
+        
         render() {
             const {firstName, lastName, userName, password, confirmPassword} = this.state;
             return (
