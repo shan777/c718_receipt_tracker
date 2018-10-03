@@ -8,6 +8,7 @@ import Splash from './splash_page';
 import AddNew from './add_new';
 import Login from './login';
 import SignUp from './signup';
+import AboutUs from './about_us';
 
 const App = () => (
     <Router>
@@ -34,7 +35,7 @@ const App = () => (
             <Route path ="/overview" component={Overview}/>
             <Route path = "/login" component={Login}/>
             <Route path="/signup" component={SignUp}/>
-            <Route path="/aboutus" component={AboutUs}/>
+            <Route path="/about_us" component={AboutUs}/>
         </div>
     </Router>
 
