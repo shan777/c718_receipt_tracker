@@ -21,7 +21,7 @@ const App = () => (
                     <Link to='/overview'>Overview</Link>>
                 </li>
                 <li>
-                    <Link to='/addnew'>Add New</Link>>
+                    <Link to='/add_new'>Add New</Link>>
                 </li>
                 <li>
                     <Link to='/login'>Login</Link>
