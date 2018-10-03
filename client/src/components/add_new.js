@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 import Overview from './overview';
+import Header from './header';
 import axios from 'axios';
 
-class AddNew extends Component {
+class AddNew extends Component {    
     state = {
         merchantName: '',
         dateOfPurchase: new Date().toDateString(),
@@ -17,6 +18,7 @@ class AddNew extends Component {
         const {merchantName, dateOfPurchase, totalAmount, category, note, receiptImageSrc} = this.state;
         return (
             <div>
+                {/* <Header/> */}
                 <form onSubmit={this.handleAddItem}>
                 <button type="reset" value="X">X</button>
                 <button type="submit" value="Done">Done</button>
