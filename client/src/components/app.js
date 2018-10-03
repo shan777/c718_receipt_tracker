@@ -10,12 +10,13 @@ import Splash from './splashPage';
 import AddNew from './add-new';
 import Login from './login';
 import SignUp from './signUp';
+import Header from './header';
 
 const App = () => (
     
         <Router>
         <div>
-        <div className="app">
+        {/* <div className="app">
             <Splash/>
         </div>
         <ul>
@@ -31,12 +32,13 @@ const App = () => (
             <li>
                 <Link to='/signup'>Sign Up</Link>
             </li>
-        </ul>
+        </ul> */}
         <Route path ="/addnew" component={AddNew}/>
         <Route exact path="/" component={Splash}/>
         <Route path ="/overview" component={Overview}/>
         <Route path = "/login" component = {Login}/>
         <Route path="/signup" component ={SignUp}/>
+        <Route path="/header" component ={Header}/>
         </div>
         </Router>
 );
