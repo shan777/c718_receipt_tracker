@@ -84,3 +84,9 @@ DELETE FROM receipts WHERE receipts.ID = '${request.body.receipt_id}';
 UPDATE tags SET tags.receipt_id = '' WHERE tags.receipt_id = '${request.body.receipt_id}';
 
 --NOTE: we will need to delete tag when no receipts in the database have that tag
+
+-- Fetch all tags for a current user
+SELECT tags.tag_name, users.user_name FROM tags JOIN users ON tags.user_id=users.ID WHERE users.ID='${request.body.user_id}';
+
+-- Fetch all receipts with a specfic tag for a specific user (filter receipts by user tag)
+SELECT receipts.store_name, receipts.total, receipts.purchase_date FROM receipts JOIN receipts_tags ON receipts.ID=receipts_tags.receipt_id WHERE receipts.user_id=3 AND receipts_tags.tag_id=3
