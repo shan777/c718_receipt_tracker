@@ -14,7 +14,7 @@ class Footer extends Component {
     render() {
         return( 
             <Router>
-                <div className="footerContainer ">
+                <div className="footer_container">
                     <ul>
                         <li><Link to='/addnew'><img src={addNew} /></Link></li>
                         <li><Link to='/overview'><img src={overView} /></Link></li>

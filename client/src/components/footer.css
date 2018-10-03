@@ -1,10 +1,16 @@
-.footerContainer {
+.footer_container {
     background-color: #237E80;
+    padding: 2%;
 }
 
-/* .iconImage {
-    padding: 4%;
-} */
+.footer_container li {
+    display: inline;
+}
+
+ul {
+    margin: 0;
+}
+
 
 
 
