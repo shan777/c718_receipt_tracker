@@ -30,8 +30,9 @@ class AddNew extends Component {
                     <div className="row">
                         <div className="col s8 offset-s2">
                             <label>Date of Purchase:</label>
-                            <input onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
-                                type="datetime-local"
+                            {/* <input onChange={ (e) => this.setState({dateOfPurchase: e.target.value})} */}
+                            <input onChange={ (e) => this.setState({dateOfPurchase: new Date().toLocaleDateString()})}
+                                type="text"
                                 value={dateOfPurchase}
                             />
                         </div>
