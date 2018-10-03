@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import './overview.css';
-import AddNew from './add-new';
-import {
-    Link,
-    Route
-} from 'react-router-dom';
-import Splash from './splashPage';
+import AddNew from './add_new';
+import { Link, Route } from 'react-router-dom';
+import Splash from './splash_page';
 
 class Overveiw extends Component{
     constructor(props){

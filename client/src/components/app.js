@@ -1,20 +1,18 @@
 import React from 'react';
 // import '../assets/css/app.css';
 import Overview from './overview';
-import {
-    BrowserRouter as Router,
-    Link,
-    Route
-} from 'react-router-dom';
-import Splash from './splashPage';
-import AddNew from './add-new';
+import {BrowserRouter as Router,
+        Link, 
+        Route } from 'react-router-dom';
+import Splash from './splash_page';
+import AddNew from './add_new';
 import Login from './login';
 import SignUp from './signUp';
 import Header from './header';
 
+
 const App = () => (
-    
-        <Router>
+    <Router>
         <div>
         {/* <div className="app">
             <Splash/>
