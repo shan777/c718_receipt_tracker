@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
+import Overview from './overview';
 import {
     Link,
     Route
 } from 'react-router-dom';
-import Overview from './overview';
 
-class AddNew extends Component{
+class Splash extends Component{
     render(){
         return(
             <div>
-            <h1>Add New Receipt</h1>
+                    <h1>Splash</h1>
             </div>
         )
     }
 }
 
-export default AddNew;
+export default Splash;

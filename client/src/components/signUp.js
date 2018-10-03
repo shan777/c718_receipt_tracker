@@ -3,16 +3,15 @@ import {
     Link,
     Route
 } from 'react-router-dom';
-import Overview from './overview';
 
-class AddNew extends Component{
+class SignUp extends Component{
     render(){
         return(
             <div>
-            <h1>Add New Receipt</h1>
+            <h1>Sign Up</h1>
             </div>
         )
     }
 }
 
-export default AddNew;
+export default SignUp;
