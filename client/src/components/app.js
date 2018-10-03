@@ -1,12 +1,14 @@
-import React from 'react';
+// import { Route } from 'react-router-dom';
+import React, { Component } from 'react';
 import '../assets/css/app.css';
+import AddNew from './add_new';
+
 import Test from './test';
 
 const App = () => (
     <div>
-        <div className="app">
-            <Test/>
-        </div>
+        <Test/>
+        <AddNew/>
     </div>
 );
 
