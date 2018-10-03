@@ -5,8 +5,9 @@ import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
 import '../assets/css/add_new.css';
-import camera from '../assets/images/camera.png';
-
+import cameraImage from '../assets/images/camera.png';
+import Camera from 'react-html5-camera-photo';
+import 'react-html5-camera-photo/build/css/index.css';
 
 class AddNew extends Component {    
     calcDate() {
@@ -25,7 +26,9 @@ class AddNew extends Component {
         receiptImageSrc: ''
     }
 
-    
+    onTakePhoto(dataUri) {
+        console.log('takePhoto');
+    }
 
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, receiptImageSrc} = this.state;
@@ -96,11 +99,12 @@ class AddNew extends Component {
                         <div className="row content_container">
                             <div className="col s8 offset-s2">
                                 <label className="input_title">Receipt Image:</label>
+                                <Camera onTakePhoto={(dataUri) => {this.onTakePhoto(dataUri);}}/>
                                 <input className="receipt_img_input input_field" placeholder="Upload" onChange={ (e) => this.setState({receiptImageSrc: e.target.value})}
                                     type="text"
                                     value={receiptImageSrc}
                                 />
-                                <img className="camera_img" src={camera}/>
+                                <img className="camera_img" src={cameraImage}/>
                             </div>
                         </div>
 
