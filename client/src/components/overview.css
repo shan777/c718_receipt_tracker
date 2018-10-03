@@ -1,0 +1,65 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.container{
+    width: 100%;
+    height: 18%;
+}
+
+.row{
+    height: 12vh;
+    background-color: #DEF2F1;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.dateOfPurchase, .storeName, .amountOfPurchase{
+    margin: 0;
+    position: relative;
+    display: inline-block;
+} 
+
+.storeName, .amountOfPurchase{
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.dateOfPurchase{
+    font-size: 1em;
+}
+.amountOfPurchase{
+    left: 35%;
+    bottom: 20%;
+}
+
+
+.panel{
+    display: none;
+    overflow: hidden;
+    background-color: #DEF2F1;
+    position: relative;
+    width: 100%;
+    height: 25vh;
+}
+
+.panelSize{
+    width: 100%;
+    position: relative;
+    height: 14%;
+}
+
+.catagory, .data{
+    display: inline-block;
+    width: 50%;
+    position: relative;
+    font-size: .8em;
+}
+
+.data{
+    left: 20%;
+}
