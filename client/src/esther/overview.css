@@ -1,0 +1,137 @@
+ * {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #116466;
+    /* width: 375px;
+    height: 667px; */
+}
+
+.top_logo_container {
+    display: inline;
+}
+
+.top_logo {
+    width: 15%;
+}
+
+.title_container {
+    display: inline;
+}
+
+.title {
+    color: white;
+    display: inline-block;
+    font-size: 40px;
+    padding-left: 35px;
+    vertical-align: top;
+}
+
+.dot_menu_container {
+    display: inline;
+}
+
+.dot_menu {
+    display: inline-block;
+    padding-left: 17%;
+    vertical-align: top;
+}
+
+/* .content_container {
+    background-color: #DEF2F1;
+    border-bottom: 5px solid #116466;
+    padding: 2%;
+}
+
+.merchName_date_container {
+    display: inline-block;
+    padding-left: 5%;
+}
+
+.merchName {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.price {
+    display: inline-block;
+    float: right;
+    font-size: 30px;
+    padding: 2%;   
+} */
+
+.main_container {
+    height: 75%;
+    width: 100%;
+    margin: 0;
+    font-size: 1em;
+    display: block;
+    min-height: 100%;
+    background-color: #C6D0D0;
+    
+}
+.content_container {
+    background-color: #DEF2F1;
+    width: 100%;
+    min-height: 12.5%;
+    border-bottom: 0.5px solid #116466;
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    box-sizing: border-box;
+}
+.category_icon_container {
+    width: 10%;
+    padding-left: 1%;
+    display: inline-block;
+}
+
+.merchName_date_container {
+    display: inline-block;
+    width: 55%;
+}
+.merchName {
+    height: 50%;
+    width: 90%;
+    display: block;
+    font-weight: bold;
+}
+.date {
+    height: 50%;
+    width: 90%;
+    display: block;
+    font-size: 1em;
+}
+.price {
+    width: 30%;
+    font-size: 1.3em;
+    display: inline-block;
+    color: brown;
+    text-align: right;
+}
+
+
+
+.bottom_container {
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+}
+
+img.menu_icons {
+    width: 22%;
+}
+
+.menu_icons {
+    padding-left: 3%;
+}
+
+
+
+
+
+
+
+
+
