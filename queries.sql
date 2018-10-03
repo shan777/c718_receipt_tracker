@@ -2,91 +2,100 @@
 
 
 -- User login
-SELECT users.ID, users.first_name, users.last_name FROM users WHERE users.user_name = '${request.body.user_name}' AND users.password = SHA1('${request.body.password}');
+SELECT users.ID, users.firstName, users.lastName FROM users WHERE users.userName = '${request.body.userName}' AND users.password = SHA1('${request.body.password}');
+
+
+
+----------------------- Fetch Data -----------------------
 
 -- Fetch ALL receipts for current user
-SELECT receipts.ID, receipts.purchase_date, receipts.store_name, receipts.total FROM receipts WHERE receipts.user_id = '${request.body.user_id}';
+SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.userId = '${request.body.userId}';
 
 -- Fetch all ACTIVE receipts for current user
-SELECT receipts.ID, receipts.purchase_date, receipts.store_name, receipts.total FROM receipts WHERE receipts.user_id = '${request.body.user_id}' AND receipts.status = 'active';
+SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.userId = '${request.body.userId}' AND receipts.status = 'active';
 
 -- Fetch all INACTIVE receipts for current user
-SELECT receipts.ID, receipts.purchase_date, receipts.store_name, receipts.total FROM receipts WHERE receipts.user_id = '${request.body.user_id}' AND receipts.status = 'inactive';
+SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.userId = '${request.body.userId}' AND receipts.status = 'inactive';
+
+-- Fetch all store names for current user
+SELECT receipts.storeName FROM receipts WHERE receipts.userId = '${request.body.userId}';
+
+-- Fetch all tags for a current user
+SELECT tags.tagName, users.userName FROM tags JOIN users ON tags.userId=users.ID WHERE users.ID='${request.body.userId}';
+
+
+
+----------------------- Filter Data -----------------------
 
 -- Filter receipts by category (e.g. dining)
-SELECT receipts.ID, receipts.purchase_date, receipts.store_name, receipts.total FROM receipts WHERE receipts.category = '${request.body.category_name}' AND receipts.user_id = '${request.body.user_id}' AND receipts.status = 'active';
+SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.category = '${request.body.category_name}' AND receipts.userId = '${request.body.userId}' AND receipts.status = 'active';
 
--- Fetch all store names and filter receipts by a chosen store_name
-SELECT receipts.store_name FROM receipts WHERE receipts.user_id = '${request.body.user_id}';
-SELECT receipts.ID, receipts.purchase_date, receipts.store_name, receipts.total FROM receipts WHERE receipts.store_name = '${request.body.store_name}' AND receipts.user_id = '${request.body.user_id}' AND receipts.status = 'active';
+-- Filter receipts by specific storeName
+SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.storeName = '${request.body.storeName}' AND receipts.userId = '${request.body.userId}' AND receipts.status = 'active';
 
--- Fetch all receipts by specific purchase_date
-SELECT receipts.ID, receipts.purchase_date, receipts.store_name, receipts.total FROM receipts WHERE receipts.purchase_date = '${request.body.purchase_date}' AND receipts.user_id = '${request.body.user_id}' AND receipts.status = 'active';
+-- Filter all receipts by specific purchaseDate
+SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.purchaseDate = '${request.body.purchaseDate}' AND receipts.userId = '${request.body.userId}' AND receipts.status = 'active';
 
--- Fetch all receipts by specific purchate_date interval
-SELECT receipts.ID, receipts.purchase_date, receipts.store_name, receipts.total FROM table WHERE receipts.purchase_date >= '${request.body.start_date}' AND receipts.purchase_date <= '${request.body.end_date}' AND receipts.status = 'active';
+-- Filter all receipts by specific purchaseDate interval
+SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM table WHERE receipts.purchaseDate >= '${request.body.startDate}' AND receipts.purchaseDate <= '${request.body.endDate}' AND receipts.status = 'active';
 
--- TODO:
+-- Filter receipts by specific tag
+SELECT receipts.storeName, receipts.total, receipts.purchaseDate FROM receipts JOIN receipts_tags ON receipts.ID=receipts_tags.receiptId WHERE receipts.userId='${request.body.userId}' AND receipts_tags.tagId='${request.body.tagId}' AND receipts.status = 'active';
 
--- Fetch all receipts by specific tag
+-- Filter all receipts by multiple filters
 
--- Fetch all receipts by multiple filters
 
 
 ----------------------- CRUD Operations for 'users' -----------------------
 
 -- Create new user (sign-up)
-INSERT INTO users (user_name, password, first_name, last_name, email, phone) VALUES ('${request.body.user_name}', SHA1('${request.body.password}'), '${request.body.first_name}', '${request.body.last_name}', '${request.body.email}', '${request.body.phone}');
+INSERT INTO users (userName, password, firstName, lastName, email, phone) VALUES ('${request.body.userName}', SHA1('${request.body.password}'), '${request.body.firstName}', '${request.body.lastName}', '${request.body.email}', '${request.body.phone}');
 
 -- Fetch details for current user
-SELECT users.user_name, users.first_name, users.last_name, users.email, users.phone FROM users WHERE users.ID = '${request.body.user_id}';
+SELECT users.userName, users.firstName, users.lastName, users.email, users.phone FROM users WHERE users.ID = '${request.body.userId}';
 
 -- Update details of current user (e.g. email)
-UPDATE users SET users.email = '${request.body.email}' WHERE users.ID = '${request.body.user_id}';
+UPDATE users SET users.email = '${request.body.email}' WHERE users.ID = '${request.body.userId}';
 
 -- Delete current user & all relating data
-DELETE FROM users WHERE users.ID = '${request.body.user_id}';
-DELETE FROM tags WHERE tags.user_id = '${request.body.user_id}';
-DELETE FROM receipts WHERE receipts.user_id = '${request.body.user_id}';
+DELETE FROM users WHERE users.ID = '${request.body.userId}';
+DELETE FROM tags WHERE tags.userId = '${request.body.userId}';
+DELETE FROM receipts WHERE receipts.userId = '${request.body.userId}';
+
 
 
 ----------------------- CRUD Operations for 'tags' -----------------------
 
 -- Create new report
-INSERT INTO tags (user_id, receipt_id, tag_name) VALUES ('${request.body.user_id}', '${request.body.receipt_id}', '${request.body.tag_name}';
+INSERT INTO tags (userId, receiptId, tagName) VALUES ('${request.body.userId}', '${request.body.receiptId}', '${request.body.tagName}';
 
--- Fetch details for current tag (e.g. tag_name)
-SELECT tags.ID, tags.tag_name FROM tags WHERE tags.ID = '${request.body.tag_id}';
+-- Fetch details for current tag (e.g. tagName)
+SELECT tags.ID, tags.tagName FROM tags WHERE tags.ID = '${request.body.tagId}';
 
--- Update current tag (e.g. tag_name)
-UPDATE tags SET tags.tag_name = '${request.body.tag_name}' WHERE tags.ID = '${request.body.tag_id}';
+-- Update current tag (e.g. tagName)
+UPDATE tags SET tags.tagName = '${request.body.tagName}' WHERE tags.ID = '${request.body.tagId}';
 
 -- Delete current tag
-DELETE FROM tags WHERE tag.ID = '${request.body.tag_id}';
+DELETE FROM tags WHERE tag.ID = '${request.body.tagId}';
+
 
 
 ----------------------- CRUD Operations for 'receipts' -----------------------
 
 -- Create new receipt
-INSERT INTO receipts (report_id, user_id, store_name, total, tax, credit_card_name, credit_card_digits, purchase_date, category_id, comment, reimbursable) VALUES ('${request.body.report_id}', '${request.body.user_id}', '${request.body.store_name}', '${request.body.total}', '${request.body.tax}', '${request.body.credit_card_name}', '${request.body.credit_card_digits}', '${request.body.purchase_date}', '${request.body.category_id}', '${request.body.comment}', '${request.body.reimbursable}');
+INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable) VALUES ('${request.body.userId}', '${request.body.storeName}', '${request.body.total}', '${request.body.tax}', '${request.body.creditCardName}', '${request.body.creditCardDigits}', '${request.body.purchaseDate}', '${request.body.category}', '${request.body.comment}', '${request.body.reimbursable}');
 
 -- Fetch details for current receipt
-SELECT receipts.ID, receipts.store_name, receipts.total, receipts.tax, receipts.credit_card_name, receipts.credit_card_digits, receipts.purchase_date, receipts.comment, receipts.category_id FROM receipts WHERE receipts.ID = '${request.body.receipt_id}';
+SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.comment, receipts.category FROM receipts WHERE receipts.ID = '${request.body.receiptId}';
 
--- Update details of current receipt (e.g. store_name)
-UPDATE receipts SET receipts.store_name = '${request.body.store_name}' WHERE receipts.ID = '${request.body.receipt_id}';
+-- Update details of current receipt (e.g. storeName)
+UPDATE receipts SET receipts.storeName = '${request.body.storeName}' WHERE receipts.ID = '${request.body.receiptId}';
 
 -- Archive current receipt
-UPDATE receipts SET receipts.status = 'inactive' WHERE receipts.ID = '${request.body.receipt_id}';
+UPDATE receipts SET receipts.status = 'inactive' WHERE receipts.ID = '${request.body.receiptId}';
 
 -- Delete current receipt & nullify relating tags
-DELETE FROM receipts WHERE receipts.ID = '${request.body.receipt_id}';
-UPDATE tags SET tags.receipt_id = '' WHERE tags.receipt_id = '${request.body.receipt_id}';
+DELETE FROM receipts WHERE receipts.ID = '${request.body.receiptId}';
+UPDATE tags SET tags.receiptId = '' WHERE tags.receiptId = '${request.body.receiptId}';
 
 --NOTE: we will need to delete tag when no receipts in the database have that tag
-
--- Fetch all tags for a current user
-SELECT tags.tag_name, users.user_name FROM tags JOIN users ON tags.user_id=users.ID WHERE users.ID='${request.body.user_id}';
-
--- Fetch all receipts with a specfic tag for a specific user (filter receipts by user tag)
-SELECT receipts.store_name, receipts.total, receipts.purchase_date FROM receipts JOIN receipts_tags ON receipts.ID=receipts_tags.receipt_id WHERE receipts.user_id=3 AND receipts_tags.tag_id=3
