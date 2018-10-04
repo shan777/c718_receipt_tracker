@@ -1,11 +1,11 @@
-.accordion-container {
+.accordion_container {
     list-style-type: none;
     padding: 0;
     margin: 0;
     border-bottom: 1px solid black;
 }
 
-.accordion-container .collapsible-header {
+.accordion_container .collapsible_header {
     color: #fff;
     cursor: pointer;
     font-size: 1.2em;
@@ -14,36 +14,36 @@
     position: relative;
 }
 
-.accordion-container .collapsible-header > i {
+.accordion_container .collapsible_header > i {
     position: absolute;
     right: 20px;
     transition: 400ms linear;
 }
 
-.accordion-container .collapsible-header .open {
+.accordion_container .collapsible_header .open {
     transform: rotate(180deg);
 }
 
-.accordion-container.easy li:nth-child(odd) .collapsible-header{
+.accordion_container.easy li:nth-child(odd) .collapsible_header{
     background-color: #C5CAC9
 }
 
-.accordion-container.easy li:nth-child(even) .collapsible-header {
+.accordion_container.easy li:nth-child(even) .collapsible_header {
     background-color: #96a0a9
 }
 
-.accordion-container .collapsible-body {
+.accordion_container .collapsible_body {
     max-height: 0;
     overflow: hidden;
     padding: 0 25px;
     transition: 400ms linear;
 }
 
-.accordion-container .collapsible-body.visible {
+.accordion_container .collapsible_body.visible {
     max-height: 600px;
 }
 
-.material-icons{
+.material_icons{
     position: relative;
     bottom: 1vh;
 }

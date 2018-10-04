@@ -17,9 +17,9 @@ class AccordionItem extends Component {
         const { visible } = this.state;
         
         return (
-            <li className="accordion-item" onClick={this.toggleVisible}>
-                <div className="collapsible-header">{title} <i className={`material-icons ${visible && 'open'}`}>View Details</i></div>
-                <div className={`collapsible-body ${visible && 'visible'}`}>{children}</div>
+            <li className="accordion_item" onClick={this.toggleVisible}>
+                <div className="collapsible_header">{title} <i className={`material_icons ${visible && 'open'}`}>View Details</i></div>
+                <div className={`collapsible_body ${visible && 'visible'}`}>{children}</div>
             </li>
         );
     }
