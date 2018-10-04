@@ -1,0 +1,49 @@
+.accordion-container {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid black;
+}
+
+.accordion-container .collapsible-header {
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px;
+    position: relative;
+}
+
+.accordion-container .collapsible-header > i {
+    position: absolute;
+    right: 20px;
+    transition: 400ms linear;
+}
+
+.accordion-container .collapsible-header .open {
+    transform: rotate(180deg);
+}
+
+.accordion-container.easy li:nth-child(odd) .collapsible-header{
+    background-color: #6b717e
+}
+
+.accordion-container.easy li:nth-child(even) .collapsible-header {
+    background-color: #96a0a9
+}
+
+.accordion-container .collapsible-body {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 25px;
+    transition: 400ms linear;
+}
+
+.accordion-container .collapsible-body.visible {
+    max-height: 600px;
+}
+
+.material-icons{
+    position: relative;
+    bottom: 1vh;
+}
