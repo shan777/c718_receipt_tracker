@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './login.css';
-// import { Link, Route } from 'react-router-dom';
 import loginLogo from '../assets/images/loginLogo.png';
+import { Link } from 'react-router-dom';
 
 class Login extends Component{
     render(){
@@ -16,14 +16,14 @@ class Login extends Component{
                         <input className="username" type="text" placeholder="Username"/>
                         <input className="password" type="text" placeholder="Password"/>
                     </form>
-                    <div className="forgot_password">
+                    <div className="forgot_password"> {/*forgot your password is only text at this time*/}
                         forgot your password?
                     </div>
                     <div className="login_btn_container">
-                        <button className="login_btn">LOGIN</button>
+                        <Link to='/overview' ><button className="login_btn">LOGIN</button></Link>
                     </div>
                     <div className="sign_up_container">
-                        or Sign-up
+                        <Link to='/signup' >or Sign-up</Link>
                     </div>
                 </div>  
             </div>
