@@ -1,12 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Overview from './overview';
 import { Link, Route } from 'react-router-dom';
+import Header from './header';
+import Footer from './footer';
 
 class Splash extends Component{
     render(){
         return(
             <div>
+                <Header/>
                 <h1>Splash</h1>
+                <Footer/>
             </div>
         )
     }
