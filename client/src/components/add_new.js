@@ -4,7 +4,7 @@ import Overview from './overview';
 import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
-import '../assets/css/add_new.css';
+import './add_new.css';
 import Dummy from '../dummy_data/dummyList';
 
 
