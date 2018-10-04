@@ -17,6 +17,7 @@ class AddNew extends Component {
         return {today};
 {/* <input id="dateRequired" type="date" name="dateRequired" defaultValue={date} />  */}
     }
+    
     state = {
         merchantName: '',
         dateOfPurchase: this.calcDate().today,

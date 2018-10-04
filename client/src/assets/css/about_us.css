@@ -1,0 +1,18 @@
+.about_us_container {
+    background-color: white;
+    color: #237E80;
+    /* display: inline-block; */
+    border: 20px solid #237E80;
+
+}
+.logo_img {
+    width: 90%;
+    display: inline;
+    padding: 5%;
+}
+h1 {
+
+    display: inline;
+
+}
+
