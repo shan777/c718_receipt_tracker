@@ -5,7 +5,7 @@ import dots from '../assets/images/dots.png';
 class Header extends Component {
     render() {
         return(
-            <div className="headContainer">
+            <div className="headContainer header">
                 Add New
                 <img className="dots" src={dots}/>
             </div>

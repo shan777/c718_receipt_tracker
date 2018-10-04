@@ -2,15 +2,14 @@ body{
     height: 100vh;
     width: 100vw;
     margin: 0;
+    background-color: #DEF2F1;
 }
 
 .container{
     width: 100%;
-    height: 18%;
 }
 
 .row{
-    height: 12vh;
     background-color: #DEF2F1;
     position: relative;
     width: 100%;
@@ -18,23 +17,28 @@ body{
     transition: 0.4s;
 }
 
-.dateOfPurchase, .storeName, .amountOfPurchase{
+.date_of_purchase, .store_name, .amount_of_purchase{
     margin: 0;
     position: relative;
     display: inline-block;
 } 
 
-.storeName, .amountOfPurchase{
+.store_name, .amount_of_purchase{
     font-weight: bold;
     font-size: 2em;
 }
 
-.dateOfPurchase{
-    font-size: 1em;
+.store_name{
+    top: 2vh;
 }
-.amountOfPurchase{
-    left: 35%;
-    bottom: 20%;
+
+.date_of_purchase{
+    font-size: 1em;
+    top: 2vh;
+}
+.amount_of_purchase{
+    left: 55%;
+    bottom: 1vh;
 }
 
 
@@ -47,7 +51,7 @@ body{
     height: 25vh;
 }
 
-.panelSize{
+.panel_size{
     width: 100%;
     position: relative;
     height: 14%;
@@ -61,5 +65,28 @@ body{
 }
 
 .data{
-    left: 20%;
+    left: 5%;
 }
+
+.summary{
+    position: relative;
+    background-color: #DEF2F1;
+    width: 100vw;
+    margin: 0;
+}
+
+.number_of_receipts, .total_amount{
+    margin: 0;
+    font-size: 2em;
+}
+
+.spacer{
+    margin-top: 11vh;
+}
+
+.collapsible_header{
+    position: relative;
+    bottom: 5vh;
+    opacity: 0;
+}
+
