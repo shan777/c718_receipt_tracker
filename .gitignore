@@ -3,3 +3,4 @@ node_modules
 .atom
 .idea
 .DS_Store
+sqrlDbCreds.js

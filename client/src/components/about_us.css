@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.about_us_container {
+    /* background-color: white;
+    color: #237E80; */
+    background-color: #237E80;
+    color: #F2F2F2;
+    /* display: inline-block; */
+
+}
+
+.logo_img {
+    width: 70%;
+    display: block;
+    padding-top: 1%;
+    padding-bottom: 4%;
+    margin: auto;
+}
+
+h1 {
+    display: inline;
+}
+
+.member {
+    text-align: center;
+    vertical-align: center;
+    overflow: auto;
+    padding: 2%;
+    
+}
+
+.member>img {
+    border: 1px #F2F2F2 solid;
+    width: 22.5%;
+    display: block;
+    border-radius: 50%;
+    
+}
+
+.img_left {
+    float: left;
+} 
+
+.img_right {
+    float: right;
+} 

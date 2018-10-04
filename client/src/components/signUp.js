@@ -1,6 +1,6 @@
     import React, { Component } from 'react';
     import axios from 'axios';
-    import '../assets/css/signup.css';
+    import './signup.css';
     import squirrel from '../assets/images/squirrel_logo_small_facing_right.png';
 
     class SignUp extends Component {    

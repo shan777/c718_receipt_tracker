@@ -1,9 +1,8 @@
 -- List of Pre-Written SQL Queries --
 
 
--- User login
+----------------------- User Login -----------------------
 SELECT users.ID, users.firstName, users.lastName FROM users WHERE users.userName = '${request.body.userName}' AND users.password = SHA1('${request.body.password}');
-
 
 
 ----------------------- Fetch Data -----------------------
@@ -50,6 +49,7 @@ SELECT receipts.storeName, receipts.total, receipts.purchaseDate FROM receipts J
 
 -- Create new user (sign-up)
 INSERT INTO users (userName, password, firstName, lastName, email, phone) VALUES ('${request.body.userName}', SHA1('${request.body.password}'), '${request.body.firstName}', '${request.body.lastName}', '${request.body.email}', '${request.body.phone}');
+SELECT LAST_INSERT_ID();
 
 -- Fetch details for current user
 SELECT users.userName, users.firstName, users.lastName, users.email, users.phone FROM users WHERE users.ID = '${request.body.userId}';
@@ -68,6 +68,7 @@ DELETE FROM receipts WHERE receipts.userId = '${request.body.userId}';
 
 -- Create new tag
 INSERT INTO tags (userId, tagName) VALUES ('${request.body.userId}', '${request.body.tagName}');
+SELECT LAST_INSERT_ID();
 
 -- Fetch details for current tag (e.g. tagName)
 SELECT tags.ID, tags.tagName FROM tags WHERE tags.ID = '${request.body.tagId}';
@@ -90,12 +91,12 @@ DELETE FROM receipts_tags WHERE receipts_tags.tagId = '${request.body.tagId}' AN
 
 -- Create new receipt
 INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, status, reimbursable) VALUES ('${request.body.userId}', '${request.body.storeName}', '${request.body.total}', '${request.body.tax}', '${request.body.creditCardName}', '${request.body.creditCardDigits}', '${request.body.purchaseDate}', '${request.body.category}', '${request.body.comment}', 'active', '${request.body.reimbursable}');
+SELECT LAST_INSERT_ID();
 
 -- Fetch details for current receipt
 -- Fetch all tags for current receipt
 SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.comment, receipts.category FROM receipts WHERE receipts.ID = '${request.body.receiptId}';
-SELECT receipts_tags.tagId FROM receipts_tags WHERE receipts_tags.receiptId = '${request.body.receiptId}';
-SELECT tags.tagName FROM tags WHERE tags.ID = '${request.body.tagId}'; --will require a loop to fetch all tag names
+SELECT receipts_tags.tagId FROM receipts_tags JOIN tags ON receipts_tags.tagId = tags.ID WHERE receipts_tags.receiptId = '${request.body.receiptId}';
 
 -- Update details of current receipt (e.g. storeName)
 UPDATE receipts SET receipts.storeName = '${request.body.storeName}' WHERE receipts.ID = '${request.body.receiptId}';
@@ -103,7 +104,7 @@ UPDATE receipts SET receipts.storeName = '${request.body.storeName}' WHERE recei
 -- Archive current receipt
 UPDATE receipts SET receipts.status = 'inactive' WHERE receipts.ID = '${request.body.receiptId}';
 
--- Delete current receipt
+-- Delete current receipt (will most likely not neet these queries)
 DELETE FROM receipts WHERE receipts.ID = '${request.body.receiptId}';
 DELETE FROM receipts_tags WHERE receipts_tags.receiptId = '${request.body.receiptId}';
 

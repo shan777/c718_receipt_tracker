@@ -6,6 +6,10 @@
     padding: 3%;
     font-family: sans-serif;
     height: 8vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 .dots {

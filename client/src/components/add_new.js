@@ -4,10 +4,10 @@ import Overview from './overview';
 import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
-import '../assets/css/add_new.css';
-import cameraImage from '../assets/images/camera.png';
-import Camera from 'react-html5-camera-photo';
-import 'react-html5-camera-photo/build/css/index.css';
+import './add_new.css';
+import Dummy from '../dummy_data/dummyList';
+
+
 
 class AddNew extends Component {    
     calcDate() {
@@ -17,6 +17,7 @@ class AddNew extends Component {
         return {today};
 {/* <input id="dateRequired" type="date" name="dateRequired" defaultValue={date} />  */}
     }
+    
     state = {
         merchantName: '',
         dateOfPurchase: this.calcDate().today,
@@ -96,20 +97,7 @@ class AddNew extends Component {
                                 />
                             </div>
                         </div>
-                        <div className="row content_container">
-                            <div className="col s8 offset-s2">
-                                <label className="input_title">Receipt Image:</label>
-                                <Camera onTakePhoto={(dataUri) => {this.onTakePhoto(dataUri);}}/>
-                                <input className="receipt_img_input input_field" placeholder="Upload" onChange={ (e) => this.setState({receiptImageSrc: e.target.value})}
-                                    type="text"
-                                    value={receiptImageSrc}
-                                />
-                                <img className="camera_img" src={cameraImage}/>
-                            </div>
-                        </div>
-
-
-
+                        
                     </form>
                 </div>
                 <Footer/>
