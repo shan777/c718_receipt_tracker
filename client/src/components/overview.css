@@ -2,6 +2,7 @@ body{
     height: 100vh;
     width: 100vw;
     margin: 0;
+    background-color: #DEF2F1;
 }
 
 .container{
@@ -27,12 +28,17 @@ body{
     font-size: 2em;
 }
 
+.storeName{
+    top: 2vh;
+}
+
 .dateOfPurchase{
     font-size: 1em;
+    top: 2vh;
 }
 .amountOfPurchase{
     left: 55%;
-    bottom: 3vh;
+    bottom: 1vh;
 }
 
 
@@ -61,3 +67,25 @@ body{
 .data{
     left: 5%;
 }
+
+.summary{
+    position: relative;
+    background-color: #DEF2F1;
+    margin: 0;
+}
+
+.numberOfReceipts, .totalAmount{
+    margin: 0;
+    font-size: 2em;
+}
+
+.spacer{
+    margin-top: 11vh;
+}
+
+.collapsible-header{
+    position: relative;
+    bottom: 5vh;
+    opacity: 0;
+}
+

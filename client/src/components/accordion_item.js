@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import users from '../dummy_data/dummyList.js';
 
 class AccordionItem extends Component {
     state = {
@@ -10,7 +11,7 @@ class AccordionItem extends Component {
             visible: !this.state.visible
         });
     }
-
+    
     render(){
         const { children, title } = this.props;
         const { visible } = this.state;

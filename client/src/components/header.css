@@ -5,8 +5,23 @@
     color: #F2F2F2;
     padding: 3%;
     font-family: sans-serif;
+    height: 8vh;
 }
 
 .dots {
-    float: right;
+    position: absolute;
+    right: 10%;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }

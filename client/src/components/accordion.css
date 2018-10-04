@@ -2,7 +2,7 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .accordion-container .collapsible-header {
@@ -25,7 +25,7 @@
 }
 
 .accordion-container.easy li:nth-child(odd) .collapsible-header{
-    background-color: #6b717e
+    background-color: #C5CAC9
 }
 
 .accordion-container.easy li:nth-child(even) .collapsible-header {

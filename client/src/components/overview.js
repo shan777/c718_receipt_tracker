@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
+import Header from './header';
 import './overview.css';
 import users from '../dummy_data/dummyList.js';
 import Accordion from './accordion_container';
 import AccordionItem from './accordion_item';
-import Header from './header';
 import Footer from './footer';
 
 class Overveiw extends Component{
@@ -22,7 +22,7 @@ class Overveiw extends Component{
                 <h4 className="dateOfPurchase">{new Date().toLocaleDateString()}</h4>
                 <h3 className="amountOfPurchase">${item.total}</h3>
                     <AccordionItem className="panel">
-                        <div className="panelSize">
+                       <div className="panelSize">
                             <p className="catagory">Merchant name:</p>
                             <h6 className="data">{item.storeName}</h6>
                         </div>
@@ -49,15 +49,26 @@ class Overveiw extends Component{
         return row
      }
     render(){
-        
+        const eachUser = [...users];
+        const mapOfUsers = eachUser.map(item => item.receipts);
+        const receiptUser = mapOfUsers[2];
+        const total = receiptUser.map(item => item.total);
+        const addTotal = () =>{
+            let totalAmount = null;
+            for(let i = 0; i< total.length; i++){
+                totalAmount+= total[i];
+            }
+            return totalAmount;
+        }
         return (
             <div>
                 <Header/>
+                <div className="spacer"></div>
                 <div className='container'>
                     {this.makeRow()}
                     <div className="summary">
-                        <p className="numberOfReceipts">3 Receipts</p>
-                        <p className="totalAmount">Total goes here</p>
+                        <p className="numberOfReceipts">{receiptUser.length} Receipts</p>
+                        <p className="totalAmount">Your total is ${addTotal()}</p>
                     </div>
                 </div>
                 <Footer/>
