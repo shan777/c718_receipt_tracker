@@ -1,0 +1,16 @@
+.headContainer {
+    background-color: #237E80;
+    font-size: 40px;
+    text-align: center;
+    color: #F2F2F2;
+    padding: 3%;
+    font-family: sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.dots {
+    float: right;
+}
