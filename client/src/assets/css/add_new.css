@@ -1,0 +1,73 @@
+.main_container {
+
+    width: 100%;
+    margin: 0;
+    font-size: 1em;
+    display: block;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: #D9DDE1;
+    
+}
+
+.content_container {
+    background-color: #DEF2F1;
+    width: 100%;
+    border-bottom: 0.5px solid #116466;
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    box-sizing: border-box;
+    /* text-align: center; */
+    line-height: 3em;
+    padding: 2%;
+
+}
+
+.input_title {
+    width: 35%;
+    height: 30%;;
+    text-align: right;
+    padding-right: 3%;
+    display: inline-block;
+    /* overflow-y: auto;
+    overflow-x: auto; */
+    word-break: break-word;
+
+}
+
+/* .input_field {
+    width: 50%;
+    display: inline-block;
+} */
+
+.input {
+    background-color: #D9DDE1;
+
+}
+
+.camera_img {
+    width: 6%;
+    padding-left: 1%;
+    display: inline-block;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+/* .noteInput {
+    height: 2em;
+}
+*/
+.receipt_img_input {
+    height: 2.5em;
+} 
+
+.done_btn {
+    float: right;
+}
+
+.btn_container {
+    width: 100%;
+    background-color: #D9DDE1;
+
+}
