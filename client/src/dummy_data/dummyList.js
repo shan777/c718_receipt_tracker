@@ -230,5 +230,7 @@ const users = [
                 ID: 6
             }
         ]
-    }
+    },
 ];
+
+export default users;
