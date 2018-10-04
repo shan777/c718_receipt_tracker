@@ -1,16 +1,14 @@
 .footer_container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #237E80;
-    padding: 2%;
 }
 
-.footer_container li {
-    display: inline;
+.icon_image {
+    padding: 3%;
 }
 
-ul {
-    margin: 0;
+.add_new_icon {
+    padding-left: 9%;
 }
-
-
-
-
