@@ -33,16 +33,16 @@ SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FR
 -- Filter receipts by specific storeName
 SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.storeName = '${request.body.storeName}' AND receipts.userId = '${request.body.userId}' AND receipts.status = 'active';
 
--- Filter all receipts by specific purchaseDate
+-- Filter receipts by specific purchaseDate
 SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.purchaseDate = '${request.body.purchaseDate}' AND receipts.userId = '${request.body.userId}' AND receipts.status = 'active';
 
--- Filter all receipts by specific purchaseDate interval
+-- Filter receipts by specific purchaseDate interval
 SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM table WHERE receipts.purchaseDate >= '${request.body.startDate}' AND receipts.purchaseDate <= '${request.body.endDate}' AND receipts.status = 'active';
 
 -- Filter receipts by specific tag
 SELECT receipts.storeName, receipts.total, receipts.purchaseDate FROM receipts JOIN receipts_tags ON receipts.ID=receipts_tags.receiptId WHERE receipts.userId='${request.body.userId}' AND receipts_tags.tagId='${request.body.tagId}' AND receipts.status = 'active';
 
--- Filter all receipts by multiple filters
+-- Filter receipts by multiple filters
 
 
 
@@ -66,8 +66,8 @@ DELETE FROM receipts WHERE receipts.userId = '${request.body.userId}';
 
 ----------------------- CRUD Operations for 'tags' -----------------------
 
--- Create new report
-INSERT INTO tags (userId, receiptId, tagName) VALUES ('${request.body.userId}', '${request.body.receiptId}', '${request.body.tagName}';
+-- Create new tag
+INSERT INTO tags (userId, tagName) VALUES ('${request.body.userId}', '${request.body.tagName}');
 
 -- Fetch details for current tag (e.g. tagName)
 SELECT tags.ID, tags.tagName FROM tags WHERE tags.ID = '${request.body.tagId}';
@@ -75,18 +75,27 @@ SELECT tags.ID, tags.tagName FROM tags WHERE tags.ID = '${request.body.tagId}';
 -- Update current tag (e.g. tagName)
 UPDATE tags SET tags.tagName = '${request.body.tagName}' WHERE tags.ID = '${request.body.tagId}';
 
--- Delete current tag
-DELETE FROM tags WHERE tag.ID = '${request.body.tagId}';
+-- Delete a tag from database (will most likely not use this query)
+DELETE FROM tags WHERE tags.ID = '${request.body.tagId}';
+
+-- Add tag to current receipt
+INSERT INTO receipts_tags (receiptId, tagId) VALUES ('${request.body.receiptId}', '${request.body.tagId}');
+
+-- Remove tag from current receipt
+DELETE FROM receipts_tags WHERE receipts_tags.tagId = '${request.body.tagId}' AND tags.receiptId = '${request.body.receiptId}';
 
 
 
 ----------------------- CRUD Operations for 'receipts' -----------------------
 
 -- Create new receipt
-INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable) VALUES ('${request.body.userId}', '${request.body.storeName}', '${request.body.total}', '${request.body.tax}', '${request.body.creditCardName}', '${request.body.creditCardDigits}', '${request.body.purchaseDate}', '${request.body.category}', '${request.body.comment}', '${request.body.reimbursable}');
+INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, status, reimbursable) VALUES ('${request.body.userId}', '${request.body.storeName}', '${request.body.total}', '${request.body.tax}', '${request.body.creditCardName}', '${request.body.creditCardDigits}', '${request.body.purchaseDate}', '${request.body.category}', '${request.body.comment}', 'active', '${request.body.reimbursable}');
 
 -- Fetch details for current receipt
+-- Fetch all tags for current receipt
 SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.comment, receipts.category FROM receipts WHERE receipts.ID = '${request.body.receiptId}';
+SELECT receipts_tags.tagId FROM receipts_tags WHERE receipts_tags.receiptId = '${request.body.receiptId}';
+SELECT tags.tagName FROM tags WHERE tags.ID = '${request.body.tagId}'; --will require a loop to fetch all tag names
 
 -- Update details of current receipt (e.g. storeName)
 UPDATE receipts SET receipts.storeName = '${request.body.storeName}' WHERE receipts.ID = '${request.body.receiptId}';
@@ -94,8 +103,8 @@ UPDATE receipts SET receipts.storeName = '${request.body.storeName}' WHERE recei
 -- Archive current receipt
 UPDATE receipts SET receipts.status = 'inactive' WHERE receipts.ID = '${request.body.receiptId}';
 
--- Delete current receipt & nullify relating tags
+-- Delete current receipt
 DELETE FROM receipts WHERE receipts.ID = '${request.body.receiptId}';
-UPDATE tags SET tags.receiptId = '' WHERE tags.receiptId = '${request.body.receiptId}';
+DELETE FROM receipts_tags WHERE receipts_tags.receiptId = '${request.body.receiptId}';
 
 --NOTE: we will need to delete tag when no receipts in the database have that tag
