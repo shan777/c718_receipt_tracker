@@ -22,16 +22,11 @@
     margin: auto;
 }
 
-h1 {
-    display: inline;
-}
 
 .member {
     text-align: center;
     vertical-align: center;
     overflow: auto;
-    padding: 2%;
-    
 }
 
 .member>img {
