@@ -3,7 +3,6 @@ const PORT = process.env.PORT || 9000;
 const server = express();
 const { resolve } = require('path'); // path is a module included with node
 const cors = require('cors');
-//const addNewReceipt = require('./api_add_new');
 const mysql = require('mysql');
 const sqrlDbCreds = require('./sqrlDbCreds');
 
@@ -23,8 +22,8 @@ server.post('/api/addTag', (request, response) => {
     };
     console.log(output);
     connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
-                     [userId, tagName],
-                     (error, result) => {
+                    [userId, tagName],
+                    (error, result) => {
                         console.log('query ran');
                         if (error){
                             console.log('query ', error);
@@ -37,7 +36,7 @@ server.post('/api/addTag', (request, response) => {
                             console.log('connection ended');
                         });                        
                         response.send(output);
-                     });
+                    });
     
     });
 
