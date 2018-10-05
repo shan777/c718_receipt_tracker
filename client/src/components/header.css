@@ -1,12 +1,12 @@
 .headContainer {
     background-color: #237E80;
-    font-size: 40px;
-    text-align: center;
     color: #F2F2F2;
-    padding: 3%;
     font-family: sans-serif;
-    height: 8vh;
+    font-size: 40px;
+    height: 10vh;
+    padding: 2%;
     position: fixed;
+    text-align: center;
     top: 0;
     width: 100%;
     z-index: 1;
@@ -18,8 +18,8 @@
 }
 
 .footer{
-    position: fixed;
     bottom: 0;
+    position: fixed;
     width: 100%;
 }
 

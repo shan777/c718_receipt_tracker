@@ -1,5 +1,6 @@
-body {
+.login_page_container {
     background-color: #237E80;
+    height: 100vh;
 }
 
 img.login_logo {
