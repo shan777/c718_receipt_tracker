@@ -15,7 +15,7 @@ const users = [
                 creditCardName: 'Visa',
                 creditCardDigits: 1234,
                 purchaseDate: new Date(),
-                catagory: 'Clothing',
+                catagory: 'clothing',
                 comment: 'a couple shirts and some socks',
                 reimburseable: false,
                 ID: 1,
@@ -71,7 +71,7 @@ const users = [
                 creditCardName: 'AMEX',
                 creditCardDigits: 1234,
                 purchaseDate: new Date(),
-                catagory: 'dinner',
+                catagory: 'dining',
                 comment: 'took the team out to dinner',
                 reimburseable: true,
                 ID: 10,
@@ -127,8 +127,8 @@ const users = [
                 creditCardName: 'Visa',
                 creditCardDigits: 1234,
                 purchaseDate: new Date(),
-                catagory: 'food',
-                comment: 'got some food to restock the fridge',
+                catagory: 'dining',
+                comment: 'got some dining to restock the fridge',
                 reimburseable: false,
                 ID: 5,
                 tagId: 3
@@ -140,7 +140,7 @@ const users = [
                 creditCardName: '',
                 creditCardDigits: null,
                 purchaseDate: new Date(),
-                catagory: 'food',
+                catagory: 'dining',
                 comment: 'noodles',
                 reimburseable: false,
                 ID: 6,
@@ -153,7 +153,7 @@ const users = [
                 ID: 2
             },
             {
-                tagName: 'Food',
+                tagName: 'dining',
                 ID: 3
             }
         ]
@@ -174,7 +174,7 @@ const users = [
                 creditCardName: 'Discover',
                 creditCardDigits: 1234,
                 purchaseDate: new Date(),
-                catagory: 'lunch',
+                catagory: 'dining',
                 comment: 'bun and a coke',
                 reimburseable: false,
                 ID: 11,
