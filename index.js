@@ -42,6 +42,43 @@ server.post('/api/addTag', (request, response) => {
     }
 });
 
+server.post('/api/addReceipt', (request, response) => {
+    /*
+    INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable) 
+    VALUES ('${request.body.userId}', '${request.body.storeName}', '${request.body.total}', '${request.body.tax}', '${request.body.creditCardName}', '${request.body.creditCardDigits}', '${request.body.purchaseDate}', '${request.body.category}', '${request.body.comment}', '${request.body.reimbursable}');
+    */
+
+    const {userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable} = request.body;
+    console.log("request data: ", request.body);
+    
+    const output = {
+        success: false
+    };
+
+    let userIdRedEx = /^[1-9][\d]*/;
+    let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
+
+    if (userIdRedEx.exec(userId) && tagNameRegEx.exec(tagName)){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
+                    [userId, tagName],
+                    (error, result) => {
+                        console.log('query made');
+                        if (error){
+                            console.log('query error', error);
+                            response.send(output);
+                        }
+                        output.success = true;
+                        connection.end(() => {
+                            console.log('connection end');
+                        });                        
+                        response.send(output);
+                    });
+    }else{
+        response.send(output);
+    }
+});
+
 server.get('*', (request, response) => {
     response.sendFile(resolve(__dirname, 'client', 'dist', 'index.html')); // resolve ensures a correct path
 });
