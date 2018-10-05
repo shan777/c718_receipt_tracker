@@ -109,7 +109,7 @@ const users = [
             },
             {
                 storeName: 'Banana Repulic',
-                total: 30.00,
+                total: 19.99,
                 tax: 4.75,
                 creditCardName: 'MasterCard',
                 creditCardDigits: 1234,

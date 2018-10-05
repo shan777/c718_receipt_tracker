@@ -63,8 +63,7 @@ class Overveiw extends Component{
         return (
             <div>
                 <Header/>
-                <div className="spacer"></div>
-                <div className='container'>
+                <div className='overview_main_container'>
                     {this.makeRow()}
                     <div className="summary">
                         <p className="number_of_receipts">{receiptUser.length} Receipts</p>

@@ -5,8 +5,9 @@ body{
     background-color: #DEF2F1;
 }
 
-.container{
+.overview_main_container{
     width: 100%;
+    padding-top: 80px;
     background-color: #DEF2F1;
 }
 
@@ -79,10 +80,6 @@ body{
 .number_of_receipts, .total_amount{
     margin: 0;
     font-size: 2em;
-}
-
-.spacer{
-    margin-top: 11vh;
 }
 
 .collapsible_header{
