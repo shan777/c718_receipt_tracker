@@ -3,39 +3,43 @@ const PORT = process.env.PORT || 9000;
 const server = express();
 const { resolve } = require('path'); // path is a module included with node
 const cors = require('cors');
+//const addNewReceipt = require('./api_add_new');
+const mysql = require('mysql');
+const sqrlDbCreds = require('./sqrlDbCreds');
 
 server.use(express.static(resolve(__dirname, 'client', 'dist')));
 server.use(cors()); // allows cross origin
 server.use(express.json()); // replaces body parser
 
-server.get('/api/test', (request, response) => {
-    response.send({
-        success: true,
-        message: 'test is working',
-        date: new Date().toDateString()
+server.post('/api/addTag', (request, response) => {
+    const {userId, tagName} = request.body;
+    console.log(request.body);
+    console.log('addtag called', userId, tagName);
+    const connection = mysql.createConnection(sqrlDbCreds);
+    const output = {
+        success: false,
+        userId: userId,
+        tagName: tagName
+    };
+    console.log(output);
+    connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
+                     [userId, tagName],
+                     (error, result) => {
+                        console.log('query ran');
+                        if (error){
+                            console.log('query ', error);
+                            response.send(output);
+                        }
+                        console.log('result: ', result.insertId);
+                        output.success = true;
+                        output.tagId = result.insertId;
+                        connection.end(() => {
+                            console.log('connection ended');
+                        });                        
+                        response.send(output);
+                     });
+    
     });
-});
-
-server.get('/api/user', (request, response) => {
-    response.send({
-        name: 'steve',
-        age: 49,
-        email: 'steveben',
-        success: true,
-        message: 'user is working',
-        date: new Date().toDateString()
-    });
-});
-
-server.post('/api/login', (request, response) => {
-    console.log('POST DATA: ', request.body);
-    response.send({
-        success: true,
-        message: 'you are now logged in',
-        receivedData: request.body
-    });
-});
-
 
 server.get('*', (request, response) => {
     response.sendFile(resolve(__dirname, 'client', 'dist', 'index.html')); // resolve ensures a correct path
