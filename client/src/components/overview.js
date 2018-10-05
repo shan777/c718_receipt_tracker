@@ -62,7 +62,7 @@ class Overveiw extends Component{
         }
         return (
             <div>
-                <Header/>
+                <Header title="Overview"/>
                 <div className="spacer"></div>
                 <div className='container'>
                     {this.makeRow()}

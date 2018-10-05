@@ -36,7 +36,7 @@ class AddNew extends Component {
 
         return (
             <div>
-                <Header/>
+                <Header title="Add New"/>
                 <div className="main_container">
                     <form action="#">
                         <div className="btn_container">
