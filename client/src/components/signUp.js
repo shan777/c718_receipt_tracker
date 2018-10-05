@@ -16,7 +16,7 @@
             const {firstName, lastName, userName, password, confirmPassword} = this.state;
             return (
                 <div className="signup_container">
-                    <div className="main_container">
+                    <div className="sign_up_main_container">
 
                         <img src={squirrel}></img>
                         <div className="title">Create an account to start</div>
