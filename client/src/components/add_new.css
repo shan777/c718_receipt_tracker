@@ -1,5 +1,4 @@
 .main_container {
-
     width: 100%;
     margin: 0;
     font-size: 1em;
@@ -13,7 +12,7 @@
 .content_container {
     background-color: #DEF2F1;
     width: 100%;
-    border-bottom: 0.5px solid #116466;
+    /* border-bottom: 0.5px solid #116466; */
     font-weight: bold;
     font-size: 1em;
     display: block;
