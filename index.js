@@ -12,33 +12,35 @@ server.use(express.json()); // replaces body parser
 
 server.post('/api/addTag', (request, response) => {
     const {userId, tagName} = request.body;
-    console.log(request.body);
-    console.log('addtag called', userId, tagName);
-    const connection = mysql.createConnection(sqrlDbCreds);
+    console.log("request data: ", request.body);
+    
     const output = {
-        success: false,
-        userId: userId,
-        tagName: tagName
+        success: false
     };
-    console.log(output);
-    connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
+
+    let userIdRedEx = /^[1-9][\d]*/;
+    let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
+
+    if (userIdRedEx.exec(userId) && tagNameRegEx.exec(tagName)){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
                     [userId, tagName],
                     (error, result) => {
-                        console.log('query ran');
+                        console.log('query made');
                         if (error){
-                            console.log('query ', error);
+                            console.log('query error', error);
                             response.send(output);
                         }
-                        console.log('result: ', result.insertId);
                         output.success = true;
-                        output.tagId = result.insertId;
                         connection.end(() => {
-                            console.log('connection ended');
+                            console.log('connection end');
                         });                        
                         response.send(output);
                     });
-    
-    });
+    }else{
+        response.send(output);
+    }
+});
 
 server.get('*', (request, response) => {
     response.sendFile(resolve(__dirname, 'client', 'dist', 'index.html')); // resolve ensures a correct path
