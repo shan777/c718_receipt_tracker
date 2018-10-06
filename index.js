@@ -17,10 +17,10 @@ server.post('/api/addTag', (request, response) => {
         success: false
     };
 
-    let userIdRedEx = /^[1-9][\d]*$/;
+    let userIdRegEx = /^[1-9][\d]*$/;
     let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
 
-    if (userIdRedEx.test(userId) && tagNameRegEx.test(tagName)){
+    if (userIdRegEx.test(userId) && tagNameRegEx.test(tagName)){
         const connection = mysql.createConnection(sqrlDbCreds);
         connection.query(
             "SELECT tagName, userId FROM tags WHERE userId = ? AND tagName = ?",
