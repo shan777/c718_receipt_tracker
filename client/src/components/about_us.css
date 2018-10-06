@@ -29,6 +29,10 @@
     overflow: auto;
 }
 
+.everybody {
+    padding: 0 5% 0 5%;
+}
+
 .member>img {
     border: 1px #F2F2F2 solid;
     width: 22.5%;
