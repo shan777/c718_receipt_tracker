@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link, Route } from 'react-router-dom';
 import './about_us.css';
+import overView from '../assets/images/overViewBlack.png';
 import meetTeam from '../assets/images/meet_team.png';
 import linkedin_logo from '../assets/images/linkedin_logo.png';
 import github_logo from '../assets/images/github_logo.png';
@@ -27,7 +28,7 @@ class AboutUs extends Component{
                         </a>
                     </div>
 
-                <div className="member">
+                  <div className="member">
                         <img className="img_right" src={esther}/>Esther Suh
                         <a href="https://www.linkedin.com/in/esther-suh-8b426015b/">
                         <img  src={linkedin_logo} alt="linkedin logo"></img>

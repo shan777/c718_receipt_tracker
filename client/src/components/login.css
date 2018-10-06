@@ -1,4 +1,6 @@
-body {
+.login_page_container {
+    height: 100vh;
+    width: 100vw;
     background-color: #237E80;
 }
 
@@ -8,14 +10,19 @@ img.login_logo {
 
 .username {
     background-color: #DEF2F1;
-    text-align: center;
+    border: 1px solid #def2f1;
     font-size: 20px;
+    margin-bottom: 5%;
+    padding: 1%;
+    text-align: center;
 }
 
 .password {
     background-color: #DEF2F1; 
-    text-align: center;
+    border: 1px solid #def2f1;
     font-size: 20px;
+    padding: 1%;
+    text-align: center;
 }
 
 .forgot_password {
@@ -23,11 +30,22 @@ img.login_logo {
 }
 
 .login_btn {
-    color: white;
     background-color: black;
+    border: 1px solid black;
+    color: white;
     font-size: 25px;
+}
+
+.forgot_password {
+    padding-bottom: 4%;
+    padding-top: 3%;
 }
 
 .sign_up_container {
     color: white;
+    padding-top: 3%;
+}
+
+label {
+    margin-bottom: 5%;
 }

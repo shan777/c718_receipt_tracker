@@ -6,10 +6,8 @@
 .signup_container {
     background-color: #237E80;
     color: #DEF2F1;
-}
-
-.main_container {
-    background-color: #237E80;
+    width: 100vw;
+    height: 100vh;
 }
 
 img {

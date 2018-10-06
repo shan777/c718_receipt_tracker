@@ -1,16 +1,27 @@
 .headContainer {
     background-color: #237E80;
-    font-size: 40px;
-    text-align: center;
     color: #F2F2F2;
-    padding: 3%;
     font-family: sans-serif;
+    height: 80px;
+    font-size: 40px;
+    padding: 4%;
     position: fixed;
+    text-align: center;
     top: 0;
     width: 100%;
     z-index: 1;
 }
 
 .dots {
-    float: right;
+    position: absolute;
+    right: 6%;
 }
+
+
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
