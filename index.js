@@ -18,10 +18,10 @@ server.post('/api/addTag', (request, response) => {
         success: false
     };
 
-    let userIdRedEx = /^[1-9][\d]*/;
+    let userIdRegEx = /^[1-9][\d]*/;
     let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
 
-    if (userIdRedEx.exec(userId) && tagNameRegEx.exec(tagName)){
+    if (userIdRegEx.exec(userId) && tagNameRegEx.exec(tagName)){
         const connection = mysql.createConnection(sqrlDbCreds);
         connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
                     [userId, tagName],
