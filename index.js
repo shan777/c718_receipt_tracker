@@ -13,31 +13,51 @@ server.use(express.json()); // replaces body parser
 server.post('/api/addTag', (request, response) => {
     const {userId, tagName} = request.body;
     console.log("request data: ", request.body);
-    
     const output = {
         success: false
     };
 
-    let userIdRedEx = /^[1-9][\d]*/;
+    let userIdRedEx = /^[1-9][\d]*$/;
     let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
 
-    if (userIdRedEx.exec(userId) && tagNameRegEx.exec(tagName)){
+    if (userIdRedEx.test(userId) && tagNameRegEx.test(tagName)){
         const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
-                    [userId, tagName],
-                    (error, result) => {
-                        console.log('query made');
-                        if (error){
-                            console.log('query error', error);
+        connection.query(
+            "SELECT tagName, userId FROM tags WHERE userId = ? AND tagName = ?",
+            [userId, tagName],
+            (error, rows) => {
+                console.log('look up tag query made', rows, rows.length);
+                if (error){
+                    console.log('look up query error', error);
+                    output.error = error;
+                    response.send(output);
+                }else if(rows.length===0){
+                    connection.query(
+                        "INSERT INTO tags (userId, tagName) VALUES (?, ?);",
+                        [userId, tagName],
+                        (error, result) => {
+                            console.log('insert query made');
+                            if (error){
+                             console.log('insert query error', error);
+                             output.error = error;
+                             response.send(output);
+                            }
+                             output.success = true;
+                            connection.end(() => {
+                                console.log('connection end');
+                            });                        
                             response.send(output);
                         }
-                        output.success = true;
-                        connection.end(() => {
-                            console.log('connection end');
-                        });                        
-                        response.send(output);
-                    });
+                    );
+                }else{
+                    output.error = "tagName exists already";
+                    response.send(output);
+                }
+                
+            }
+        );
     }else{
+        output.error = "userId or tagName invalid";
         response.send(output);
     }
 });
