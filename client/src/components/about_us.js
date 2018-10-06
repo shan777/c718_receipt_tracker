@@ -16,7 +16,8 @@ class AboutUs extends Component{
     render(){
         return(
             <div className="about_us_container">
-                <img className="logo_img" src={meetTeam} />
+                <Link to="/overview" className="icon_image"><img className="logo_img" src={meetTeam}/></Link>
+
                 <div className="everybody">
                     <div className="member">
                         <img className="img_left" src={chase}/>Chase Caine
