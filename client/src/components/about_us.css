@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 .about_us_container {
     /* background-color: white;
     color: #237E80; */
@@ -10,7 +9,6 @@
     color: #F2F2F2;
     height: 100vh;
     width: 100vw;
-    /* display: inline-block; */
 
 }
 
@@ -25,12 +23,14 @@
 
 .member {
     text-align: center;
-    vertical-align: center;
     overflow: auto;
+    padding: 2%;
+    text-shadow: 0 0;
+    font-weight: normal;
 }
 
 .everybody {
-    padding: 0 5% 0 5%;
+    padding: 1% 5%;
 }
 
 .member>img {
@@ -39,6 +39,22 @@
     display: block;
     border-radius: 50%;
     
+}
+
+.frontend {
+    border: 0.5px dotted rgb(197, 193, 193);
+    padding: 1%;
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 4px 6px 6px #000000;
+}
+
+.backend {
+    border: 0.5px dotted rgb(197, 193, 193);
+    padding: 1%;
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 4px 6px 6px #000000;
 }
 
 .img_left {

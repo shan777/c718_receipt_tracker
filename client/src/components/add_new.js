@@ -10,25 +10,22 @@ import Dummy from '../dummy_data/dummyList';
 
 
 class AddNew extends Component {    
-    calcDate() {
-        var curr = new Date();
-        curr.setDate(curr.getDate());
-        var today = curr.toISOString().substr(0,10);
-        return {today};
-{/* <input id="dateRequired" type="date" name="dateRequired" defaultValue={date} />  */}
-    }
+//     calcDate() {
+//         var curr = new Date();
+//         curr.setDate(curr.getDate());
+//         var today = curr.toISOString().substr(0,10);
+//         return {today};
+// {/* <input id="dateRequired" type="date" name="dateRequired" defaultValue={date} />  */}
+//     }
     
     state = {
         merchantName: '',
-        dateOfPurchase: this.calcDate().today,
+        // dateOfPurchase: this.calcDate().today,
         totalAmount: '0.00',
+        dateOfPurchase: '',
         category: '',
         note: '',
         receiptImageSrc: ''
-    }
-
-    onTakePhoto(dataUri) {
-        console.log('takePhoto');
     }
 
     render() {
@@ -44,37 +41,31 @@ class AddNew extends Component {
                             <button className="done_btn"  type="submit" value="Done" onSubmit={this.handleAddItem}>Done</button>
                         </div>    
                         <div className="row content_container">
-                            <div>
                                 <label className="input_title">Merchant Name:</label>
                                 <input className="merchName input_field" placeholder="Not specified" onChange={ (e) => this.setState({merchantName: e.target.value})}
                                     type="text"
                                     value={merchantName}
                                 />
-                            </div>
                         </div>
 
                         <div className="row content_container">
-                            <div className="col s8 offset-s2">
                                 <label className="input_title">Date of Purchase:</label>
                                 {/* <input onChange={ (e) => this.setState({dateOfPurchase: e.target.value})} */}
                                 <input onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
                                     type="date"
                                     value={dateOfPurchase}
                                 />
-                            </div>
                         </div>
 
                         <div className="row content_container">
-                            <div className="col s8 offset-s2">
                                 <label className="input_title">Total Amount:</label>
                                 $ <input className="merchName input_field" onChange={ (e) => this.setState({totalAmount: e.target.value})}
-                                    type="text"
+                                    type="number" min="0.00" step="0.01"
                                     value={totalAmount}
                                 />
-                            </div>
+
                         </div>
                         <div className="row content_container">
-                            <div className="col s8 offset-s2">
                                 <label className="input_title">Category:</label>
                                 <select name="category">
                                     <option value={category}>Dining</option>
@@ -86,16 +77,13 @@ class AddNew extends Component {
                                     type="text"
                                     value={category}
                                 /> */}
-                            </div>
                         </div>
                         <div className="row content_container">
-                            <div className="col s8 offset-s2">
                                 <label className="input_title">Note:</label>
                                 <input className="noteInput input_field" placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
                                     type="text"
                                     value={note}
                                 />
-                            </div>
                         </div>
                         
                     </form>

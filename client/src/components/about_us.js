@@ -16,9 +16,11 @@ class AboutUs extends Component{
     render(){
         return(
             <div className="about_us_container">
-                <Link to="/overview" className="icon_image"><img className="logo_img" src={meetTeam}/></Link>
+                <Link to="/overview"><img className="logo_img" src={meetTeam}/></Link>
 
                 <div className="everybody">
+                  <div className="frontend">
+                  FRONT-END
                     <div className="member">
                         <img className="img_left" src={chase}/>Chase Caine
                         <a href="https://www.linkedin.com/in/chase-caine-2a86b5169/">
@@ -48,7 +50,9 @@ class AboutUs extends Component{
                             <img src={github_logo} alt="github logo"></img>
                         </a>
                     </div>
-                    
+                  </div>
+                  <div className="backend">
+                  BACK-END
                     <div className="member">
                         <img className="img_right" src={kyle}/>Kyle Pamintuan
                         <a href="https://www.linkedin.com/in/kylepamintuan/">
@@ -68,6 +72,7 @@ class AboutUs extends Component{
                             <img src={github_logo} alt="github logo"></img>
                         </a>
                     </div>
+                  </div>  
                 </div>
             </div>
         )
