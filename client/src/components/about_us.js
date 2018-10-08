@@ -21,54 +21,59 @@ class AboutUs extends Component{
                 <div className="everybody">
                   <div className="frontend">
                   FRONT-END
-                    <div className="member">
-                        <img className="img_left" src={chase}/>Chase Caine
-                        <a href="https://www.linkedin.com/in/chase-caine-2a86b5169/">
+                    <div className="member left">
+                        <img className="img_left" src={chase}/>
+                        <div className="member_name_left">Chase Caine</div>
+                        <a className='link_left' href="https://www.linkedin.com/in/chase-caine-2a86b5169/">
                         <img src={linkedin_logo} alt="linkedin logo"></img>
                         </a>
-                        <a href="https://www.linkedin.com/in/chase-caine-2a86b5169/">
+                        <a className='link_left' href="https://www.linkedin.com/in/chase-caine-2a86b5169/">
                             <img src={github_logo} alt="github logo"></img>
                         </a>
                     </div>
 
-                  <div className="member">
-                        <img className="img_right" src={esther}/>Esther Suh
-                        <a href="https://www.linkedin.com/in/esther-suh-8b426015b/">
-                        <img  src={linkedin_logo} alt="linkedin logo"></img>
+                  <div className="member right">
+                        <img className="img_right esther" src={esther}/>
+                        <div className="member_name_right">Esther Suh</div>
+                        <a className='link_right' href="https://www.linkedin.com/in/esther-suh-8b426015b/">
+                        <img src={linkedin_logo} alt="linkedin logo"></img>
                         </a>
-                        <a href="https://www.linkedin.com/in/esther-suh-8b426015b/">
+                        <a className='link_right' href="https://www.linkedin.com/in/esther-suh-8b426015b/">
                             <img src={github_logo} alt="github logo"></img>
                         </a>
                     </div>
 
-                    <div className="member">
-                        <img className="img_left" src={sarah}/>Sarah Han
-                        <a href="https://www.linkedin.com/sarah-han-1120">
+                    <div className="member center">
+                        <img className="img_center" src={sarah}/>
+                        <div className="member_name_center">Sarah Han</div>
+                        <a className='link_center' href="https://www.linkedin.com/sarah-han-1120">
                             <img src={linkedin_logo} alt="linkedin logo"></img>
                         </a>
-                        <a href="https://www.linkedin.com/in/esther-suh-8b426015b/">
+                        <a className='link_center' href="https://www.linkedin.com/in/esther-suh-8b426015b/">
                             <img src={github_logo} alt="github logo"></img>
                         </a>
                     </div>
                   </div>
                   <div className="backend">
                   BACK-END
-                    <div className="member">
-                        <img className="img_right" src={kyle}/>Kyle Pamintuan
-                        <a href="https://www.linkedin.com/in/kylepamintuan/">
-                        <img  src={linkedin_logo} alt="linkedin logo"></img>
+                    <div className="member right">
+                        <img className="img_right" src={kyle}/>
+                        <div className="member_name_right">Kyle Pamintuan</div>
+                        <a className='link_right' href="https://www.linkedin.com/in/kylepamintuan/">
+                        <img src={linkedin_logo} alt="linkedin logo"></img>
                         </a>
-                        <a href="https://www.linkedin.com/in/kylepamintuan/">
+                        <a className='link_right' href="https://www.linkedin.com/in/kylepamintuan/">
                             <img src={github_logo} alt="github logo"></img>
                         </a>
                     </div>
 
-                    <div className="member">
-                        <img className="img_left" src={steve}/>Steve Benedict
-                        <a href="https://www.linkedin.com/in/nebevets/">
+                    <div className="member left">
+                        <img className="img_left" src={steve}/>
+                        <div className="member_name_left">Steve Bennedict</div>
+                        <a className='link_left' href="https://www.linkedin.com/in/nebevets/">
                         <img src={linkedin_logo} alt="linkedin logo"></img>
                         </a>
-                        <a href="https://www.linkedin.com/in/nebevets/">
+                        <a className='link_left' href="https://www.linkedin.com/in/nebevets/">
                             <img src={github_logo} alt="github logo"></img>
                         </a>
                     </div>
