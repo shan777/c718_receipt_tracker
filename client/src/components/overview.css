@@ -26,21 +26,20 @@ body{
 } 
 
 .store_name, .amount_of_purchase{
-    font-weight: bold;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .store_name{
-    top: 2vh;
+    top: 1vh;
 }
 
 .date_of_purchase{
     font-size: 1em;
-    top: 2vh;
+    top: 1vh;
 }
 .amount_of_purchase{
     left: 55%;
-    bottom: 1vh;
+    bottom: 2vh;
 }
 
 
@@ -57,6 +56,7 @@ body{
     width: 100%;
     position: relative;
     height: 14%;
+    margin-top: 10px;
 }
 
 .catagory, .data{
@@ -91,10 +91,10 @@ body{
 
 .edit{
     position: relative;
-    height: 4vh;;
-    width: 15%;
+    height: 3vh;;
+    width: 10%;
     background-color: darkgrey;
     float: right;
-    top: 5vh;
-    right: 5%;
+    top: 2vh;
+    right: 15%;
 }
