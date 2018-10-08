@@ -44,8 +44,8 @@ server.post('/api/addTag', (request, response) => {
 
 server.post('/api/addReceipt', (request, response) => {
     /*
-    INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable) 
-    VALUES ('${request.body.userId}', '${request.body.storeName}', '${request.body.total}', '${request.body.tax}', '${request.body.creditCardName}', '${request.body.creditCardDigits}', '${request.body.purchaseDate}', '${request.body.category}', '${request.body.comment}', '${request.body.reimbursable}');
+        INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     */
 
     const {userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable} = request.body;
@@ -55,10 +55,17 @@ server.post('/api/addReceipt', (request, response) => {
         success: false
     };
 
-    let userIdRedEx = /^[1-9][\d]*/;
-    let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
+    let userIdRegEx = /^[1-9][\d]*$/; // will also use for: total, tax
+    let storeNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
+    let creditCardNameRegex = /^[a-zA-Z ]{2,}$/;
+    let creditCardDigitsRegex = /^[\d]{4}$/;
+    let purchaseDateRegex = /^\d{4}-{1}\d{2}-{1}\d{2}$/;
+    let categoryRegex = /^[a-zA-Z]$/;
+    let commentRegex = /^[a-zA-Z\d .-*/$%!?()+=]$/;
+    let reimbursableRegex = /^[01]{1}$/;
 
-    if (userIdRedEx.exec(userId) && tagNameRegEx.exec(tagName)){
+    /*
+    if (userIdRedEx.test(userId) && tagNameRegEx.test(storeName)){
         const connection = mysql.createConnection(sqrlDbCreds);
         connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
                     [userId, tagName],
@@ -74,9 +81,11 @@ server.post('/api/addReceipt', (request, response) => {
                         });                        
                         response.send(output);
                     });
-    }else{
+    }
+    else{
         response.send(output);
     }
+    */
 });
 
 server.get('*', (request, response) => {
