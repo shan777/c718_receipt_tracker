@@ -88,3 +88,13 @@ body{
     opacity: 0;
 }
 
+
+.edit{
+    position: relative;
+    height: 4vh;;
+    width: 15%;
+    background-color: darkgrey;
+    float: right;
+    top: 5vh;
+    right: 5%;
+}

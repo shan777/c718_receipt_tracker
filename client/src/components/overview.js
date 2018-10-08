@@ -1,26 +1,41 @@
 import React, {Component} from 'react';
 import Header from './header';
 import './overview.css';
-import users from '../dummy_data/dummyList.js';
 import Accordion from './accordion_container';
 import AccordionItem from './accordion_item';
 import Footer from './footer';
+import response from '../dummy_data/dummyList.js';
+import {Link} from 'react-router-dom';
 
 class Overveiw extends Component{
     constructor(props){
         super(props);
+
+        this.state = {
+            data: response,
+        };
     }
-    makeRow(){
-        const eachUser = [...users];
+    editRow (index){
+        const eachUser = [...this.state.data];
         const mapOfUsers = eachUser.map(item => item.receipts);
         const receiptUser = mapOfUsers[2];
-        const row = receiptUser.map(item => (
+        let currentName = receiptUser[index].storeName;
+        let changeStoreName = prompt("Enter Store Name")
+
+     }
+    makeRow(){
+        const eachUser = [...this.state.data];
+        const mapOfUsers = eachUser.map(item => item.receipts);
+        const receiptUser = mapOfUsers[2];
+        const row = receiptUser.map((item, index) => (
         <Accordion>
-            <div className="row">
-                <h3 className="store_name">{item.storeName}</h3>
+            <div className="row" attr={index}>
+                <h3 className="store_name" attr={index}>{item.storeName}</h3>
                 <br/>
-                <h4 className="date_of_purchase">{new Date().toLocaleDateString()}</h4>
-                <h3 className="amount_of_purchase">${item.total}</h3>
+                <h4 className="date_of_purchase" attr={index}>{item.purchaseDate}</h4>
+                <h3 className="amount_of_purchase" attr={index}>${item.total/100}</h3>
+                <Link to='/add_new'><button className="edit">Edit</button></Link>
+                
                     <AccordionItem className="panel">
                        <div className="panel_size">
                             <p className="catagory">Merchant name:</p>
@@ -28,7 +43,7 @@ class Overveiw extends Component{
                         </div>
                         <div className="panel_size">
                             <p className="catagory">Date of Purchase:</p>
-                            <h6 className="data">{new Date().toLocaleDateString()}</h6>
+                            <h6 className="data">{item.purchaseDate}</h6>
                         </div>
                         <div className="panel_size">
                             <p className="catagory">Total Amount:</p>
@@ -47,9 +62,9 @@ class Overveiw extends Component{
         </Accordion>
         ));
         return row
-     }
+        }
     render(){
-        const eachUser = [...users];
+        const eachUser = [...response];
         const mapOfUsers = eachUser.map(item => item.receipts);
         const receiptUser = mapOfUsers[2];
         const total = receiptUser.map(item => item.total);
@@ -58,7 +73,7 @@ class Overveiw extends Component{
             for(let i = 0; i< total.length; i++){
                 totalAmount+= total[i];
             }
-            return totalAmount;
+            return totalAmount/100;
         }
         return (
             <div>
