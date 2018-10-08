@@ -30,32 +30,32 @@ class Overveiw extends Component{
         const row = receiptUser.map((item, index) => (
         <Accordion>
             <div className="row" attr={index}>
-                <h3 className="store_name" attr={index}>{item.storeName}</h3>
+                <div className="store_name" attr={index}>{item.storeName}</div>
                 <br/>
-                <h4 className="date_of_purchase" attr={index}>{item.purchaseDate}</h4>
-                <h3 className="amount_of_purchase" attr={index}>${item.total/100}</h3>
-                <Link to='/add_new'><button className="edit">Edit</button></Link>
+                <div className="date_of_purchase" attr={index}>{item.purchaseDate}</div>
+                <div className="amount_of_purchase" attr={index}>${item.total/100}</div>
+                <Link className="edit" to='/add_new'><button>Edit</button></Link>
                 
                     <AccordionItem className="panel">
                        <div className="panel_size">
-                            <p className="catagory">Merchant name:</p>
-                            <h6 className="data">{item.storeName}</h6>
+                            <div className="catagory">Merchant name:</div>
+                            <div className="data">{item.storeName}</div>
                         </div>
                         <div className="panel_size">
-                            <p className="catagory">Date of Purchase:</p>
-                            <h6 className="data">{item.purchaseDate}</h6>
+                            <div className="catagory">Date of Purchase:</div>
+                            <div className="data">{item.purchaseDate}</div>
                         </div>
                         <div className="panel_size">
-                            <p className="catagory">Total Amount:</p>
-                            <h6 className="data">{item.total}</h6>
+                            <div className="catagory">Total Amount:</div>
+                            <div className="data">{item.total}</div>
                         </div>
                         <div className="panel_size">
-                            <p className="catagory">Catagory:</p>
-                            <h6 className="data">{item.catagory}</h6>
+                            <div className="catagory">Catagory:</div>
+                            <div className="data">{item.catagory}</div>
                         </div>
                         <div className="panel_size">
-                            <p className="catagory">Note:</p>
-                            <h6 className="data">{item.comment}</h6>
+                            <div className="catagory">Note:</div>
+                            <div className="data">{item.comment}</div>
                         </div>
                     </AccordionItem>
             </div>
