@@ -21,11 +21,12 @@
 }
 
 .member {
+    display: inline-block;
     text-align: center;
-    overflow: auto;
     padding: 2%;
     text-shadow: 0 0;
     font-weight: normal;
+    width: 100%;
 }
 
 .everybody {
@@ -41,7 +42,6 @@
 }
 
 .frontend {
-    border: 0.5px dotted rgb(197, 193, 193);
     padding: 1%;
     text-align: center;
     font-weight: bolder;
@@ -49,7 +49,6 @@
 }
 
 .backend {
-    border: 0.5px dotted rgb(197, 193, 193);
     padding: 1%;
     text-align: center;
     font-weight: bolder;
@@ -63,3 +62,42 @@
 .img_right {
     float: right;
 } 
+
+.center{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+
+.left{
+    text-align: left;
+}
+
+.link_left{
+    position: relative;
+    top: 14vh;
+    right: 23%;
+}
+
+.member_name_left{
+    position: relative;
+    top: 13vh;
+    right: 23%;
+}
+
+.esther{
+    position: relative;
+    bottom: 13vh;
+}
+
+.member_name_right{
+    position: relative;
+    left: 21%;
+}
+
+.link_right{
+    position: relative;
+    left: 20%;
+}
+
