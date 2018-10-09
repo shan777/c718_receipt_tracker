@@ -152,6 +152,43 @@ server.post('/api/getUserTags', (request, response) => {
     }
 });
 
+server.post('/api/getUserReceipts', (request, response) => {
+
+    // SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.userId = ? AND receipts.status = 'active';
+
+    const {userId} = request.body;
+    console.log("request data: ", request.body);
+    
+    const output = {
+        userReceipts: [],
+        success: false
+    };
+
+    let userIdRegEx = /^[1-9][\d]*/;
+
+    if (userIdRegEx.test(userId)){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.userId = ? AND receipts.status = 'active';",
+                    [userId],
+                    (error, rows) => {
+                        console.log('get receipts query made');
+                        if (error){
+                            console.log('get receipts query error', error);
+                            response.send(output);
+                        }
+                        rows.forEach(element => {
+                            output.userReceipts.push(element);
+                        });
+                        output.success = true;
+                        connection.end(() => { console.log('connection end'); });                     
+                        response.send(output);
+                    });
+    }
+    else{
+        response.send(output);
+    }
+});
+
 server.post('/api/getTagsForReceipt', (request, response) => {
     const {receiptId} = request.body;
     console.log("request data: ", request.body);
@@ -212,12 +249,10 @@ server.post('/api/addReceipt', (request, response) => {
 
     // Validating required input data
     if(userIdRegex.test(userId) && storeNameRegex.test(storeName) && totalRegex.test(total) && purchaseDateRegex.test(purchaseDate)){
-        console.log('required input data --valid');
 
         // Validating optional input data
         if((taxRegex.test(tax) || tax===0) && (creditCardNameRegex.test(creditCardName) || creditCardName===null) && (creditCardDigitsRegex.test(creditCardDigits) || creditCardDigits===null) 
             && (categoryRegex.test(category) || category===null) && (commentRegex.test(comment) || comment===null) && (reimbursableRegex.test(reimbursable) || reimbursable===0)){
-            console.log('optional input data --valid');
 
             // Create connection to db
             const connection = mysql.createConnection(sqrlDbCreds);
@@ -226,10 +261,10 @@ server.post('/api/addReceipt', (request, response) => {
             connection.query("INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
                 [userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable],
                 (error, result) => {
-                    console.log('query sent');
+                    console.log('add receipt query made');
 
                     if(error){
-                        console.log('query error', error);
+                        console.log('add receipt query error', error);
                         response.send(output);
                     }
                     output.success = true;
@@ -243,13 +278,13 @@ server.post('/api/addReceipt', (request, response) => {
         }
         else{
             // Send status of query to front-end
-            output.error = 'optional input data --invalid';
+            output.error = 'optional input data --invalid (add receipt)';
             response.send(output);
         }
     }
     else{
         // Send status of query to front-end
-        output.error = 'required input data --invalid';
+        output.error = 'required input data --invalid (add receipt)';
         response.send(output);
     }
 });
