@@ -113,44 +113,9 @@ server.post('/api/getTagsForReceipt', (request, response) => {
         connection.query("SELECT receipts_tags.tagId,tags.tagName FROM receipts_tags JOIN tags ON receipts_tags.tagId=tags.ID WHERE receipts_tags.receiptId=?",
                     [receiptId],
                     (error, rows) => {
-                        console.log('tags for receipt query made');
+                        console.log('get tags for receipt query made');
                         if (error){
-                            console.log('tags for receipt query error', error);
-                            response.send(output);
-                        }
-                        rows.forEach(element => {
-                            output.tags.push(element);
-                        });
-                        output.success = true;
-                        connection.end(() => {
-                            console.log('connection end');
-                        });                        
-                        response.send(output);
-                    });
-    }else{
-        response.send(output);
-    }
-});
-
-server.post('/api/getTagsForReceipt', (request, response) => {
-    const {receiptId} = request.body;
-    console.log("request data: ", request.body);
-    
-    const output = {
-        tags: [],
-        success: false
-    };
-
-    let receiptIdRegEx = /^[1-9][\d]*/;
-
-    if (receiptIdRegEx.test(receiptId)){
-        const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("SELECT receipts_tags.tagId,tags.tagName FROM receipts_tags JOIN tags ON receipts_tags.tagId=tags.ID WHERE receipts_tags.receiptId=?",
-                    [receiptId],
-                    (error, rows) => {
-                        console.log('tags for receipt query made');
-                        if (error){
-                            console.log('tags for receipt query error', error);
+                            console.log('get tags for receipt query error', error);
                             response.send(output);
                         }
                         rows.forEach(element => {
