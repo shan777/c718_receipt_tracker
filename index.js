@@ -14,6 +14,42 @@ server.use(cors()); // allows cross origin
 server.use(express.json()); // replaces body parser
 server.use(sessionExec);
 
+server.post('/api/checkLoginStatus', (request, response) => {
+    console.log("checking login status for : ", request.sessionID);
+    const output = {
+        success: false,
+        loggedIn: false
+    };
+    const connection = mysql.createConnection(sqrlDbCreds);
+    connection.query("SELECT users.ID, users.userName, connections.lastConnection, connections.sessionID FROM connections JOIN users ON connections.userId=users.ID WHERE connections.sessionID=?",
+                      [request.sessionID],
+                      (error, rows)=>{
+                        console.log('performing connection query...', error);
+                        output.success = true;
+                        if(!error && rows.length > 0){
+                            console.log('logged in', rows[0]);
+                            output.loggedIn = true;
+                            output.userId = rows[0].ID;
+                            output.userName = rows[0].userName;
+                            output.lastConnection = rows[0].lastConnection;
+                            output.sessionID = rows[0].sessionID;
+                            connection.query("UPDATE connections SET connectionCount=connectionCount+1, lastConnection=NOW() WHERE sessionID=?",
+                                             [output.sessionID],
+                                             (error)=>{
+                                                console.log('query to update connection table', error);
+                                                if(!error){
+                                                    console.log('connections updated');
+                                                }
+                                             });
+                        }else{
+                            output.loggedIn = false;
+                        }
+                        connection.end(() => {
+                            console.log('connection end');
+                        });
+                        response.send(output);
+                      });     
+});
 
 server.post('/api/login', (request, response) => {
     const {userName, password} = request.body;
