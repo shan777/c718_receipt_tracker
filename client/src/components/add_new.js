@@ -21,65 +21,72 @@ class AddNew extends Component {
     state = {
         merchantName: '',
         // dateOfPurchase: this.calcDate().today,
-        totalAmount: '0.00',
+        totalAmount: '0',
         dateOfPurchase: '',
         category: '',
         note: '',
-        tag: true,
+        errorMessage: {
+            forTotalAmount: "'Total Amount' must be a number.",
+            forMerchantName: "'Merchant Name' must be entered."
+        }
+        //tag: 'None', //will be an array later
     }
 
-    //newTag???????????????????????????????????????
 
     handleSubmit = (event) => {
         console.log('dummy: ',{dummy});
     
         //how do i find the user? 
-        //isn't it better 
+        
         event.preventDefault();
 
-        const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
-        console.log('merchantName: ', merchantName);
+        const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
+        console.log('totalAmount: ', totalAmount);
+        if(isNaN(totalAmount)) {
+            console.log('msg:', errorMessage.forAmount);
 
-        if(tag) {
-            console.log('tag:', tag);
         }
 
+
+        //this.props.history.push('/overview');
+    }
+
+    // addNewTag = (event) => {
+    //     //add new tag to the tag array
+    //     event.preventDefault();
+    // }
+
+    handleCancel = () => {
         this.props.history.push('/overview');
     }
 
-    addNewTag = (event) => {
-        //add new tag to the tag array
-        event.preventDefault();
-    }
-
-    clearForm() {
-        console.log('clear form');
-    }
-
+    
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
         const categoryArray = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Transportation', 'Lodging', 'Repairs'];
-        const categoryChoices = categoryArray.map((option) => 
-            <option key={option} value={category}>{option}</option>);
+        const categoryChoices = categoryArray.map((option, index) => 
+            <option key={index} value={option}>{option}</option>);
 
         return (
             <div>
                 <Header title="Add New"/>
                 <div className="main_container">
-                    <form action="#" onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleSubmit}>
                         <div className="btn_container">
-                            <button className="cancel_btn" type="reset" value="X" onSubmit={this.clearForm}>X</button>
+                            <button className="cancel_btn" type="reset" value="Cancel" onClick={this.handleCancel}>Cancel</button>
                             <button className="done_btn"  type="submit" value="Done">Done</button>
                         </div>    
-                        <div className="row content_container">
+                        <div className="content_container">
                                 <label className="input_title">Merchant Name</label>
-                                <input className="merchName input_field" placeholder="Not specified" onChange={ (e) => this.setState({merchantName: e.target.value})}
+                                <input placeholder="Not specified" onChange={ (e) => this.setState({merchantName: e.target.value})}
                                     type="text"
                                     value={merchantName}
+                                    name={merchantName}
+                                    required
                                 />
                         </div>
 
-                        <div className="row content_container">
+                        <div className="content_container">
                                 <label className="input_title">Date of Purchase</label>
                                 <input onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
                                     type="date"
@@ -87,38 +94,38 @@ class AddNew extends Component {
                                 />
                         </div>
 
-                        <div className="row content_container">
+                        <div className="content_container">
                                 <label className="input_title">Total Amount:</label>
-                                $ <input className="merchName input_field" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
-                                // e.target.value * 100 --> sending in pennies to server -----> GOTTA DO THIS!!!!!!!!!!
+                                $ <input onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
                                     type="number" min="0.00" step="0.01"
                                     value={totalAmount}
                                 />
                         </div> 
 
-                        <div className="row content_container">
+                        <div className="content_container">
                                 <label className="input_title">Category</label>
                                 <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
                                     {categoryChoices}
                                 </select>
                         </div>
 
-                        <div className="row content_container">
+                        <div className="content_container">
                                 <label className="input_title">Note</label>
-                                <input className="noteInput input_field" placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
+                                <input placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
                                     type="text"
                                     value={note}
                                 />
                         </div>
 
-                        <div className="row content_container">
+                        {/* <div className="row content_container">
                                 <label className="input_title">Tag</label>
-                                <input className="input_field" name="None" type="checkbox" checked={this.state.tag} onChange={ (e) => this.setState({tag: e.target.value})}
-                                    type="text"
+                                <input className="input_field" name="tag"  onChange={ (e) => this.setState({tag: e.target.value})}
+                                    type="radio"
                                     value={tag}
                                 />
-                                {/* <label>New Tag<input name="newTag" type="text" value={newTag} onChange={this.addNewTag}/></label> */}
-                        </div>
+                                
+                                <input name="tag" type="radio" value="paris"/>
+                        </div>  */}
                         
                     </form>
                 </div>
