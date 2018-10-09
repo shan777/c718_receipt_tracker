@@ -13,23 +13,34 @@ class Header extends Component {
     }
 
     onSetSidebarOpen = (open) => {
-        this.setState({ sidebarOpen: open });
+        this.setState({ 
+            sidebarOpen: open 
+        });
+    }
+
+    sidebar = {
+        sidebar: { height: "100vh", width: "50vw", "overflowY": "unset", position: "fixed" },
+        overlay: {backgroundColor: "#237E80"}
+
     }
 
     render() {
+        var sidebar = "<b>About us</b> <b>test</b>"
         return(
-            <Sidebar
-            sidebar={<b>About us</b>}
-            open={this.state.sidebarOpen}
-            styles={{sidebar: {background: "white"}}}
-            >
-                <button onClick={() => this.onSetSidebarOpen(true)}>
-                    <img className="dots" src={dots}/>
-                </button>
-            </Sidebar>    
+            <div className="headContainer header">
+                {this.props.title || ''}
+                <Sidebar
+                sidebar={<Hamburger/>}
+                open={this.state.sidebarOpen}
+                styles={this.sidebar}
+                >
+                    <button onClick={() => this.onSetSidebarOpen(true)}>
+                        <img className="dots" src={dots}/>
+                    </button>
+                </Sidebar>   
+            </div> 
         );
     }
 }
 
 export default Header;
-
