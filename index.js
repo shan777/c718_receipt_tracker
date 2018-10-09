@@ -132,6 +132,41 @@ server.post('/api/getTagsForReceipt', (request, response) => {
     }
 });
 
+server.post('/api/getTagsForReceipt', (request, response) => {
+    const {receiptId} = request.body;
+    console.log("request data: ", request.body);
+    
+    const output = {
+        tags: [],
+        success: false
+    };
+
+    let receiptIdRegEx = /^[1-9][\d]*/;
+
+    if (receiptIdRegEx.test(receiptId)){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("SELECT receipts_tags.tagId,tags.tagName FROM receipts_tags JOIN tags ON receipts_tags.tagId=tags.ID WHERE receipts_tags.receiptId=?",
+                    [receiptId],
+                    (error, rows) => {
+                        console.log('tags for receipt query made');
+                        if (error){
+                            console.log('tags for receipt query error', error);
+                            response.send(output);
+                        }
+                        rows.forEach(element => {
+                            output.tags.push(element);
+                        });
+                        output.success = true;
+                        connection.end(() => {
+                            console.log('connection end');
+                        });                        
+                        response.send(output);
+                    });
+    }else{
+        response.send(output);
+    }
+});
+
 server.post('/api/addReceipt', (request, response) => {
     
     // Destructuring request object (w/ default values)
@@ -175,6 +210,71 @@ server.post('/api/addReceipt', (request, response) => {
 
                     if(error){
                         console.log('query error', error);
+                        response.send(output);
+                    }
+                    output.success = true;
+
+                    // Close connection to db
+                    connection.end(() => { console.log('connection end'); });
+                    
+                    // Send status of query to front-end
+                    response.send(output);
+                });
+        }
+        else{
+            // Send status of query to front-end
+            output.error = 'optional input data --invalid';
+            response.send(output);
+        }
+    }
+    else{
+        // Send status of query to front-end
+        output.error = 'required input data --invalid';
+        response.send(output);
+    }
+});
+
+server.post('/api/updateReceipt', (request, response) => {
+
+    // Destructuring request object (w/ default values)
+    const {receiptId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
+    console.log("request data: ", request.body);
+    
+    // Output message for front-end
+    const output = {
+        success: false
+    };
+
+    // Regex for all input data validation
+    let receiptIdRegex = /^[1-9][\d]*$/;
+    let storeNameRegex = /^[a-zA-Z \d-_]{2,}$/;
+    let totalRegex = /^[1-9][\d]*$/;
+    let taxRegex = /^[1-9][\d]*$/;
+    let creditCardNameRegex = /^[a-zA-Z ]{2,}$/;
+    let creditCardDigitsRegex = /^[\d]{4}$/;
+    let purchaseDateRegex = /^\d{4}-{1}\d{2}-{1}\d{2}$/;
+    let categoryRegex = /^[a-zA-Z]$/;
+    let commentRegex = /^[a-zA-Z\d .\-*\/$%!?()+=]$/;
+    let reimbursableRegex = /^[01]{1}$/;
+
+    // Validating required input data
+    if(receiptIdRegex.test(receiptId) && storeNameRegex.test(storeName) && totalRegex.test(total) && purchaseDateRegex.test(purchaseDate)){
+
+        // Validating optional input data
+        if((taxRegex.test(tax) || tax===0) && (creditCardNameRegex.test(creditCardName) || creditCardName===null) && (creditCardDigitsRegex.test(creditCardDigits) || creditCardDigits===null) 
+            && (categoryRegex.test(category) || category===null) && (commentRegex.test(comment) || comment===null) && (reimbursableRegex.test(reimbursable) || reimbursable===0)){
+
+            // Create connection to db
+            const connection = mysql.createConnection(sqrlDbCreds);
+
+            // Attempt SQL query
+            connection.query("UPDATE receipts SET receipts.storeName = ?, receipts.total = ?, receipts.tax = ?, receipts.creditCardName = ?, receipts.creditCardDigits = ?, receipts.purchaseDate = ?, receipts.category = ?, receipts.comment = ?, receipts.reimbursable = ?  WHERE receipts.ID = ?;",
+                [storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable, receiptId],
+                (error, result) => {
+                    console.log('update receipt query sent');
+
+                    if(error){
+                        console.log('update receipt query error', error);
                         response.send(output);
                     }
                     output.success = true;

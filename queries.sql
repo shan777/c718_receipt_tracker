@@ -95,8 +95,8 @@ INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardD
 SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.comment, receipts.category FROM receipts WHERE receipts.ID = ?;
 SELECT receipts_tags.tagId FROM receipts_tags JOIN tags ON receipts_tags.tagId = tags.ID WHERE receipts_tags.receiptId = ?;
 
--- Update details of current receipt (e.g. storeName)
-UPDATE receipts SET receipts.storeName = ? WHERE receipts.ID = ?;
+-- Update details of current receipt
+UPDATE receipts SET receipts.storeName = ?, receipts.total = ?, receipts.tax = ?, receipts.creditCardName = ?, receipts.creditCardDigits = ?, receipts.purchaseDate = ?, receipts.category = ?, receipts.comment = ?, receipts.reimbursable = ?  WHERE receipts.ID = ?;
 
 -- Archive current receipt
 UPDATE receipts SET receipts.status = 'inactive' WHERE receipts.ID = ?;
