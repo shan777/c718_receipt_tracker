@@ -87,7 +87,7 @@ class AddNew extends Component {
 
                         <div className="content_container">
                                 <label className="input_title">Date of Purchase</label>
-                                <input onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
+                                <input className="date" onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
                                     type="date"
                                     value={dateOfPurchase}
                                 />
@@ -95,7 +95,7 @@ class AddNew extends Component {
 
                         <div className="content_container">
                                 <label className="input_title">Total Amount:</label>
-                                $ <input onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
+                                $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
                                     type="number" min="0.00" step="0.01"
                                     value={totalAmount}
                                 />
