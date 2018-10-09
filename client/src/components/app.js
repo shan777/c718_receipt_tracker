@@ -4,7 +4,7 @@ import Overview from './overview';
 import {BrowserRouter as Router,
         Link, 
         Route } from 'react-router-dom';
-import Splash from './splash_page';
+import Splash from './carousel/app';
 import AddNew from './add_new';
 import Login from './login';
 import SignUp from './signup';
