@@ -4,7 +4,23 @@ import loginLogo from '../assets/images/loginLogo.png';
 import { Link } from 'react-router-dom';
 
 class Login extends Component{
+    constructor(props){
+        super(props)
+
+        this.state = {
+            userName: '',
+            password: ''
+        }
+    }
+    handleChange(event){
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
     render(){
+        console.log('username:', this.state.userName);
+        console.log('password:', this.state.password);
+
         const centerStyle = {
             'textAlign': 'center'
         }
@@ -13,8 +29,8 @@ class Login extends Component{
                 <img className="login_logo" src={loginLogo} />
                 <div style={centerStyle}>
                     <form className="login_area">
-                        <input className="username" type="text" placeholder="Username"/>
-                        <input className="password" type="text" placeholder="Password"/>
+                        <input name='userName' value={this.state.userName} onChange={this.handleChange.bind(this)} className="username" type="text" placeholder="Username"/>
+                        <input name='password' value={this.state.password} onChange={this.handleChange.bind(this)} className="password" type="text" placeholder="Password"/>
                     </form>
                     <div className="forgot_password"> {/*forgot your password is only text at this time*/}
                         forgot your password?
