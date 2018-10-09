@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 .about_us_container {
     /* background-color: white;
     color: #237E80; */
@@ -10,7 +9,6 @@
     color: #F2F2F2;
     height: 100vh;
     width: 100vw;
-    /* display: inline-block; */
 
 }
 
@@ -22,15 +20,17 @@
     margin: auto;
 }
 
-
 .member {
+    display: inline-block;
     text-align: center;
-    vertical-align: center;
-    overflow: auto;
+    padding: 2%;
+    text-shadow: 0 0;
+    font-weight: normal;
+    width: 100%;
 }
 
 .everybody {
-    padding: 0 5% 0 5%;
+    padding: 1% 5%;
 }
 
 .member>img {
@@ -41,6 +41,20 @@
     
 }
 
+.frontend {
+    padding: 1%;
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 4px 6px 6px #000000;
+}
+
+.backend {
+    padding: 1%;
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 4px 6px 6px #000000;
+}
+
 .img_left {
     float: left;
 } 
@@ -48,3 +62,42 @@
 .img_right {
     float: right;
 } 
+
+.center{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+
+.left{
+    text-align: left;
+}
+
+.link_left{
+    position: relative;
+    top: 14vh;
+    right: 23%;
+}
+
+.member_name_left{
+    position: relative;
+    top: 13vh;
+    right: 23%;
+}
+
+.esther{
+    position: relative;
+    bottom: 13vh;
+}
+
+.member_name_right{
+    position: relative;
+    left: 21%;
+}
+
+.link_right{
+    position: relative;
+    left: 20%;
+}
+

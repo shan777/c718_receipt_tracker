@@ -3,10 +3,9 @@
     color: #F2F2F2;
     font-family: sans-serif;
     height: 80px;
-    font-size: 40px;
-    padding: 4%;
-    position: fixed;
-    text-align: center;
+    font-size: 3em;
+    padding-left: 10%;
+    text-align: left;
     top: 0;
     width: 100%;
     z-index: 1;
@@ -15,6 +14,7 @@
 .dots {
     position: absolute;
     right: 6%;
+    top: 15%;
 }
 
 
