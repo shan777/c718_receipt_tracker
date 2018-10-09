@@ -224,6 +224,39 @@ server.post('/api/getTagsForReceipt', (request, response) => {
     }
 });
 
+server.post('/api/deleteReceipt', (request, response) => {
+
+    // NOTE: This query is meant for doing a SOFT delete meaning the receipts status will be update to 'inactive' and will NOT be removed from the db
+
+    const {receiptId} = request.body;
+    console.log("request data: ", request.body);
+    
+    const output = {
+        success: false
+    };
+
+    let receiptIdRegEx = /^[1-9][\d]*/;
+
+    if (receiptIdRegEx.test(receiptId)){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("UPDATE receipts SET receipts.status = 'inactive' WHERE receipts.ID = ?;",
+                    [receiptId],
+                    (error, rows) => {
+                        console.log('delete receipt query made');
+                        if (error){
+                            console.log('delete receipt query error', error);
+                            response.send(output);
+                        }
+                        output.success = true;
+                        connection.end(() => { console.log('connection end'); });                        
+                        response.send(output);
+                    });
+    }
+    else{
+        response.send(output);
+    }
+});
+
 server.post('/api/addReceipt', (request, response) => {
     
     // Destructuring request object (w/ default values)
