@@ -28,12 +28,12 @@ class Overveiw extends Component{
         const mapOfUsers = eachUser.map(item => item.receipts);
         const receiptUser = mapOfUsers[2];
         const row = receiptUser.map((item, index) => (
-        <Accordion>
-            <div className="row" attr={index}>
-                <div className="store_name" attr={index}>{item.storeName}</div>
+        <Accordion key={index}>
+            <div className="row">
+                <div className="store_name">{item.storeName}</div>
                 <br/>
-                <div className="date_of_purchase" attr={index}>{item.purchaseDate}</div>
-                <div className="amount_of_purchase" attr={index}>${item.total/100}</div>
+                <div className="date_of_purchase">{item.purchaseDate}</div>
+                <div className="amount_of_purchase">${item.total/100}</div>
                 <Link className="edit" to='/add_new'><button>Edit</button></Link>
                 
                     <AccordionItem className="panel">
