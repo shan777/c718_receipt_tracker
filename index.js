@@ -257,6 +257,7 @@ server.post('/api/deleteReceipt', (request, response) => {
     }
 });
 
+/*
 server.post('/api/addReceipt', (request, response) => {
     
     // Destructuring request object (w/ default values)
@@ -318,6 +319,53 @@ server.post('/api/addReceipt', (request, response) => {
     else{
         // Send status of query to front-end
         output.error = 'required input data --invalid (add receipt)';
+        response.send(output);
+    }
+});
+*/
+
+server.post('/api/addReceipt', (request, response) => {
+    
+    // Destructuring request object (w/ default values)
+    const {userId} = request.body;
+    const purchaseDate = getCurrentDate();
+    console.log("request data: ", request.body);
+    
+    // Output message for front-end
+    const output = {
+        success: false
+    };
+
+    // Regex for all input data validation
+    let userIdRegex = /^[1-9][\d]*$/;
+
+    if(userIdRegex.test(userId)){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("INSERT INTO receipts (userId, purchaseDate) VALUES (?, ?);",
+            [userId, purchaseDate],
+            (error, result) => {
+                console.log('add receipt query made');
+                if(error){
+                    console.log('add receipt query error', error);
+                    response.send(output);
+                }
+            });
+        
+        connection.query("SELECT LAST_INSERT_ID();",
+        (error, result) => {
+            console.log('last_insert_id query made');
+            if(error){
+                console.log('last_insert_id query error', error);
+                response.send(output);
+            }
+            output.receiptId = result[0][Object.keys(result[0])[0]];
+            output.success = true;
+            connection.end(() => { console.log('connection end'); });
+            response.send(output);
+        });
+    }
+    else{
+        output.error = 'userId invalid for add receipt';
         response.send(output);
     }
 });
