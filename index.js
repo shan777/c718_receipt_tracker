@@ -257,72 +257,36 @@ server.post('/api/deleteReceipt', (request, response) => {
     }
 });
 
-/*
-server.post('/api/addReceipt', (request, response) => {
-    
-    // Destructuring request object (w/ default values)
-    const {userId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
+server.post('/api/getReceipt', (request, response) => {
+    const {receiptId} = request.body;
     console.log("request data: ", request.body);
     
-    // Output message for front-end
     const output = {
         success: false
     };
 
-    // Regex for all input data validation
-    let userIdRegex = /^[1-9][\d]*$/;
-    let storeNameRegex = /^[a-zA-Z \d-_]{2,}$/;
-    let totalRegex = /^[1-9][\d]*$/;
-    let taxRegex = /^[1-9][\d]*$/;
-    let creditCardNameRegex = /^[a-zA-Z ]{2,}$/;
-    let creditCardDigitsRegex = /^[\d]{4}$/;
-    let purchaseDateRegex = /^\d{4}-{1}\d{2}-{1}\d{2}$/;
-    let categoryRegex = /^[a-zA-Z]$/;
-    let commentRegex = /^[a-zA-Z\d .\-*\/$%!?()+=]$/;
-    let reimbursableRegex = /^[01]{1}$/;
+    let receiptIdRegEx = /^[1-9][\d]*/;
 
-    // Validating required input data
-    if(userIdRegex.test(userId) && storeNameRegex.test(storeName) && totalRegex.test(total) && purchaseDateRegex.test(purchaseDate)){
-
-        // Validating optional input data
-        if((taxRegex.test(tax) || tax===0) && (creditCardNameRegex.test(creditCardName) || creditCardName===null) && (creditCardDigitsRegex.test(creditCardDigits) || creditCardDigits===null) 
-            && (categoryRegex.test(category) || category===null) && (commentRegex.test(comment) || comment===null) && (reimbursableRegex.test(reimbursable) || reimbursable===0)){
-
-            // Create connection to db
-            const connection = mysql.createConnection(sqrlDbCreds);
-
-            // Attempt SQL query
-            connection.query("INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
-                [userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable],
-                (error, result) => {
-                    console.log('add receipt query made');
-
-                    if(error){
-                        console.log('add receipt query error', error);
+    if (receiptIdRegEx.test(receiptId)){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
+                    [receiptId],
+                    (error, row) => {
+                        console.log('get receipt query made');
+                        if (error){
+                            console.log('get receipt query error', error);
+                            response.send(output);
+                        }
+                        output.receipt = row[0];
+                        output.success = true;
+                        connection.end(() => { console.log('connection end'); });                        
                         response.send(output);
-                    }
-                    output.success = true;
-
-                    // Close connection to db
-                    connection.end(() => { console.log('connection end'); });
-                    
-                    // Send status of query to front-end
-                    response.send(output);
-                });
-        }
-        else{
-            // Send status of query to front-end
-            output.error = 'optional input data --invalid (add receipt)';
-            response.send(output);
-        }
+                    });
     }
     else{
-        // Send status of query to front-end
-        output.error = 'required input data --invalid (add receipt)';
         response.send(output);
     }
 });
-*/
 
 server.post('/api/addReceipt', (request, response) => {
     
@@ -341,6 +305,7 @@ server.post('/api/addReceipt', (request, response) => {
 
     if(userIdRegex.test(userId)){
         const connection = mysql.createConnection(sqrlDbCreds);
+
         connection.query("INSERT INTO receipts (userId, purchaseDate) VALUES (?, ?);",
             [userId, purchaseDate],
             (error, result) => {
