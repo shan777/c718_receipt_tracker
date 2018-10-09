@@ -3,10 +3,9 @@
     margin: 0;
     font-size: 1em;
     display: block;
-    padding-top: 2%;
-    padding-bottom: 2%;
     background-color: #DEF2F1;
-    
+    top: 80px;
+    position: fixed;
 }
 
 .content_container {
@@ -19,12 +18,11 @@
     box-sizing: border-box;
     /* text-align: center; */
     line-height: 3em;
-    padding: 2%;
-
+    border-bottom: 0.5px solid gray;
 }
 
 .input_title {
-    width: 35%;
+    width: 40%;
     height: 30%;;
     text-align: right;
     padding-right: 3%;
@@ -35,38 +33,30 @@
 
 }
 
-/* .input_field {
-    width: 50%;
-    display: inline-block;
-} */
-
-.input {
-    background-color: #D9DDE1;
-
+input {
+    background-color: rgb(245, 248, 248);
+    box-shadow: none;
+    border-style: none;
+    border-bottom-style: solid;
+    border-color: rgba(206, 204, 204, 0.575);
 }
 
-.camera_img {
-    width: 6%;
-    padding-left: 1%;
-    display: inline-block;
-    /* margin-left: auto;
-    margin-right: auto; */
+select {
+    background-color: rgb(243, 243, 243);
 }
-
-/* .noteInput {
-    height: 2em;
-}
-*/
-.receipt_img_input {
-    height: 2.5em;
-} 
 
 .done_btn {
     float: right;
+    margin-right: 2%;
+}
+
+.cancel_btn {
+    margin-left: 2%;
 }
 
 .btn_container {
     width: 100%;
     background-color: #D9DDE1;
-
+    padding: 1% 0;
+    font-weight: bold;
 }

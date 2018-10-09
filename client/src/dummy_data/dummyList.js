@@ -1,4 +1,6 @@
-const users = [
+import Overview from '../components/overview';
+
+const response = [
     {
         userName: 'chaseCaine',
         firstName: 'chase',
@@ -9,23 +11,27 @@ const users = [
         ID: 1,
         receipts: [
             {
-                storeName: 'nordstrom',
-                total: 100.00,
-                tax: 8.75,
+                storeName: 'Nordstrom',
+                total: 10000,
+                tax: 875,
                 creditCardName: 'Visa',
-                creditCardDigits: 1234,
-                purchaseDate: new Date(),
+                creditCardDigits: '1234',
+                purchaseDate: '2018-09-24',
                 catagory: 'Clothing',
                 comment: 'a couple shirts and some socks',
-                reimburseable: false,
-                ID: 1,
-                tagId: 1
+                reimburseable: 0,
+                ID: 7,
+                tags: ['shirts', 'socks']
             }
         ],
         tags: [
             {
-                tagName: 'My Spending',
+                tagName: 'shirts',
                 ID: 1
+            },
+            {
+                tagName: 'socks',
+                ID: 32
             }
         ]
     },
@@ -39,49 +45,57 @@ const users = [
         ID: 2,
         receipts : [
             {
-                storeName: 'louvre gift shop',
-                total: 10.00,
-                tax: 5.00,
+                storeName: 'Louvre Gift Shop',
+                total: 1000,
+                tax: 500,
                 creditCardName: 'AMEX',
-                creditCardDigits: 1234,
-                purchaseDate: new Date(),
-                catagory: 'gifts',
+                creditCardDigits: '1234',
+                purchaseDate: '2018-09-08',
+                catagory: 'Shopping',
                 comment: 'a tiny replica of the mona lisa',
-                reimburseable: false,
+                reimburseable: 0,
                 ID: 8,
-                tagId: 4
+                tags: ['Paris Trip', 'Gift']
             },
             {
                 storeName: 'cartier',
                 total: 10000.00,
                 tax: 500.00,
                 creditCardName: 'AMEX',
-                creditCardDigits: 1234,
-                purchaseDate: new Date(),
-                catagory: 'gifts',
+                creditCardDigits: '1234',
+                purchaseDate: '2018-09-08',
+                catagory: 'Shopping',
                 comment: 'a sweet watch with a diamond bezel',
-                reimburseable: false,
+                reimburseable: 0,
                 ID: 9,
-                tagId: 4
+                tags: ['Paris Trip']
             },
             {
                 storeName: 'La Creme',
                 total: 150.00,
                 tax: 500.00,
                 creditCardName: 'AMEX',
-                creditCardDigits: 1234,
-                purchaseDate: new Date(),
-                catagory: 'dinner',
+                creditCardDigits: '1234',
+                purchaseDate: '2018-09-09',
+                catagory: 'Dining',
                 comment: 'took the team out to dinner',
-                reimburseable: true,
+                reimburseable: 1,
                 ID: 10,
-                tagId: 4
+                tags: ['Paris Trip', 'Team']
             }
         ],
         tags: [
             {
                 tagName: 'Paris Trip',
                 ID: 4
+            },
+            {
+                tagName: 'Gift',
+                ID: 33
+            },
+            {
+                tagName: 'Team',
+                ID: 35
             }
         ]
     },
@@ -96,65 +110,69 @@ const users = [
         receipts : [
             {
                 storeName: 'Loft',
-                total: 200.00,
-                tax: 18.75,
+                total: 20000,
+                tax: 1875,
                 creditCardName: 'MasterCard',
-                creditCardDigits: 1234,
-                purchaseDate: new Date(),
-                catagory: 'clothes',
+                creditCardDigits: '1234',
+                purchaseDate: '2018-10-01',
+                catagory: 'Clothing',
                 comment: 'some pants and a couple blouses',
-                reimburseable: false,
+                reimburseable: 0,
                 ID: 1,
-                tagId: 2
+                tags: ['Pants', 'Blouse']
             },
             {
                 storeName: 'Banana Repulic',
-                total: 19.99,
-                tax: 4.75,
+                total: 1999,
+                tax: 475,
                 creditCardName: 'MasterCard',
-                creditCardDigits: 1234,
-                purchaseDate: new Date(),
-                catagory: 'clothes',
+                creditCardDigits: '1234',
+                purchaseDate: '2018-10-02',
+                catagory: 'Clothing',
                 comment: 'a belt',
-                reimburseable: false,
+                reimburseable: 0,
                 ID: 2,
-                tagId: 2
+                tags: ['Belt']
             },
             {
                 storeName: 'Ralphs',
-                total: 150.00,
-                tax: 18.75,
+                total: 15000,
+                tax: 1875,
                 creditCardName: 'Visa',
-                creditCardDigits: 1234,
-                purchaseDate: new Date(),
-                catagory: 'food',
+                creditCardDigits: '1234',
+                purchaseDate: '2018-09-15',
+                catagory: 'Groceries',
                 comment: 'got some food to restock the fridge',
-                reimburseable: false,
+                reimburseable: 0,
                 ID: 5,
-                tagId: 3
+                tags: []
             },
             {
                 storeName: 'Korean Market',
-                total: 33.00,
-                tax: 3.75,
+                total: 3300,
+                tax: 375,
                 creditCardName: '',
-                creditCardDigits: null,
-                purchaseDate: new Date(),
-                catagory: 'food',
+                creditCardDigits: '',
+                purchaseDate: '2018-09-29',
+                catagory: 'Groceries',
                 comment: 'noodles',
-                reimburseable: false,
+                reimburseable: 0,
                 ID: 6,
-                tagId: 3
+                tags: []
             },
         ],
         tags: [
             {
-                tagName: 'Shopping',
+                tagName: 'Pants',
                 ID: 2
             },
             {
-                tagName: 'Food',
+                tagName: 'Blouse',
                 ID: 3
+            },
+            {
+                tagName: 'Belt',
+                ID: 36
             }
         ]
     },
@@ -169,21 +187,21 @@ const users = [
         receipts : [
             {
                 storeName: 'Pho King Way',
-                total: 18.00,
-                tax: 2.75,
+                total: 1800,
+                tax: 275,
                 creditCardName: 'Discover',
-                creditCardDigits: 1234,
-                purchaseDate: new Date(),
-                catagory: 'lunch',
+                creditCardDigits: '1234',
+                purchaseDate: '2018-09-05',
+                catagory: 'Dining',
                 comment: 'bun and a coke',
-                reimburseable: false,
+                reimburseable: 0,
                 ID: 11,
-                tagId: 5
+                tags: ['Lunch']
             }
         ],
         tags: [
             {
-                tagName: 'Meals',
+                tagName: 'Lunch',
                 ID: 5
             }
         ]
@@ -199,29 +217,29 @@ const users = [
         receipts : [
             {
                 storeName: 'Supreme',
-                total: 68.00,
-                tax: 10.75,
+                total: 6800,
+                tax: 1075,
                 creditCardName: 'MasterCard',
-                creditCardDigits: 1234,
-                purchaseDate: new Date(),
-                catagory: 'clothes',
+                creditCardDigits: '1234',
+                purchaseDate: '2018-10-05',
+                catagory: 'Clothing',
                 comment: 'box logo tee',
-                reimburseable: false,
+                reimburseable: 0,
                 ID: 12,
-                tagId: 6
+                tags: ['Streetwear']
             },
             {
                 storeName: 'Supreme',
-                total: 250.00,
-                tax: 10.75,
+                total: 25000,
+                tax: 1075,
                 creditCardName: 'MasterCard',
-                creditCardDigits: 1234,
-                purchaseDate: new Date(),
-                catagory: 'clothes',
+                creditCardDigits: '1234',
+                purchaseDate: '2018-10-05',
+                catagory: 'Clothing',
                 comment: 'box logo hoodie',
                 reimburseable: false,
                 ID: 13,
-                tagId: 6
+                tags: ['Streetwear']
             }
         ],
         tags: [
@@ -233,5 +251,4 @@ const users = [
     },
 ];
 
-export default users;
-
+export default response;

@@ -13,24 +13,114 @@ server.use(express.json()); // replaces body parser
 server.post('/api/addTag', (request, response) => {
     const {userId, tagName} = request.body;
     console.log("request data: ", request.body);
-    
     const output = {
         success: false
     };
 
-    let userIdRedEx = /^[1-9][\d]*/;
-    let tagNameRegex = /^[a-zA-Z \d-_]{2,}$/;
+    let userIdRegEx = /^[1-9][\d]*$/;
+    let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
 
-    if (userIdRedEx.exec(userId) && tagNameRegex.exec(tagName)){
+    if (userIdRegEx.test(userId) && tagNameRegEx.test(tagName)){
         const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
-                    [userId, tagName],
-                    (error, result) => {
-                        console.log('query made');
-                        if (error){
-                            console.log('query error', error);
+        connection.query(
+            "SELECT tagName, userId FROM tags WHERE userId = ? AND tagName = ?",
+            [userId, tagName],
+            (error, rows) => {
+                console.log('look up tag query made', rows, rows.length);
+                if (error){
+                    console.log('look up query error', error);
+                    output.error = error;
+                    response.send(output);
+                }else if(rows.length===0){
+                    connection.query(
+                        "INSERT INTO tags (userId, tagName) VALUES (?, ?);",
+                        [userId, tagName],
+                        (error, result) => {
+                            console.log('insert query made');
+                            if (error){
+                             console.log('insert query error', error);
+                             output.error = error;
+                             response.send(output);
+                            }
+                             output.success = true;
+                            connection.end(() => {
+                                console.log('connection end');
+                            });                        
                             response.send(output);
                         }
+                    );
+                }else{
+                    output.error = "tagName exists already";
+                    response.send(output);
+                }
+                
+            }
+        );
+    }else{
+        output.error = "userId or tagName invalid";
+        response.send(output);
+    }
+});
+
+server.post('/api/getUserTags', (request, response) => {
+    const {userId} = request.body;
+    console.log("request data: ", request.body);
+    
+    const output = {
+        tags: [],
+        success: false
+    };
+
+    let userIdRegEx = /^[1-9][\d]*/;
+
+    if (userIdRegEx.test(userId)){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("SELECT tagName FROM tags WHERE userId = ?",
+                    [userId],
+                    (error, rows) => {
+                        console.log('get tags query made');
+                        if (error){
+                            console.log('get tags query error', error);
+                            response.send(output);
+                        }
+                        rows.forEach(element => {
+                            output.tags.push(element);
+                        });
+                        output.success = true;
+                        connection.end(() => {
+                            console.log('connection end');
+                        });                        
+                        response.send(output);
+                    });
+    }else{
+        response.send(output);
+    }
+});
+
+server.post('/api/getTagsForReceipt', (request, response) => {
+    const {receiptId} = request.body;
+    console.log("request data: ", request.body);
+    
+    const output = {
+        tags: [],
+        success: false
+    };
+
+    let receiptIdRegEx = /^[1-9][\d]*/;
+
+    if (receiptIdRegEx.test(receiptId)){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("SELECT receipts_tags.tagId,tags.tagName FROM receipts_tags JOIN tags ON receipts_tags.tagId=tags.ID WHERE receipts_tags.receiptId=?",
+                    [receiptId],
+                    (error, rows) => {
+                        console.log('tags for receipt query made');
+                        if (error){
+                            console.log('tags for receipt query error', error);
+                            response.send(output);
+                        }
+                        rows.forEach(element => {
+                            output.tags.push(element);
+                        });
                         output.success = true;
                         connection.end(() => {
                             console.log('connection end');

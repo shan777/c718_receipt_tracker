@@ -1,4 +1,4 @@
-.footer_container {
+ .footer_container {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -6,15 +6,22 @@
     background-color: #237E80;
 }
 
-.icon_image {
+/* .icon_image {
     padding: 4%;
-}
+} */
 
-.footer_container img {
-    width: 55px;
+.footer_container i {
+    width: 25%;;
     padding-top: 3%;
 }
 
-.add_new_icon {
-    padding-left: 9%;
+
+.footer-nav-link i {
+    font-size: 4em;
+    color: #000;
+    padding: 6px 13px 0px 14px;
+}
+
+.footer-nav-link.active i { 
+    color: #98FFA8;
 }
