@@ -17,21 +17,23 @@ class AddNew extends Component {
 //         return {today};
 // {/* <input id="dateRequired" type="date" name="dateRequired" defaultValue={date} />  */}
 //     }
-    
-    state = {
-        merchantName: '',
-        // dateOfPurchase: this.calcDate().today,
-        totalAmount: '0',
-        dateOfPurchase: '',
-        category: '',
-        note: '',
-        errorMessage: {
-            forTotalAmount: "'Total Amount' must be a number.",
-            forMerchantName: "'Merchant Name' must be entered."
-        }
-        //tag: 'None', //will be an array later
-    }
+    constructor(props) { 
+        super(props);
 
+        this.state = {
+            merchantName: '',
+            // dateOfPurchase: this.calcDate().today,
+            totalAmount: '0',
+            dateOfPurchase: '',
+            category: '',
+            note: '',
+            errorMessage: {
+                forTotalAmount: "'Total Amount' must be a number.",
+                forMerchantName: "'Merchant Name' must be entered."
+            }
+            //tag: 'None', //will be an array later
+        }
+    }
 
     handleSubmit = (event) => {
         console.log('dummy: ',{dummy});
@@ -42,10 +44,7 @@ class AddNew extends Component {
 
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
         console.log('totalAmount: ', totalAmount);
-        if(isNaN(totalAmount)) {
-            console.log('msg:', errorMessage.forAmount);
-
-        }
+        
 
 
         //this.props.history.push('/overview');
