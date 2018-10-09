@@ -67,12 +67,12 @@ server.post('/api/addReceipt', (request, response) => {
 
     // Validating required input data
     if(userIdRegex.test(userId) && storeNameRegex.test(storeName) && totalRegex.test(total) && purchaseDateRegex.test(purchaseDate)){
-        console.log('required input data valid');
+        console.log('required input data --valid');
 
         // Validating optional input data
         if((taxRegex.test(tax) || tax===0) && (creditCardNameRegex.test(creditCardName) || creditCardName===null) && (creditCardDigitsRegex.test(creditCardDigits) || creditCardDigits===null) 
             && (categoryRegex.test(category) || category===null) && (commentRegex.test(comment) || comment===null) && (reimbursableRegex.test(reimbursable) || reimbursable===0)){
-            console.log('optional input data valid');
+            console.log('optional input data --valid');
 
             // Create connection to db
             const connection = mysql.createConnection(sqrlDbCreds);
@@ -96,9 +96,15 @@ server.post('/api/addReceipt', (request, response) => {
                     response.send(output);
                 });
         }
+        else{
+            // Send status of query to front-end
+            output.error = 'optional input data --invalid';
+            response.send(output);
+        }
     }
     else{
         // Send status of query to front-end
+        output.error = 'required input data --invalid';
         response.send(output);
     }
 });
