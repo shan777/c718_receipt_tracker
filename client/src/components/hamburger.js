@@ -9,8 +9,9 @@ class Hamburger extends Component {
         <div className="pages">
           <Link to="/"><h1>home</h1></Link>
           <Link to="/overview"><h1>Overview</h1></Link>
-          <Link to="/add_new"><h1>Add New Receipt</h1></Link>
-          <Link to="/about_us"><h1>Meet the team</h1></Link>
+          <Link to="/add_new"><h1>Add New</h1></Link>
+          <Link to="/about_us"><h1>About us</h1></Link>
+          <Link to="/signout"><h1>Sign out</h1></Link>
         </div>
       </div>
     )

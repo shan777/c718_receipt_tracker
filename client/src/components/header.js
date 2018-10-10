@@ -29,22 +29,21 @@ class Header extends Component {
     render() {
         const { path } = this.state;
         switch(path) {
-            case "/about_us":
-                return(
-                    <div className="headContainer header">
-                        {this.props.title || ''}
-                        <Sidebar
-                        sidebar={<Hamburger/>}
-                        open={this.state.sidebarOpen}
-                        styles={this.sidebar}
-                        >
-                        <div>
-                            <img className="dots" onClick={() => this.onSetSidebarOpen(true)} src={dots}/>
-                            <h1 style={this.aboutUs}>Meet our team</h1>
-                        </div>
-                        </Sidebar>   
-                    </div> 
-                );
+            // case "/about_us":
+                // return(
+                //     <div className="headContainer header">
+                //         {this.props.title || ''}
+                //         <Sidebar
+                //         sidebar={<Hamburger/>}
+                //         open={this.state.sidebarOpen}
+                //         styles={this.sidebar}
+                //         >
+                //         <div>
+                //             <img className="dots" onClick={() => this.onSetSidebarOpen(true)} src={dots}/>
+                //         </div>
+                //         </Sidebar>   
+                //     </div> 
+                //  );
             default:
                 return (
                     <div>
