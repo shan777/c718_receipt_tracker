@@ -303,6 +303,7 @@ server.post('/api/getReceipt', (request, response) => {
     let receiptIdRegEx = /^[1-9][\d]*/;
 
     if (receiptIdRegEx.test(receiptId)){
+        output.tags = getTagsForReceipt(receiptId);
         const connection = mysql.createConnection(sqrlDbCreds);
         connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
                         [receiptId],
@@ -325,10 +326,7 @@ server.post('/api/getReceipt', (request, response) => {
 });
 
 function getTagsForReceipt(receiptId){
-    const output = {
-        tags: [],
-        success: false
-    };
+    let tags = [];
 
     let receiptIdRegEx = /^[1-9][\d]*/;
 
@@ -340,20 +338,16 @@ function getTagsForReceipt(receiptId){
                             console.log('get tags for receipt query made');
                             if (error){
                                 console.log('get tags for receipt query error', error);
-                                response.send(output);
                             }
                             rows.forEach(element => {
-                                output.tags.push(element);
+                                tags.push(element.tagName);
                             });
-                            output.success = true;
                             connection.end(() => { console.log('connection end'); });                        
-                            response.send(output);
                         }
         );
     }
-    else{
-        response.send(output);
-    }
+
+    return tags;
 }
 
 server.post('/api/addReceipt', (request, response) => {
@@ -381,6 +375,7 @@ server.post('/api/addReceipt', (request, response) => {
         // Validating optional input data
         if((taxRegex.test(tax) || tax===0) && (creditCardNameRegex.test(creditCardName) || creditCardName===null) && (creditCardDigitsRegex.test(creditCardDigits) || creditCardDigits===null) 
             && (categoryRegex.test(category) || category===null) && (commentRegex.test(comment) || comment===null) && (reimbursableRegex.test(reimbursable) || reimbursable===0)){
+            
             
             const connection = mysql.createConnection(sqrlDbCreds);
             connection.query("INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
