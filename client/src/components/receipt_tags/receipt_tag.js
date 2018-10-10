@@ -8,12 +8,13 @@ class ReceiptTab extends Component{
             newText: ''
         }
     }
+
     handleKeyPress = (e) =>{
-        console.log('keypress')
         this.setState({
             newText: e.target.value
         })
     }
+
     handleEnterCheck = (e)=>{
         if(e.which===13){
             console.log('enter pressed')
@@ -23,19 +24,20 @@ class ReceiptTab extends Component{
         }
         return true;
     }
+
     render(){
         switch(this.props.mode){
             case 'add':
                 return(
-                    <div className='tag'><input onChange={this.handleKeyPress} onKeyDown={this.handleEnterCheck } value={this.state.newText} type="text" placeholder="enter tag"/></div>
-                )
+                    <div className="tag"><input className="tag_input" onChange={this.handleKeyPress} onKeyDown={this.handleEnterCheck } 
+                        value={this.state.newText} type="text" placeholder="Add your own"/></div>
+                );
             default:
                 return(
-                    <div className={`tag tag-${this.props.data}`}>{this.props.data}</div>
+                    <div className={`added_tag tag-${this.props.data}`}>{this.props.data}</div>
                 );
         }
-
     }
 }
 
-export default ReceiptTab
+export default ReceiptTab;

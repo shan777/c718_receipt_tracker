@@ -7,22 +7,11 @@
     font-family: 'Roboto';
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
-/* 
-.sidebar_container {
-    /* width: 30vw;
-    height: 50vh; */
-    /* background-color: #C9CED2;
-    font-family: 'Roboto';
-    background-color: pink;
-    color: #283239;
-    top: 0;
-    right: 0;
-} */
 
-.menus>link>p:hover {
+.menus>a>p:hover {
     text-decoration: underline;
 }
 
-.menus>link>p:visited {
+.menus>a>p:visited {
     text-decoration: none;
 }
