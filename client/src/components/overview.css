@@ -9,6 +9,7 @@ body{
     width: 100%;
     padding-top: 80px;
     background-color: #DEF2F1;
+    padding-bottom: 155px;
 }
 
 .row{
@@ -25,7 +26,8 @@ body{
     display: inline-block;
 } 
 
-.store_name, .amount_of_purchase{
+.store_name, .date_of_purchase{
+    left: 3%;
     font-size: 1.5em;
 }
 
@@ -71,10 +73,12 @@ body{
 }
 
 .summary{
-    position: relative;
-    background-color: #DEF2F1;
+    position: fixed;
+    bottom: 80px;
+    background-color: #237E80;
     width: 100vw;
     margin: 0;
+    border-bottom: 1px solid black;
 }
 
 .number_of_receipts, .total_amount{
@@ -93,8 +97,8 @@ body{
     position: relative;
     height: 3vh;;
     width: 10%;
-    background-color: darkgrey;
     float: right;
     top: 2vh;
     right: 15%;
+    
 }
