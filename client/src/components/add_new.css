@@ -33,8 +33,8 @@
     display: block;
     box-sizing: border-box;
     /* text-align: center; */
-    line-height: 3em;
-    border-bottom: 0.5px solid #237E8099;
+    line-height: 2.5em;
+    /* border-bottom: 0.5px solid #237E8099; */
 }
 
 .input_label {
@@ -49,13 +49,11 @@
 
 }
 
-
 input {
     background-color: #DEF2F1;
     box-shadow: none;
     border-style: none;
     border-bottom: 1px solid #237E80 ;
-    
 }
 
 select {
@@ -99,7 +97,6 @@ select {
     border-color: #2C3531;
     transition-duration: 0.4s;
     font-family: 'Original Surfer';
-
 }
 
 .btn_container {
@@ -108,7 +105,6 @@ select {
     padding: 2% 0;
     font-weight: bold;
     font-family: 'Original Surfer';
-    border-bottom: 0.5px solid gray;
     margin-bottom: 5%;
 
 }
