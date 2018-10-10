@@ -1,14 +1,17 @@
 .tab_panel{
-    background-color: lavender;
     min-height: 50px;
     position: relative;
 }
 .tagAddButton{
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 5px;
-    color: white;
-    background-color: black;
     cursor: pointer;
+    margin-right: 2%;
+    background-color: #2E3B3B;
+    color: #F2F2F2;
+    padding: 0px 7%;
+    font-size: 1.6em;
+    border-radius: 6px;
+    border-color: #2C3531;
+    transition-duration: 0.4s;
+    font-family: 'Original Surfer';
+    float: right;
 }

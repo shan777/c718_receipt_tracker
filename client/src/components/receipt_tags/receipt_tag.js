@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './receipt_tag.css';
+// import './receipt_tag.css';
 
 class ReceiptTab extends Component{
     constructor(props){
