@@ -28,7 +28,9 @@ class Header extends Component {
         var sidebar = "<b>About us</b> <b>test</b>"
         return(
             <div className="headContainer header">
-                {this.props.title || ''}
+                <div className="header">
+                    {this.props.title || ''}
+                </div>
                 {/* <Sidebar
                 sidebar={<Hamburger/>}
                 open={this.state.sidebarOpen}

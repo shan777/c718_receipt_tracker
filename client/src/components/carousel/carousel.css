@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Original Surfer';
+  src: url(../../assets/fonts/OriginalSurfer-Regular.ttf);
+}
+
 .carousel-container {
     border: 4px solid black;
     border-radius: 18px;
@@ -104,6 +109,22 @@
 .finished_button {
   position: relative;
   float: right;
-  border: 2px solid red;
+  border: 2px solid #237E80;
+  background-color: #237E80;
+  color: #98FFA8;
   bottom: 1vh;
+  font-size: 1.3em;
+}
+
+.next_button {
+  float: right;
+}
+
+button {
+  font-family: 'Original Surfer';
+  font-size: 1.1em;
+  background-color: rgb(183, 188, 192);
+  color: #2C3531;
+  border-radius: 6px;
+  border-color: #2C3531;
 }
