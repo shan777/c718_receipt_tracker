@@ -23,7 +23,7 @@
                             <form>
                                 <div className="entry_container">
                                     <label className="input_title">First Name</label>
-                                    <input onChange={ (e) => this.setState({firstName: e.target.value})}
+                                    <input className='sign_up_input' onChange={ (e) => this.setState({firstName: e.target.value})}
                                         type="text"
                                         value={firstName}
                                     />
@@ -31,7 +31,7 @@
 
                                 <div className="entry_container">
                                     <label className="input_title">Last Name</label>
-                                    <input onChange={ (e) => this.setState({lastName: e.target.value})}
+                                    <input className='sign_up_input' onChange={ (e) => this.setState({lastName: e.target.value})}
                                         type="text"
                                         value={lastName}
                                     />
@@ -39,7 +39,7 @@
 
                                 <div className="entry_container">
                                     <label className="input_title">Email Address</label>
-                                    <input onChange={ (e) => this.setState({emailAddress: e.target.value})}
+                                    <input className='sign_up_input' onChange={ (e) => this.setState({emailAddress: e.target.value})}
                                         type="email"
                                         value={emailAddress}
                                     />
@@ -47,7 +47,7 @@
 
                                 <div className="entry_container">
                                     <label className="input_title">Password</label>
-                                    <input onChange={ (e) => this.setState({password: e.target.value})}
+                                    <input className='sign_up_input' onChange={ (e) => this.setState({password: e.target.value})}
                                         type="password"
                                         value={password}
                                     />
@@ -55,8 +55,8 @@
 
                                 <div className="entry_container">
                                     <label className="input_title cfm_password">Confirm<br></br>Password</label>
-                                    <div className="cfm">
-                                        <input onChange={ (e) => this.setState({confirmPassword: e.target.value})}
+                                    <div className="cfm sign_up_input">
+                                        <input className='sign_up_input_inside' onChange={ (e) => this.setState({confirmPassword: e.target.value})}
                                             type="password"
                                             value={confirmPassword}
                                         />
