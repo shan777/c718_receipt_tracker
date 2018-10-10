@@ -9,11 +9,26 @@
             lastName: '',
             emailAddress: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            alert: false
+        }
+
+
+        passwordRestrictions(){
+            this.setState({
+                alert: true
+            })
         }
 
         render() {
+            console.log(this.state.alert);
             const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
+            const alertNone = {
+                display: 'none'
+            }
+            const alertShow = {
+                display: 'block'
+            }
             return (
                 <div className="signup_container">
                     <div className="sign_up_main_container">
@@ -47,10 +62,11 @@
 
                                 <div className="entry_container">
                                     <label className="input_title">Password</label>
-                                    <input className='sign_up_input' onChange={ (e) => this.setState({password: e.target.value})}
+                                    <input onClick={this.passwordRestrictions.bind(this)}  className='sign_up_input' onChange={ (e) => this.setState({password: e.target.value})}
                                         type="password"
                                         value={password}
                                     />
+                                    <div style={this.state.alert ? alertShow: alertNone} className="alert_password_restrictions">Minimum password of 8 characters including one number!</div>
                                 </div>
 
                                 <div className="entry_container">
