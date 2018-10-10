@@ -34,7 +34,7 @@ class Overveiw extends Component{
                 <br/>
                 <div className="date_of_purchase">{item.purchaseDate}</div>
                 <div className="amount_of_purchase">${item.total/100}</div>
-                <Link className="edit" to='/add_new'><button>Edit</button></Link>
+                <Link className="edit" to='/add_new'><button className='editbtn'>Edit</button></Link>
                 
                     <AccordionItem className="panel">
                        <div className="panel_size">

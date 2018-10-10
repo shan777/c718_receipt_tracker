@@ -1,3 +1,5 @@
+@media only screen and (max-width: 600px){
+
 body{
     height: 100vh;
     width: 100vw;
@@ -101,4 +103,239 @@ body{
     top: 2vh;
     right: 15%;
     
+}
+
+}
+
+
+@media only screen and (min-width: 768px){
+    body{
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        background-color: #DEF2F1;
+    }
+    
+    .overview_main_container{
+        width: 75%;
+        padding-top: 80px;
+        background-color: #DEF2F1;
+        padding-bottom: 190px;
+        position: relative;
+        left: 11%;
+        top: 12vh;
+    }
+    
+    .row{
+        background-color: #DEF2F1;
+        position: relative;
+        width: 75%;
+        left: 14%;
+        cursor: pointer;
+        transition: 0.4s;
+        border-bottom: 1px solid black;
+    }
+    
+    .date_of_purchase, .store_name, .amount_of_purchase{
+        margin: 0;
+        position: relative;
+        display: inline-block;
+    } 
+    
+    .store_name, .date_of_purchase{
+        left: 3%;
+        font-size: 2em;
+    }
+    
+    .store_name{
+        top: 1vh;
+    }
+    
+    .date_of_purchase{
+        top: 1vh;
+    }
+    .amount_of_purchase{
+        left: 47%;
+        bottom: 2vh;
+        font-size: 2em;
+    }
+    
+    
+    .panel{
+        display: none;
+        overflow: hidden;
+        background-color: #DEF2F1;
+        position: relative;
+        width: 100%;
+        height: 25vh;
+    }
+    
+    .panel_size{
+        width: 100%;
+        position: relative;
+        height: 14%;
+        margin-top: 10px;
+    }
+    
+    .catagory, .data{
+        display: inline-block;
+        width: 50%;
+        position: relative;
+        font-size: 1.5em;
+    }
+    
+    .data{
+        left: 5%;
+    }
+    
+    .summary{
+        position: fixed;
+        bottom: 80px;
+        background-color: #237E80;
+        width: 100vw;
+        margin: 0;
+        border-bottom: 1px solid black;
+        left: 0;
+    }
+    
+    .number_of_receipts, .total_amount{
+        margin: 0;
+        font-size: 3em;
+    }
+    
+    .collapsible_header{
+        position: relative;
+        bottom: 5vh;
+        opacity: 0;
+    }
+    
+    
+    .edit{
+        position: relative;
+        height: 3vh;;
+        width: 10%;
+        float: right;
+        top: 2vh;
+        right: 9%;
+    }
+
+    .editbtn{
+        font-size: 2em;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    body{
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        background-color: #DEF2F1;
+    }
+    
+    .overview_main_container{
+        width: 75%;
+        padding-top: 80px;
+        background-color: #DEF2F1;
+        padding-bottom: 240px;
+        position: relative;
+        left: 11%;
+        top: 12vh;
+    }
+    
+    .row{
+        background-color: #DEF2F1;
+        position: relative;
+        width: 85%;
+        left: 9%;
+        cursor: pointer;
+        transition: 0.4s;
+        border-bottom: 1px solid black;
+    }
+    
+    .date_of_purchase, .store_name, .amount_of_purchase{
+        margin: 0;
+        position: relative;
+        display: inline-block;
+    } 
+    
+    .store_name, .date_of_purchase{
+        left: 3%;
+        font-size: 3em;
+    }
+    
+    .store_name{
+        top: 1vh;
+    }
+    
+    .date_of_purchase{
+        top: 1vh;
+    }
+    .amount_of_purchase{
+        left: 47%;
+        bottom: 2vh;
+        font-size: 3em;
+    }
+    
+    
+    .panel{
+        display: none;
+        overflow: hidden;
+        background-color: #DEF2F1;
+        position: relative;
+        width: 100%;
+        height: 25vh;
+    }
+    
+    .panel_size{
+        width: 100%;
+        position: relative;
+        height: 14%;
+        margin-top: 10px;
+    }
+    
+    .catagory, .data{
+        display: inline-block;
+        width: 50%;
+        position: relative;
+        font-size: 2em;
+    }
+    
+    .data{
+        left: 5%;
+    }
+    
+    .summary{
+        position: fixed;
+        bottom: 80px;
+        background-color: #237E80;
+        width: 100vw;
+        margin: 0;
+        border-bottom: 1px solid black;
+        left: 0;
+    }
+    
+    .number_of_receipts, .total_amount{
+        margin: 0;
+        font-size: 4em;
+    }
+    
+    .collapsible_header{
+        position: relative;
+        bottom: 5vh;
+        opacity: 0;
+    }
+    
+    
+    .edit{
+        position: relative;
+        height: 1vh;;
+        width: 8%;
+        float: right;
+        top: 6vh;
+        right: 23%;
+    }
+
+    .editbtn{
+        font-size: 2em;
+    }
 }
