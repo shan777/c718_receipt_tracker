@@ -8,6 +8,7 @@ import Splash from './carousel/app';
 import AddNew from './add_new';
 import Login from './login';
 import SignUp from './signup';
+import SignOut from './signout';
 import AboutUs from './about_us';
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
             <Route path = "/login" component = {Login}/>
             <Route path="/signup" component ={SignUp}/>
             <Route path="/about_us" component={AboutUs}/>
+            <Route path="/signout" component={SignOut}/>
         </div>
     </Router>
 );
