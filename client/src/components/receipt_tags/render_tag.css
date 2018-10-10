@@ -4,15 +4,21 @@
 }
 
 .tag {
-    padding: 2px 4px;
-    border: 1px solid black;
+    border: 1px solid #2C3531;
     display: inline-block;
-    font-family: 'Original Surfer';
     font-size: 1.1em;
-    background-color: rgb(183, 188, 192);
+    background-color: rgba(239, 241, 241, 0.904);
     color: #2C3531;
     border-radius: 6px;
-    border-color: #2C3531;
-    margin-top: 10px;
-    margin-right: 8px;
+    padding-left: 3%;
+    width: 60%;
+}
+
+.tag_input {
+    width: 95%;
+    background-color: rgba(239, 241, 241, 0.904);
+}
+
+.added_tag {
+    font-size: 0.9em;
 }

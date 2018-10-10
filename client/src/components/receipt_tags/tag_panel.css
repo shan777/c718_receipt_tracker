@@ -1,17 +1,21 @@
-.tab_panel{
+.tag_panel{
     min-height: 50px;
     position: relative;
+    display: inline-block;
+    margin-top: 2%;
 }
-.tagAddButton{
+
+.tag_add_button{
     cursor: pointer;
     margin-right: 2%;
-    background-color: #2E3B3B;
-    color: #F2F2F2;
-    padding: 0px 7%;
-    font-size: 1.6em;
+    background-color: rgba(153, 222, 219, 0.274);
+    color: rgb(48, 46, 46);
+    padding: 0 3%;
+    font-size: 1.2em;
     border-radius: 6px;
-    border-color: #2C3531;
-    transition-duration: 0.4s;
+    border: 1px solid #237E80;
+    transition-duration: 0.3s;
+    /* float: right; */
+    display: inline-block;
     font-family: 'Original Surfer';
-    float: right;
 }
