@@ -29,7 +29,7 @@ class Login extends Component{
                 <img className="login_logo" src={loginLogo} />
                 <div style={centerStyle}>
                     <form className="login_area">
-                        <input name='userName' value={this.state.userName} onChange={this.handleChange.bind(this)} className="username" type="text" placeholder="Username"/>
+                        <input name='userName' value={this.state.userName} onChange={this.handleChange.bind(this)} className="username" type="text" placeholder="Email Address"/>
                         <input name='password' value={this.state.password} onChange={this.handleChange.bind(this)} className="password" type="text" placeholder="Password"/>
                     </form>
                     <div className="forgot_password"> {/*forgot your password is only text at this time*/}
