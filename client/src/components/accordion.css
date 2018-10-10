@@ -109,8 +109,8 @@
 @media only screen and (min-width: 992px){
     .material_icons{
         position: relative;
-        font-size:7em;
-        top: -87px;
+        font-size:6em;
+        top: -92px;
         width: 100%;
         right: 0;
     }
