@@ -1,0 +1,27 @@
+.headContainer {
+    background-color: #237E80;
+    color: #F2F2F2;
+    font-family: sans-serif;
+    height: 80px;
+    font-size: 3em;
+    padding-left: 10%;
+    text-align: left;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.dots {
+    position: absolute;
+    right: 6%;
+    top: 15%;
+}
+
+
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+

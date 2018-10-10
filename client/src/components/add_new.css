@@ -1,0 +1,70 @@
+.main_container {
+    width: 100%;
+    margin: 0;
+    font-size: 1em;
+    display: block;
+    background-color: #DEF2F1;
+    top: 80px;
+    position: fixed;
+}
+
+.content_container {
+    background-color: #DEF2F1;
+    width: 100%;
+    /* border-bottom: 0.5px solid #116466; */
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    box-sizing: border-box;
+    /* text-align: center; */
+    line-height: 3em;
+    border-bottom: 0.5px solid #237E8099;
+}
+
+.input_title {
+    width: 40%;
+    height: 30%;;
+    text-align: right;
+    padding-right: 3%;
+    display: inline-block;
+    /* overflow-y: auto;
+    overflow-x: auto; */
+    word-break: break-word;
+
+}
+
+input {
+    background-color: #DEF2F1;
+    box-shadow: none;
+    border-style: none;
+    border-bottom: 1px solid #237E80 ;
+    
+}
+
+select {
+    background-color: rgba(239, 241, 241, 0.904);
+}
+
+.date {
+    width: 30%;
+}
+
+.amount {
+    width: 20%;
+}
+
+.done_btn {
+    float: right;
+    margin-right: 2%;
+}
+
+.cancel_btn {
+    margin-left: 2%;
+}
+
+.btn_container {
+    width: 100%;
+    background-color: #D9DDE1;
+    padding: 1% 0;
+    font-weight: bold;
+}
