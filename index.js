@@ -8,6 +8,7 @@ const sqrlDbCreds = require('./sqrlDbCreds');
 const session = require('express-session');
 const sessionParams = require('./sessionParams');
 const sessionExec = session(sessionParams);
+const functions = require("./serverFunctions.js");
 
 server.use(express.static(resolve(__dirname, 'client', 'dist')));
 server.use(cors()); // allows cross origin
@@ -223,41 +224,6 @@ server.post('/api/getUserReceipts', (request, response) => {
     }
 });
 
-// server.post('/api/getTagsForReceipt', (request, response) => {
-//     const {receiptId} = request.body;
-//     console.log("request data: ", request.body);
-    
-//     const output = {
-//         tags: [],
-//         success: false
-//     };
-
-//     let receiptIdRegEx = /^[1-9][\d]*/;
-
-//     if (receiptIdRegEx.test(receiptId)){
-//         const connection = mysql.createConnection(sqrlDbCreds);
-//         connection.query("SELECT receipts_tags.tagId,tags.tagName FROM receipts_tags JOIN tags ON receipts_tags.tagId=tags.ID WHERE receipts_tags.receiptId=?",
-//                     [receiptId],
-//                     (error, rows) => {
-//                         console.log('get tags for receipt query made');
-//                         if (error){
-//                             console.log('get tags for receipt query error', error);
-//                             response.send(output);
-//                         }
-//                         rows.forEach(element => {
-//                             output.tags.push(element);
-//                         });
-//                         output.success = true;
-//                         connection.end(() => {
-//                             console.log('connection end');
-//                         });                        
-//                         response.send(output);
-//                     });
-//     }else{
-//         response.send(output);
-//     }
-// });
-
 server.post('/api/deleteReceipt', (request, response) => {
 
     // NOTE: This query is meant for doing a SOFT delete meaning the receipts status will be update to 'inactive' and will NOT be removed from the db
@@ -303,8 +269,8 @@ server.post('/api/getReceipt', (request, response) => {
     let receiptIdRegEx = /^[1-9][\d]*/;
 
     if (receiptIdRegEx.test(receiptId)){
-        output.tags = getTagsForReceipt(receiptId);
         const connection = mysql.createConnection(sqrlDbCreds);
+        output.tags = functions.getTagsForReceipt(receiptId, connection);
         connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
                         [receiptId],
                         (error, row) => {
@@ -325,33 +291,8 @@ server.post('/api/getReceipt', (request, response) => {
     }
 });
 
-function getTagsForReceipt(receiptId){
-    let tags = [];
-
-    let receiptIdRegEx = /^[1-9][\d]*/;
-
-    if (receiptIdRegEx.test(receiptId)){
-        const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("SELECT receipts_tags.tagId,tags.tagName FROM receipts_tags JOIN tags ON receipts_tags.tagId=tags.ID WHERE receipts_tags.receiptId=?",
-                        [receiptId],
-                        (error, rows) => {
-                            console.log('get tags for receipt query made');
-                            if (error){
-                                console.log('get tags for receipt query error', error);
-                            }
-                            rows.forEach(element => {
-                                tags.push(element.tagName);
-                            });
-                            connection.end(() => { console.log('connection end'); });                        
-                        }
-        );
-    }
-
-    return tags;
-}
-
 server.post('/api/addReceipt', (request, response) => {
-    const {userId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
+    const {userId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
     console.log("request data: ", request.body);
 
     const output = {
@@ -375,7 +316,6 @@ server.post('/api/addReceipt', (request, response) => {
         // Validating optional input data
         if((taxRegex.test(tax) || tax===0) && (creditCardNameRegex.test(creditCardName) || creditCardName===null) && (creditCardDigitsRegex.test(creditCardDigits) || creditCardDigits===null) 
             && (categoryRegex.test(category) || category===null) && (commentRegex.test(comment) || comment===null) && (reimbursableRegex.test(reimbursable) || reimbursable===0)){
-            
             
             const connection = mysql.createConnection(sqrlDbCreds);
             connection.query("INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
@@ -404,7 +344,7 @@ server.post('/api/addReceipt', (request, response) => {
 });
 
 server.post('/api/updateReceipt', (request, response) => {
-    const {receiptId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
+    const {receiptId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
     console.log("request data: ", request.body);
     
     const output = {
@@ -429,7 +369,7 @@ server.post('/api/updateReceipt', (request, response) => {
         if((taxRegex.test(tax) || tax===0) && (creditCardNameRegex.test(creditCardName) || creditCardName===null) && (creditCardDigitsRegex.test(creditCardDigits) || creditCardDigits===null) 
             && (categoryRegex.test(category) || category===null) && (commentRegex.test(comment) || comment===null) && (reimbursableRegex.test(reimbursable) || reimbursable===0)){
             
-                const connection = mysql.createConnection(sqrlDbCreds);
+            const connection = mysql.createConnection(sqrlDbCreds);
             connection.query("UPDATE receipts SET receipts.storeName = ?, receipts.total = ?, receipts.tax = ?, receipts.creditCardName = ?, receipts.creditCardDigits = ?, receipts.purchaseDate = ?, receipts.category = ?, receipts.comment = ?, receipts.reimbursable = ?  WHERE receipts.ID = ?;",
                             [storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable, receiptId],
                             (error, result) => {
@@ -462,9 +402,3 @@ server.get('*', (request, response) => {
 server.listen(PORT, () => {
     console.log('server listening on port ' + PORT);
 });
-
-function getCurrentDate(){
-    let today = new Date();
-    let current_date = today.toISOString().slice(0,10);
-    return current_date;
-}
