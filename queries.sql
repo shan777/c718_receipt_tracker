@@ -23,7 +23,6 @@ SELECT receipts.storeName FROM receipts WHERE receipts.userId = ?;
 SELECT tags.tagName, users.userName FROM tags JOIN users ON tags.userId=users.ID WHERE users.ID=?;
 
 
-
 ----------------------- Filter Data -----------------------
 
 -- Filter receipts by category (e.g. dining)
@@ -41,9 +40,6 @@ SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FR
 -- Filter receipts by specific tag
 SELECT receipts.storeName, receipts.total, receipts.purchaseDate FROM receipts JOIN receipts_tags ON receipts.ID=receipts_tags.receiptId WHERE receipts.userId=? AND receipts_tags.tagId=? AND receipts.status = 'active';
 
--- Filter receipts by multiple filters
-
-
 
 ----------------------- CRUD Operations for 'users' -----------------------
 
@@ -60,7 +56,6 @@ UPDATE users SET users.email = ? WHERE users.ID = ?;
 DELETE FROM users WHERE users.ID = ?;
 DELETE FROM tags WHERE tags.userId = ?;
 DELETE FROM receipts WHERE receipts.userId = ?;
-
 
 
 ----------------------- CRUD Operations for 'tags' -----------------------
@@ -82,7 +77,6 @@ INSERT INTO receipts_tags (receiptId, tagId) VALUES (?, ?);
 
 -- Remove tag from current receipt
 DELETE FROM receipts_tags WHERE receipts_tags.tagId = ? AND tags.receiptId = ?;
-
 
 
 ----------------------- CRUD Operations for 'receipts' -----------------------
