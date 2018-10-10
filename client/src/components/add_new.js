@@ -17,21 +17,23 @@ class AddNew extends Component {
 //         return {today};
 // {/* <input id="dateRequired" type="date" name="dateRequired" defaultValue={date} />  */}
 //     }
-    
-    state = {
-        merchantName: '',
-        // dateOfPurchase: this.calcDate().today,
-        totalAmount: '0',
-        dateOfPurchase: '',
-        category: '',
-        note: '',
-        errorMessage: {
-            forTotalAmount: "'Total Amount' must be a number.",
-            forMerchantName: "'Merchant Name' must be entered."
-        }
-        //tag: 'None', //will be an array later
-    }
+    constructor(props) { 
+        super(props);
 
+        this.state = {
+            merchantName: '',
+            // dateOfPurchase: this.calcDate().today,
+            totalAmount: '',
+            dateOfPurchase: '',
+            category: '',
+            note: '',
+            errorMessage: {
+                forTotalAmount: "'Total Amount' must be a number.",
+                forMerchantName: "'Merchant Name' must be entered."
+            }
+            //tag: 'None', //will be an array later
+        }
+    }
 
     handleSubmit = (event) => {
         console.log('dummy: ',{dummy});
@@ -42,10 +44,7 @@ class AddNew extends Component {
 
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
         console.log('totalAmount: ', totalAmount);
-        if(isNaN(totalAmount)) {
-            console.log('msg:', errorMessage.forAmount);
-
-        }
+        
 
 
         //this.props.history.push('/overview');
@@ -77,8 +76,8 @@ class AddNew extends Component {
                             <button className="done_btn"  type="submit" value="Done">Done</button>
                         </div>    
                         <div className="content_container">
-                                <label className="input_title">Merchant Name</label>
-                                <input placeholder="Not specified" onChange={ (e) => this.setState({merchantName: e.target.value})}
+                                <label className="input_label">Merchant:</label>
+                                <input className="merchant" placeholder="Required" onChange={ (e) => this.setState({merchantName: e.target.value})}
                                     type="text"
                                     value={merchantName}
                                     name={merchantName}
@@ -87,45 +86,41 @@ class AddNew extends Component {
                         </div>
 
                         <div className="content_container">
-                                <label className="input_title">Date of Purchase</label>
-                                <input onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
+                                <label className="input_label">Date:</label>
+                                <input className="date" onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
                                     type="date"
                                     value={dateOfPurchase}
                                 />
                         </div>
 
                         <div className="content_container">
-                                <label className="input_title">Total Amount:</label>
-                                $ <input onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
+                                <label className="input_label">Total Amount:</label>
+                                $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
+
                                     type="number" min="0.00" step="0.01"
                                     value={totalAmount}
                                 />
                         </div> 
 
                         <div className="content_container">
-                                <label className="input_title">Category</label>
+                                <label className="input_label">Category:</label>
                                 <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
                                     {categoryChoices}
                                 </select>
                         </div>
 
                         <div className="content_container">
-                                <label className="input_title">Note</label>
-                                <input placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
+                                <label className="input_label">Note:</label>
+                                <input className="note" placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
                                     type="text"
                                     value={note}
                                 />
                         </div>
 
-                        {/* <div className="row content_container">
-                                <label className="input_title">Tag</label>
-                                <input className="input_field" name="tag"  onChange={ (e) => this.setState({tag: e.target.value})}
-                                    type="radio"
-                                    value={tag}
-                                />
-                                
-                                <input name="tag" type="radio" value="paris"/>
-                        </div>  */}
+                        <div className="row content_container">
+                                <label className="input_label">Tag:</label>
+                               
+                        </div> 
                         
                     </form>
                 </div>
