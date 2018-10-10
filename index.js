@@ -257,6 +257,37 @@ server.post('/api/deleteReceipt', (request, response) => {
     }
 });
 
+server.post('/api/getReceipt', (request, response) => {
+    const {receiptId} = request.body;
+    console.log("request data: ", request.body);
+    
+    const output = {
+        success: false
+    };
+
+    let receiptIdRegEx = /^[1-9][\d]*/;
+
+    if (receiptIdRegEx.test(receiptId)){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
+                    [receiptId],
+                    (error, row) => {
+                        console.log('get receipt query made');
+                        if (error){
+                            console.log('get receipt query error', error);
+                            response.send(output);
+                        }
+                        output.receipt = row[0];
+                        output.success = true;
+                        connection.end(() => { console.log('connection end'); });                        
+                        response.send(output);
+                    });
+    }
+    else{
+        response.send(output);
+    }
+});
+
 server.post('/api/addReceipt', (request, response) => {
     
     // Destructuring request object (w/ default values)
