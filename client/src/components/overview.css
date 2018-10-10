@@ -236,10 +236,10 @@ body{
         width: 75%;
         padding-top: 80px;
         background-color: #DEF2F1;
-        padding-bottom: 240px;
+        padding-bottom: 144px;
         position: relative;
         left: 11%;
-        top: 12vh;
+        top: 0vh;
     }
     
     .row{
@@ -315,8 +315,9 @@ body{
     }
     
     .number_of_receipts, .total_amount{
-        margin: 0;
-        font-size: 4em;
+        margin-left: 4%;;
+        font-size: 3em;
+        display: inline-block;
     }
     
     .collapsible_header{
