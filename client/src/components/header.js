@@ -20,47 +20,24 @@ class Header extends Component {
         });
     }
 
-    sidebar = {
-        sidebar: { height: "100vh", width: "50vw", "overflowY": "unset", position: "fixed" },
-        overlay: {backgroundColor: "#237E80"}
-
-    }
-
     render() {
-        const { path } = this.state;
-        switch(path) {
-            // case "/about_us":
-                // return(
-                //     <div className="headContainer header">
-                //         {this.props.title || ''}
-                //         <Sidebar
-                //         sidebar={<Hamburger/>}
-                //         open={this.state.sidebarOpen}
-                //         styles={this.sidebar}
-                //         >
-                //         <div>
-                //             <img className="dots" onClick={() => this.onSetSidebarOpen(true)} src={dots}/>
-                //         </div>
-                //         </Sidebar>   
-                //     </div> 
-                //  );
-            default:
-                return (
-                    <div>
-                    <Sidebar
-                        sidebar={<Hamburger/>}
-                        open={this.state.sidebarOpen}
-                        onSetOpen={this.onSetSidebarOpen}
-                        styles={this.sidebar}
-                    >
-                        <div className="header">
-                            <img className="dots" onClick={() => this.onSetSidebarOpen(true)} src={dots}/>
-                        </div>
-                    </Sidebar>
-                    </div>
-        
-              );  
-        }      
+        return(
+            <div className="headContainer header">
+                {this.props.title || ''}
+                <Sidebar
+                    sidebar={<Hamburger/>}
+                    open={this.state.sidebarOpen}
+                    onSetOpen={this.onSetSidebarOpen}
+                    sidebarClassName="sidebar_container"
+                    contentClassName="menus"
+                    pullRight={true}
+                >
+                <div>
+                    <img className="dots" onClick={() => this.onSetSidebarOpen(true)} src={dots}/>
+                </div>
+                </Sidebar>   
+            </div> 
+        );   
     }
 }
 
