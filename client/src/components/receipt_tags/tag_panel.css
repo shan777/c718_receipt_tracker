@@ -1,0 +1,14 @@
+.tab_panel{
+    background-color: lavender;
+    min-height: 50px;
+    position: relative;
+}
+.tagAddButton{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}

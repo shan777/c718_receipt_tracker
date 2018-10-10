@@ -6,6 +6,7 @@ import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
 import dummy from '../dummy_data/dummyList';
+import TagPanel from './receipt_tags/tag_panel';
 
 
 
@@ -30,8 +31,10 @@ class AddNew extends Component {
             errorMessage: {
                 forTotalAmount: "'Total Amount' must be a number.",
                 forMerchantName: "'Merchant Name' must be entered."
-            }
+            },
+            currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
             //tag: 'None', //will be an array later
+            newTags: []
         }
     }
 
@@ -58,7 +61,13 @@ class AddNew extends Component {
     handleCancel = () => {
         this.props.history.push('/overview');
     }
-
+    handleNewTab = (newTagText) => {
+        console.log('new tab adding', newTagText);
+        //do axios call to set new tag to user, then get data from user
+        this.setState({
+            newTags: [...this.state.newTags, newTagText]
+        })
+    }
     
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
@@ -121,6 +130,8 @@ class AddNew extends Component {
                                 <label className="input_label">Tag:</label>
                                
                         </div> 
+                        <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/>
+
                         
                     </form>
                 </div>
