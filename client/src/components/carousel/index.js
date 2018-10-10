@@ -87,7 +87,7 @@ class Carousel extends Component {
         return (
             <div className="center-all">
                 {/* <h3 className="carousel-text center">{text}</h3> */}
-                <button onClick={this.changeImg.bind(this, 'previous')}>Previous Image</button>
+
                 <div className="carousel-container">
                     <Transition
                         transitionName={`carousel-${direction}`}
@@ -97,9 +97,10 @@ class Carousel extends Component {
                         <img key={src} src={src} alt={text} className="carousel-img" />
                     </Transition>
                 </div>
-                <button onClick={this.changeImg.bind(this, 'next')}>Next Image</button>
+                <button onClick={this.changeImg.bind(this, 'previous')}>Previous</button>
+                <button className="next_button" onClick={this.changeImg.bind(this, 'next')}>Next</button>
                 <Indicators onClick={this.directToImage.bind(this)} count={images.length} current={currentIndex} />
-                <Link className="finished_button" to="/overview" ><button>Finished</button></Link>
+                <Link to="/overview" ><button className="finished_button">Finished</button></Link>
             </div>
         );
     }

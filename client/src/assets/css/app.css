@@ -1,10 +1,16 @@
-@font-face {
-    font-family: quest;
-    src: url(../fonts/quest.ttf);
+@font-face {    
+    font-family: 'Roboto Bold';
+    src: url(../fonts/Roboto-Bold.ttf);
+}
+
+@font-face {    
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto-Regular.ttf);
 }
 
 body {
     margin: 0;
+    font-family: 'Roboto';
 }
 
 .app {
