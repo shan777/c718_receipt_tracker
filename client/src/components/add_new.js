@@ -6,6 +6,7 @@ import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
 import dummy from '../dummy_data/dummyList';
+import TabPanel from './receipt_tabs/tab_panel';
 
 
 
@@ -57,6 +58,9 @@ class AddNew extends Component {
 
     handleCancel = () => {
         this.props.history.push('/overview');
+    }
+    handleNewTab = (newTagText) => {
+        console.log('new tab adding');
     }
 
     
@@ -115,7 +119,7 @@ class AddNew extends Component {
                                     value={note}
                                 />
                         </div>
-
+                        <TabPanel tabs={[]} addCallback={this.handleNewTab}/>
                         {/* <div className="row content_container">
                                 <label className="input_title">Tag</label>
                                 <input className="input_field" name="tag"  onChange={ (e) => this.setState({tag: e.target.value})}

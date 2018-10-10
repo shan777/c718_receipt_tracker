@@ -158,7 +158,7 @@ const response = [
                 comment: 'noodles',
                 reimburseable: 0,
                 ID: 6,
-                tags: []
+                tags: ['penguins','beets','chaise']
             },
         ],
         tags: [

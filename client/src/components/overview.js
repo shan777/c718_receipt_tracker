@@ -6,6 +6,7 @@ import AccordionItem from './accordion_item';
 import Footer from './footer';
 import response from '../dummy_data/dummyList.js';
 import {Link} from 'react-router-dom';
+import TabPanel from './receipt_tabs/tab_panel';
 
 class Overveiw extends Component{
     constructor(props){
@@ -13,6 +14,7 @@ class Overveiw extends Component{
 
         this.state = {
             data: response,
+            currentDisplayedUserID: 2
         };
     }
     editRow (index){
@@ -26,7 +28,8 @@ class Overveiw extends Component{
     makeRow(){
         const eachUser = [...this.state.data];
         const mapOfUsers = eachUser.map(item => item.receipts);
-        const receiptUser = mapOfUsers[2];
+        debugger;
+        const receiptUser = mapOfUsers[this.state.currentDisplayedUserID];
         const row = receiptUser.map((item, index) => (
         <Accordion key={index}>
             <div className="row">
@@ -57,6 +60,9 @@ class Overveiw extends Component{
                             <div className="catagory">Note:</div>
                             <div className="data">{item.comment}</div>
                         </div>
+                        <TabPanel tabs={item.tags}>
+
+                        </TabPanel>
                     </AccordionItem>
             </div>
         </Accordion>
