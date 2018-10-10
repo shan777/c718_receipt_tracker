@@ -29,7 +29,7 @@ class Header extends Component {
         return(
             <div className="headContainer header">
                 {this.props.title || ''}
-                <Sidebar
+                {/* <Sidebar
                 sidebar={<Hamburger/>}
                 open={this.state.sidebarOpen}
                 styles={this.sidebar}
@@ -37,7 +37,7 @@ class Header extends Component {
                     <button onClick={() => this.onSetSidebarOpen(true)}>
                         <img className="dots" src={dots}/>
                     </button>
-                </Sidebar>   
+                </Sidebar>    */}
             </div> 
         );
     }
