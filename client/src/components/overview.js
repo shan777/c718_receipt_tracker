@@ -6,7 +6,7 @@ import AccordionItem from './accordion_item';
 import Footer from './footer';
 import response from '../dummy_data/dummyList.js';
 import {Link} from 'react-router-dom';
-import TagPanel from './receipt_tags/tag_panel';
+import RenderTag from './receipt_tags/render_tag';
 
 class Overveiw extends Component{
     constructor(props){
@@ -59,7 +59,7 @@ class Overveiw extends Component{
                             <div className="catagory">Note:</div>
                             <div className="data">{item.comment}</div>
                         </div>
-                        <TagPanel tags={item.tags} />
+                        <RenderTag tags={item.tags} />
                     </AccordionItem>
             </div>
         </Accordion>
