@@ -7,64 +7,62 @@
         state = {
             firstName: '',
             lastName: '',
-            userName: '',
+            emailAddress: '',
             password: '',
             confirmPassword: ''
         }
 
         render() {
-            const {firstName, lastName, userName, password, confirmPassword} = this.state;
+            const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
             return (
                 <div className="signup_container">
                     <div className="sign_up_main_container">
 
-                        <img src={squirrel}></img>
+                        <img className="logo" src={squirrel}></img>
                         <div className="title">Create an account to start</div>
-                            TBD
                             <form>
-                            
-                                <div>
-                                    <label className="input_title">First Name:</label>
+                                <div className="entry_container">
+                                    <label className="input_title">First Name</label>
                                     <input onChange={ (e) => this.setState({firstName: e.target.value})}
                                         type="text"
                                         value={firstName}
                                     />
                                 </div>
 
-                                <div>
-                                    <label className="input_title">Last Name:</label>
+                                <div className="entry_container">
+                                    <label className="input_title">Last Name</label>
                                     <input onChange={ (e) => this.setState({lastName: e.target.value})}
                                         type="text"
                                         value={lastName}
                                     />
                                 </div>
 
-                                <div>
-                                    <label className="input_title">Username:</label>
-                                    <input onChange={ (e) => this.setState({userName: e.target.value})}
-                                        type="text"
-                                        value={userName}
+                                <div className="entry_container">
+                                    <label className="input_title">Email Address</label>
+                                    <input onChange={ (e) => this.setState({emailAddress: e.target.value})}
+                                        type="email"
+                                        value={emailAddress}
                                     />
                                 </div>
 
-                                <div>
+                                <div className="entry_container">
                                     <label className="input_title">Password</label>
                                     <input onChange={ (e) => this.setState({password: e.target.value})}
-                                        type="text"
+                                        type="password"
                                         value={password}
                                     />
                                 </div>
 
-                                <div>
-                                    <label className="input_title">Confirm password</label>
-                                    <input onChange={ (e) => this.setState({confirmPassword: e.target.value})}
-                                        type="text"
-                                        value={confirmPassword}
-                                    />
+                                <div className="entry_container">
+                                    <label className="input_title cfm_password">Confirm<br></br>Password</label>
+                                    <div className="cfm">
+                                        <input onChange={ (e) => this.setState({confirmPassword: e.target.value})}
+                                            type="password"
+                                            value={confirmPassword}
+                                        />
+                                    </div>    
                                 </div>
-                    
-    
-    
+
                             <button className="letsgo"  type="submit" value="Letsgo" onSubmit={this.handleAddItem}>Let's go!</button>
                         </form>
                     </div>

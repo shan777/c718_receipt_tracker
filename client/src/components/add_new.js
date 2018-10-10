@@ -96,6 +96,7 @@ class AddNew extends Component {
                         <div className="content_container">
                                 <label className="input_title">Total Amount:</label>
                                 $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
+
                                     type="number" min="0.00" step="0.01"
                                     value={totalAmount}
                                 />
