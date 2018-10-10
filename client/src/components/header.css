@@ -1,9 +1,14 @@
+@font-face {    
+    font-family: 'Roboto Bold';
+    src: url(../../src/assets/fonts/Roboto-Bold.ttf);
+}
+
 .headContainer {
     background-color: #237E80;
     color: #F2F2F2;
-    font-family: sans-serif;
+    font-family: 'Roboto Bold';
     height: 80px;
-    font-size: 3em;
+    font-size: 2em;
     padding-left: 10%;
     text-align: left;
     top: 0;
@@ -24,4 +29,3 @@
     width: 100%;
     z-index: 1;
 }
-
