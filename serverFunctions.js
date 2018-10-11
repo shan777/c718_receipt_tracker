@@ -23,7 +23,6 @@ module.exports = {
                                 rows.forEach(element => {
                                     tags.push(element.tagName);
                                 });
-                                connection.end(() => { console.log('connection end'); });              
                             }
             );
         }
