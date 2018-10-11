@@ -15,18 +15,17 @@ server.use(express.json());
 server.use(sessionExec);
 
 server.post('/api/checkLoginStatus', (request, response) => {
-    console.log("checking login status for : ", request.sessionID);
+    const {userId} = request.body;
     const output = {
         success: true,
-        loggedIn: false
     }
-    if (!request.session.userId){
-        response.status(401).send(output);
+    if (request.session.userId === userId){
+        output.loggedIn = true;
     }
     else{
-        output.loggedIn = true;
-        response.status(200).send(output);
-    };     
+        output.loggedIn = false;
+    };
+    response.status(200).send(output);     
 });
 
 server.post('/api/login', (request, response) => {
@@ -47,7 +46,7 @@ server.post('/api/login', (request, response) => {
                         (error, rows) => {
                             output.success = true;
                             if (error){
-                                output.queryError = error;
+                                output.error = error;
                                 response.status(400).send(output);
                             }else if (rows){
                                 output.userId = rows[0].ID;
@@ -57,7 +56,7 @@ server.post('/api/login', (request, response) => {
                             }   
         });
     }else{
-        output.message = 'User name or password incorrect.';
+        output.error = 'User name or password incorrect.';
         response.status(401).send(output);
     }
 });
@@ -155,35 +154,30 @@ server.post('/api/getUserTags', (request, response) => {
 
 server.post('/api/getUserReceipts', (request, response) => {
     const {userId} = request.body;
-    console.log("request data: ", request.body);
-    
     const output = {
-        userReceipts: [],
+        receipts: [],
         success: false
     };
-
-    let userIdRegEx = /^[1-9][\d]*/;
-
-    if (userIdRegEx.test(userId)){
+    if (request.session.userId === userId){
         const connection = mysql.createConnection(sqrlDbCreds);
         connection.query("SELECT receipts.ID, receipts.purchaseDate, receipts.storeName, receipts.total FROM receipts WHERE receipts.userId = ? AND receipts.status = 'active';",
-                    [userId],
-                    (error, rows) => {
-                        console.log('get receipts query made');
-                        if (error){
-                            console.log('get receipts query error', error);
-                            response.send(output);
-                        }
-                        rows.forEach(element => {
-                            output.userReceipts.push(element);
-                        });
-                        output.success = true;
-                        connection.end(() => { console.log('connection end'); });                     
-                        response.send(output);
-                    });
-    }
-    else{
-        response.send(output);
+                        [userId],
+                        (error, rows) => {
+                            if (error){
+                                output.error = error;
+                                response.status(400).send(output);
+                            }else if(rows){
+                                rows.forEach(element => {
+                                    output.receipts.push(element);
+                                });
+                                output.success = true;
+                                connection.end();                     
+                                response.status(200).send(output);
+                            }
+        });
+    }else{
+        output.error = "User not logged in.";
+        response.status(401).send(output);
     }
 });
 
@@ -223,66 +217,55 @@ server.post('/api/getTagsForReceipt', (request, response) => {
 });
 
 server.post('/api/deleteReceipt', (request, response) => {
-
     // NOTE: This query is meant for doing a SOFT delete meaning the receipts status will be update to 'inactive' and will NOT be removed from the db
-
-    const {receiptId} = request.body;
-    console.log("request data: ", request.body);
-    
+    const {userId, receiptId} = request.body;
     const output = {
         success: false
     };
-
-    let receiptIdRegEx = /^[1-9][\d]*/;
-
-    if (receiptIdRegEx.test(receiptId)){
+    if(request.session.userId === userId){
         const connection = mysql.createConnection(sqrlDbCreds);
         connection.query("UPDATE receipts SET receipts.status = 'inactive' WHERE receipts.ID = ?;",
-                    [receiptId],
-                    (error, rows) => {
-                        console.log('delete receipt query made');
-                        if (error){
-                            console.log('delete receipt query error', error);
-                            response.send(output);
-                        }
-                        output.success = true;
-                        connection.end(() => { console.log('connection end'); });                        
-                        response.send(output);
-                    });
-    }
-    else{
-        response.send(output);
+                        [receiptId],
+                        (error) => {
+                            if (error){
+                                output.error = error;
+                                response.status(400).send(output);
+                            }else{
+                                output.success = true;
+                                connection.end();                        
+                                response.status(200).send(output);
+                            }
+                            
+        });
+    }else{
+        output.error = "User not logged in.";
+        response.status(401).send(output);
     }
 });
 
 server.post('/api/getReceipt', (request, response) => {
-    const {receiptId} = request.body;
-    console.log("request data: ", request.body);
-    
+    const {userId, receiptId} = request.body;
     const output = {
         success: false
     };
-
-    let receiptIdRegEx = /^[1-9][\d]*/;
-
-    if (receiptIdRegEx.test(receiptId)){
+    if (request.session.userId === userId){
         const connection = mysql.createConnection(sqrlDbCreds);
         connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
                     [receiptId],
-                    (error, row) => {
-                        console.log('get receipt query made');
+                    (error, rows) => {
                         if (error){
-                            console.log('get receipt query error', error);
-                            response.send(output);
+                            output.error = error;
+                            response.status(400).send(output);
+                        }else if(rows){
+                            output.receipt = rows[0];
+                            output.success = true;
+                            connection.end();                        
+                            response.status(200).send(output);
                         }
-                        output.receipt = row[0];
-                        output.success = true;
-                        connection.end(() => { console.log('connection end'); });                        
-                        response.send(output);
-                    });
-    }
-    else{
-        response.send(output);
+        });
+    }else{
+        output.error = "User not logged in.";
+        response.status(401).send(output);
     }
 });
 
