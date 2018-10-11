@@ -131,12 +131,11 @@ body{
     background-color: #C9CED2;
     right: 11%;
     position: relative;
-    top: 2vh;
     color: #2C3531;
+    top: 2vh;
     padding: 1% 2%;
     font-size: 1.005em;
     border-radius: 6px;
-    border: 2px solid #2C3531;
     transition-duration: 0.4s;
     font-family: 'Original Surfer';
 }
