@@ -7,6 +7,7 @@ import Footer from './footer';
 import response from '../dummy_data/dummyList.js';
 import {Link} from 'react-router-dom';
 import RenderTag from './receipt_tags/render_tag';
+import Modal from './modal';
 
 class Overveiw extends Component{
     constructor(props){
@@ -14,17 +15,15 @@ class Overveiw extends Component{
 
         this.state = {
             data: response,
-            currentDisplayedUserID: props.match.params.userID !==undefined ? props.match.params.userID : 2
+            currentDisplayedUserID: props.match.params.userID !==undefined ? props.match.params.userID : 2,
+            isOpen: false,
+            activeButton: null
         };
     }
-    editRow (index){
-        const eachUser = [...this.state.data];
-        const mapOfUsers = eachUser.map(item => item.receipts);
-        const receiptUser = mapOfUsers[2];
-        let currentName = receiptUser[index].storeName;
-        let changeStoreName = prompt("Enter Store Name")
+    open = (index) => this.setState({isOpen: true, activeButton: index});
 
-     }
+    close = () => this.setState({isOpen: false});
+
     makeRow(){
         const eachUser = [...this.state.data];
         const mapOfUsers = eachUser.map(item => item.receipts);
@@ -38,7 +37,6 @@ class Overveiw extends Component{
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
                 <Link className="edit" to='/add_new'><button className='editbtn'>
                 <i class="material-icons">edit</i></button></Link>
-                
                     <AccordionItem className="panel">
                        <div className="panel_size">
                             <div className="catagory">Merchant name:</div>
@@ -78,6 +76,12 @@ class Overveiw extends Component{
                 totalAmount+= total[i];
             }
             return totalAmount/100;
+        }
+        if(this.state.isOpen){
+            let id = 2;
+            return (
+                <Modal row={this.state.activeButton} data={response} currentId={id} close={this.close}/>
+            )
         }
         return (
             <div>

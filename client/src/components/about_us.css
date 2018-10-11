@@ -13,8 +13,6 @@
 }
 
 .about_us_container {
-    /* background-color: white;
-    color: #237E80; */
     background-color: #237E80;
     color: #F2F2F2;
     height: 100vh;
@@ -25,89 +23,100 @@
 .logo_img {
     width: 70%;
     display: block;
-    padding-top: 1%;
+    padding-top: 2%;
     padding-bottom: 4%;
     margin: auto;
 }
 
-.member {
-    display: inline-block;
+.frontend {
     text-align: center;
-    padding: 2%;
-    text-shadow: 0 0;
-    font-weight: normal;
+    padding-bottom: 10px;
+    font-weight: bolder;
+    text-shadow: 4px 6px 6px #000000;
+}
+
+.picture {
+    border-radius: 50%;
+    border: 1px #F2F2F2 solid;
+    width: 50%;
+}
+
+/* Top Row */
+.members_top {
     width: 100%;
 }
 
-.everybody {
-    padding: 1% 5%;
-}
-
-.member>img {
-    border: 1px #F2F2F2 solid;
-    width: 22.5%;
-    display: block;
-    border-radius: 50%;
-    
-}
-
-.frontend {
-    padding: 1%;
+.top_left {
+    width: 45%;
+    display: inline-block;
+    /* margin-left: 5%; */
     text-align: center;
-    font-weight: bolder;
-    text-shadow: 4px 6px 6px #000000;
 }
 
+.top_right {
+    width: 45%;
+    display: inline-block;
+    margin-left: 10%;
+    text-align: center;
+}
+
+.member_name_left {
+    font-size: 12px;
+}
+
+.member_name_right {
+    font-size: 12px;
+}
+
+.link_right>img {
+    width: 25px;
+    padding: 2%;
+}
+
+.link_left>img {
+    width: 25px;
+    padding: 2%;
+}
+
+/* Center */
+.member_center {
+    width: 45%;
+    margin-left: 27%;
+    text-align: center;
+}
+
+.member_name_center {
+    font-size: 12px;
+}
+
+.link_center>img {
+    width: 25px;
+    padding: 2%;
+}
+
+
+/* Bottom Row */
 .backend {
-    padding: 1%;
     text-align: center;
+    padding: 30px 0 10px 0;
     font-weight: bolder;
     text-shadow: 4px 6px 6px #000000;
 }
 
-.img_left {
-    float: left;
-} 
+.members_bottom {
+    width: 100%;
+}
 
-.img_right {
-    float: right;
-} 
-
-.center{
+.member_bottom_left {
+    width: 45%;
+    display: inline-block;
+    /* margin-left: 5%; */
     text-align: center;
 }
-.right{
-    text-align: right;
-}
 
-.left{
-    text-align: left;
+.member_bottom_right {
+    width: 45%;
+    display: inline-block;
+    margin-left: 10%;
+    text-align: center;
 }
-
-.link_left{
-    position: relative;
-    top: 14vh;
-    right: 23%;
-}
-
-.member_name_left{
-    position: relative;
-    top: 13vh;
-    right: 23%;
-}
-
-.esther{
-    position: relative;
-    bottom: 13vh;
-}
-
-.member_name_right{
-    position: relative;
-    left: 21%;
-}
-
-.link_right{
-    position: relative;
-    left: 20%;
-}
-
