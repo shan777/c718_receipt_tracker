@@ -95,13 +95,19 @@ body{
 }
 
 
-.edit{
-    position: relative;
-    height: 3vh;;
-    width: 10%;
+.editbtn{
     float: right;
+    background-color: #C9CED2;
+    right: 11%;
+    position: relative;
     top: 2vh;
-    right: 15%;
+    color: #2C3531;
+    padding: 1% 2%;
+    font-size: 1.005em;
+    border-radius: 6px;
+    border: 2px solid #2C3531;
+    transition-duration: 0.4s;
+    font-family: 'Original Surfer';
     
 }
 
@@ -325,18 +331,17 @@ body{
         bottom: 5vh;
         opacity: 0;
     }
-    
-    
-    .edit{
-        position: relative;
-        height: 1vh;;
-        width: 8%;
-        float: right;
-        top: 6vh;
-        right: 23%;
-    }
 
     .editbtn{
-        font-size: 2em;
+        float: right;
+        margin-right: 2%;
+        background-color: #2E3B3B;
+        color: #F2F2F2;
+        padding: 1% 2%;
+        font-size: 1.05em;
+        border-radius: 6px;
+        border-color: #2C3531;
+        transition-duration: 0.4s;
+        font-family: 'Original Surfer';
     }
 }
