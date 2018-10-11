@@ -62,6 +62,21 @@ server.post('/api/login', (request, response) => {
     }
 });
 
+server.post('/api/logout', (request, response) => {
+    const {userId} = request.body;
+    const output = {
+        success: true,
+        loggedIn: null
+    };
+    if (request.session.userId && request.session.userId === userId){
+        request.session.destroy();
+        output.loggedIn = false;
+        response.status(200).send(output);
+    }else{
+        response.status(400).send(output);
+    }
+});
+
 server.post('/api/addTag', (request, response) => {
     const {userId, tagName} = request.body;
     console.log("request data: ", request.body);
