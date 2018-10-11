@@ -21,13 +21,13 @@
     color: #98FFA8;
     text-align: center;
     padding: 5% 0 5% 2%;
-    font-size: 1.5em;
-    font-weight: bold;
+    font-size: 1.4em;
     font-family: 'Roboto Bold';
 }
 
 .input_title {
     margin-left: 2%;
+    text-align: right;
 }
 
 .entry_container {
@@ -55,7 +55,7 @@
     margin: auto;
     padding: 7% 0 4% 0;
     display: block;
-    width: 40%;
+    width: 35%;
 }
 
 .letsgo {
@@ -93,7 +93,11 @@
 }
 
 .alert_password_restrictions{
-    color: red;
-    font-family: 'Roboto';
-    font-size: 1em;
+    color: orangered;
+    font-size: 0.7em;
+}
+
+.hidden {
+    /* visibility: hidden; */
+    display: none;
 }
