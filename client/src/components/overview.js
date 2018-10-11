@@ -6,7 +6,8 @@ import AccordionItem from './accordion_item';
 import Footer from './footer';
 import response from '../dummy_data/dummyList.js';
 import {Link} from 'react-router-dom';
-import TagPanel from './receipt_tags/tag_panel';
+import RenderTag from './receipt_tags/render_tag';
+import Modal from './modal';
 
 class Overveiw extends Component{
     constructor(props){
@@ -14,17 +15,15 @@ class Overveiw extends Component{
 
         this.state = {
             data: response,
-            currentDisplayedUserID: props.match.params.userID !==undefined ? props.match.params.userID : 2
+            currentDisplayedUserID: props.match.params.userID !==undefined ? props.match.params.userID : 2,
+            isOpen: false,
+            activeButton: null
         };
     }
-    editRow (index){
-        const eachUser = [...this.state.data];
-        const mapOfUsers = eachUser.map(item => item.receipts);
-        const receiptUser = mapOfUsers[2];
-        let currentName = receiptUser[index].storeName;
-        let changeStoreName = prompt("Enter Store Name")
+    open = (index) => this.setState({isOpen: true, activeButton: index});
 
-     }
+    close = () => this.setState({isOpen: false});
+
     makeRow(){
         const eachUser = [...this.state.data];
         const mapOfUsers = eachUser.map(item => item.receipts);
@@ -36,7 +35,7 @@ class Overveiw extends Component{
                 <br/>
                 <div className="date_of_purchase">{item.purchaseDate}</div>
                 <div className="amount_of_purchase">${item.total/100}</div>
-                <Link className="edit" to='/add_new'><button className='editbtn'>Edit</button></Link>
+                <button onClick={()=> this.open(index)} className='editbtn'>Edit</button>
                 
                     <AccordionItem className="panel">
                        <div className="panel_size">
@@ -59,7 +58,7 @@ class Overveiw extends Component{
                             <div className="catagory">Note:</div>
                             <div className="data">{item.comment}</div>
                         </div>
-                        <TagPanel tags={item.tags} />
+                        <RenderTag tags={item.tags} />
                     </AccordionItem>
             </div>
         </Accordion>
@@ -77,6 +76,12 @@ class Overveiw extends Component{
                 totalAmount+= total[i];
             }
             return totalAmount/100;
+        }
+        if(this.state.isOpen){
+            let id = 2;
+            return (
+                <Modal row={this.state.activeButton} data={response} currentId={id} close={this.close}/>
+            )
         }
         return (
             <div>

@@ -1,50 +1,17 @@
-.root {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
+@font-face {    
+    font-family: 'Roboto Bold';
+    src: url(../../src/assets/fonts/Roboto-Bold.ttf);
 }
 
-.sidebar {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    transition: transform .3s ease-out;
-    -webkit-transition: -webkit-transform .3s ease-out;
-    will-change: transform;
-    overflow-y: auto
+@font-face {    
+    font-family: 'Roboto';
+    src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
-.content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    transition: left .3s ease-out, right .3s ease-out;
+.menus>a>p:hover {
+    text-decoration: underline;
 }
 
-.overlay {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .3s ease-out, visibility .3s ease-out;
-    background-color: rgba(0,0,0,.3);
-}
-
-.dragHandle {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    bottom: 0;
+.menus>a>p:visited {
+    text-decoration: none;
 }

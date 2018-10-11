@@ -27,7 +27,7 @@
 }
 
 .input_title {
-    width: 45%;
+    margin-left: 2%;
 }
 
 .entry_container {
@@ -35,7 +35,6 @@
 }
 
 .cfm_password {
-    margin: 0;
     display: inline-block;
 }
 
@@ -81,4 +80,20 @@
     box-shadow: 0 3px rgb(80, 99, 99);
     transform: translateY(4px);
     color: white;
+}
+
+.sign_up_input{
+    width: 50%;
+    float: right;
+    margin-right: 10%;
+}
+
+.sign_up_input_inside{
+    width:  100%;
+}
+
+.alert_password_restrictions{
+    color: red;
+    font-family: 'Roboto';
+    font-size: 1em;
 }

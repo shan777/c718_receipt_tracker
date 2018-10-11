@@ -9,11 +9,26 @@
             lastName: '',
             emailAddress: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            alert: false
+        }
+
+
+        passwordRestrictions(){
+            this.setState({
+                alert: true
+            })
         }
 
         render() {
+            console.log(this.state.alert);
             const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
+            const alertNone = {
+                display: 'none'
+            }
+            const alertShow = {
+                display: 'block'
+            }
             return (
                 <div className="signup_container">
                     <div className="sign_up_main_container">
@@ -23,7 +38,7 @@
                             <form>
                                 <div className="entry_container">
                                     <label className="input_title">First Name</label>
-                                    <input onChange={ (e) => this.setState({firstName: e.target.value})}
+                                    <input className='sign_up_input' onChange={ (e) => this.setState({firstName: e.target.value})}
                                         type="text"
                                         value={firstName}
                                     />
@@ -31,7 +46,7 @@
 
                                 <div className="entry_container">
                                     <label className="input_title">Last Name</label>
-                                    <input onChange={ (e) => this.setState({lastName: e.target.value})}
+                                    <input className='sign_up_input' onChange={ (e) => this.setState({lastName: e.target.value})}
                                         type="text"
                                         value={lastName}
                                     />
@@ -39,7 +54,7 @@
 
                                 <div className="entry_container">
                                     <label className="input_title">Email Address</label>
-                                    <input onChange={ (e) => this.setState({emailAddress: e.target.value})}
+                                    <input className='sign_up_input' onChange={ (e) => this.setState({emailAddress: e.target.value})}
                                         type="email"
                                         value={emailAddress}
                                     />
@@ -47,16 +62,17 @@
 
                                 <div className="entry_container">
                                     <label className="input_title">Password</label>
-                                    <input onChange={ (e) => this.setState({password: e.target.value})}
+                                    <input onClick={this.passwordRestrictions.bind(this)}  className='sign_up_input' onChange={ (e) => this.setState({password: e.target.value})}
                                         type="password"
                                         value={password}
                                     />
+                                    <div style={this.state.alert ? alertShow: alertNone} className="alert_password_restrictions">Minimum password of 8 characters including one number!</div>
                                 </div>
 
                                 <div className="entry_container">
                                     <label className="input_title cfm_password">Confirm<br></br>Password</label>
-                                    <div className="cfm">
-                                        <input onChange={ (e) => this.setState({confirmPassword: e.target.value})}
+                                    <div className="cfm sign_up_input">
+                                        <input className='sign_up_input_inside' onChange={ (e) => this.setState({confirmPassword: e.target.value})}
                                             type="password"
                                             value={confirmPassword}
                                         />

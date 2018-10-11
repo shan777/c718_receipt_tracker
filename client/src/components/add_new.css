@@ -22,6 +22,8 @@
     top: 80px;
     position: fixed;
     font-family: 'Roboto';
+    padding-bottom: 155px;
+    overflow: auto;
 }
 
 .content_container {
@@ -33,20 +35,18 @@
     display: block;
     box-sizing: border-box;
     /* text-align: center; */
-    line-height: 2.5em;
-    /* border-bottom: 0.5px solid #237E8099; */
+    line-height: 2.1em;
+    border-bottom: 0.5px solid #237E8099;
 }
 
 .input_label {
-    width: 40%;
+    width: 35%;
     height: 30%;;
-    text-align: right;
-    padding-right: 3%;
+    text-align: center;
+    /* padding-left: 4%; */
     display: inline-block;
-    /* overflow-y: auto;
-    overflow-x: auto; */
     word-break: break-word;
-
+    font-size: 0.9em;
 }
 
 input {
@@ -54,6 +54,11 @@ input {
     box-shadow: none;
     border-style: none;
     border-bottom: 1px solid #237E80 ;
+    border-top-color: none;
+}
+
+input:hover {
+    border-bottom: 2.5px solid #237E80;
 }
 
 select {
@@ -65,14 +70,12 @@ select {
 }
 
 .date {
-    width: 35%;
+    width: 40%;
 }
-
 
 .amount {
     width: 20%;
 }
-
 
 .cancel_btn {
     margin-left: 2%;

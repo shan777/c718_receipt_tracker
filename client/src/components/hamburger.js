@@ -2,16 +2,19 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./hamburger.css";
 
+
 class Hamburger extends Component {
+
   render() {
     return (
-      <div className="sidebar">
-        <div className="pages">
-          <Link to="/"><h1>home</h1></Link>
-          <Link to="/overview"><h1>Overview</h1></Link>
-          <Link to="/add_new"><h1>Add New</h1></Link>
-          <Link to="/about_us"><h1>About us</h1></Link>
-          <Link to="/signout"><h1>Sign out</h1></Link>
+      <div>
+        <div>
+          <p><b>Menu</b></p>
+          <Link to="/"><p>home</p></Link>
+          <Link to="/overview"><p>Overview</p></Link>
+          <Link to="/add_new"><p>Add New</p></Link>
+          <Link to="/about_us"><p>About us</p></Link>
+          <Link to="/login"><p>Sign out</p></Link>
         </div>
       </div>
     )

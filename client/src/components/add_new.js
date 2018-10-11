@@ -9,7 +9,6 @@ import dummy from '../dummy_data/dummyList';
 import TagPanel from './receipt_tags/tag_panel';
 
 
-
 class AddNew extends Component {    
 //     calcDate() {
 //         var curr = new Date();
@@ -103,7 +102,7 @@ class AddNew extends Component {
                         </div>
 
                         <div className="content_container">
-                                <label className="input_label">Total Amount:</label>
+                                <label className="input_label">Total:</label>
                                 $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
 
                                     type="number" min="0.00" step="0.01"
@@ -126,11 +125,10 @@ class AddNew extends Component {
                                 />
                         </div>
 
-                        <div className="row content_container">
+                        <div className="content_container">
                                 <label className="input_label">Tag:</label>
-                               
+                                <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/>
                         </div> 
-                        <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/>
 
                         
                     </form>
