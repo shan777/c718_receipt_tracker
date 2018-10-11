@@ -74,12 +74,9 @@
                                         type="password"
                                         value={password}
                                     />
-                                    <i className="material-icons">visibility</i>
-                                    {/* <div style={this.state.alert ? alertShow: alertNone} className="alert_password_restrictions">
+                                    {/* <i className="material-icons">visibility</i> */}
+                                    <div style={this.state.alert ? alertShow: alertNone} className="alert_password_restrictions">
                                         Minimum password of 8 characters including one number!
-                                    </div> */}
-                                    <div className="hidden">
-                                        warning 
                                     </div>
                                 </div>
 

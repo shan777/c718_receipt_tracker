@@ -96,8 +96,3 @@
     color: orangered;
     font-size: 0.7em;
 }
-
-.hidden {
-    /* visibility: hidden; */
-    display: none;
-}
