@@ -5,7 +5,7 @@ import Overview from './overview';
 
 
 class Modal extends Component{
-    
+ 
 
         state = {
             merchantName: '',

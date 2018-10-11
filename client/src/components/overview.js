@@ -36,7 +36,7 @@ class Overveiw extends Component{
                 <div className="date_of_purchase">{item.purchaseDate}</div>
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
                 <button className='editbtn' onClick={()=> this.open(index)}>
-                <i class="material-icons">edit</i></button>
+                <i className="material-icons">edit</i></button>
                     <AccordionItem className="panel">
                        <div className="panel_size">
                             <div className="catagory">Merchant name:</div>
@@ -99,6 +99,5 @@ class Overveiw extends Component{
         )
     }
 }
-
 
 export default Overveiw;
