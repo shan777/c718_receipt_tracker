@@ -212,17 +212,40 @@ server.post('/api/addReceipt', (request, response) => {
     }
 });
 
-/*
-    Use in manageTags:
-    
-    if (!request.session.userId){
-        console.log('could not find login data. loggedInID is false');
-        response.status(401).send(output);
+server.post('/api/manageTags', (request, response) => {
+    const {action, data} = request.body;
+    console.log("request data: ", request.body);
+
+    let output = {};
+
+    const connection = mysql.createConnection(sqrlDbCreds);
+
+    switch(action){
+        case "get user tags":
+            output = functions.getUserTags(data.userId, connection);
+            break;
+        case "add tag":
+            output = functions.addTag(data.userId, data.tagName, connection);
+            break;
+        case "delete tag":
+            output = functions.deleteTag(data.tagId, connection);
+            break;
+        case "get tags for receipt":
+            output = functions.getTagsForReceipt(data.receiptId, connection);
+            break;
+        case "add tag to receipt":
+            output = functions.addReceiptTag(data.receiptId, data.tagId, connection);
+            break;
+        case "remove tag from receipt":
+            output = functions.deleteRecieptTag(data.receiptId, data.tagId, connection);
+            break;
+        default:
+            console.log("inside default switch statement...");
     }
-    else{
-        
-    }
-*/
+
+    connection.end(() => { console.log('connection end'); });
+    response.send(output);
+});
 
 server.post('/api/updateReceipt', (request, response) => {
     const {receiptId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;

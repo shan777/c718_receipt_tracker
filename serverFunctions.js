@@ -7,31 +7,10 @@ module.exports = {
         return current_date;
     },
 
-    getTagsForReceipt: function(receiptId, connection){
-        let tags = [];
-
-        connection.query("SELECT receipts_tags.tagId,tags.tagName, tags.ID FROM receipts_tags JOIN tags ON receipts_tags.tagId=tags.ID WHERE receipts_tags.receiptId=?;",
-                        [receiptId],
-                        (error, rows) => {
-                            console.log('get tags for receipt query made');
-                            if (error){
-                                console.log('get tags for receipt query error', error);
-                            }
-                            rows.forEach(element => {
-                                let tag = {
-                                    tagId: element.ID,
-                                    tagName: element.tagName
-                                }
-                                tags.push(tag);
-                            });            
-                        }
-        );
-
-        return tags;
-    },
-
     getUserTags: function(userId, connection){
-        let tags = [];
+        let response = {
+            tags: []
+        };
     
         connection.query("SELECT tagName FROM tags WHERE userId = ?",
                         [userId],
@@ -45,61 +24,140 @@ module.exports = {
                                     tagId: element.ID,
                                     tagName: element.tagName
                                 }
-                                tags.push(tag);
-                            });
-                            output.success = true;                   
+                                response.tags.push(tag);
+                            });                 
                         }
         );
+
+        return response;
     },
 
-    addTag: function(userId,tagName, connection){
-        let success = false;
+    addTag: function(userId, tagName, connection){
+        let response = {
+            success: false
+        };
+        
         let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
 
         if (tagNameRegEx.test(tagName)){
-            connection.query("SELECT tagName, userId FROM tags WHERE userId = ? AND tagName = ?;",
-                [userId, tagName],
-                (error, rows) => {
-                    console.log('look up tag query made', rows, rows.length);
-                    if (error){
-                        console.log('look up query error', error);
-                    }
-                    else if(rows.length===0){
-                        connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
+            connection.query("INSERT IGNORE INTO tags (userId, tagName) VALUES (?, ?);",
                             [userId, tagName],
                             (error, result) => {
-                                console.log('insert query made');
+                                console.log('add tag query made');
                                 if (error){
-                                    console.log('insert query error', error);
+                                    console.log('add tag query error', error);
                                 }
-                                success = true;
+                                else if(result.affectedRows === 0){
+                                    response.message = `${result.affectedRows} rows affected`;
+                                }
+                                else if(result.affectedRows > 0){
+                                    response.success = true;
+                                    response.message = `${result.affectedRows} rows affected`;
+                                }
                             }
-                        );
-                    }
-                    else{
-                        console.log('tag already exists');
-                    }  
-                }
-            );
+            ); 
         }
 
-        return success;
+        return response;
     },
 
     deleteTag: function(tagId, connection){
-        let success = false;
+        let response = {
+            success: false
+        };
 
         connection.query("DELETE FROM tags WHERE tags.ID = ?;",
-            [tagId],
-            (error, result) => {
-                console.log('insert query made');
-                if (error){
-                    console.log('insert query error', error);
-                }
-                success = true;
-            }
+                        [tagId],
+                        (error, rows) => {
+                            console.log('delete tag query made');
+                            if (error){
+                                console.log('delete tag query error', error);
+                            }
+                            else if(rows.length===0){
+                                response.result = "0 rows affected";
+                            }
+                            else if(result.affectedRows > 0){
+                                response.success = true;
+                                response.message = `${result.affectedRows} rows affected`;
+                            }
+                        }
         );
 
-        return success;
-    }
+        return response;
+    },
+
+    getTagsForReceipt: function(receiptId, connection){
+        let response = {
+            tags: []
+        };
+
+        connection.query("SELECT receipts_tags.tagId,tags.tagName, tags.ID FROM receipts_tags JOIN tags ON receipts_tags.tagId=tags.ID WHERE receipts_tags.receiptId=?;",
+                        [receiptId],
+                        (error, rows) => {
+                            console.log('get tags for receipt query made');
+                            if (error){
+                                console.log('get tags for receipt query error', error);
+                            }
+                            rows.forEach(element => {
+                                let tag = {
+                                    tagId: element.ID,
+                                    tagName: element.tagName
+                                }
+                                response.tags.push(tag);
+                            });            
+                        }
+        );
+
+        return response;
+    },
+
+    addReceiptTag: function(receiptId, tagId, connection){
+        let response = {
+            success: false
+        };
+
+        connection.query("INSERT IGNORE INTO receipt_tags (receiptId, tagId) VALUES (?, ?);",
+                        [receiptId, tagId],
+                        (error, rows) => {
+                            console.log('add receipt_tag query made');
+                            if (error){
+                                console.log('add receipt_tag query error', error);
+                            }
+                            else if(rows.length===0){
+                                response.result = "0 rows affected";
+                            }
+                            else if(result.affectedRows > 0){
+                                response.success = true;
+                                response.message = `${result.affectedRows} rows affected`;
+                            }
+                        }
+        );
+
+        return response;
+    },
+
+    deleteRecieptTag: function(receiptId, tagId, connection){
+        let response = {
+            success: false
+        };
+
+        connection.query("DELETE FROM receipt_tags WHERE tags.ID = ?;",
+                        [receiptId, tagId],
+                        (error, rows) => {
+                            console.log('delete receipt_tag query made');
+                            if (error){
+                                console.log('delete receipt_tag query error', error);
+                            }
+                            else if(rows.length===0){
+                                response.result = "0 rows affected";
+                            }
+                            else if(result.affectedRows > 0){
+                                response.success = true;
+                                response.message = `${result.affectedRows} rows affected`;
+                            }
+                        }
+        );
+
+        return response;
+    },    
 };
