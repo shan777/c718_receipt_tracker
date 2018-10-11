@@ -34,9 +34,9 @@ class Overveiw extends Component{
                 <div className="store_name">{item.storeName}</div>
                 <br/>
                 <div className="date_of_purchase">{item.purchaseDate}</div>
-                <div className="amount_of_purchase">${item.total/100}</div>
-                <button onClick={()=> this.open(index)} className='editbtn'>Edit</button>
-                
+                <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
+                <Link className="edit" to='/add_new'><button className='editbtn'>
+                <i class="material-icons">edit</i></button></Link>
                     <AccordionItem className="panel">
                        <div className="panel_size">
                             <div className="catagory">Merchant name:</div>
@@ -89,8 +89,8 @@ class Overveiw extends Component{
                 <div className='overview_main_container'>
                     {this.makeRow()}
                     <div className="summary">
-                        <p className="number_of_receipts">{receiptUser.length} Receipts</p>
-                        <p className="total_amount">Your total is ${addTotal()}</p>
+                        <p className="number_of_receipts"><b>{receiptUser.length}</b> Receipts
+                         -- <b>Total:</b> ${addTotal()}</p>
                     </div>
                 </div>
                 <Footer userID={this.state.currentDisplayedUserID}/>

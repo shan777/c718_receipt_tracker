@@ -136,7 +136,7 @@ const response = [
             },
             {
                 storeName: 'Ralphs',
-                total: 15000,
+                total: 15020,
                 tax: 1875,
                 creditCardName: 'Visa',
                 creditCardDigits: '1234',
@@ -148,8 +148,8 @@ const response = [
                 tags: []
             },
             {
-                storeName: 'Korean Market',
-                total: 3300,
+                storeName: 'H-Mart',
+                total: 3309,
                 tax: 375,
                 creditCardName: '',
                 creditCardDigits: '',

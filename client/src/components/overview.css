@@ -1,3 +1,16 @@
+@font-face {    
+    font-family: 'Roboto Bold';
+    src: url(../../src/assets/fonts/Roboto-Bold.ttf);
+}
+
+@font-face {    
+    font-family: 'Roboto';
+    src: url(../../src/assets/fonts/Roboto-Regular.ttf);
+}
+
+* {
+    font-family: "Roboto";
+}
 @media only screen and (max-width: 600px){
 
 body{
@@ -20,6 +33,7 @@ body{
     width: 100%;
     cursor: pointer;
     transition: 0.4s;
+    font-size: 0.8em;
 }
 
 .date_of_purchase, .store_name, .amount_of_purchase{
@@ -35,17 +49,22 @@ body{
 
 .store_name{
     top: 1vh;
+    padding-bottom: 1%;
+    font-family: "Roboto Bold";
 }
 
 .date_of_purchase{
-    font-size: 1em;
+    font-size: 1.3em;
     top: 1vh;
 }
-.amount_of_purchase{
-    left: 55%;
-    bottom: 2vh;
-}
 
+.amount_of_purchase{
+    left: 45%;
+    bottom: 2vh;
+    font-size: 1.4em;
+    font-family: "Roboto Bold";
+    text-align: right;
+}
 
 .panel{
     display: none;
@@ -77,15 +96,18 @@ body{
 .summary{
     position: fixed;
     bottom: 80px;
-    background-color: #237E80;
+    background-color: #2E939555;
     width: 100vw;
     margin: 0;
     border-bottom: 1px solid black;
+    font-size: 0.6em;
+    padding: 3% 0;
 }
 
-.number_of_receipts, .total_amount{
+.summary>p {
     margin: 0;
-    font-size: 2em;
+    font-size: 2.1em;
+    text-align: center;
 }
 
 .collapsible_header{
@@ -94,6 +116,15 @@ body{
     opacity: 0;
 }
 
+
+.edit{
+    position: relative;
+    height: 3vh;;
+    width: 7%;
+    float: right;
+    top: 2.5vh;
+    right: 5%;
+}
 
 .editbtn{
     float: right;
@@ -108,7 +139,6 @@ body{
     border: 2px solid #2C3531;
     transition-duration: 0.4s;
     font-family: 'Original Surfer';
-    
 }
 
 }
@@ -163,7 +193,7 @@ body{
     .amount_of_purchase{
         left: 47%;
         bottom: 2vh;
-        font-size: 2em;
+        font-size: 1.4em;
     }
     
     
@@ -226,7 +256,8 @@ body{
     }
 
     .editbtn{
-        font-size: 2em;
+        font-size: 1em;
+        float: right;
     }
 }
 

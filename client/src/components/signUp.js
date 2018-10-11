@@ -20,15 +20,23 @@
             })
         }
 
+        checkPassword = () => {
+            // if(this.state.password !== this.state.confirmPassword)
+            console.log('password: ', password);
+        }
+
+
         render() {
             console.log(this.state.alert);
             const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
             const alertNone = {
                 display: 'none'
             }
+
             const alertShow = {
                 display: 'block'
             }
+            
             return (
                 <div className="signup_container">
                     <div className="sign_up_main_container">
@@ -66,13 +74,17 @@
                                         type="password"
                                         value={password}
                                     />
-                                    <div style={this.state.alert ? alertShow: alertNone} className="alert_password_restrictions">Minimum password of 8 characters including one number!</div>
+                                    {/* <i className="material-icons">visibility</i> */}
+                                    <div style={this.state.alert ? alertShow: alertNone} className="alert_password_restrictions">
+                                        Minimum password of 8 characters including one number!
+                                    </div>
                                 </div>
 
                                 <div className="entry_container">
                                     <label className="input_title cfm_password">Confirm<br></br>Password</label>
                                     <div className="cfm sign_up_input">
                                         <input className='sign_up_input_inside' onChange={ (e) => this.setState({confirmPassword: e.target.value})}
+                                            onClick={this.checkPassword}
                                             type="password"
                                             value={confirmPassword}
                                         />
