@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Original Surfer';
+    src: url(../../src/assets/fonts/OriginalSurfer-Regular.ttf);
+}
+
+@font-face {    
+    font-family: 'Roboto Bold';
+    src: url(../../src/assets/fonts/Roboto-Bold.ttf);
+}
+
+@font-face {    
+    font-family: 'Roboto';
+    src: url(../../src/assets/fonts/Roboto-Regular.ttf);
+}
+
 .main_container {
     width: 100%;
     margin: 0;
@@ -6,6 +21,9 @@
     background-color: #DEF2F1;
     top: 80px;
     position: fixed;
+    font-family: 'Roboto';
+    padding-bottom: 155px;
+    overflow: auto;
 }
 
 .content_container {
@@ -17,20 +35,18 @@
     display: block;
     box-sizing: border-box;
     /* text-align: center; */
-    line-height: 3em;
+    line-height: 2.1em;
     border-bottom: 0.5px solid #237E8099;
 }
 
-.input_title {
-    width: 40%;
+.input_label {
+    width: 35%;
     height: 30%;;
-    text-align: right;
-    padding-right: 3%;
+    text-align: center;
+    /* padding-left: 4%; */
     display: inline-block;
-    /* overflow-y: auto;
-    overflow-x: auto; */
     word-break: break-word;
-
+    font-size: 0.9em;
 }
 
 input {
@@ -38,33 +54,60 @@ input {
     box-shadow: none;
     border-style: none;
     border-bottom: 1px solid #237E80 ;
-    
+    border-top-color: none;
+}
+
+input:hover {
+    border-bottom: 2.5px solid #237E80;
 }
 
 select {
     background-color: rgba(239, 241, 241, 0.904);
 }
 
+.merchant, .note {
+    width: 55%;
+}
+
 .date {
-    width: 30%;
+    width: 40%;
 }
 
 .amount {
     width: 20%;
 }
 
+.cancel_btn {
+    margin-left: 2%;
+    background-color: #C9CED2;
+    color: #2C3531;
+    padding: 1% 2%;
+    font-size: 1.005em;
+    border-radius: 6px;
+    border: 2px solid #2C3531;
+    transition-duration: 0.4s;
+    font-family: 'Original Surfer';
+}
+
 .done_btn {
     float: right;
     margin-right: 2%;
-}
-
-.cancel_btn {
-    margin-left: 2%;
+    background-color: #2E3B3B;
+    color: #F2F2F2;
+    padding: 1% 2%;
+    font-size: 1.05em;
+    border-radius: 6px;
+    border-color: #2C3531;
+    transition-duration: 0.4s;
+    font-family: 'Original Surfer';
 }
 
 .btn_container {
     width: 100%;
     background-color: #D9DDE1;
-    padding: 1% 0;
+    padding: 2% 0;
     font-weight: bold;
+    font-family: 'Original Surfer';
+    margin-bottom: 5%;
+
 }

@@ -1,7 +1,7 @@
 const express = require('express');
 const PORT = process.env.PORT || 9000;
 const server = express();
-const { resolve } = require('path'); // path is a module included with node
+const { resolve } = require('path');
 const cors = require('cors');
 const mysql = require('mysql');
 const sqrlDbCreds = require('./sqrlDbCreds');
@@ -11,53 +11,27 @@ const sessionExec = session(sessionParams);
 const functions = require("./serverFunctions.js");
 
 server.use(express.static(resolve(__dirname, 'client', 'dist')));
-server.use(cors()); // allows cross origin
-server.use(express.json()); // replaces body parser
+server.use(cors());
+server.use(express.json());
 server.use(sessionExec);
 
 server.post('/api/checkLoginStatus', (request, response) => {
     console.log("checking login status for : ", request.sessionID);
     const output = {
-        success: false,
+        success: true,
         loggedIn: false
     };
-    const connection = mysql.createConnection(sqrlDbCreds);
-    connection.query("SELECT users.ID, users.userName, connections.lastConnection, connections.sessionID FROM connections JOIN users ON connections.userId=users.ID WHERE connections.sessionID=?",
-                      [request.sessionID],
-                      (error, rows)=>{
-                        console.log('performing connection query...', error);
-                        output.success = true;
-                        if(!error && rows.length > 0){
-                            console.log('logged in', rows[0]);
-                            output.loggedIn = true;
-                            output.userId = rows[0].ID;
-                            output.userName = rows[0].userName;
-                            output.lastConnection = rows[0].lastConnection;
-                            output.sessionID = rows[0].sessionID;
-                            connection.query("UPDATE connections SET connectionCount=connectionCount+1, lastConnection=NOW() WHERE sessionID=?",
-                                             [output.sessionID],
-                                             (error)=>{
-                                                console.log('query to update connection table', error);
-                                                if(!error){
-                                                    console.log('connections updated');
-                                                }
-                                             });
-                        }else{
-                            output.loggedIn = false;
-                        }
-                        connection.end(() => {
-                            console.log('connection end');
-                        });
-                        response.send(output);
-                    }
-    );     
+    if (!request.session.userId){
+        response.status(401).send(output);
+    }
+    else{
+        output.loggedIn = true;
+        response.status(200).send(output);
+    };
 });
 
 server.post('/api/login', (request, response) => {
     const {userName, password} = request.body;
-    const status = 'active';
-    console.log("login request data: ", request.body);
-    
     const output = {
         success: false,
         loggedIn: false
@@ -67,40 +41,26 @@ server.post('/api/login', (request, response) => {
     let passwordRegEx = /^(?=[a-zA-Z])(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z]).*$/;
 
     if (userNameRegEx.test(userName) && passwordRegEx.test(password)){
-        console.log('regEx matched');
+        const status = 'active';
         const connection = mysql.createConnection(sqrlDbCreds);
         connection.query("SELECT users.ID FROM users WHERE users.username=? AND users.password=SHA1(?) AND users.status=?",
-                    [userName, password, status],
-                    (error, rows) => {
-                        console.log('login query made');
-                        if (error){
-                            console.log('login query error', error);
-                            response.send(output);
-                        }else if (rows){
-                            output.userId = rows[0].ID;
+                        [userName, password, status],
+                        (error, rows) => {
                             output.success = true;
-                            output.sessionID = request.sessionID;
-                            const ipAddress = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
-                            connection.query("INSERT INTO connections(userId, ipAddress, sessionID, created, lastConnection) VALUES (?,?,?,NOW(),NOW())",
-                                            [output.userId, ipAddress, output.sessionID],
-                                            (error)=>{
-                                                console.log("connection query attempted", "error: ", error);
-                                                if(!error){
-                                                    console.log('connection query success!')
-                                                    output.loggedIn = true;
-                                                    response.send(output);
-                                                }
-                                            });
-                        }
-                        // connection.end(() => {
-                        //     console.log('connection end'); //not sure where this goes.
-                        // });                        
-                        // response.send(output);
-                    }
-        );
-    }else{
-        output.message = 'user name or password incorrect';
-        response.send(output);
+                            if (error){
+                                output.queryError = error;
+                                response.status(400).send(output);
+                            }else if (rows){
+                                output.userId = rows[0].ID;
+                                output.loggedIn = true;
+                                request.session.userId = output.userId;
+                                response.status(200).send(output);
+                            }   
+        });
+    }
+    else{
+        output.message = 'User name or password incorrect.';
+        response.status(401).send(output);
     }
 });
 
@@ -110,46 +70,55 @@ server.post('/api/addTag', (request, response) => {
     const output = {
         success: false
     };
+    if (!request.session.userId){
+        console.log('could not find login data. loggedInID is false');
+        response.status(401).send(output);
+    }else{
+        let userIdRegEx = /^[1-9][\d]*$/;
+        let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
 
-    let userIdRegEx = /^[1-9][\d]*$/;
-    let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
-
-    if (userIdRegEx.test(userId) && tagNameRegEx.test(tagName)){
-        const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("SELECT tagName, userId FROM tags WHERE userId = ? AND tagName = ?",
-                        [userId, tagName],
-                        (error, rows) => {
-                            console.log('look up tag query made', rows, rows.length);
-                            if (error){
-                                console.log('look up query error', error);
+        if (userIdRegEx.test(userId) && tagNameRegEx.test(tagName)){
+            const connection = mysql.createConnection(sqrlDbCreds);
+            connection.query(
+                "SELECT tagName, userId FROM tags WHERE userId = ? AND tagName = ?",
+                [userId, tagName],
+                (error, rows) => {
+                    console.log('look up tag query made', rows, rows.length);
+                    if (error){
+                        console.log('look up query error', error);
+                        output.error = error;
+                        response.send(output);
+                    }else if(rows.length===0){
+                        connection.query(
+                            "INSERT INTO tags (userId, tagName) VALUES (?, ?);",
+                            [userId, tagName],
+                            (error, result) => {
+                                console.log('insert query made');
+                                if (error){
+                                console.log('insert query error', error);
                                 output.error = error;
                                 response.send(output);
-                            }else if(rows.length===0){
-                                connection.query("INSERT INTO tags (userId, tagName) VALUES (?, ?);",
-                                                [userId, tagName],
-                                                (error, result) => {
-                                                    console.log('insert query made');
-                                                    if (error){
-                                                        console.log('insert query error', error);
-                                                        output.error = error;
-                                                        response.send(output);
-                                                    }
-                                                        output.success = true;
-                                                    connection.end(() => {
-                                                        console.log('connection end');
-                                                    });                        
-                                                    response.send(output);
-                                                }
-                                );
-                            }else{
-                                output.error = "tagName exists already";
+                                }
+                                output.success = true;
+                                connection.end(() => {
+                                    console.log('connection end');
+                                });                        
                                 response.send(output);
                             }
-                        }
-        );
-    }else{
-        output.error = "userId or tagName invalid";
-        response.send(output);
+                        );
+                    }
+                    else{
+                        output.error = "tagName exists already";
+                        response.send(output);
+                    }
+                    
+                }
+            );
+        }
+        else{
+            output.error = "userId or tagName invalid";
+            response.send(output);
+        }
     }
 });
 
