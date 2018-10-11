@@ -64,100 +64,6 @@ server.post('/api/login', (request, response) => {
     }
 });
 
-server.post('/api/addTag', (request, response) => {
-    const {userId, tagName} = request.body;
-    console.log("request data: ", request.body);
-    const output = {
-        success: false
-    };
-    if (!request.session.userId){
-        console.log('could not find login data. loggedInID is false');
-        response.status(401).send(output);
-    }else{
-        let userIdRegEx = /^[1-9][\d]*$/;
-        let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
-
-        if (userIdRegEx.test(userId) && tagNameRegEx.test(tagName)){
-            const connection = mysql.createConnection(sqrlDbCreds);
-            connection.query(
-                "SELECT tagName, userId FROM tags WHERE userId = ? AND tagName = ?",
-                [userId, tagName],
-                (error, rows) => {
-                    console.log('look up tag query made', rows, rows.length);
-                    if (error){
-                        console.log('look up query error', error);
-                        output.error = error;
-                        response.send(output);
-                    }else if(rows.length===0){
-                        connection.query(
-                            "INSERT INTO tags (userId, tagName) VALUES (?, ?);",
-                            [userId, tagName],
-                            (error, result) => {
-                                console.log('insert query made');
-                                if (error){
-                                console.log('insert query error', error);
-                                output.error = error;
-                                response.send(output);
-                                }
-                                output.success = true;
-                                connection.end(() => {
-                                    console.log('connection end');
-                                });                        
-                                response.send(output);
-                            }
-                        );
-                    }
-                    else{
-                        output.error = "tagName exists already";
-                        response.send(output);
-                    }
-                    
-                }
-            );
-        }
-        else{
-            output.error = "userId or tagName invalid";
-            response.send(output);
-        }
-    }
-});
-
-server.post('/api/getUserTags', (request, response) => {
-    const {userId} = request.body;
-    console.log("request data: ", request.body);
-    
-    const output = {
-        tags: [],
-        success: false
-    };
-
-    let userIdRegEx = /^[1-9][\d]*/;
-
-    if (userIdRegEx.test(userId)){
-        const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("SELECT tagName FROM tags WHERE userId = ?",
-                        [userId],
-                        (error, rows) => {
-                            console.log('get tags query made');
-                            if (error){
-                                console.log('get tags query error', error);
-                                response.send(output);
-                            }
-                            rows.forEach(element => {
-                                output.tags.push(element);
-                            });
-                            output.success = true;
-                            connection.end(() => {
-                                console.log('connection end');
-                            });                        
-                            response.send(output);
-                        }
-        );
-    }else{
-        response.send(output);
-    }
-});
-
 server.post('/api/getUserReceipts', (request, response) => {
     const {userId} = request.body;
     console.log("request data: ", request.body);
@@ -311,6 +217,18 @@ server.post('/api/addReceipt', (request, response) => {
         response.send(output);
     }
 });
+
+/*
+    Use in manageTags:
+    
+    if (!request.session.userId){
+        console.log('could not find login data. loggedInID is false');
+        response.status(401).send(output);
+    }
+    else{
+        
+    }
+*/
 
 server.post('/api/updateReceipt', (request, response) => {
     const {receiptId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
