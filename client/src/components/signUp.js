@@ -4,15 +4,21 @@
     import squirrel from '../assets/images/squirrel_logo_small_facing_right.png';
 
     class SignUp extends Component {    
+        constructor(props) {
+            super(props);
+
+            this.handleSubmit = this.handleSubmit.bind(this);
+        }
         state = {
+            username: '',
             firstName: '',
             lastName: '',
-            emailAddress: '',
             password: '',
             confirmPassword: '',
+            email: 'steve@yahoo.com',
+            phone: '1234567896',
             alert: false
         }
-
 
         passwordRestrictions(){
             this.setState({
@@ -25,10 +31,27 @@
             console.log('password: ', password);
         }
 
+        async handleSubmit(e) {
+            const {username, firstName, lastName, password, email, phone} = this.state;
+
+            console.log('inside handlesubmit');
+            console.log(username, firstName, lastName, password, email, phone);
+            e.preventDefault();
+
+            const resp = await axios.post('/api/signUp',{
+                userName: username,
+                password,
+                firstName,
+                lastName,
+                email,
+                phone
+            });
+            console.log(resp);
+        }
 
         render() {
-            console.log(this.state.alert);
-            const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
+            const {username, firstName, lastName, password, confirmPassword} = this.state;
+
             const alertNone = {
                 display: 'none'
             }
@@ -43,7 +66,15 @@
 
                         <img className="logo" src={squirrel}></img>
                         <div className="title">Create an account to start</div>
-                            <form>
+                            <form  onSubmit={this.handleSubmit}>
+                                <div className="entry_container">
+                                    <label className="input_title">Username</label>
+                                    <input className='sign_up_input' onChange={ (e) => this.setState({username: e.target.value})}
+                                        type="text"
+                                        value={username}
+                                    />
+                                </div>
+
                                 <div className="entry_container">
                                     <label className="input_title">First Name</label>
                                     <input className='sign_up_input' onChange={ (e) => this.setState({firstName: e.target.value})}
@@ -57,14 +88,6 @@
                                     <input className='sign_up_input' onChange={ (e) => this.setState({lastName: e.target.value})}
                                         type="text"
                                         value={lastName}
-                                    />
-                                </div>
-
-                                <div className="entry_container">
-                                    <label className="input_title">Email Address</label>
-                                    <input className='sign_up_input' onChange={ (e) => this.setState({emailAddress: e.target.value})}
-                                        type="email"
-                                        value={emailAddress}
                                     />
                                 </div>
 
@@ -91,7 +114,7 @@
                                     </div>    
                                 </div>
 
-                            <button className="letsgo"  type="submit" value="Letsgo" onSubmit={this.handleAddItem}>Let's go!</button>
+                            <button className="letsgo"  type="submit" value="Letsgo">Let's go!</button>
                         </form>
                     </div>
 

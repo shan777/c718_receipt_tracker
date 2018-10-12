@@ -22,7 +22,8 @@ server.post('/api/checkLoginStatus', (request, response) => {
     const output = {
         success: true,
     }
-    if(userId){
+
+    if (userId){
         output.loggedIn = true;
     }
     else{
@@ -65,12 +66,12 @@ server.post('/api/login', (request, response) => {
 });
 
 server.post('/api/logout', (request, response) => {
-    const {userId} = request.body;
+    const userId = request.session.userId;
     const output = {
         success: true,
         loggedIn: null
     };
-    if (request.session.userId && request.session.userId === userId){
+    if (userId){
         request.session.destroy();
         output.loggedIn = false;
         response.status(200).send(output);
@@ -80,14 +81,22 @@ server.post('/api/logout', (request, response) => {
 });
 
 server.post('/api/getUserReceipts', (request, response) => {
-    const {userId} = request.body;
+    const userId = request.session.userId;
     const output = {
         receipts: [],
         success: false
     };
-    if (request.session.userId === userId){
+    if (userId){
         const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("SELECT * FROM receipts WHERE receipts.userId = ? AND receipts.status = 'active';",
+        connection.query(`SELECT receipts.storeName,
+                                 receipts.total,
+                                 receipts.purchaseDate,
+                                 receipts.category,
+                                 receipts.comment,
+                                 receipts.ID
+                          FROM receipts
+                          WHERE receipts.userId = ?
+                            AND receipts.status = 'active';`,
                         [userId],
                         (error, rows) => {
                             if (error){
@@ -110,11 +119,12 @@ server.post('/api/getUserReceipts', (request, response) => {
 
 server.post('/api/deleteReceipt', (request, response) => {
     // NOTE: This query is meant for doing a SOFT delete meaning the receipts status will be update to 'inactive' and will NOT be removed from the db
-    const {userId, receiptId} = request.body;
+    const {receiptId} = request.body;
+    const userId = request.session.userId;
     const output = {
         success: false
     };
-    if(request.session.userId === userId){
+    if(userId){
         const connection = mysql.createConnection(sqrlDbCreds);
         connection.query("UPDATE receipts SET receipts.status = 'inactive' WHERE receipts.ID = ?;",
                         [receiptId],
@@ -136,7 +146,8 @@ server.post('/api/deleteReceipt', (request, response) => {
 });
 
 server.post('/api/addReceipt', (request, response) => {
-    const {userId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
+    const {storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
+    const userId = request.session.userId;
     console.log("request data: ", request.body);
 
     const output = {
@@ -188,6 +199,9 @@ server.post('/api/addReceipt', (request, response) => {
 });
 
 server.post('/api/updateReceipt', (request, response) => {
+
+    // BUG: we need to build the query string and array based off the keys sent
+    // in the request.body object
     const {receiptId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
     console.log("request data: ", request.body);
     
@@ -196,14 +210,14 @@ server.post('/api/updateReceipt', (request, response) => {
     };
 
     let receiptIdRegex = /^[1-9][\d]*$/;
-    let storeNameRegex = /^[a-zA-Z \d-_]{2,}$/;
-    let totalRegex = /^[1-9][\d]*$/;
-    let taxRegex = /^[1-9][\d]*$/;
-    let creditCardNameRegex = /^[a-zA-Z ]{2,}$/;
+    let storeNameRegex = /^[a-zA-Z \d-_]{2,32}$/;
+    let totalRegex = /^[1-9][\d]{1,10}$/;
+    let taxRegex = /^[1-9][\d]{1,10}$/;
+    let creditCardNameRegex = /^[a-zA-Z ]{2,20}$/;
     let creditCardDigitsRegex = /^[\d]{4}$/;
     let purchaseDateRegex = /^\d{4}-{1}\d{2}-{1}\d{2}$/;
-    let categoryRegex = /^[a-zA-Z]$/;
-    let commentRegex = /^[a-zA-Z\d .\-*\/$%!?()+=]$/;
+    let categoryRegex = /^[a-zA-Z]{1,20}$/;
+    let commentRegex = /^[a-zA-Z\d .\-*\/$%!?()+=]{1,255}$/;
     let reimbursableRegex = /^[01]{1}$/;
 
     // Validating required input data
