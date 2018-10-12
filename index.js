@@ -235,6 +235,9 @@ server.post('/api/addReceipt', (request, response) => {
 */
 
 server.post('/api/updateReceipt', (request, response) => {
+
+    // BUG: we need to build the query string and array based off the keys sent
+    // in the request.body object
     const {receiptId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
     console.log("request data: ", request.body);
     
@@ -243,14 +246,14 @@ server.post('/api/updateReceipt', (request, response) => {
     };
 
     let receiptIdRegex = /^[1-9][\d]*$/;
-    let storeNameRegex = /^[a-zA-Z \d-_]{2,}$/;
-    let totalRegex = /^[1-9][\d]*$/;
-    let taxRegex = /^[1-9][\d]*$/;
-    let creditCardNameRegex = /^[a-zA-Z ]{2,}$/;
+    let storeNameRegex = /^[a-zA-Z \d-_]{2,32}$/;
+    let totalRegex = /^[1-9][\d]{1,10}$/;
+    let taxRegex = /^[1-9][\d]{1,10}$/;
+    let creditCardNameRegex = /^[a-zA-Z ]{2,20}$/;
     let creditCardDigitsRegex = /^[\d]{4}$/;
     let purchaseDateRegex = /^\d{4}-{1}\d{2}-{1}\d{2}$/;
-    let categoryRegex = /^[a-zA-Z]$/;
-    let commentRegex = /^[a-zA-Z\d .\-*\/$%!?()+=]$/;
+    let categoryRegex = /^[a-zA-Z]{1,20}$/;
+    let commentRegex = /^[a-zA-Z\d .\-*\/$%!?()+=]{1,255}$/;
     let reimbursableRegex = /^[01]{1}$/;
 
     // Validating required input data
