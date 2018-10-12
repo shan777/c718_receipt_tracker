@@ -5,7 +5,6 @@ import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
-import dummy from '../dummy_data/dummyList';
 import TagPanel from './receipt_tags/tag_panel';
 
 
@@ -35,18 +34,27 @@ class AddNew extends Component {
             //tag: 'None', //will be an array later
             newTags: []
         }
+
     }
 
     handleSubmit = (event) => {
-        console.log('dummy: ',{dummy});
-    
+
+        console.log('inside handlesubmit');
+        
+        const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
+
         //how do i find the user? 
         
         event.preventDefault();
 
-        const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
-        console.log('totalAmount: ', totalAmount);
-        
+        const resp = await axios.post('/api/addReceipt', {
+            userId: ?????????????????? ,
+            storeName: merchantName,
+            total: totalAmount,
+            purchaseDate: dateOfPurchase,
+            category: category,
+            comment: note
+        });       
 
 
         //this.props.history.push('/overview');
