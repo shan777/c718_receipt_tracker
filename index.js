@@ -16,11 +16,11 @@ server.use(express.json());
 server.use(sessionExec);
 
 server.post('/api/checkLoginStatus', (request, response) => {
-    const {userId} = request.body;
+    const userId = request.session.userId;
     const output = {
         success: true,
     }
-    if (request.session.userId === userId){
+    if (userId){
         output.loggedIn = true;
     }
     else{
@@ -63,12 +63,12 @@ server.post('/api/login', (request, response) => {
 });
 
 server.post('/api/logout', (request, response) => {
-    const {userId} = request.body;
+    const userId = request.session.userId;
     const output = {
         success: true,
         loggedIn: null
     };
-    if (request.session.userId && request.session.userId === userId){
+    if (userId){
         request.session.destroy();
         output.loggedIn = false;
         response.status(200).send(output);
@@ -89,7 +89,8 @@ server.post('/api/getUserReceipts', (request, response) => {
                                  receipts.total,
                                  receipts.purchaseDate,
                                  receipts.category,
-                                 receipts.comment
+                                 receipts.comment,
+                                 receipts.ID
                           FROM receipts
                           WHERE receipts.userId = ?
                             AND receipts.status = 'active';`,
@@ -115,11 +116,12 @@ server.post('/api/getUserReceipts', (request, response) => {
 
 server.post('/api/deleteReceipt', (request, response) => {
     // NOTE: This query is meant for doing a SOFT delete meaning the receipts status will be update to 'inactive' and will NOT be removed from the db
-    const {userId, receiptId} = request.body;
+    const {receiptId} = request.body;
+    const userId = request.session.userId;
     const output = {
         success: false
     };
-    if(request.session.userId === userId){
+    if(userId){
         const connection = mysql.createConnection(sqrlDbCreds);
         connection.query("UPDATE receipts SET receipts.status = 'inactive' WHERE receipts.ID = ?;",
                         [receiptId],
@@ -168,7 +170,8 @@ server.post('/api/deleteReceipt', (request, response) => {
 // });
 
 server.post('/api/addReceipt', (request, response) => {
-    const {userId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
+    const {storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
+    const userId = request.session.userId;
     console.log("request data: ", request.body);
 
     const output = {
