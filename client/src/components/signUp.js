@@ -20,6 +20,18 @@
                 alert: false
             }
         }
+
+        state = {
+            username: '',
+            firstName: '',
+            lastName: '',
+            password: '',
+            confirmPassword: '',
+            email: 'steve@yahoo.com',
+            phone: '1234567896',
+            alert: false
+        }
+
         passwordRestrictions(){
             this.setState({
                 alert: true
@@ -45,13 +57,14 @@
                 lastName,
                 email: emailAddress,
                 phone: phoneNumber
+
             });
 
             console.log(resp);
         }
 
         render() {
-            const {username, firstName, lastName, emailAddress, phoneNumber, password, confirmPassword} = this.state;
+            const {username, firstName, lastName, password, confirmPassword} = this.state;
 
             const alertNone = {
                 display: 'none'
@@ -88,22 +101,6 @@
                                     <input className='sign_up_input' onChange={ (e) => this.setState({lastName: e.target.value})}
                                         type="text"
                                         value={lastName}
-                                    />
-                                </div>
-
-                                <div className="entry_container">
-                                    <label className="input_title">Email Address</label>
-                                    <input className='sign_up_input' onChange={ (e) => this.setState({emailAddress: e.target.value})}
-                                        type="email"
-                                        value={emailAddress}
-                                    />
-                                </div>
-
-                                <div className="entry_container">
-                                    <label className="input_title">Phone Number</label>
-                                    <input className='sign_up_input' onChange={ (e) => this.setState({phoneNumber: e.target.value})}
-                                        type="number"
-                                        value={phoneNumber}
                                     />
                                 </div>
 

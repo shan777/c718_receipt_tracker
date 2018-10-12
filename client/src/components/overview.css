@@ -59,7 +59,7 @@ body{
 }
 
 .amount_of_purchase{
-    left: 45%;
+    left: 52%;
     bottom: 2vh;
     font-size: 1.4em;
     font-family: "Roboto Bold";
@@ -128,16 +128,15 @@ body{
 
 .editbtn{
     float: right;
-    background-color: #C9CED2;
-    right: 11%;
     position: relative;
-    color: #2C3531;
-    top: 2vh;
+    color: rgb(243, 113, 7);
+    top: 0vh;
     padding: 1% 2%;
     font-size: 1.005em;
     border-radius: 6px;
     transition-duration: 0.4s;
     font-family: 'Original Surfer';
+    margin-top: 1%;
 }
 
 }
