@@ -4,6 +4,11 @@
     import squirrel from '../assets/images/squirrel_logo_small_facing_right.png';
 
     class SignUp extends Component {    
+        constructor(props) {
+            super(props);
+
+            this.handleSubmit = this.handleSubmit.bind(this);
+        }
         state = {
             firstName: '',
             lastName: '',
@@ -12,7 +17,6 @@
             confirmPassword: '',
             alert: false
         }
-
 
         passwordRestrictions(){
             this.setState({
@@ -25,10 +29,23 @@
             console.log('password: ', password);
         }
 
+        async handleSubmit(e) {
+            const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
+
+            console.log('inside handlesubmit');
+            e.preventDefault();
+            // const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
+
+            const resp = await axios.post('/api/signUp',{
+                firstName,
+                lastName
+            });
+            console.log(resp);
+        }
 
         render() {
-            console.log(this.state.alert);
             const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
+
             const alertNone = {
                 display: 'none'
             }
@@ -43,7 +60,7 @@
 
                         <img className="logo" src={squirrel}></img>
                         <div className="title">Create an account to start</div>
-                            <form>
+                            <form  onSubmit={this.handleSubmit}>
                                 <div className="entry_container">
                                     <label className="input_title">First Name</label>
                                     <input className='sign_up_input' onChange={ (e) => this.setState({firstName: e.target.value})}
@@ -91,7 +108,7 @@
                                     </div>    
                                 </div>
 
-                            <button className="letsgo"  type="submit" value="Letsgo" onSubmit={this.handleAddItem}>Let's go!</button>
+                            <button className="letsgo"  type="submit" value="Letsgo">Let's go!</button>
                         </form>
                     </div>
 
