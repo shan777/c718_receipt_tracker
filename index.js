@@ -276,6 +276,70 @@ server.post('/api/updateReceipt', (request, response) => {
     }
 });
 
+server.post('/api/signUp', (request, response) => {
+    const {userName, password, firstName, lastName, email, phone} = request.body;
+    const status = 'active';
+    console.log("signUp request data: ", request.body);
+
+    const output = {
+        success: false
+    };
+
+    let userNameRegEx = /^(?=.{8,32}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/;
+    let passwordRegEx = /^(?=[a-zA-Z])(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z]).*$/;
+    let firstNameRegEx = /^[\. \-'a-zA-Z]{2,32}$/;
+    let lastNameRegEx = /^[\. \-'a-zA-Z]{2,50}$/;
+    let emailRegEx = /^[0-9a-zA-Z_\.]+@[0-9a-zA-Z_\.]{8,255}$/;
+    let phoneRegEx = /^([1])?\(?\s*?[-]?([0-9]{3})\)?\s*?[-]?([0-9]{3})\s*?[-]?([0-9]{4})$/;
+
+    if( userNameRegEx.test(userName) &&
+        passwordRegEx.test(password) &&
+        firstNameRegEx.test(firstName) &&
+        lastNameRegEx.test(lastName)&&
+        emailRegEx.test(email)&&
+        phoneRegEx.test(phone)){
+            let phoneNumArray = phone.match(phoneRegEx);
+            let tempPhoneNumber = '';
+            for (let index=1; index<phoneNumArray.length; index++){
+                if(phoneNumArray[index]){
+                    tempPhoneNumber += phoneNumArray[index];
+                }
+            }
+            let phoneNum = parseInt(tempPhoneNumber);
+            const connection = mysql.createConnection(sqrlDbCreds);
+            connection.query("INSERT INTO users (userName, password, firstName, lastName, email, phone, status) VALUES (?,SHA1(?),?,?,?,?,?)",
+                            [userName, password, firstName, lastName, email, phoneNum, status],
+                            (error, result) => {
+                                console.log('sign up query made');
+                                if(error){
+                                    console.log('sign up query error', error);
+                                    output.error = error;
+                                    return response.status(400).send(output);
+                                }
+                                connection.query("SELECT users.ID FROM users WHERE users.username=? AND users.password=SHA1(?) AND users.status=?",
+                                                [userName, password, status],
+                                                (error, rows) => {
+                                                    output.success = true;
+                                                    if (error){
+                                                        output.error = error;
+                                                        return response.status(400).send(output);
+                                                    }else if (rows){
+                                                        output.userId = rows[0].ID;
+                                                        output.loggedIn = true;
+                                                        request.session.userId = output.userId;
+                                                        connection.end(() => { console.log('connection end'); });
+                                                        return response.status(200).send(output);
+                                                    } 
+                                                }
+                                );
+                            }
+            );
+    }else{
+        output.error = 'invalid input data sent';
+        return response.status(400).send(output);
+    }
+});
+
 server.get('*', (request, response) => {
     response.sendFile(resolve(__dirname, 'client', 'dist', 'index.html')); // resolve ensures a correct path
 });
