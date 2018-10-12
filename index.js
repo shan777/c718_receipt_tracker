@@ -78,14 +78,21 @@ server.post('/api/logout', (request, response) => {
 });
 
 server.post('/api/getUserReceipts', (request, response) => {
-    const {userId} = request.body;
+    const userId = request.session.userId;
     const output = {
         receipts: [],
         success: false
     };
-    if (request.session.userId === userId){
+    if (userId){
         const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("SELECT * FROM receipts WHERE receipts.userId = ? AND receipts.status = 'active';",
+        connection.query(`SELECT receipts.storeName,
+                                 receipts.total,
+                                 receipts.purchaseDate,
+                                 receipts.category,
+                                 receipts.comment
+                          FROM receipts
+                          WHERE receipts.userId = ?
+                            AND receipts.status = 'active';`,
                         [userId],
                         (error, rows) => {
                             if (error){
