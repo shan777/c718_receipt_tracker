@@ -8,7 +8,19 @@
             super(props);
 
             this.handleSubmit = this.handleSubmit.bind(this);
+        
+            this.state = {
+                username: '',
+                firstName: '',
+                lastName: '',
+                emailAddress: '',
+                phoneNumber: '',
+                password: '',
+                confirmPassword: '',
+                alert: false
+            }
         }
+
         state = {
             username: '',
             firstName: '',
@@ -31,21 +43,23 @@
             console.log('password: ', password);
         }
 
-        async handleSubmit(e) {
-            const {username, firstName, lastName, password, email, phone} = this.state;
+        async handleSubmit(event) {
+            const {username, firstName, lastName, emailAddress, phoneNumber, password, confirmPassword} = this.state;
 
             console.log('inside handlesubmit');
-            console.log(username, firstName, lastName, password, email, phone);
-            e.preventDefault();
+
+            event.preventDefault();
 
             const resp = await axios.post('/api/signUp',{
                 userName: username,
                 password,
                 firstName,
                 lastName,
-                email,
-                phone
+                email: emailAddress,
+                phone: phoneNumber
+
             });
+
             console.log(resp);
         }
 
@@ -63,7 +77,6 @@
             return (
                 <div className="signup_container">
                     <div className="sign_up_main_container">
-
                         <img className="logo" src={squirrel}></img>
                         <div className="title">Create an account to start</div>
                             <form  onSubmit={this.handleSubmit}>
