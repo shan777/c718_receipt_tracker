@@ -43,3 +43,8 @@
     color: #ff0000;
     background-color: #dedede;
 }
+
+.modalbtn{
+    position: relative;
+    left: 35%;
+}
