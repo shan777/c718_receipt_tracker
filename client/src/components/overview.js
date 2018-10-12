@@ -28,14 +28,7 @@ class Overveiw extends Component{
     close = () => this.setState({isOpen: false});
 
     async componentDidMount(){
-        // var urlParams = new URLSearchParams(window.location.search);
-        // var values = urlParams.values();
         const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'})
-        // const checkLogin = await axios.post('/api/checkLoginStatus', {userId: values} )
-        // console.log(checkLogin);
-        // this.setState({
-        //     userId: login.data.userId
-        // });
         const axiosResponse = await axios.post('/api/getUserReceipts');
         
         this.setState({
@@ -106,7 +99,7 @@ class Overveiw extends Component{
         if(this.state.isOpen){
             let id = 2;
             return (
-                <Modal row={this.state.activeButton} total={this.state.total} receiptId={this.state.receiptId} data={this.state.data} currentId={id} close={this.close}/>
+                <Modal row={this.state.activeButton} total={this.state.total} receiptId={this.state.receiptId} data={this.state.data} close={this.close}/>
             )
         }
         return (
