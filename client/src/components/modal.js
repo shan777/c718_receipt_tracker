@@ -5,7 +5,7 @@ import Overview from './overview';
 
 
 class Modal extends Component{
-    
+ 
 
         state = {
             merchantName: '',
@@ -17,10 +17,10 @@ class Modal extends Component{
         };
 
     componentDidMount(){
-        const eachUser = [...this.props.data];
-        const mapOfUsers = eachUser.map(item => item.receipts);
-        const receiptUser = mapOfUsers[this.props.currentId];
-        let currentReceipt = receiptUser[this.props.row]
+        const currentUser = [...this.props.data.data.receipts];
+        // const mapOfUsers = eachUser.map(item => item.receipts);
+        // const receiptUser = mapOfUsers[this.props.currentId];
+        let currentReceipt = currentUser[this.props.row]
 
         this.setState({
             merchantName: currentReceipt.storeName,
@@ -39,11 +39,11 @@ class Modal extends Component{
         const categoryArray = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Transportation', 'Lodging', 'Repairs'];
         const categoryChoices = categoryArray.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
-            const eachUser = [...this.props.data];
-            const mapOfUsers = eachUser.map(item => item.receipts);
-            const receiptUser = mapOfUsers[this.props.currentId];
-            let currentReceipt = receiptUser[this.props.row]
-            console.log(receiptUser[this.props.row]);
+            const currentUser = [...this.props.data];
+            // const mapOfUsers = eachUser.map(item => item.receipts);
+            // const receiptUser = mapOfUsers[this.props.currentId];
+            let currentReceipt = currentUser[this.props.row]
+            // console.log(receiptUser[this.props.row]);
             return (
             
                 <div className="basic-modal" onClick={this.close}>
@@ -76,8 +76,8 @@ class Modal extends Component{
                                 <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
                                     {categoryChoices}
                                 </select>
-                                <label className="input_label">Tag:</label>
-                                <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/>
+                                {/* <label className="input_label">Tag:</label>
+                                <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/> */}
                         </div>
                     </form>
                     </div>

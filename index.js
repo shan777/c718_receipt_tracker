@@ -79,7 +79,6 @@ server.post('/api/logout', (request, response) => {
 
 server.post('/api/getUserReceipts', (request, response) => {
     const userId = request.session.userId;
-    //console.log(request.session.userId, userId);
     const output = {
         receipts: [],
         success: false
@@ -141,32 +140,32 @@ server.post('/api/deleteReceipt', (request, response) => {
     }
 });
 
-server.post('/api/getReceipt', (request, response) => {
-    const {userId, receiptId} = request.body;
-    const output = {
-        success: false
-    };
-    if (request.session.userId === userId){
-        const connection = mysql.createConnection(sqrlDbCreds);
-        output.tags = functions.getTagsForReceipt(receiptId, connection);
-        connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
-                    [receiptId],
-                    (error, rows) => {
-                        if (error){
-                            output.error = error;
-                            response.status(400).send(output);
-                        }else if(rows){
-                            output.receipt = rows[0];
-                            output.success = true;
-                            connection.end();                        
-                            response.status(200).send(output);
-                        }
-        });
-    }else{
-        output.error = "User not logged in.";
-        response.status(401).send(output);
-    }
-});
+// server.post('/api/getReceipt', (request, response) => {
+//     const {userId, receiptId} = request.body;
+//     const output = {
+//         success: false
+//     };
+//     if (request.session.userId === userId){
+//         const connection = mysql.createConnection(sqrlDbCreds);
+//         output.tags = functions.getTagsForReceipt(receiptId, connection);
+//         connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
+//                     [receiptId],
+//                     (error, rows) => {
+//                         if (error){
+//                             output.error = error;
+//                             response.status(400).send(output);
+//                         }else if(rows){
+//                             output.receipt = rows[0];
+//                             output.success = true;
+//                             connection.end();                        
+//                             response.status(200).send(output);
+//                         }
+//         });
+//     }else{
+//         output.error = "User not logged in.";
+//         response.status(401).send(output);
+//     }
+// });
 
 server.post('/api/addReceipt', (request, response) => {
     const {userId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
