@@ -212,6 +212,7 @@ server.post('/api/addReceipt', (request, response) => {
     }
 });
 
+require('./manageTags')(server);
 server.post('/api/manageTags', (request, response) => {
     const {action, data} = request.body;
     console.log("request data: ", request.body);
