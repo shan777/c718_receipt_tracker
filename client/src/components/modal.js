@@ -114,16 +114,19 @@ class Modal extends Component{
                                     type="number" min="0.00" step="0.01"
                                     value={this.state.totalAmount}
                                 />
+                                <br/>
                                  <label className="input_label">Note:</label>
                                 <input name='note' className="note" placeholder="Not specified" onChange={this.handleChange.bind(this)}
                                     type="text"
                                     value={this.state.note}
                                 />
+                                <br/>
                                 <label className="input_label">Category:</label>
                                 <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
                                     {categoryChoices}
                                 </select>
-                                <button onClick={this.handleSubmit.bind(this)}>Submit</button>
+                                <br/>
+                                <button className="modalbtn" onClick={this.handleSubmit.bind(this)}>Submit</button>
                                 {/* <label className="input_label">Tag:</label>
                                 <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/> */}
                         </div>

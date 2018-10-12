@@ -30,7 +30,7 @@ class Overveiw extends Component{
     async componentDidMount(){
         // var urlParams = new URLSearchParams(window.location.search);
         // var values = urlParams.values();
-        // const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'})
+        const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'})
         // const checkLogin = await axios.post('/api/checkLoginStatus', {userId: values} )
         // console.log(checkLogin);
         // this.setState({
@@ -55,8 +55,6 @@ class Overveiw extends Component{
                 <br/>
                 <div className="date_of_purchase">{item.purchaseDate.slice(0,10)}</div>
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
-                <button className='editbtn' onClick={()=> this.open(index, item.ID, item.total)}>
-                <i className="material-icons">edit</i></button>
                     <AccordionItem className="panel">
                        <div className="panel_size">
                             <div className="catagory">Merchant name:</div>
@@ -68,7 +66,7 @@ class Overveiw extends Component{
                         </div>
                         <div className="panel_size">
                             <div className="catagory">Total Amount:</div>
-                            <div className="data">{item.total/100}</div>
+                            <div className="data">${(item.total/100).toFixed(2)}</div>
                         </div>
                         <div className="panel_size">
                             <div className="catagory">Catagory:</div>
@@ -79,6 +77,11 @@ class Overveiw extends Component{
                             <div className="data">{item.comment}</div>
                         </div>
                         {/* <RenderTag tags={item.tags} /> */}
+                        {/* <button className='editbtn' onClick={()=> this.open(index, item.ID, item.total)}> */}
+                        <div className='editbtn'>
+                            <i className="material-icons" onClick={()=> this.open(index, item.ID, item.total)}>edit</i>
+                        </div>
+                        
                     </AccordionItem>
             </div>
         </Accordion>
