@@ -8,19 +8,21 @@ const sqrlDbCreds = require('./sqrlDbCreds');
 const session = require('express-session');
 const sessionParams = require('./sessionParams');
 const sessionExec = session(sessionParams);
-const functions = require("./serverFunctions.js");
+const functions = require("./helpers.js");
 
 server.use(express.static(resolve(__dirname, 'client', 'dist')));
 server.use(cors());
 server.use(express.json());
 server.use(sessionExec);
 
+require('./manageTags')(server);
+
 server.post('/api/checkLoginStatus', (request, response) => {
-    const {userId} = request.body;
+    const userId = request.session.userId;
     const output = {
         success: true,
     }
-    if (request.session.userId === userId){
+    if(userId){
         output.loggedIn = true;
     }
     else{
@@ -133,62 +135,6 @@ server.post('/api/deleteReceipt', (request, response) => {
     }
 });
 
-<<<<<<< HEAD
-server.post('/api/getReceipt', (request, response) => {
-    const {userId, receiptId} = request.body;
-    const output = {
-        success: false
-    };
-    if (request.session.userId === userId){
-        const connection = mysql.createConnection(sqrlDbCreds);
-        output.tags = functions.getTagsForReceipt(receiptId, connection).tags;
-        connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
-                    [receiptId],
-                    (error, rows) => {
-                        if (error){
-                            output.error = error;
-                            response.status(400).send(output);
-                        }else if(rows){
-                            output.receipt = rows[0];
-                            output.success = true;
-                            connection.end();                        
-                            response.status(200).send(output);
-                        }
-        });
-    }else{
-        output.error = "User not logged in.";
-        response.status(401).send(output);
-    }
-});
-=======
-// server.post('/api/getReceipt', (request, response) => {
-//     const {userId, receiptId} = request.body;
-//     const output = {
-//         success: false
-//     };
-//     if (request.session.userId === userId){
-//         const connection = mysql.createConnection(sqrlDbCreds);
-//         output.tags = functions.getTagsForReceipt(receiptId, connection);
-//         connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
-//                     [receiptId],
-//                     (error, rows) => {
-//                         if (error){
-//                             output.error = error;
-//                             response.status(400).send(output);
-//                         }else if(rows){
-//                             output.receipt = rows[0];
-//                             output.success = true;
-//                             connection.end();                        
-//                             response.status(200).send(output);
-//                         }
-//         });
-//     }else{
-//         output.error = "User not logged in.";
-//         response.status(401).send(output);
-//     }
-// });
->>>>>>> dev
-
 server.post('/api/addReceipt', (request, response) => {
     const {userId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
     console.log("request data: ", request.body);
@@ -239,42 +185,6 @@ server.post('/api/addReceipt', (request, response) => {
         output.error = 'required input data --invalid (add receipt)';
         response.send(output);
     }
-});
-
-require('./manageTags')(server);
-server.post('/api/manageTags', (request, response) => {
-    const {action, data} = request.body;
-    console.log("request data: ", request.body);
-
-    let output = {};
-
-    const connection = mysql.createConnection(sqrlDbCreds);
-
-    switch(action){
-        case "get user tags":
-            output = functions.getUserTags(data.userId, connection);
-            break;
-        case "add tag":
-            output = functions.addTag(data.userId, data.tagName, connection);
-            break;
-        case "delete tag":
-            output = functions.deleteTag(data.tagId, connection);
-            break;
-        case "get tags for receipt":
-            output = functions.getTagsForReceipt(data.receiptId, connection);
-            break;
-        case "add tag to receipt":
-            output = functions.addReceiptTag(data.receiptId, data.tagId, connection);
-            break;
-        case "remove tag from receipt":
-            output = functions.deleteRecieptTag(data.receiptId, data.tagId, connection);
-            break;
-        default:
-            console.log("inside default switch statement...");
-    }
-
-    // connection.end(() => { console.log('connection end'); });
-    response.send(output);
 });
 
 server.post('/api/updateReceipt', (request, response) => {
