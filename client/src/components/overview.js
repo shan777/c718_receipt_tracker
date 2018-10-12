@@ -18,23 +18,25 @@ class Overveiw extends Component{
             isOpen: false,
             activeButton: null,
             receiptId: null,
-            userId: null
+            userId: null,
+            receiptId: null, 
+            total: null
         };
     }
-    open = (index) => this.setState({isOpen: true, activeButton: index});
+    open = (index, receiptId, total) => this.setState({isOpen: true, activeButton: index, receiptId: receiptId, total: total});
 
     close = () => this.setState({isOpen: false});
 
     async componentDidMount(){
-        var urlParams = new URLSearchParams(window.location.search);
-        var values = urlParams.values();
+        // var urlParams = new URLSearchParams(window.location.search);
+        // var values = urlParams.values();
         // const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'})
-        const checkLogin = await axios.post('/api/checkLoginStatus', {userId: values} )
-        console.log(checkLogin);
-        this.setState({
-            userId: login.data.userId
-        });
-        const axiosResponse = await axios.post('/api/getUserReceipts', {userId: values})
+        // const checkLogin = await axios.post('/api/checkLoginStatus', {userId: values} )
+        // console.log(checkLogin);
+        // this.setState({
+        //     userId: login.data.userId
+        // });
+        const axiosResponse = await axios.post('/api/getUserReceipts');
         
         this.setState({
             data: axiosResponse,
@@ -44,14 +46,16 @@ class Overveiw extends Component{
 
     makeRow(){
         const currentUser = [...this.state.data.data.receipts];
+        console.log(currentUser);
         const row = currentUser.map((item, index) => (
+            console.log(item.ID),
         <Accordion key={index}>
             <div className="row">
                 <div className="store_name">{item.storeName}</div>
                 <br/>
                 <div className="date_of_purchase">{item.purchaseDate.slice(0,10)}</div>
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
-                <button className='editbtn' onClick={()=> this.open(index)}>
+                <button className='editbtn' onClick={()=> this.open(index, item.ID, item.total)}>
                 <i className="material-icons">edit</i></button>
                     <AccordionItem className="panel">
                        <div className="panel_size">
@@ -64,7 +68,7 @@ class Overveiw extends Component{
                         </div>
                         <div className="panel_size">
                             <div className="catagory">Total Amount:</div>
-                            <div className="data">{item.total}</div>
+                            <div className="data">{item.total/100}</div>
                         </div>
                         <div className="panel_size">
                             <div className="catagory">Catagory:</div>
@@ -99,7 +103,7 @@ class Overveiw extends Component{
         if(this.state.isOpen){
             let id = 2;
             return (
-                <Modal row={this.state.activeButton} data={this.state.data} currentId={id} close={this.close}/>
+                <Modal row={this.state.activeButton} total={this.state.total} receiptId={this.state.receiptId} data={this.state.data} currentId={id} close={this.close}/>
             )
         }
         return (

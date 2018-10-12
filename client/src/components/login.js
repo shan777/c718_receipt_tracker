@@ -28,6 +28,7 @@ class Login extends Component{
         this.setState({
             userId: resp.data.userId
         })
+        this.props.history.push('/overview');
         console.log(this.state.userId);
     }
 

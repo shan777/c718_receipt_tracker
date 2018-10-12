@@ -89,7 +89,8 @@ server.post('/api/getUserReceipts', (request, response) => {
                                  receipts.total,
                                  receipts.purchaseDate,
                                  receipts.category,
-                                 receipts.comment
+                                 receipts.comment,
+                                 receipts.ID
                           FROM receipts
                           WHERE receipts.userId = ?
                             AND receipts.status = 'active';`,
