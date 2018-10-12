@@ -65,16 +65,26 @@ select {
     font-size: 1.1em;
 }
 
+option {
+    font-size: 0.7em;
+}
+
 .merchant, .note {
     width: 55%;
 }
 
 .date {
-    width: 40%;
+    width: 45%;
 }
 
 .amount {
-    width: 20%;
+    width: 30%;
+}
+
+.tag_input {
+    vertical-align: top;
+    background-color: #DEF2F1;
+
 }
 
 .cancel_btn {

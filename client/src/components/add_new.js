@@ -26,44 +26,48 @@ class AddNew extends Component {
             dateOfPurchase: '',
             category: '',
             note: '',
-            errorMessage: {
-                forTotalAmount: "'Total Amount' must be a number.",
-                forMerchantName: "'Merchant Name' must be entered."
-            },
             currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
-            //tag: 'None', //will be an array later
             newTags: []
         }
 
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit = (event) => {
+    async componentDidMount(){
+        const login = await axios.post('/api/login', {userName: 'kylePamintuan', password: 'kyleLfz123'})
+    }
+     
+    clearStates = () => {
+        this.setState({
+            merchantName: '',
+            totalAmount: '',
+            dateOfPurchase: '',
+            category: '',
+            note: ''
+        });
+    }
 
-        console.log('inside handlesubmit');
-        
+    async handleSubmit(event) {
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
+        const totalAmountInPennies = Number(totalAmount)*100;
 
-        //how do i find the user? 
-        
         event.preventDefault();
-
+        
         const resp = await axios.post('/api/addReceipt', {
-            userId: ?????????????????? ,
             storeName: merchantName,
-            total: totalAmount,
+            total: totalAmount * 100,
             purchaseDate: dateOfPurchase,
             category: category,
             comment: note
         });       
 
+        console.log('resp: ', resp);
 
-        //this.props.history.push('/overview');
+        this.clearStates();
+
+        // this.props.history.push('/overview');
     }
 
-    // addNewTag = (event) => {
-    //     //add new tag to the tag array
-    //     event.preventDefault();
-    // }
 
     handleCancel = () => {
         this.props.history.push('/overview');
@@ -82,6 +86,8 @@ class AddNew extends Component {
         const categoryChoices = categoryArray.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
 
+        // const tags =     
+
         return (
             <div>
                 <Header title="Add New"/>
@@ -92,50 +98,50 @@ class AddNew extends Component {
                             <button className="done_btn"  type="submit" value="Done">Done</button>
                         </div>    
                         <div className="content_container">
-                                <label className="input_label">Merchant :</label>
-                                <input className="merchant" placeholder="Required" onChange={ (e) => this.setState({merchantName: e.target.value})}
-                                    type="text"
-                                    value={merchantName}
-                                    name={merchantName}
-                                    required
-                                />
+                            <label className="input_label">Merchant :</label>
+                            <input className="merchant" placeholder="Required" onChange={ (e) => this.setState({merchantName: e.target.value})}
+                                type="text"
+                                value={merchantName}
+                                name={merchantName}
+                                required
+                            />
                         </div>
 
                         <div className="content_container">
-                                <label className="input_label">Date :</label>
-                                <input className="date" onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
-                                    type="date"
-                                    value={dateOfPurchase}
-                                />
+                            <label className="input_label">Date :</label>
+                            <input className="date" onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
+                                type="date"
+                                value={dateOfPurchase}
+                            />
                         </div>
 
                         <div className="content_container">
-                                <label className="input_label">Total :</label>
-                                $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
+                            <label className="input_label">Total :</label>
+                            $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
 
-                                    type="number" min="0.00" step="0.01"
-                                    value={totalAmount}
-                                />
+                                type="number" min="0.00" step="0.01"
+                                value={totalAmount}
+                            />
                         </div> 
 
                         <div className="content_container">
-                                <label className="input_label">Category :</label>
-                                <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
-                                    {categoryChoices}
-                                </select>
+                            <label className="input_label">Category :</label>
+                            <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
+                                {categoryChoices}
+                            </select>
                         </div>
 
                         <div className="content_container">
-                                <label className="input_label">Note :</label>
-                                <input className="note" placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
-                                    type="text"
-                                    value={note}
-                                />
+                            <label className="input_label">Note :</label>
+                            <input className="note" placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
+                                type="text"
+                                value={note}
+                            />
                         </div>
 
                         <div className="content_container">
-                                <label className="input_label">Tag :</label>
-                                <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/>
+                            <label className="input_label tag_input">Tag :</label>
+                            <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/>
                         </div> 
 
                         
@@ -143,7 +149,6 @@ class AddNew extends Component {
                 </div>
                 <Footer/>
             </div>
-
         );
     }
 }
