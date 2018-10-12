@@ -10,9 +10,11 @@
             this.handleSubmit = this.handleSubmit.bind(this);
         }
         state = {
+            username: '',
             firstName: '',
             lastName: '',
             emailAddress: '',
+            phoneNumber: '',
             password: '',
             confirmPassword: '',
             alert: false
@@ -30,21 +32,24 @@
         }
 
         async handleSubmit(e) {
-            const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
+            const {username, firstName, lastName, emailAddress, phoneNumber, password, confirmPassword} = this.state;
 
             console.log('inside handlesubmit');
             e.preventDefault();
-            // const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
 
             const resp = await axios.post('/api/signUp',{
+                username,
+                password,
                 firstName,
-                lastName
+                lastName,
+                emailAddress,
+                phoneNumber
             });
             console.log(resp);
         }
 
         render() {
-            const {firstName, lastName, emailAddress, password, confirmPassword} = this.state;
+            const {username, firstName, lastName, emailAddress, phoneNumber, password, confirmPassword} = this.state;
 
             const alertNone = {
                 display: 'none'
@@ -61,6 +66,14 @@
                         <img className="logo" src={squirrel}></img>
                         <div className="title">Create an account to start</div>
                             <form  onSubmit={this.handleSubmit}>
+                                <div className="entry_container">
+                                    <label className="input_title">Username</label>
+                                    <input className='sign_up_input' onChange={ (e) => this.setState({username: e.target.value})}
+                                        type="text"
+                                        value={username}
+                                    />
+                                </div>
+
                                 <div className="entry_container">
                                     <label className="input_title">First Name</label>
                                     <input className='sign_up_input' onChange={ (e) => this.setState({firstName: e.target.value})}
@@ -82,6 +95,14 @@
                                     <input className='sign_up_input' onChange={ (e) => this.setState({emailAddress: e.target.value})}
                                         type="email"
                                         value={emailAddress}
+                                    />
+                                </div>
+
+                                <div className="entry_container">
+                                    <label className="input_title">Phone Number</label>
+                                    <input className='sign_up_input' onChange={ (e) => this.setState({phoneNumber: e.target.value})}
+                                        type="number"
+                                        value={phoneNumber}
                                     />
                                 </div>
 
