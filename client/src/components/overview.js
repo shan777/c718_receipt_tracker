@@ -35,8 +35,8 @@ class Overveiw extends Component{
                 <br/>
                 <div className="date_of_purchase">{item.purchaseDate}</div>
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
-                <Link className="edit" to='/add_new'><button className='editbtn'>
-                <i class="material-icons">edit</i></button></Link>
+                <button className='editbtn' onClick={()=> this.open(index)}>
+                <i class="material-icons">edit</i></button>
                     <AccordionItem className="panel">
                        <div className="panel_size">
                             <div className="catagory">Merchant name:</div>
