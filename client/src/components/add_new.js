@@ -78,7 +78,7 @@ class AddNew extends Component {
     
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
-        const categoryArray = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Transportation', 'Lodging', 'Repairs'];
+        const categoryArray = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Entertainment', 'Transportation', 'Lodging', 'Repairs'];
         const categoryChoices = categoryArray.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
 
@@ -92,7 +92,7 @@ class AddNew extends Component {
                             <button className="done_btn"  type="submit" value="Done">Done</button>
                         </div>    
                         <div className="content_container">
-                                <label className="input_label">Merchant:</label>
+                                <label className="input_label">Merchant :</label>
                                 <input className="merchant" placeholder="Required" onChange={ (e) => this.setState({merchantName: e.target.value})}
                                     type="text"
                                     value={merchantName}
@@ -102,7 +102,7 @@ class AddNew extends Component {
                         </div>
 
                         <div className="content_container">
-                                <label className="input_label">Date:</label>
+                                <label className="input_label">Date :</label>
                                 <input className="date" onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
                                     type="date"
                                     value={dateOfPurchase}
@@ -110,7 +110,7 @@ class AddNew extends Component {
                         </div>
 
                         <div className="content_container">
-                                <label className="input_label">Total:</label>
+                                <label className="input_label">Total :</label>
                                 $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
 
                                     type="number" min="0.00" step="0.01"
@@ -119,14 +119,14 @@ class AddNew extends Component {
                         </div> 
 
                         <div className="content_container">
-                                <label className="input_label">Category:</label>
+                                <label className="input_label">Category :</label>
                                 <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
                                     {categoryChoices}
                                 </select>
                         </div>
 
                         <div className="content_container">
-                                <label className="input_label">Note:</label>
+                                <label className="input_label">Note :</label>
                                 <input className="note" placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
                                     type="text"
                                     value={note}
@@ -134,7 +134,7 @@ class AddNew extends Component {
                         </div>
 
                         <div className="content_container">
-                                <label className="input_label">Tag:</label>
+                                <label className="input_label">Tag :</label>
                                 <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/>
                         </div> 
 

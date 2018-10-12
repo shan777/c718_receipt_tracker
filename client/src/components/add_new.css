@@ -45,7 +45,6 @@
     /* padding-left: 4%; */
     display: inline-block;
     word-break: break-word;
-    font-size: 0.9em;
 }
 
 input {
@@ -54,6 +53,7 @@ input {
     border-style: none;
     border-bottom: 1px solid #237E80 ;
     border-top-color: none;
+    font-size: 1.1em;
 }
 
 input:hover {
@@ -62,6 +62,7 @@ input:hover {
 
 select {
     background-color: rgba(239, 241, 241, 0.904);
+    font-size: 1.1em;
 }
 
 .merchant, .note {
