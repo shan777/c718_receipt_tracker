@@ -8,18 +8,21 @@ const sqrlDbCreds = require('./sqrlDbCreds');
 const session = require('express-session');
 const sessionParams = require('./sessionParams');
 const sessionExec = session(sessionParams);
-const functions = require("./serverFunctions.js");
+const functions = require("./helpers.js");
 
 server.use(express.static(resolve(__dirname, 'client', 'dist')));
 server.use(cors());
 server.use(express.json());
 server.use(sessionExec);
 
+require('./manageTags')(server);
+
 server.post('/api/checkLoginStatus', (request, response) => {
     const userId = request.session.userId;
     const output = {
         success: true,
     }
+
     if (userId){
         output.loggedIn = true;
     }
@@ -142,33 +145,6 @@ server.post('/api/deleteReceipt', (request, response) => {
     }
 });
 
-// server.post('/api/getReceipt', (request, response) => {
-//     const {userId, receiptId} = request.body;
-//     const output = {
-//         success: false
-//     };
-//     if (request.session.userId === userId){
-//         const connection = mysql.createConnection(sqrlDbCreds);
-//         output.tags = functions.getTagsForReceipt(receiptId, connection);
-//         connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
-//                     [receiptId],
-//                     (error, rows) => {
-//                         if (error){
-//                             output.error = error;
-//                             response.status(400).send(output);
-//                         }else if(rows){
-//                             output.receipt = rows[0];
-//                             output.success = true;
-//                             connection.end();                        
-//                             response.status(200).send(output);
-//                         }
-//         });
-//     }else{
-//         output.error = "User not logged in.";
-//         response.status(401).send(output);
-//     }
-// });
-
 server.post('/api/addReceipt', (request, response) => {
     const {storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
     const userId = request.session.userId;
@@ -221,18 +197,6 @@ server.post('/api/addReceipt', (request, response) => {
         response.send(output);
     }
 });
-
-/*
-    Use in manageTags:
-    
-    if (!request.session.userId){
-        console.log('could not find login data. loggedInID is false');
-        response.status(401).send(output);
-    }
-    else{
-        
-    }
-*/
 
 server.post('/api/updateReceipt', (request, response) => {
 
