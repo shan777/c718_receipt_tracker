@@ -30,6 +30,7 @@
         font-size: 20px;
         padding: 1%;
         text-align: center;
+        margin-bottom: 5%;
     }
 
     .forgot_password {
@@ -42,6 +43,8 @@
         color: white;
         font-size: 25px;
         padding: 10px;
+        display: block;
+        margin-left: 35%;
     }
 
     .forgot_password {
@@ -57,6 +60,11 @@
     label {
         margin-bottom: 5%;
     }
+
+    /* button {
+        display: block;
+        margin-left: 35%;
+    } */
 }
 
 
