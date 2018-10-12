@@ -46,16 +46,16 @@ class Modal extends Component{
             receiptId: receiptId,
             storeName: merchantName,
             purchaseDate: `${this.formatDate(this.state.dateOfPurchase)}`,
-            total: parseInt(totalAmount),
+            total: parseInt(totalAmount)*100,
             category: category,
             comment: note
         })
+        {this.props.close()}
         console.log('update info:', update);
 
     }
 
     formatDate(date){
-        debugger;
         let monthArray = [];
         let dayArray = [];
         let year = new Date(date).getFullYear();
