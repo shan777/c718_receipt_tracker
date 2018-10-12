@@ -26,12 +26,15 @@ class Overveiw extends Component{
     close = () => this.setState({isOpen: false});
 
     async componentDidMount(){
-        const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'})
+        var urlParams = new URLSearchParams(window.location.search);
+        var values = urlParams.values();
+        // const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'})
+        const checkLogin = await axios.post('/api/checkLoginStatus', {userId: values} )
+        console.log(checkLogin);
         this.setState({
             userId: login.data.userId
         });
-        console.log('User Id::', this.state.userId);
-        const axiosResponse = await axios.post('/api/getUserReceipts', {userId: this.state.userId})
+        const axiosResponse = await axios.post('/api/getUserReceipts', {userId: values})
         
         this.setState({
             data: axiosResponse,
