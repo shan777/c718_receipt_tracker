@@ -140,7 +140,7 @@ server.post('/api/getReceipt', (request, response) => {
     };
     if (request.session.userId === userId){
         const connection = mysql.createConnection(sqrlDbCreds);
-        output.tags = functions.getTagsForReceipt(receiptId, connection);
+        output.tags = functions.getTagsForReceipt(receiptId, connection).tags;
         connection.query("SELECT receipts.ID, receipts.storeName, receipts.total, receipts.tax, receipts.creditCardName, receipts.creditCardDigits, receipts.purchaseDate, receipts.category, receipts.comment, receipts.reimbursable FROM receipts WHERE receipts.ID = ?;",
                     [receiptId],
                     (error, rows) => {
@@ -243,7 +243,7 @@ server.post('/api/manageTags', (request, response) => {
             console.log("inside default switch statement...");
     }
 
-    connection.end(() => { console.log('connection end'); });
+    // connection.end(() => { console.log('connection end'); });
     response.send(output);
 });
 
