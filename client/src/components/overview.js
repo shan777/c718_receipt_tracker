@@ -89,7 +89,7 @@ class Overveiw extends Component{
                             <div className="data">{`${this.formatDate(item.purchaseDate)}`}</div>
                         </div>
                         <div className="panel_size">
-                            <div className="catagory">Total Amount:</div>
+                            <div className="catagory">Amount:</div>
                             <div className="data">${(item.total/100).toFixed(2)}</div>
                         </div>
                         <div className="panel_size">
