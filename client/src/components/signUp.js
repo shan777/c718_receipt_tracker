@@ -21,17 +21,6 @@
             }
         }
 
-        state = {
-            username: '',
-            firstName: '',
-            lastName: '',
-            password: '',
-            confirmPassword: '',
-            email: 'steve@yahoo.com',
-            phone: '1234567896',
-            alert: false
-        }
-
         passwordRestrictions(){
             this.setState({
                 alert: true
