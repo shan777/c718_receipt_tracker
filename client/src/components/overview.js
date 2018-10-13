@@ -19,7 +19,6 @@ class Overveiw extends Component{
             activeButton: null,
             receiptId: null,
             userId: null,
-            receiptId: null, 
             total: null,
             date: null
         };
