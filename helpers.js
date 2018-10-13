@@ -8,24 +8,30 @@ module.exports = {
 
     validator: function(data){
         const regex_patterns = {
-            receiptId: /^[1-9][\d]*$/,
-            tagId: /^[1-9][\d]*$/,
-            storeName: /^[a-zA-Z \d-_]{2,32}$/,
-            total: /^[1-9][\d]{1,10}$/,
-            tax: /^[1-9][\d]{1,10}$/,
-            creditCardName: /^[a-zA-Z ]{2,20}$/,
-            creditCardDigits: /^[\d]{4}$/,
-            purchaseDate: /^\d{4}-{1}\d{2}-{1}\d{2}$/,
-            category: /^[a-zA-Z]{1,20}$/,
-            comment: /^[a-zA-Z\d .\-*\/$%!?()+=]{1,255}$/,
-            reimbursable: /^[01]{1}$/,
-            userName: /^(?=.{8,32}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/,
-            password: /^(?=[a-zA-Z])(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z]).*$/,
-            firstName: /^[\. \-'a-zA-Z]{2,32}$/,
-            lastName: /^[\. \-'a-zA-Z]{2,50}$/,
-            email: /^[0-9a-zA-Z_\.]+@[0-9a-zA-Z_\.]{8,255}$/,
+            //user table fields
+            userId: /^[1-9][\d]{0,9}$/,
+            //status is missing
             phone: /^([1])?\(?\s*?[-]?([0-9]{3})\)?\s*?[-]?([0-9]{3})\s*?[-]?([0-9]{4})$/,
-            tagName: /^[a-zA-Z \d-_]{2,15}$/
+            email: /^[0-9a-zA-Z_\.]+@[0-9a-zA-Z_\.]{8,255}$/,
+            lastName: /^[\. \-'a-zA-Z]{2,50}$/,
+            firstName: /^[\. \-'a-zA-Z]{2,32}$/,
+            password: /^(?=[a-zA-Z])(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z]).*$/,
+            userName: /^(?=.{8,32}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/,
+            //receipt table fields
+            receiptId: /^[1-9][\d]{0,9}$/,
+            reimbursable: /^[01]{1}$/,
+            //status is missing
+            comment: /^[a-zA-Z\d .\-*\/$%!?()+=]{0,255}$/,
+            category: /^[a-zA-Z]{1,20}$/,
+            purchaseDate: /^\d{4}-{1}\d{2}-{1}\d{2}$/,
+            creditCardDigits: /^[\d]{4}$/,
+            creditCardName: /^[a-zA-Z ]{2,20}$/,
+            tax: /^[1-9][\d]{0,9}$/,
+            total: /^[1-9][\d]{0,9}$/,
+            storeName: /^[a-zA-Z \d-_]{2,32}$/,
+            //tag table fields
+            tagName: /^[a-zA-Z \d-_]{2,15}$/,
+            tagId: /^[1-9][\d]{0,9}$/
         }
 
         let data_entires = Object.entries(data);
