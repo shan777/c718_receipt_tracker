@@ -142,10 +142,10 @@ server.post('/api/addReceipt', (request, response) => {
 
     if(data_validation.pass){
         const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("INSERT INTO receipts SET ?;",
+        const query = connection.query("INSERT INTO receipts SET ?;",
                         [data],
                         (error, result) => {
-                            console.log('add receipt query made');
+                            console.log('add receipt query made', query.sql);
                             if(error){
                                 console.log('add receipt query error', error);
                                 response.send(output);
