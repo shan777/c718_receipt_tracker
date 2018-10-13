@@ -19,13 +19,44 @@ class Overveiw extends Component{
             activeButton: null,
             receiptId: null,
             userId: null,
-            receiptId: null, 
-            total: null
+            total: null,
+            date: null
         };
+        this.close = this.close.bind(this);
     }
     open = (index, receiptId, total) => this.setState({isOpen: true, activeButton: index, receiptId: receiptId, total: total});
 
-    close = () => this.setState({isOpen: false});
+    async close(storeNme){
+        this.setState({
+            isOpen: false
+        });
+        const axiosResponse = await axios.post('/api/getUserReceipts');
+        
+        this.setState({
+            data: axiosResponse,
+        });
+    } 
+
+    formatDate(date){
+        let monthArray = [];
+        let dayArray = [];
+        let year = new Date(date).getFullYear();
+        let month = (new Date(date).getMonth()+1);
+        if(month < 10){
+            monthArray.push(month);
+            monthArray.unshift(0);
+            month =  monthArray.join('');
+        }
+        let day = new Date(date).getDate();
+        if(day < 10){
+            dayArray.push(day);
+            dayArray.unshift(0);
+            day =  dayArray.join('');
+        }
+        let formatDate = `${month}-${day}-${year}`
+        console.log(formatDate);
+        return formatDate;
+    }
 
     async componentDidMount(){
         const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'})
@@ -46,7 +77,7 @@ class Overveiw extends Component{
             <div className="row">
                 <div className="store_name">{item.storeName}</div>
                 <br/>
-                <div className="date_of_purchase">{item.purchaseDate.slice(0,10)}</div>
+                <div className="date_of_purchase">{`${this.formatDate(item.purchaseDate)}`}</div>
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
                     <AccordionItem className="panel">
                        <div className="panel_size">
@@ -55,7 +86,7 @@ class Overveiw extends Component{
                         </div>
                         <div className="panel_size">
                             <div className="catagory">Date of Purchase:</div>
-                            <div className="data">{item.purchaseDate.slice(0,10)}</div>
+                            <div className="data">{`${this.formatDate(item.purchaseDate)}`}</div>
                         </div>
                         <div className="panel_size">
                             <div className="catagory">Total Amount:</div>
