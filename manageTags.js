@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const sqrlDbCreds = require('./sqrlDbCreds');
 const connection = mysql.createConnection(sqrlDbCreds);
+const functions = require("./helpers.js");
 
 module.exports = function(app) {
 
@@ -38,8 +39,12 @@ module.exports = function(app) {
         let response = {
             success: false
         };
-        
-        connection.query("INSERT IGNORE INTO tags (userId, tagName) VALUES (?, ?);",
+
+        let data = req.body;
+        let data_validation = functions.validator(data);
+    
+        if(data_validation.pass){
+            connection.query("INSERT IGNORE INTO tags (userId, tagName) VALUES (?, ?);",
                         [userId, tagName],
                         (error, result) => {
                             console.log('add user tag query made');
@@ -55,7 +60,12 @@ module.exports = function(app) {
                             }
                             res.json(response);
                         }
-        ); 
+            ); 
+        }
+        else{
+            response.validation = data_validation;
+            res.send(response);
+        }
     });
 
     app.post('/api/manageTags/deleteTag', (req, res) => {
@@ -117,7 +127,11 @@ module.exports = function(app) {
             success: false
         };
 
-        connection.query("INSERT IGNORE INTO receipts_tags (receiptId, tagId) VALUES (?, ?);",
+        let data = req.body;
+        let data_validation = functions.validator(data);
+    
+        if(data_validation.pass){
+            connection.query("INSERT IGNORE INTO receipts_tags (receiptId, tagId) VALUES (?, ?);",
                         [receiptId, tagId],
                         (error, result) => {
                             console.log('add receipt_tag query made');
@@ -133,7 +147,12 @@ module.exports = function(app) {
                             }
                             res.send(response);
                         }
-        );
+            );
+        }
+        else{
+            response.validation = data_validation;
+            res.send(response);
+        }
     });
 
     app.post('/api/manageTags/deleteReceiptTag', (req, res) => {
