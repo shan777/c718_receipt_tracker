@@ -37,7 +37,7 @@
 .accordion_container .collapsible_body {
     max-height: 0;
     overflow: hidden;
-    padding: 0 25px;
+    padding: 0 10px;
     transition: 400ms linear;
 }
 
