@@ -21,17 +21,6 @@
             }
         }
 
-        state = {
-            username: '',
-            firstName: '',
-            lastName: '',
-            password: '',
-            confirmPassword: '',
-            email: 'steve@yahoo.com',
-            phone: '1234567896',
-            alert: false
-        }
-
         passwordRestrictions(){
             this.setState({
                 alert: true
@@ -52,14 +41,12 @@
 
             const resp = await axios.post('/api/signUp',{
                 userName: username,
-                password,
-                firstName,
-                lastName,
-                email: emailAddress,
-                phone: phoneNumber
-
+                password: password,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phone: phone
             });
-
             console.log(resp);
         }
 

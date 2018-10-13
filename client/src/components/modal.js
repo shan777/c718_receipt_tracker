@@ -50,7 +50,7 @@ class Modal extends Component{
             category: category,
             comment: note
         })
-        {this.props.close()}
+        {this.props.close(this.state.StoreName)}
         console.log('update info:', update);
 
     }
