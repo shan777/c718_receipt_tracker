@@ -10,8 +10,6 @@
 }
 
 .basic-modal-content {
-    /* background-color: white; */
-    /* border-radius: 20px; */
     margin: auto;
     padding: 5px;
     position: relative;
@@ -30,7 +28,7 @@
     width: 30px;
     line-height: 30px;
     display: inline-block;
-    position: absolute;
+    float: right;
     top: 10px;
     border-radius: 50%;
     font-weight: bold;
@@ -47,4 +45,23 @@
 .modalbtn{
     position: relative;
     left: 35%;
+}
+
+.modal_container {
+    background-color: #DEF2F1;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    box-sizing: border-box;
+    line-height: 4.1em;
+}
+
+.modal_input_label {
+    width: 35%;
+    height: 30%;;
+    text-align: center;
+    display: inline-block;
+    word-break: break-word;
+    font-size: 1.2em;
 }
