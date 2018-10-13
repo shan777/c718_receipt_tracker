@@ -40,13 +40,12 @@
 
             const resp = await axios.post('/api/signUp',{
                 userName: username,
-                password,
-                firstName,
-                lastName,
-                email,
-                phone
+                password: password,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phone: phone
             });
-            console.log(resp);
         }
 
         render() {
