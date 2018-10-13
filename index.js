@@ -39,30 +39,22 @@ server.post('/api/login', (request, response) => {
         loggedIn: false
     };
 
-    let userNameRegEx = /^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/;
-    let passwordRegEx = /^(?=[a-zA-Z])(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z]).*$/;
-
-    if (userNameRegEx.test(userName) && passwordRegEx.test(password)){
-        const status = 'active';
-        const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("SELECT users.ID FROM users WHERE users.username=? AND users.password=SHA1(?) AND users.status=?",
-                        [userName, password, status],
-                        (error, rows) => {
-                            output.success = true;
-                            if (error){
-                                output.error = error;
-                                response.status(400).send(output);
-                            }else if (rows){
-                                output.userId = rows[0].ID;
-                                output.loggedIn = true;
-                                request.session.userId = output.userId;
-                                response.status(200).send(output);
-                            }   
-        });
-    }else{
-        output.error = 'User name or password incorrect.';
-        response.status(401).send(output);
-    }
+    const status = 'active';
+    const connection = mysql.createConnection(sqrlDbCreds);
+    connection.query("SELECT users.ID FROM users WHERE users.username=? AND users.password=SHA1(?) AND users.status=?",
+                    [userName, password, status],
+                    (error, rows) => {
+                        output.success = true;
+                        if (error){
+                            output.error = error;
+                            response.status(400).send(output);
+                        }else if (rows){
+                            output.userId = rows[0].ID;
+                            output.loggedIn = true;
+                            request.session.userId = output.userId;
+                            response.status(200).send(output);
+                        }   
+    });
 });
 
 server.post('/api/logout', (request, response) => {
@@ -88,15 +80,7 @@ server.post('/api/getUserReceipts', (request, response) => {
     };
     if (userId){
         const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query(`SELECT receipts.storeName,
-                                 receipts.total,
-                                 receipts.purchaseDate,
-                                 receipts.category,
-                                 receipts.comment,
-                                 receipts.ID
-                          FROM receipts
-                          WHERE receipts.userId = ?
-                            AND receipts.status = 'active';`,
+        connection.query(`SELECT * FROM receipts WHERE receipts.userId = ? AND receipts.status = 'active';`,
                         [userId],
                         (error, rows) => {
                             if (error){
@@ -154,17 +138,6 @@ server.post('/api/addReceipt', (request, response) => {
         success: false
     };
 
-    let userIdRegex = /^[1-9][\d]*$/;
-    let storeNameRegex = /^[a-zA-Z \d-_]{2,}$/;
-    let totalRegex = /^[1-9][\d]*$/;
-    let taxRegex = /^[1-9][\d]*$/;
-    let creditCardNameRegex = /^[a-zA-Z ]{2,}$/;
-    let creditCardDigitsRegex = /^[\d]{4}$/;
-    let purchaseDateRegex = /^\d{4}-{1}\d{2}-{1}\d{2}$/;
-    let categoryRegex = /^[a-zA-Z]$/;
-    let commentRegex = /^[a-zA-Z\d .\-*\/$%!?()+=]$/;
-    let reimbursableRegex = /^[01]{1}$/;
-
     const connection = mysql.createConnection(sqrlDbCreds);
     connection.query("INSERT INTO receipts SET ?;",
                     [data],
@@ -189,17 +162,6 @@ server.post('/api/updateReceipt', (request, response) => {
         success: false
     };
 
-    let receiptIdRegex = /^[1-9][\d]*$/;
-    let storeNameRegex = /^[a-zA-Z \d-_]{2,32}$/;
-    let totalRegex = /^[1-9][\d]{1,10}$/;
-    let taxRegex = /^[1-9][\d]{1,10}$/;
-    let creditCardNameRegex = /^[a-zA-Z ]{2,20}$/;
-    let creditCardDigitsRegex = /^[\d]{4}$/;
-    let purchaseDateRegex = /^\d{4}-{1}\d{2}-{1}\d{2}$/;
-    let categoryRegex = /^[a-zA-Z]{1,20}$/;
-    let commentRegex = /^[a-zA-Z\d .\-*\/$%!?()+=]{1,255}$/;
-    let reimbursableRegex = /^[01]{1}$/;
-
     const connection = mysql.createConnection(sqrlDbCreds);
     connection.query("UPDATE receipts SET ?  WHERE receipts.ID = ?;",
                     [newData, receiptId],
@@ -217,67 +179,44 @@ server.post('/api/updateReceipt', (request, response) => {
 });
 
 server.post('/api/signUp', (request, response) => {
-    const {userName, password, firstName, lastName, email, phone} = request.body;
-    const status = 'active';
+    const data = request.body;
+    const encryptedPassword = mysql.raw(`SHA1('${request.body.password}')`);
+    data.password = encryptedPassword;
+    data.status = "active";
     console.log("signUp request data: ", request.body);
 
     const output = {
         success: false
     };
 
-    let userNameRegEx = /^(?=.{8,32}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/;
-    let passwordRegEx = /^(?=[a-zA-Z])(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z]).*$/;
-    let firstNameRegEx = /^[\. \-'a-zA-Z]{2,32}$/;
-    let lastNameRegEx = /^[\. \-'a-zA-Z]{2,50}$/;
-    let emailRegEx = /^[0-9a-zA-Z_\.]+@[0-9a-zA-Z_\.]{8,255}$/;
-    let phoneRegEx = /^([1])?\(?\s*?[-]?([0-9]{3})\)?\s*?[-]?([0-9]{3})\s*?[-]?([0-9]{4})$/;
-
-    if( userNameRegEx.test(userName) &&
-        passwordRegEx.test(password) &&
-        firstNameRegEx.test(firstName) &&
-        lastNameRegEx.test(lastName)&&
-        emailRegEx.test(email)&&
-        phoneRegEx.test(phone)){
-            let phoneNumArray = phone.match(phoneRegEx);
-            let tempPhoneNumber = '';
-            for (let index=1; index<phoneNumArray.length; index++){
-                if(phoneNumArray[index]){
-                    tempPhoneNumber += phoneNumArray[index];
-                }
-            }
-            let phoneNum = parseInt(tempPhoneNumber);
-            const connection = mysql.createConnection(sqrlDbCreds);
-            connection.query("INSERT INTO users (userName, password, firstName, lastName, email, phone, status) VALUES (?,SHA1(?),?,?,?,?,?)",
-                            [userName, password, firstName, lastName, email, phoneNum, status],
-                            (error, result) => {
-                                console.log('sign up query made');
-                                if(error){
-                                    console.log('sign up query error', error);
-                                    output.error = error;
-                                    return response.status(400).send(output);
-                                }
-                                connection.query("SELECT users.ID FROM users WHERE users.username=? AND users.password=SHA1(?) AND users.status=?",
-                                                [userName, password, status],
-                                                (error, rows) => {
-                                                    output.success = true;
-                                                    if (error){
-                                                        output.error = error;
-                                                        return response.status(400).send(output);
-                                                    }else if (rows){
-                                                        output.userId = rows[0].ID;
-                                                        output.loggedIn = true;
-                                                        request.session.userId = output.userId;
-                                                        connection.end(() => { console.log('connection end'); });
-                                                        return response.status(200).send(output);
-                                                    } 
-                                                }
-                                );
-                            }
-            );
-    }else{
-        output.error = 'invalid input data sent';
-        return response.status(400).send(output);
-    }
+    const connection = mysql.createConnection(sqrlDbCreds);
+    connection.query("INSERT INTO users SET ?;",
+                    [data],
+                    (error, result) => {
+                        console.log('sign up query made');
+                        if(error){
+                            console.log('sign up query error', error);
+                            output.error = error;
+                            return response.status(400).send(output);
+                        }
+                        connection.query("SELECT users.ID FROM users WHERE users.username=? AND users.password=? AND users.status=?",
+                                        [data.userName, data.password, data.status],
+                                        (error, rows) => {
+                                            output.success = true;
+                                            if (error){
+                                                output.error = error;
+                                                return response.status(400).send(output);
+                                            }else if (rows){
+                                                output.userId = rows[0].ID;
+                                                output.loggedIn = true;
+                                                request.session.userId = output.userId;
+                                                connection.end(() => { console.log('connection end'); });
+                                                return response.status(200).send(output);
+                                            } 
+                                        }
+                        );
+                    }
+    );
 });
 
 server.get('*', (request, response) => {
