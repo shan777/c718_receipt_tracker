@@ -138,20 +138,28 @@ server.post('/api/addReceipt', (request, response) => {
         success: false
     };
 
-    const connection = mysql.createConnection(sqrlDbCreds);
-    connection.query("INSERT INTO receipts SET ?;",
-                    [data],
-                    (error, result) => {
-                        console.log('add receipt query made');
-                        if(error){
-                            console.log('add receipt query error', error);
+    let data_validation = functions.validator(data);
+
+    if(data_validation.pass){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("INSERT INTO receipts SET ?;",
+                        [data],
+                        (error, result) => {
+                            console.log('add receipt query made');
+                            if(error){
+                                console.log('add receipt query error', error);
+                                response.send(output);
+                            }
+                            output.success = true;
+                            connection.end(() => { console.log('connection end'); });
                             response.send(output);
                         }
-                        output.success = true;
-                        connection.end(() => { console.log('connection end'); });
-                        response.send(output);
-                    }
-    );
+        );
+    }
+    else{
+        output.validation = data_validation;
+        response.send(output);
+    }
 });
 
 server.post('/api/updateReceipt', (request, response) => {
@@ -162,61 +170,79 @@ server.post('/api/updateReceipt', (request, response) => {
         success: false
     };
 
-    const connection = mysql.createConnection(sqrlDbCreds);
-    connection.query("UPDATE receipts SET ?  WHERE receipts.ID = ?;",
-                    [newData, receiptId],
-                    (error, result) => {
-                        console.log('update receipt query sent');
-                        if(error){
-                            console.log('update receipt query error', error);
+    let data = Object.assign({"receiptId": receiptId}, newData);
+    let data_validation = functions.validator(data);
+
+    if(data_validation.pass){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("UPDATE receipts SET ?  WHERE receipts.ID = ?;",
+                        [newData, receiptId],
+                        (error, result) => {
+                            console.log('update receipt query sent');
+                            if(error){
+                                console.log('update receipt query error', error);
+                                response.send(output);
+                            }
+                            output.success = true;
+                            connection.end(() => { console.log('connection end'); });
                             response.send(output);
                         }
-                        output.success = true;
-                        connection.end(() => { console.log('connection end'); });
-                        response.send(output);
-                    }
-    );
+        );
+    }
+    else{
+        output.validation = data_validation;
+        response.send(output);
+    }
 });
 
 server.post('/api/signUp', (request, response) => {
     const data = request.body;
-    const encryptedPassword = mysql.raw(`SHA1('${request.body.password}')`);
-    data.password = encryptedPassword;
-    data.status = "active";
     console.log("signUp request data: ", request.body);
 
     const output = {
         success: false
     };
 
-    const connection = mysql.createConnection(sqrlDbCreds);
-    connection.query("INSERT INTO users SET ?;",
-                    [data],
-                    (error, result) => {
-                        console.log('sign up query made');
-                        if(error){
-                            console.log('sign up query error', error);
-                            output.error = error;
-                            return response.status(400).send(output);
+    let data_validation = functions.validator(data);
+
+    if(data_validation.pass){
+        const encryptedPassword = mysql.raw(`SHA1('${request.body.password}')`);
+        data.password = encryptedPassword;
+        data.status = "active";
+        
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query("INSERT INTO users SET ?;",
+                        [data],
+                        (error, result) => {
+                            console.log('sign up query made');
+                            if(error){
+                                console.log('sign up query error', error);
+                                output.error = error;
+                                return response.status(400).send(output);
+                            }
+                            connection.query("SELECT users.ID FROM users WHERE users.username=? AND users.password=? AND users.status=?",
+                                            [data.userName, data.password, data.status],
+                                            (error, rows) => {
+                                                output.success = true;
+                                                if (error){
+                                                    output.error = error;
+                                                    return response.status(400).send(output);
+                                                }else if (rows){
+                                                    output.userId = rows[0].ID;
+                                                    output.loggedIn = true;
+                                                    request.session.userId = output.userId;
+                                                    connection.end(() => { console.log('connection end'); });
+                                                    return response.status(200).send(output);
+                                                } 
+                                            }
+                            );
                         }
-                        connection.query("SELECT users.ID FROM users WHERE users.username=? AND users.password=? AND users.status=?",
-                                        [data.userName, data.password, data.status],
-                                        (error, rows) => {
-                                            output.success = true;
-                                            if (error){
-                                                output.error = error;
-                                                return response.status(400).send(output);
-                                            }else if (rows){
-                                                output.userId = rows[0].ID;
-                                                output.loggedIn = true;
-                                                request.session.userId = output.userId;
-                                                connection.end(() => { console.log('connection end'); });
-                                                return response.status(200).send(output);
-                                            } 
-                                        }
-                        );
-                    }
-    );
+        );
+    }
+    else{
+        output.validation = data_validation;
+        response.send(output);
+    }
 });
 
 server.get('*', (request, response) => {
