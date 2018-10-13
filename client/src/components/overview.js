@@ -27,7 +27,7 @@ class Overveiw extends Component{
     }
     open = (index, receiptId, total) => this.setState({isOpen: true, activeButton: index, receiptId: receiptId, total: total});
 
-    async close(storeName){
+    async close(storeNme){
         this.setState({
             isOpen: false
         });
@@ -38,7 +38,7 @@ class Overveiw extends Component{
         });
     } 
 
-    async formatDate(date){
+    formatDate(date){
         let monthArray = [];
         let dayArray = [];
         let year = new Date(date).getFullYear();
@@ -78,7 +78,7 @@ class Overveiw extends Component{
             <div className="row">
                 <div className="store_name">{item.storeName}</div>
                 <br/>
-                <div className="date_of_purchase">{item.purchaseDate.slice(0,10)}</div>
+                <div className="date_of_purchase">{`${this.formatDate(item.purchaseDate)}`}</div>
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
                     <AccordionItem className="panel">
                        <div className="panel_size">
@@ -87,7 +87,7 @@ class Overveiw extends Component{
                         </div>
                         <div className="panel_size">
                             <div className="catagory">Date of Purchase:</div>
-                            <div className="data">{this.formatDate(this.state.dateOfPurchase)}</div>
+                            <div className="data">{`${this.formatDate(item.purchaseDate)}`}</div>
                         </div>
                         <div className="panel_size">
                             <div className="catagory">Total Amount:</div>
