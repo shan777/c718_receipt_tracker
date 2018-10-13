@@ -39,27 +39,23 @@ module.exports = function(app) {
             success: false
         };
         
-        let tagNameRegEx = /^[a-zA-Z \d-_]{2,}$/;
-
-        if (tagNameRegEx.test(tagName)){
-            connection.query("INSERT IGNORE INTO tags (userId, tagName) VALUES (?, ?);",
-                            [userId, tagName],
-                            (error, result) => {
-                                console.log('add user tag query made');
-                                if (error){
-                                    console.log('add user tag query error', error);
-                                }
-                                else if(result.affectedRows === 0){
-                                    response.message = `${result.affectedRows} rows affected`;
-                                }
-                                else if(result.affectedRows > 0){
-                                    response.success = true;
-                                    response.message = `${result.affectedRows} rows affected`;
-                                }
-                                res.json(response);
+        connection.query("INSERT IGNORE INTO tags (userId, tagName) VALUES (?, ?);",
+                        [userId, tagName],
+                        (error, result) => {
+                            console.log('add user tag query made');
+                            if (error){
+                                console.log('add user tag query error', error);
                             }
-            ); 
-        }
+                            else if(result.affectedRows === 0){
+                                response.message = `${result.affectedRows} rows affected`;
+                            }
+                            else if(result.affectedRows > 0){
+                                response.success = true;
+                                response.message = `${result.affectedRows} rows affected`;
+                            }
+                            res.json(response);
+                        }
+        ); 
     });
 
     app.post('/api/manageTags/deleteTag', (req, res) => {
