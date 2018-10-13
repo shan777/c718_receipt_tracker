@@ -146,8 +146,8 @@ server.post('/api/deleteReceipt', (request, response) => {
 });
 
 server.post('/api/addReceipt', (request, response) => {
-    const {storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
-    const userId = request.session.userId;
+    const data = request.body;
+    data.userId = request.session.userId;
     console.log("request data: ", request.body);
 
     const output = {
@@ -165,44 +165,24 @@ server.post('/api/addReceipt', (request, response) => {
     let commentRegex = /^[a-zA-Z\d .\-*\/$%!?()+=]$/;
     let reimbursableRegex = /^[01]{1}$/;
 
-    // Validating required input data
-    if(userIdRegex.test(userId) && storeNameRegex.test(storeName) && totalRegex.test(total) && purchaseDateRegex.test(purchaseDate)){
-
-        // Validating optional input data
-        if((taxRegex.test(tax) || tax===0) && (creditCardNameRegex.test(creditCardName) || creditCardName===null) && (creditCardDigitsRegex.test(creditCardDigits) || creditCardDigits===null) 
-            && (categoryRegex.test(category) || category===null) && (commentRegex.test(comment) || comment===null) && (reimbursableRegex.test(reimbursable) || reimbursable===0)){
-            
-            const connection = mysql.createConnection(sqrlDbCreds);
-            connection.query("INSERT INTO receipts (userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
-                            [userId, storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable],
-                            (error, result) => {
-                                console.log('add receipt query made');
-                                if(error){
-                                    console.log('add receipt query error', error);
-                                    response.send(output);
-                                }
-                                output.success = true;
-                                connection.end(() => { console.log('connection end'); });
-                                response.send(output);
-                            }
-            );
-        }
-        else{
-            output.error = 'optional input data --invalid (add receipt)';
-            response.send(output);
-        }
-    }
-    else{
-        output.error = 'required input data --invalid (add receipt)';
-        response.send(output);
-    }
+    const connection = mysql.createConnection(sqrlDbCreds);
+    connection.query("INSERT INTO receipts SET ?;",
+                    [data],
+                    (error, result) => {
+                        console.log('add receipt query made');
+                        if(error){
+                            console.log('add receipt query error', error);
+                            response.send(output);
+                        }
+                        output.success = true;
+                        connection.end(() => { console.log('connection end'); });
+                        response.send(output);
+                    }
+    );
 });
 
 server.post('/api/updateReceipt', (request, response) => {
-
-    // BUG: we need to build the query string and array based off the keys sent
-    // in the request.body object
-    const {receiptId, storeName, total, tax=0, creditCardName=null, creditCardDigits=null, purchaseDate=functions.getCurrentDate(), category=null, comment=null, reimbursable=0} = request.body;
+    const {receiptId, newData} = request.body;
     console.log("request data: ", request.body);
     
     const output = {
@@ -220,37 +200,20 @@ server.post('/api/updateReceipt', (request, response) => {
     let commentRegex = /^[a-zA-Z\d .\-*\/$%!?()+=]{1,255}$/;
     let reimbursableRegex = /^[01]{1}$/;
 
-    // Validating required input data
-    if(receiptIdRegex.test(receiptId) && storeNameRegex.test(storeName) && totalRegex.test(total) && purchaseDateRegex.test(purchaseDate)){
-
-        // Validating optional input data
-        if((taxRegex.test(tax) || tax===0) && (creditCardNameRegex.test(creditCardName) || creditCardName===null) && (creditCardDigitsRegex.test(creditCardDigits) || creditCardDigits===null) 
-            && (categoryRegex.test(category) || category===null) && (commentRegex.test(comment) || comment===null) && (reimbursableRegex.test(reimbursable) || reimbursable===0)){
-            
-            const connection = mysql.createConnection(sqrlDbCreds);
-            connection.query("UPDATE receipts SET receipts.storeName = ?, receipts.total = ?, receipts.tax = ?, receipts.creditCardName = ?, receipts.creditCardDigits = ?, receipts.purchaseDate = ?, receipts.category = ?, receipts.comment = ?, receipts.reimbursable = ?  WHERE receipts.ID = ?;",
-                            [storeName, total, tax, creditCardName, creditCardDigits, purchaseDate, category, comment, reimbursable, receiptId],
-                            (error, result) => {
-                                console.log('update receipt query sent');
-                                if(error){
-                                    console.log('update receipt query error', error);
-                                    response.send(output);
-                                }
-                                output.success = true;
-                                connection.end(() => { console.log('connection end'); });
-                                response.send(output);
-                            }
-            );
-        }
-        else{
-            output.error = 'optional input data --invalid';
-            response.send(output);
-        }
-    }
-    else{
-        output.error = 'required input data --invalid';
-        response.send(output);
-    }
+    const connection = mysql.createConnection(sqrlDbCreds);
+    connection.query("UPDATE receipts SET ?  WHERE receipts.ID = ?;",
+                    [newData, receiptId],
+                    (error, result) => {
+                        console.log('update receipt query sent');
+                        if(error){
+                            console.log('update receipt query error', error);
+                            response.send(output);
+                        }
+                        output.success = true;
+                        connection.end(() => { console.log('connection end'); });
+                        response.send(output);
+                    }
+    );
 });
 
 server.post('/api/signUp', (request, response) => {
