@@ -33,7 +33,7 @@ body{
     width: 100%;
     cursor: pointer;
     transition: 0.4s;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 .date_of_purchase, .store_name, .amount_of_purchase{
@@ -48,19 +48,18 @@ body{
 }
 
 .store_name{
-    top: 1vh;
+    top: 2vh;
     padding-bottom: 1%;
     font-family: "Roboto Bold";
 }
 
 .date_of_purchase{
     font-size: 1.3em;
-    top: 1vh;
+    top: 2vh;
 }
 
 .amount_of_purchase{
     left: 52%;
-    bottom: 2vh;
     font-size: 1.4em;
     font-family: "Roboto Bold";
     text-align: right;
@@ -86,17 +85,18 @@ body{
     display: inline-block;
     width: 50%;
     position: relative;
-    font-size: .8em;
+    font-size: 1.2em;
 }
 
 .data{
     left: 5%;
+    font-size: 1.2em;
 }
 
 .summary{
     position: fixed;
     bottom: 80px;
-    background-color: #2E939555;
+    background-color: #d9dedd;
     width: 100vw;
     margin: 0;
     border-bottom: 1px solid black;
