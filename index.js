@@ -163,35 +163,27 @@ server.post('/api/addReceipt', (request, response) => {
 });
 
 server.post('/api/updateReceipt', (request, response) => {
-    const {receiptId, newData} = request.body;
-    console.log("request data: ", request.body);
-    
     const output = {
         success: false
     };
-
-    let data = Object.assign({"receiptId": receiptId}, newData);
-    let data_validation = functions.validator(data);
+    let data_validation = functions.validator(request.body);
 
     if(data_validation.pass){
+        const {receiptId} = request.body;
+        delete request.body.receiptId;
         const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query("UPDATE receipts SET ?  WHERE receipts.ID = ?;",
-                        [newData, receiptId],
-                        (error, result) => {
-                            console.log('update receipt query sent');
-                            if(error){
-                                console.log('update receipt query error', error);
-                                response.send(output);
-                            }
+        const query = connection.query("UPDATE receipts SET ? WHERE receipts.ID = ?;",
+                        [request.body, receiptId],
+                        (error) => {
+                            if(error) throw error;
                             output.success = true;
-                            connection.end(() => { console.log('connection end'); });
-                            response.send(output);
+                            return response.status(200).send(output);
                         }
         );
     }
     else{
         output.validation = data_validation;
-        response.send(output);
+        return response.status(400).send(output);
     }
 });
 
