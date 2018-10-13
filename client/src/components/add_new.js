@@ -19,12 +19,14 @@ class AddNew extends Component {
     constructor(props) { 
         super(props);
 
+        this.categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Entertainment', 'Transportation', 'Lodging', 'Repairs'];
+
         this.state = {
             merchantName: '',
             // dateOfPurchase: this.calcDate().today,
             totalAmount: '',
             dateOfPurchase: '',
-            category: '',
+            category: this.categories[0],
             note: '',
             currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
             newTags: []
@@ -34,7 +36,8 @@ class AddNew extends Component {
     }
 
     async componentDidMount(){
-        const login = await axios.post('/api/login', {userName: 'kylePamintuan', password: 'kyleLfz123'})
+        const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'});
+
     }
      
     clearStates = () => {
@@ -42,32 +45,53 @@ class AddNew extends Component {
             merchantName: '',
             totalAmount: '',
             dateOfPurchase: '',
-            category: '',
+            category: this.categories[0],
             note: ''
         });
     }
 
     async handleSubmit(event) {
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
-        const totalAmountInPennies = Number(totalAmount)*100;
 
         event.preventDefault();
         
         const resp = await axios.post('/api/addReceipt', {
             storeName: merchantName,
             total: totalAmount * 100,
-            purchaseDate: dateOfPurchase,
+            purchaseDate: `${this.formatDate(dateOfPurchase)}`,
             category: category,
             comment: note
         });       
 
-        console.log('resp: ', resp);
+        console.log('response: ', resp);
+        console.log('date: ', this.state);
+
 
         this.clearStates();
 
-        // this.props.history.push('/overview');
+        this.props.history.push('/overview');
     }
 
+    formatDate = (date) => {
+        let monthArray = [];
+        let dayArray = [];
+        let year = new Date(date).getFullYear();
+        let month = (new Date(date).getMonth()+1);
+        if(month < 10){
+            monthArray.push(month);
+            monthArray.unshift(0);
+            month =  monthArray.join('');
+        }
+        let day = new Date(date).getDate();
+        if(day < 10){
+            dayArray.push(day);
+            dayArray.unshift(0);
+            day =  dayArray.join('');
+        }
+        let formatDate = `${year}-${month}-${day}`
+        console.log(formatDate);
+        return formatDate;
+    }
 
     handleCancel = () => {
         this.props.history.push('/overview');
@@ -82,11 +106,11 @@ class AddNew extends Component {
     
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
-        const categoryArray = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Entertainment', 'Transportation', 'Lodging', 'Repairs'];
-        const categoryChoices = categoryArray.map((option, index) => 
+        
+        const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
 
-        // const tags =     
+        // const tags =    
 
         return (
             <div>
