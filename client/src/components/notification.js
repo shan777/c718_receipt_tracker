@@ -1,42 +1,31 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
-import TagPanel from './receipt_tags/tag_panel';
 
-class AddNew extends Component {    
-    calcDate() {
-        var curr = new Date();
-        curr.setDate(curr.getDate());
-        var today = curr.toISOString().substr(0,10);
-        return {today};
-{/* <input id="dateRequired" type="date" name="dateRequired" defaultValue={date} />  */}
-    }
+
+class Notification extends Component {    
     constructor(props) { 
         super(props);
 
-        this.categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Entertainment', 'Transportation', 'Lodging', 'Repairs'];
-
         this.state = {
             merchantName: '',
-            dateOfPurchase: this.calcDate().today,
+            // dateOfPurchase: this.calcDate().today,
             totalAmount: '',
-            // dateOfPurchase: '',
+            dateOfPurchase: '',
             category: this.categories[0],
             note: '',
             currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
-            newTags: [],
-            isOpen: false
+            newTags: []
         }
-        this.close = this.close.bind(this);
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // open
-
     async componentDidMount(){
-        const login = await axios.post('/api/login', {userName: 'sarahHan', password: 'sarahLfz123'});
+        const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'});
     }
      
     clearStates = () => {
@@ -65,6 +54,7 @@ class AddNew extends Component {
         console.log('response: ', resp);
         console.log('date: ', this.state);
 
+
         this.clearStates();
 
         this.props.history.push('/overview');
@@ -87,21 +77,16 @@ class AddNew extends Component {
             day =  dayArray.join('');
         }
         let formatDate = `${year}-${month}-${day}`
+        console.log(formatDate);
         return formatDate;
     }
 
     handleCancel = () => {
         this.props.history.push('/overview');
     }
-
-    handleNewTag = async (newTagText) => {
+    handleNewTab = (newTagText) => {
         console.log('new tab adding', newTagText);
-
-        const resp = await axios.post('/api/manageTags/addTag', {
-            tagName: newTagText
-        });
-
-        console.log('handle new tag resp: ', resp )
+        //do axios call to set new tag to user, then get data from user
         this.setState({
             newTags: [...this.state.newTags, newTagText]
         })
@@ -113,11 +98,7 @@ class AddNew extends Component {
         const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
 
-        // if(this.state.isOpen){
-        //     return (
-        //         <TagModal/>>
-        //     );
-        // }
+        // const tags =    
 
         return (
             <div>
@@ -172,7 +153,7 @@ class AddNew extends Component {
 
                         <div className="content_container">
                             <label className="input_label tag_input">Tag :</label>
-                            <TagPanel tags={this.state.newTags} addCallback={this.handleNewTag}/>
+                            <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/>
                         </div> 
 
                         

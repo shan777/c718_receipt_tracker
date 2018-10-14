@@ -51,28 +51,26 @@ class Overveiw extends Component{
         if(day < 10){
             dayArray.push(day);
             dayArray.unshift(0);
-            day =  dayArray.join('');
+            day = dayArray.join('');
         }
         let formatDate = `${month}-${day}-${year}`
-        console.log(formatDate);
         return formatDate;
     }
 
     async componentDidMount(){
-        const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'})
+        const login = await axios.post('/api/login', {userName: 'sarahHan', password: 'sarahLfz123'})
         const axiosResponse = await axios.post('/api/getUserReceipts');
         
         this.setState({
             data: axiosResponse,
         });
-        console.log(this.state.data);
+        console.log('this.state.data: ', this.state.data);
     }
 
     makeRow(){
         const currentUser = [...this.state.data.data.receipts];
         console.log(currentUser);
         const row = currentUser.map((item, index) => (
-            console.log(item.ID),
         <Accordion key={index}>
             <div className="row">
                 <div className="store_name">{item.storeName}</div>
@@ -111,12 +109,20 @@ class Overveiw extends Component{
         </Accordion>
         ));
         return row
-        }
+    }
+    
     render(){
+        const loadingImg = require('../assets/images/loadingSquirrel.gif');
+        const loadingImgStyle = {
+            backgroundColor: '#DEF2F1',
+            paddingTop: '35%'
+        };
+
         if(!this.state.data){
             return(
-                <h1>loading...</h1>
-            )
+                <img src={loadingImg} style={loadingImgStyle}></img>
+            );
+
         }
         const currentUser = [...this.state.data.data.receipts];
         const total = currentUser.map(item => item.total);
