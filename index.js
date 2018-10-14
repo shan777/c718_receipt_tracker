@@ -130,35 +130,37 @@ server.post('/api/deleteReceipt', (request, response) => {
 });
 
 server.post('/api/addReceipt', (request, response) => {
-    const data = request.body;
-    data.userId = request.session.userId;
-    console.log("request data: ", request.body);
-
+    const userId = request.session.userId;
     const output = {
         success: false
     };
 
-    let data_validation = functions.validator(data);
+    if (userId){
+        request.body.userId = userId;
+        let data_validation = functions.validator(request.body);
 
-    if(data_validation.pass){
-        const connection = mysql.createConnection(sqrlDbCreds);
-        const query = connection.query("INSERT INTO receipts SET ?;",
-                        [data],
-                        (error, result) => {
-                            console.log('add receipt query made', query.sql);
-                            if(error){
-                                console.log('add receipt query error', error);
-                                response.send(output);
+        if(data_validation.pass){
+            const connection = mysql.createConnection(sqrlDbCreds);
+            const query = connection.query("INSERT INTO receipts SET ?;",
+                            [request.body],
+                            (error) => {
+                                if(error){
+                                    output.error = error;
+                                    output.success = false;
+                                    return response.status(400).send(output);
+                                }
+                                output.success = true;
+                                return response.status(200).send(output);
                             }
-                            output.success = true;
-                            connection.end(() => { console.log('connection end'); });
-                            response.send(output);
-                        }
-        );
-    }
-    else{
-        output.validation = data_validation;
-        response.send(output);
+            );
+        }
+        else{
+            output.validation = data_validation;
+            return response.status(400).send(output);
+        }
+    }else{
+        output.error = "User not logged in.";
+        return response.status(401).send(output);
     }
 });
 
