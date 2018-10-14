@@ -1,0 +1,41 @@
+.about_container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #237E80;
+}
+
+.med_logo {
+    padding-top: 23%;
+    padding-left: 25%;
+}
+
+.tech_container {
+    width: 90vw;
+    background-color: #f2f2f2;
+    /* padding: 5%; */
+    margin-left: 5%;
+}
+
+.html_logo {
+    width: 80px;
+}
+
+.css_logo {
+    width: 80px;
+}
+
+.js_logo {
+    width: 80px;
+}
+
+.react_logo {
+    width: 80px;
+}
+
+.mySql_logo {
+    width: 80px;
+}
+
+.node_logo {
+    width: 80px;
+}
