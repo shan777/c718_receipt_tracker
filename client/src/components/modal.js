@@ -6,23 +6,19 @@ import axios from 'axios';
 
 
 class Modal extends Component{
- 
-
-        state = {
-            merchantName: '',
-            totalAmount: '',
-            dateOfPurchase: '',
-            category: '',
-            note: '',
-            newTags:[],
-            receiptId: null,
-        };
+    state = {
+        merchantName: '',
+        totalAmount: '',
+        dateOfPurchase: '',
+        category: '',
+        note: '',
+        newTags:[],
+        receiptId: null,
+    };
 
     componentDidMount(){
         console.log('receiptId:',this.props.receiptId);
         const currentUser = [...this.props.data.data.receipts];
-        // const mapOfUsers = eachUser.map(item => item.receipts);
-        // const receiptUser = mapOfUsers[this.props.currentId];
         let currentReceipt = currentUser[this.props.row]
 
         this.setState({
@@ -34,13 +30,12 @@ class Modal extends Component{
             totalAmount: this.props.total/100,
             category: currentReceipt.category
 
-        })
+        });
     }
 
     async handleSubmit(event){
         event.preventDefault();
         const {merchantName, dateOfPurchase, totalAmount, category, note, receiptId, tag, errorMessage} = this.state;
-        
 
         const update = await axios.post('/api/updateReceipt', {
             receiptId: receiptId,
@@ -49,10 +44,8 @@ class Modal extends Component{
             total: parseInt(totalAmount)*100,
             category: category,
             comment: note
-        })
+        });
         {this.props.close(this.state.StoreName)}
-        console.log('update info:', update);
-
     }
 
     formatDate(date){
@@ -65,21 +58,23 @@ class Modal extends Component{
             monthArray.unshift(0);
             month =  monthArray.join('');
         }
-        let day = new Date(date).getDate();
+        let day = new Date(date).getUTCDate();
         if(day < 10){
             dayArray.push(day);
             dayArray.unshift(0);
             day =  dayArray.join('');
         }
-        let formatDate = `${year}-${month}-${day}`
+        let formatDate = `${year}-${month}-${day}`;
         console.log(formatDate);
         return formatDate;
     }
+
     handleChange(event){
         this.setState({
             [event.target.name]: event.target.value
-        })
+        });
     }
+
     render(){
         console.log(this.state.category);
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
@@ -87,48 +82,48 @@ class Modal extends Component{
         const categoryChoices = categoryArray.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
             const currentUser = [...this.props.data];
-            // const mapOfUsers = eachUser.map(item => item.receipts);
-            // const receiptUser = mapOfUsers[this.props.currentId];
             let currentReceipt = currentUser[this.props.row]
-            // console.log(receiptUser[this.props.row]);
             return (
-            
                 <div className="basic-modal" onClick={this.close}>
                     <div onClick={e => e.stopPropagation()} className="basic-modal-content">
                         <div onClick={this.props.close} className="basic-modal-close">X</div>
                         <form>  
                         <div className="modal_container">
-                                <label className="modal_input_label">Merchant:</label>
-                                <input name='merchantName' className="merchant" onChange={this.handleChange.bind(this)}
-                                    type="text"
-                                    value = {this.state.merchantName}
-                                />
-                                <label className="modal_input_label">Date:</label>
-                                <input name='dateOfPurchase' className="date" onChange={this.handleChange.bind(this)}
-                                    type="date"
-                                    value={this.state.dateOfPurchase.slice(0,10)}
-                                />
-                                  <label className="modal_input_label">Amount:</label>
-                                $ <input name='totalAmount' className="amount" onChange={this.handleChange.bind(this)} 
-        
-                                    type="number" min="0.00" step="0.01"
-                                    value={this.state.totalAmount}
-                                />
-                                <br/>
-                                 <label className="modal_input_label">Note:</label>
-                                <input name='note' className="note" placeholder="Not specified" onChange={this.handleChange.bind(this)}
-                                    type="text"
-                                    value={this.state.note}
-                                />
-                                <br/>
-                                <label className="modal_input_label">Category:</label>
-                                <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
-                                    {categoryChoices}
-                                </select>
-                                <br/>
-                                <button className="modalbtn" onClick={this.handleSubmit.bind(this)}>Submit</button>
-                                {/* <label className="input_label">Tag:</label>
-                                <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/> */}
+                            <label className="modal_input_label">Merchant :</label>
+                            <input name='merchantName' className="merchant" onChange={this.handleChange.bind(this)}
+                                type="text"
+                                value = {this.state.merchantName}
+                            />
+
+                            <label className="modal_input_label">Date :</label>
+                            <input name='dateOfPurchase' className="date" onChange={this.handleChange.bind(this)}
+                                type="date"
+                                value={this.state.dateOfPurchase.slice(0,10)}
+                            />
+
+                            <label className="modal_input_label">Amount :</label>
+                            $ <input name='totalAmount' className="amount" onChange={this.handleChange.bind(this)} 
+                                type="number" min="0.00" step="0.01"
+                                value={this.state.totalAmount}
+                            />
+
+                            <br/>
+                            
+                            <label className="modal_input_label">Category :</label>
+                            <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
+                                {categoryChoices}
+                            </select>
+                            <br/>
+
+                            <label className="modal_input_label">Note :</label>
+                            <input name='note' className="note" placeholder="Not specified" onChange={this.handleChange.bind(this)}
+                                type="text"
+                                value={this.state.note}
+                            />
+                            <br/>
+                            <button className="modalbtn" onClick={this.handleSubmit.bind(this)}>Done</button>
+                            {/* <label className="input_label">Tag:</label>
+                            <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/> */}
                         </div>
                     </form>
                     </div>

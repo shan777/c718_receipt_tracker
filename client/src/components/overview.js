@@ -24,9 +24,14 @@ class Overveiw extends Component{
         };
         this.close = this.close.bind(this);
     }
-    open = (index, receiptId, total) => this.setState({isOpen: true, activeButton: index, receiptId: receiptId, total: total});
+    open = (index, receiptId, total) => this.setState({
+        isOpen: true, 
+        activeButton: index, 
+        receiptId: receiptId, 
+        total: total
+    });
 
-    async close(storeNme){
+    async close(){
         this.setState({
             isOpen: false
         });
@@ -47,32 +52,30 @@ class Overveiw extends Component{
             monthArray.unshift(0);
             month =  monthArray.join('');
         }
-        let day = new Date(date).getDate();
+        let day = new Date(date).getUTCDate();
         if(day < 10){
             dayArray.push(day);
             dayArray.unshift(0);
-            day =  dayArray.join('');
+            day = dayArray.join('');
         }
         let formatDate = `${month}-${day}-${year}`
-        console.log(formatDate);
         return formatDate;
     }
 
     async componentDidMount(){
-        const login = await axios.post('/api/login', {userName: 'estherSuh', password: 'estherLfz123'})
+        const login = await axios.post('/api/login', {userName: 'kylePamintuan', password: 'kyleLfz123'})
         const axiosResponse = await axios.post('/api/getUserReceipts');
         
         this.setState({
             data: axiosResponse,
         });
-        console.log(this.state.data);
+        console.log('this.state.data inside overview componentDidMount: ', this.state.data);
     }
 
     makeRow(){
-        const currentUser = [...this.state.data.data.receipts];
-        console.log(currentUser);
-        const row = currentUser.map((item, index) => (
-            console.log(item.ID),
+        const currentUsersReceipts = [...this.state.data.data.receipts];
+        console.log('currentUsersReceipts:',currentUsersReceipts);
+        const row = currentUsersReceipts.map((item, index) => (
         <Accordion key={index}>
             <div className="row">
                 <div className="store_name">{item.storeName}</div>
@@ -111,15 +114,27 @@ class Overveiw extends Component{
         </Accordion>
         ));
         return row
-        }
+    }
+
     render(){
+        const loadingImg = require('../assets/images/loading_squirrel.gif');
+        const loadingImgStyle = {
+            backgroundColor: 'white',
+            padding: '52% 20% 20% 20%',
+            backgroundSize: 'contain'
+        };
+
         if(!this.state.data){
             return(
-                <h1>loading...</h1>
-            )
+                <img src={loadingImg} style={loadingImgStyle}></img>
+            );
+
         }
-        const currentUser = [...this.state.data.data.receipts];
-        const total = currentUser.map(item => item.total);
+        const currentUsersReceipts = [...this.state.data.data.receipts];
+        
+        console.log('currentUserReceipts: ', currentUsersReceipts);
+
+        const total = currentUsersReceipts.map(item => item.total);
         const addTotal = () =>{
             let totalAmount = null;
             for(let i = 0; i< total.length; i++){
@@ -131,7 +146,7 @@ class Overveiw extends Component{
             let id = 2;
             return (
                 <Modal row={this.state.activeButton} total={this.state.total} receiptId={this.state.receiptId} data={this.state.data} close={this.close}/>
-            )
+            );
         }
         return (
             <div>
@@ -139,14 +154,13 @@ class Overveiw extends Component{
                 <div className='overview_main_container'>
                     {this.makeRow()}
                     <div className="summary">
-                        <p className="number_of_receipts"><b>{currentUser.length}</b> Receipts
-                         -- <b>Total:</b> ${addTotal()}</p>
+                        <p className="number_of_receipts"><b>{currentUsersReceipts.length}</b> Receipts 
+                        - <b>Total:</b> ${addTotal()}</p>
                     </div>
                 </div>
                 <Footer userID={this.state.currentDisplayedUserID}/>
             </div>
-
-        )
+        );
     }
 }
 

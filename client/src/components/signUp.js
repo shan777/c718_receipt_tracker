@@ -44,8 +44,8 @@
                 password: password,
                 firstName: firstName,
                 lastName: lastName,
-                email: email,
-                phone: phone
+                // email: email,
+                // phone: phone
             });
             console.log(resp);
         }
@@ -99,12 +99,12 @@
                                     />
                                     {/* <i className="material-icons">visibility</i> */}
                                     <div style={this.state.alert ? alertShow: alertNone} className="alert_password_restrictions">
-                                        Minimum password of 8 characters including one number!
+                                        Must be at least 8 characters long including 1 uppercase letter and 1 number.
                                     </div>
                                 </div>
 
                                 <div className="entry_container">
-                                    <label className="input_title cfm_password">Confirm<br></br>Password</label>
+                                    <label className="input_title cfm_password">Confirm<br/>Password</label>
                                     <div className="cfm sign_up_input">
                                         <input className='sign_up_input_inside' onChange={ (e) => this.setState({confirmPassword: e.target.value})}
                                             onClick={this.checkPassword}

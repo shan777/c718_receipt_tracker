@@ -3,182 +3,181 @@ const sqrlDbCreds = require('./sqrlDbCreds');
 const connection = mysql.createConnection(sqrlDbCreds);
 const functions = require("./helpers.js");
 
-module.exports = function(app) {
+module.exports = (app) => {
 
-    app.post('/api/manageTags/getUserTags', (req, res) => {
-        const userId = req.session.userId;
-        
-        let response = {
+    app.post('/api/manageTags/getUserTags', (request, response) => {
+        const userId = request.session.userId;
+        const output = {
             tags: []
         };
-
-        connection.query("SELECT tags.ID, tags.tagName FROM tags WHERE userId = ?",
-                        [userId],
-                        (error, rows) => {
-                            console.log('get user tags query made');
-                            if (error){
-                                console.log('get user tags query error', error);
-                            }
-                            rows.forEach(element => {
-                                let tag = {
-                                    tagId: element.ID,
-                                    tagName: element.tagName
-                                }
-                                response.tags.push(tag);
-                            });
-                            res.send(response);
-                        }
-        );
-
-    });
-
-    app.post('/api/manageTags/addTag', (req, res) => {
-        const {tagName} = req.body;
-        const userId = req.session.userId;
-
-        let response = {
-            success: false
-        };
-
-        let data = req.body;
-        let data_validation = functions.validator(data);
-    
-        if(data_validation.pass){
-            connection.query("INSERT IGNORE INTO tags (userId, tagName) VALUES (?, ?);",
-                        [userId, tagName],
-                        (error, result) => {
-                            console.log('add user tag query made');
-                            if (error){
-                                console.log('add user tag query error', error);
-                            }
-                            else if(result.affectedRows === 0){
-                                response.message = `${result.affectedRows} rows affected`;
-                            }
-                            else if(result.affectedRows > 0){
-                                response.success = true;
-                                response.message = `${result.affectedRows} rows affected`;
-                            }
-                            res.json(response);
-                        }
-            ); 
-        }
-        else{
-            response.validation = data_validation;
-            res.send(response);
+        if(userId){
+            connection.query("SELECT tags.ID, tags.tagName FROM tags WHERE userId = ?",
+                                    [userId],
+                                    (error, rows) => {
+                                        if (error) throw error;
+                                        rows.forEach(element => {
+                                            let tag = {
+                                                tagId: element.ID,
+                                                tagName: element.tagName
+                                            }
+                                            output.tags.push(tag);
+                                        });
+                                        return response.status(200).send(output);
+                                    }
+                    );
+        }else{
+            output.error = "User not logged in.";
+            return response.status(401).send(output);
         }
     });
 
-    app.post('/api/manageTags/deleteTag', (req, res) => {
-        const {tagId} = req.body;
-
-        let response = {
+    app.post('/api/manageTags/addTag', (request, response) => {
+        const {tagName} = request.body;
+        const userId = request.session.userId;
+        const output = {
             success: false
         };
-
-        connection.query("DELETE FROM tags WHERE tags.ID = ?;",
-                        [tagId],
-                        (error, result) => {
-                            console.log('delete user tag query made');
-                            if (error){
-                                console.log('delete user tag query error', error);
-                            }
-                            else if(result.affectedRows === 0){
-                                response.message = `${result.affectedRows} rows affected`;
-                            }
-                            else if(result.affectedRows > 0){
-                                response.success = true;
-                                response.message = `${result.affectedRows} rows affected`;
-                            }
-                            res.send(response);
-                        }
-        );
-    });
-
-    app.post('/api/manageTags/getTagsForReceipt', (req, res) => {
-        const {receiptId} = req.body;
-
-        let response = {
-            tags: []
-        };
-
-        connection.query("SELECT receipts_tags.tagId, tags.tagName, tags.ID FROM receipts_tags JOIN tags ON receipts_tags.tagId=tags.ID WHERE receipts_tags.receiptId=?;",
-                        [receiptId],
-                        (error, rows) => {
-                            console.log('get tags for receipt query made');
-                            if (error){
-                                console.log('get tags for receipt query error', error);
-                            }
-                            rows.forEach(element => {
-                                let tag = {
-                                    tagId: element.tagId,
-                                    tagName: element.tagName
-                                }
-                                response.tags.push(tag);
-                            });
-                            res.send(response);
-                        }
-        );
-    });
-
-    app.post('/api/manageTags/addReceiptTag', (req, res) => {
-        const {receiptId, tagId} = req.body;
-
-        let response = {
-            success: false
-        };
-
-        let data = req.body;
-        let data_validation = functions.validator(data);
+        if (userId){
+            const data = request.body;
+            let data_validation = functions.validator(data);
     
-        if(data_validation.pass){
-            connection.query("INSERT IGNORE INTO receipts_tags (receiptId, tagId) VALUES (?, ?);",
-                        [receiptId, tagId],
-                        (error, result) => {
-                            console.log('add receipt_tag query made');
-                            if (error){
-                                console.log('add receipt_tag query error', error);
+            if(data_validation.pass){
+                connection.query("INSERT IGNORE INTO tags (userId, tagName) VALUES (?, ?);",
+                            [userId, tagName],
+                            (error, result) => {
+                                if (error) throw error;
+                                if (result.affectedRows > 0){
+                                    output.success = true;
+                                    return response.status(200).send(output);
+                                }
+                                output.error = `${result.affectedRows} rows affected`;
+                                return response.status(400).send(output);
                             }
-                            else if(result.affectedRows === 0){
-                                response.message = `${result.affectedRows} rows affected`;
+                );
+            }
+            else{
+                output.validation = data_validation;
+                return response.status(400).send(output);
+            }
+        }else{
+            output.error = "User not logged in.";
+            return response.status(401).send(output);
+        }
+    });
+
+    app.post('/api/manageTags/deleteTag', (request, response) => {
+        const {tagId} = request.body;
+        const userId = request.session.userId;
+
+        let output = {
+            success: false
+        };
+        if (userId){
+            connection.query("DELETE FROM tags WHERE tags.ID = ? AND tags.userId = ?;",
+                            [tagId, userId],
+                            (error, result) => {
+                                if (error) throw error;
+                                if (result.affectedRows > 0){
+                                    output.success = true;
+                                    return response.status(200).send(output);
+                                }
+                                output.error = `${result.affectedRows} rows affected`;
+                                return response.status(400).send(output);
                             }
-                            else if(result.affectedRows > 0){
-                                response.success = true;
-                                response.message = `${result.affectedRows} rows affected`;
-                            }
-                            res.send(response);
-                        }
             );
-        }
-        else{
-            response.validation = data_validation;
-            res.send(response);
+        }else{
+            output.error = "User not logged in.";
+            return response.status(401).send(output);
         }
     });
 
-    app.post('/api/manageTags/deleteReceiptTag', (req, res) => {
-        const {receiptId, tagId} = req.body;
+    app.post('/api/manageTags/getTagsForReceipt', (request, response) => {
+        const {receiptId} = request.body;
+        const userId = request.session.userId;
 
-        let response = {
+        const output = {
+            tags: []
+        };
+        if (userId){
+            connection.query("SELECT receipts_tags.tagId, tags.tagName, tags.ID FROM receipts_tags JOIN tags ON receipts_tags.tagId=tags.ID WHERE receipts_tags.receiptId=?;",
+                            [receiptId],
+                            (error, rows) => {
+                                if (error) throw error;
+                                rows.forEach(element => {
+                                    let tag = {
+                                        tagId: element.tagId,
+                                        tagName: element.tagName
+                                    }
+                                    output.tags.push(tag);
+                                });
+                                return response.status(200).send(output);
+                            }
+            );
+        }else{
+            output.error = "User not logged in.";
+            return response.status(401).send(output);
+        }
+    });
+
+    app.post('/api/manageTags/addReceiptTag', (request, response) => {
+        const {receiptId, tagId} = request.body;
+        const userId = request.session.userId;
+
+        const output = {
             success: false
         };
 
-        connection.query("DELETE FROM receipts_tags WHERE receipts_tags.receiptId = ? AND receipts_tags.tagId = ?;",
-                        [receiptId, tagId],
-                        (error, result) => {
-                            console.log('delete receipt_tag query made');
-                            if (error){
-                                console.log('delete receipt_tag query error', error);
+        const data = request.body;
+        let data_validation = functions.validator(data);
+
+        if(userId){
+            if(data_validation.pass){
+                connection.query("INSERT IGNORE INTO receipts_tags (receiptId, tagId) VALUES (?, ?);",
+                            [receiptId, tagId],
+                            (error, result) => {
+                                if (error) throw error;
+                                if (result.affectedRows > 0){
+                                    output.success = true;
+                                    return response.status(200).send(output);
+                                }
+                                output.error = `${result.affectedRows} rows affected`;
+                                return response.status(400).send(output);
                             }
-                            else if(result.affectedRows === 0){
-                                response.message = `${result.affectedRows} rows affected`;
-                            }
-                            else if(result.affectedRows > 0){
-                                response.success = true;
-                                response.message = `${result.affectedRows} rows affected`;
-                            }
-                            res.send(response);
-                        }
-        );
+                );
+            }
+            else{
+                output.validation = data_validation;
+                return response.status(400).send(output);
+            }
+        }else{
+            output.error = "User not logged in.";
+            return response.status(401).send(output);
+        }
     });
 
+    app.post('/api/manageTags/deleteReceiptTag', (request, response) => {
+        const {receiptId, tagId} = request.body;
+        const userId = request.session.userId;
+
+        const output = {
+            success: false
+        };
+        if (userId){
+            connection.query("DELETE FROM receipts_tags WHERE receipts_tags.receiptId = ? AND receipts_tags.tagId = ?;",
+                            [receiptId, tagId],
+                            (error, result) => {
+                                if (error) throw error;
+                                if (result.affectedRows > 0){
+                                    output.success = true;
+                                    return response.status(200).send(output);
+                                }
+                                output.error = `${result.affectedRows} rows affected`;
+                                return response.status(400).send(output);
+                            }
+            );
+        }else{
+            output.error = "User not logged in.";
+            return response.status(401).send(output);
+        }
+    });
 };

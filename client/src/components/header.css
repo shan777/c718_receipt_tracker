@@ -35,13 +35,13 @@
 }
 
 .sidebar_container {
-    width: 30vw;
+    width: 35vw;
     height: 40vh;
     background-color: #237E80; 
     font-family: 'Roboto Bold';
     position: fixed !important;
     padding-left: 2%;
-    font-size: 0.5em;
+    font-size: 17px;
     right: 5%;
     top: 80px !important;
     color: #98FFA8;

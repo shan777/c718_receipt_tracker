@@ -31,20 +31,21 @@
     width: 100%;
     /* border-bottom: 0.5px solid #116466; */
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.1em;
     display: block;
     box-sizing: border-box;
     /* text-align: center; */
     line-height: 2.1em;
 }
+
 .input_label {
     width: 35%;
     height: 30%;;
     text-align: center;
-    /* padding-left: 4%; */
     display: inline-block;
     word-break: break-word;
 }
+
 input {
     background-color: #DEF2F1;
     box-shadow: none;
@@ -64,25 +65,24 @@ select {
 }
 
 option {
-    font-size: 0.7em;
+    font-size: 0.6em;
 }
 
 .merchant, .note {
-    width: 55%;
+    width: 56%;
 }
 
 .date {
-    width: 45%;
+    width: 50%;
 }
 
 .amount {
-    width: 30%;
+    width: 35%;
 }
 
-.tag_input {
-    vertical-align: top;
-    background-color: #DEF2F1;
-
+.tag_button {
+    font-size: 1.5em;
+    padding: 0 3%;
 }
 
 .cancel_btn {
@@ -117,5 +117,4 @@ option {
     font-weight: bold;
     font-family: 'Original Surfer';
     margin-bottom: 5%;
-
 }
