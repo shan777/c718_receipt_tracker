@@ -8,6 +8,7 @@ import AddNew from './add_new';
 import Login from './login';
 import SignUp from './signup';
 import AboutUs from './about_us';
+import SelectTagModal from './select_tag_modal';
 
 const App = () => (
     <Router>
@@ -18,6 +19,7 @@ const App = () => (
             <Route path ="/login" component = {Login}/>
             <Route path="/signup" component ={SignUp}/>
             <Route path="/about_us" component={AboutUs}/>
+            <Route path="/tagmodal" component={SelectTagModal}/>
         </div>
     </Router>
 );

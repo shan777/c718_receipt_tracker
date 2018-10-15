@@ -36,7 +36,7 @@
 }
 
 .picture {
-    border-radius: 50%;
+    border-radius: 6px;
     border: 1px #F2F2F2 solid;
     width: 50%;
 }
@@ -61,11 +61,11 @@
 }
 
 .member_name_left {
-    font-size: 12px;
+    font-size: 17px;
 }
 
 .member_name_right {
-    font-size: 12px;
+    font-size: 17px;
 }
 
 .link_right>img {
@@ -86,7 +86,7 @@
 }
 
 .member_name_center {
-    font-size: 12px;
+    font-size: 17px;
 }
 
 .link_center>img {

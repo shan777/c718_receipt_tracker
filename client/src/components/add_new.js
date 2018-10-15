@@ -3,16 +3,11 @@ import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
-import TagPanel from './receipt_tags/tag_panel';
+import SelectTagModal from './select_tag_modal';
+// import TagPanel from './receipt_tags/tag_panel';
+
 
 class AddNew extends Component {    
-    calcDate() {
-        var curr = new Date();
-        curr.setDate(curr.getDate());
-        var today = curr.toISOString().substr(0,10);
-        return {today};
-{/* <input id="dateRequired" type="date" name="dateRequired" defaultValue={date} />  */}
-    }
     constructor(props) { 
         super(props);
 
@@ -29,14 +24,17 @@ class AddNew extends Component {
             newTags: [],
             isOpen: false
         }
-        this.close = this.close.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // open
+    calcDate() {
+        var curr = new Date();
+        curr.setDate(curr.getDate());
+        var today = curr.toISOString().substr(0,10);
+        return {today};
+    }
 
     async componentDidMount(){
-        const login = await axios.post('/api/login', {userName: 'sarahHan', password: 'sarahLfz123'});
+        const login = await axios.post('/api/login', {userName: 'KylePamintuan', password: 'kyleLfz123'});
     }
      
     clearStates = () => {
@@ -49,8 +47,8 @@ class AddNew extends Component {
         });
     }
 
-    async handleSubmit(event) {
-        const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
+    handleSubmit = async (event) => {
+        const {merchantName, dateOfPurchase, totalAmount, category, note} = this.state;
 
         event.preventDefault();
         
@@ -61,9 +59,6 @@ class AddNew extends Component {
             category: category,
             comment: note
         });       
-
-        console.log('response: ', resp);
-        console.log('date: ', this.state);
 
         this.clearStates();
 
@@ -94,18 +89,28 @@ class AddNew extends Component {
         this.props.history.push('/overview');
     }
 
-    handleNewTag = async (newTagText) => {
-        console.log('new tab adding', newTagText);
+    handleTagClick = () => this.setState({
+        isOpen: true,
+    });
 
-        const resp = await axios.post('/api/manageTags/addTag', {
-            tagName: newTagText
-        });
-
-        console.log('handle new tag resp: ', resp )
+    closeTagModal = async () => {
         this.setState({
-            newTags: [...this.state.newTags, newTagText]
-        })
+            isOpen: false
+        });
     }
+
+    // handleNewTag = async (newTagText) => {
+    //     console.log('new tab adding', newTagText);
+
+    //     const resp = await axios.post('/api/manageTags/addTag', {
+    //         tagName: newTagText
+    //     });
+
+    //     console.log('handle new tag resp: ', resp )
+    //     this.setState({
+    //         newTags: [...this.state.newTags, newTagText]
+    //     })
+    // }
     
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
@@ -113,11 +118,11 @@ class AddNew extends Component {
         const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
 
-        // if(this.state.isOpen){
-        //     return (
-        //         <TagModal/>>
-        //     );
-        // }
+        if(this.state.isOpen){
+            return (
+                <SelectTagModal tags={this.state.tags}/>
+            );
+        }
 
         return (
             <div>
@@ -171,12 +176,13 @@ class AddNew extends Component {
                         </div>
 
                         <div className="content_container">
-                            <label className="input_label tag_input">Tag :</label>
-                            <TagPanel tags={this.state.newTags} addCallback={this.handleNewTag}/>
+                            <label className="input_label">Tag :</label>
+                            <button className="tag_button" tags={this.state.tags} onClick={() => this.handleTagClick}>+</button>
+                            
+                            {/* <TagPanel tags={this.state.newTags} addCallback={this.handleNewTag}/> */}
+                            
                         </div> 
-
-                        
-                    </form>
+                   </form>
                 </div>
                 <Footer/>
             </div>
