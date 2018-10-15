@@ -8,10 +8,14 @@
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
-.menus>a>p:hover {
+/* .menus>a>p:hover {
     text-decoration: underline;
 }
 
 .menus>a>p:visited {
+    text-decoration: none;
+} */
+
+a {
     text-decoration: none;
 }
