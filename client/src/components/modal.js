@@ -19,8 +19,6 @@ class Modal extends Component{
     componentDidMount(){
         console.log('receiptId:',this.props.receiptId);
         const currentUser = [...this.props.data.data.receipts];
-        // const mapOfUsers = eachUser.map(item => item.receipts);
-        // const receiptUser = mapOfUsers[this.props.currentId];
         let currentReceipt = currentUser[this.props.row]
 
         this.setState({
@@ -51,6 +49,7 @@ class Modal extends Component{
     }
 
     formatDate(date){
+        debugger;
         let monthArray = [];
         let dayArray = [];
         let year = new Date(date).getFullYear();
@@ -60,13 +59,13 @@ class Modal extends Component{
             monthArray.unshift(0);
             month =  monthArray.join('');
         }
-        let day = new Date(date).getDate();
+        let day = new Date(date).getUTCDate();
         if(day < 10){
             dayArray.push(day);
             dayArray.unshift(0);
             day =  dayArray.join('');
         }
-        let formatDate = `${year}-${month}-${day}`
+        let formatDate = `${year}-${month}-${day}`;
         console.log(formatDate);
         return formatDate;
     }
@@ -84,10 +83,7 @@ class Modal extends Component{
         const categoryChoices = categoryArray.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
             const currentUser = [...this.props.data];
-            // const mapOfUsers = eachUser.map(item => item.receipts);
-            // const receiptUser = mapOfUsers[this.props.currentId];
             let currentReceipt = currentUser[this.props.row]
-            // console.log(receiptUser[this.props.row]);
             return (
                 <div className="basic-modal" onClick={this.close}>
                     <div onClick={e => e.stopPropagation()} className="basic-modal-content">
