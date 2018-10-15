@@ -49,7 +49,6 @@ class Modal extends Component{
     }
 
     formatDate(date){
-        debugger;
         let monthArray = [];
         let dayArray = [];
         let year = new Date(date).getFullYear();
