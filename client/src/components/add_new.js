@@ -22,7 +22,7 @@ class AddNew extends Component {
             note: '',
             currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
             newTags: [],
-            isOpen: false
+            show: false
         }
     }
 
@@ -89,13 +89,13 @@ class AddNew extends Component {
         this.props.history.push('/overview');
     }
 
-    handleTagClick = () => this.setState({
-        isOpen: true,
+    showModal = () => this.setState({
+        show: true,
     });
 
-    closeTagModal = async () => {
+    hideModal = async () => {
         this.setState({
-            isOpen: false
+            show: false
         });
     }
 
@@ -118,14 +118,31 @@ class AddNew extends Component {
         const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
 
-        if(this.state.isOpen){
-            return (
-                <SelectTagModal tags={this.state.tags}/>
-            );
-        }
+        // if(this.state.isOpen){
+            // return (
+                // <div>
+                //     <SelectTagModal show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                //         <p>Modal</p>
+                //         <p>Data</p>
+                //     </SelectTagModal>    
+                //     <button type="button" onClick={this.showModal}>
+                //     Open
+                //     </button>
+                // </div>
+            // );
+        //}
 
         return (
             <div>
+                    <SelectTagModal show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                        <p>Modal</p>
+                        <p>Data</p>
+                    </SelectTagModal>    
+                    <button type="button" onClick={this.showModal}>
+                    Open
+                    </button>
+
+
                 <Header title="Add New"/>
                 <div className="main_container">
                     <form onSubmit={this.handleSubmit}>
@@ -177,7 +194,7 @@ class AddNew extends Component {
 
                         <div className="content_container">
                             <label className="input_label">Tag :</label>
-                            <button className="tag_button" tags={this.state.tags} onClick={() => this.handleTagClick}>+</button>
+                            <button className="tag_button" tags={this.state.tags} onClick={() => this.showModal}>+</button>
                             
                             {/* <TagPanel tags={this.state.newTags} addCallback={this.handleNewTag}/> */}
                             

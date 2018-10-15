@@ -3,6 +3,19 @@ import './modal.css';
 import TagPanel from './receipt_tags/tag_panel';
 import axios from 'axios';
 
+// const Modal = { handleClose, show, children } => {
+//     const showHideClassName = show ? "modal display-block" : "modal display-none";
+
+//     return (
+//         <div className={showHideClassname}>
+//         <section className="modal-main">
+//             {children}
+//             <button onClick={handleClose}>close</button>
+//         </section>
+//         </div>
+//     );
+// }
+
 
 class SelectTagModal extends Component{
     constructor(props) {

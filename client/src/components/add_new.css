@@ -81,7 +81,8 @@ option {
 }
 
 .tag_button {
-    font-size: 1.1em;
+    font-size: 1.5em;
+    padding: 0 3%;
 }
 
 .cancel_btn {
