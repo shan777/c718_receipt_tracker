@@ -10,7 +10,7 @@ class Hamburger extends Component {
       <div>
         <div>
           <p><b>Menu</b></p>
-          <Link to="/"><p>home</p></Link>
+          <Link to="/"><p>Home</p></Link>
           <Link to="/overview"><p>Overview</p></Link>
           <Link to="/add_new"><p>Add New</p></Link>
           <Link to="/about_us"><p>Meet the team</p></Link>
