@@ -29,7 +29,6 @@ module.exports = function(app) {
                             res.send(response);
                         }
         );
-
     });
 
     app.post('/api/manageTags/addTag', (req, res) => {

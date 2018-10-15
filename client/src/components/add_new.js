@@ -1,40 +1,40 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
-import Overview from './overview';
 import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
-import TagPanel from './receipt_tags/tag_panel';
+import SelectTagModal from './select_tag_modal';
+// import TagPanel from './receipt_tags/tag_panel';
 
 
 class AddNew extends Component {    
-//     calcDate() {
-//         var curr = new Date();
-//         curr.setDate(curr.getDate());
-//         var today = curr.toISOString().substr(0,10);
-//         return {today};
-// {/* <input id="dateRequired" type="date" name="dateRequired" defaultValue={date} />  */}
-//     }
     constructor(props) { 
         super(props);
 
+        this.categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Entertainment', 'Transportation', 'Lodging', 'Repairs'];
+
         this.state = {
             merchantName: '',
-            // dateOfPurchase: this.calcDate().today,
+            dateOfPurchase: this.calcDate().today,
             totalAmount: '',
-            dateOfPurchase: '',
-            category: '',
+            // dateOfPurchase: '',
+            category: this.categories[0],
             note: '',
             currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
-            newTags: []
+            newTags: [],
+            show: false
         }
+    }
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+    calcDate() {
+        var curr = new Date();
+        curr.setDate(curr.getDate());
+        var today = curr.toISOString().substr(0,10);
+        return {today};
     }
 
     async componentDidMount(){
-        const login = await axios.post('/api/login', {userName: 'kylePamintuan', password: 'kyleLfz123'})
+        const login = await axios.post('/api/login', {userName: 'KylePamintuan', password: 'kyleLfz123'});
     }
      
     clearStates = () => {
@@ -42,54 +42,107 @@ class AddNew extends Component {
             merchantName: '',
             totalAmount: '',
             dateOfPurchase: '',
-            category: '',
+            category: this.categories[0],
             note: ''
         });
     }
 
-    async handleSubmit(event) {
-        const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
-        const totalAmountInPennies = Number(totalAmount)*100;
+    handleSubmit = async (event) => {
+        const {merchantName, dateOfPurchase, totalAmount, category, note} = this.state;
 
         event.preventDefault();
         
         const resp = await axios.post('/api/addReceipt', {
             storeName: merchantName,
             total: totalAmount * 100,
-            purchaseDate: dateOfPurchase,
+            purchaseDate: `${this.formatDate(dateOfPurchase)}`,
             category: category,
             comment: note
         });       
 
-        console.log('resp: ', resp);
-
         this.clearStates();
 
-        // this.props.history.push('/overview');
+        this.props.history.push('/overview');
     }
 
+    formatDate = (date) => {
+        let monthArray = [];
+        let dayArray = [];
+        let year = new Date(date).getFullYear();
+        let month = (new Date(date).getMonth()+1);
+        if(month < 10){
+            monthArray.push(month);
+            monthArray.unshift(0);
+            month =  monthArray.join('');
+        }
+        let day = new Date(date).getDate();
+        if(day < 10){
+            dayArray.push(day);
+            dayArray.unshift(0);
+            day =  dayArray.join('');
+        }
+        let formatDate = `${year}-${month}-${day}`
+        return formatDate;
+    }
 
     handleCancel = () => {
         this.props.history.push('/overview');
     }
-    handleNewTab = (newTagText) => {
-        console.log('new tab adding', newTagText);
-        //do axios call to set new tag to user, then get data from user
+
+    showModal = () => this.setState({
+        show: true,
+    });
+
+    hideModal = async () => {
         this.setState({
-            newTags: [...this.state.newTags, newTagText]
-        })
+            show: false
+        });
     }
+
+    // handleNewTag = async (newTagText) => {
+    //     console.log('new tab adding', newTagText);
+
+    //     const resp = await axios.post('/api/manageTags/addTag', {
+    //         tagName: newTagText
+    //     });
+
+    //     console.log('handle new tag resp: ', resp )
+    //     this.setState({
+    //         newTags: [...this.state.newTags, newTagText]
+    //     })
+    // }
     
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
-        const categoryArray = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Entertainment', 'Transportation', 'Lodging', 'Repairs'];
-        const categoryChoices = categoryArray.map((option, index) => 
+        
+        const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
 
-        // const tags =     
+        // if(this.state.isOpen){
+            // return (
+                // <div>
+                //     <SelectTagModal show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                //         <p>Modal</p>
+                //         <p>Data</p>
+                //     </SelectTagModal>    
+                //     <button type="button" onClick={this.showModal}>
+                //     Open
+                //     </button>
+                // </div>
+            // );
+        //}
 
         return (
             <div>
+                    <SelectTagModal show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                        <p>Modal</p>
+                        <p>Data</p>
+                    </SelectTagModal>    
+                    <button type="button" onClick={this.showModal}>
+                    Open
+                    </button>
+
+
                 <Header title="Add New"/>
                 <div className="main_container">
                     <form onSubmit={this.handleSubmit}>
@@ -140,12 +193,13 @@ class AddNew extends Component {
                         </div>
 
                         <div className="content_container">
-                            <label className="input_label tag_input">Tag :</label>
-                            <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/>
+                            <label className="input_label">Tag :</label>
+                            <button className="tag_button" tags={this.state.tags} onClick={() => this.showModal}>+</button>
+                            
+                            {/* <TagPanel tags={this.state.newTags} addCallback={this.handleNewTag}/> */}
+                            
                         </div> 
-
-                        
-                    </form>
+                   </form>
                 </div>
                 <Footer/>
             </div>

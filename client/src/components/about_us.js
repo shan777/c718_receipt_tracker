@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link, Route } from 'react-router-dom';
 import './about_us.css';
-import meetTeam from '../assets/images/meet_team.png';
+import meetTeam from '../assets/images/meet_team_upd.png';
 import linkedin_logo from '../assets/images/linkedin_logo.png';
 import github_logo from '../assets/images/github_logo.png';
 import esther from '../assets/images/esther.png';
@@ -59,27 +59,29 @@ class AboutUs extends Component{
                     <div className="backend">BACK-END</div> 
                     <div className="members_bottom">
 
-                     <div className="member_bottom_left">
-                        <img className=" picture img_left" src={steve}/>
-                        <div className="member_name_left">Steve Bennedict</div>
-                        <a className='link_left' href="https://www.linkedin.com/in/nebevets/" target="_blank">
+                    <div className="member_bottom_left">
+                        <img className=" picture img_left" src={kyle}/>
+                        <div className="member_name_left">Kyle Pamintuan</div>
+                        <a className='link_right' href="https://www.linkedin.com/in/kylepamintuan/" target="_blank">
                             <img src={linkedin_logo} alt="linkedin logo"></img>
                         </a>
-                        <a className='link_left' href="https://github.com/nebevets" target="_blank">
+                        <a className='link_left' href="https://github.com/kylepamintuan" target="_blank">
                             <img src={github_logo} alt="github logo"></img>
                         </a>
                     </div>
 
-                    <div className="member_bottom_right">
-                        <img className=" picture img_right" src={kyle}/>
-                        <div className="member_name_right">Kyle Pamintuan</div>
-                        <a className='link_right' href="https://www.linkedin.com/in/kylepamintuan/" target="_blank">
+                     <div className="member_bottom_right">
+                        <img className=" picture img_right" src={steve}/>
+                        <div className="member_name_right">Steve Benedict</div>
+                        <a className='link_right' href="https://www.linkedin.com/in/nebevets/" target="_blank">
                             <img src={linkedin_logo} alt="linkedin logo"></img>
                         </a>
-                        <a className='link_right' href="https://github.com/kylepamintuan" target="_blank">
+                        <a className='link_right' href="https://github.com/nebevets" target="_blank">
                             <img src={github_logo} alt="github logo"></img>
                         </a>
                     </div>
+
+                    
 
                    
                    </div>
