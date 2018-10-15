@@ -21,14 +21,14 @@ module.exports = {
             receiptId: /^[1-9][\d]{0,9}$/,
             reimbursable: /^[01]{1}$/,
             //status is missing
-            comment: /^[a-zA-Z\d .\-*\/$%!?()+=]{0,255}$/,
+            comment: /^[a-zA-Z\d'\s\+\?\.]{0,255}$/,
             category: /^[a-zA-Z]{1,20}$/,
             purchaseDate: /^\d{4}-{1}\d{2}-{1}\d{2}$/,
             creditCardDigits: /^[\d]{4}$/,
             creditCardName: /^[a-zA-Z ]{2,20}$/,
             tax: /^[1-9][\d]{0,9}$/,
             total: /^[1-9][\d]{0,9}$/,
-            storeName: /^[a-zA-Z \d-_]{2,32}$/,
+            storeName: /^[a-zA-Z \d-&'_!]{2,32}$/,
             //tag table fields
             tagName: /^[a-zA-Z \d-_]{2,15}$/,
             tagId: /^[1-9][\d]{0,9}$/
