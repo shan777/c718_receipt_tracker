@@ -29,7 +29,7 @@ server.post('/api/checkLoginStatus', (request, response) => {
     else{
         output.loggedIn = false;
     };
-    response.status(200).send(output);
+    return response.status(200).send(output);
 });
 
 server.post('/api/login', (request, response) => {
@@ -47,12 +47,12 @@ server.post('/api/login', (request, response) => {
                         output.success = true;
                         if (error){
                             output.error = error;
-                            response.status(400).send(output);
+                            return response.status(400).send(output);
                         }else if (rows){
                             output.userId = rows[0].ID;
                             output.loggedIn = true;
                             request.session.userId = output.userId;
-                            response.status(200).send(output);
+                            return response.status(200).send(output);
                         }   
     });
 });
@@ -66,9 +66,9 @@ server.post('/api/logout', (request, response) => {
     if (userId){
         request.session.destroy();
         output.loggedIn = false;
-        response.status(200).send(output);
+        return response.status(200).send(output);
     }else{
-        response.status(400).send(output);
+        return response.status(400).send(output);
     }
 });
 
@@ -85,19 +85,18 @@ server.post('/api/getUserReceipts', (request, response) => {
                         (error, rows) => {
                             if (error){
                                 output.error = error;
-                                response.status(400).send(output);
+                                return response.status(400).send(output);
                             }else if(rows){
                                 rows.forEach(element => {
                                     output.receipts.push(element);
                                 });
                                 output.success = true;
-                                connection.end();                     
-                                response.status(200).send(output);
+                                return response.status(200).send(output);
                             }
         });
     }else{
         output.error = "User not logged in.";
-        response.status(401).send(output);
+        return response.status(401).send(output);
     }
 });
 
@@ -115,17 +114,16 @@ server.post('/api/deleteReceipt', (request, response) => {
                         (error) => {
                             if (error){
                                 output.error = error;
-                                response.status(400).send(output);
+                                return response.status(400).send(output);
                             }else{
                                 output.success = true;
-                                connection.end();                        
-                                response.status(200).send(output);
+                                return response.status(200).send(output);
                             }
                             
         });
     }else{
         output.error = "User not logged in.";
-        response.status(401).send(output);
+        return response.status(401).send(output);
     }
 });
 
@@ -191,7 +189,6 @@ server.post('/api/updateReceipt', (request, response) => {
 
 server.post('/api/signUp', (request, response) => {
     const data = request.body;
-    console.log("signUp request data: ", request.body);
 
     const output = {
         success: false
@@ -208,9 +205,7 @@ server.post('/api/signUp', (request, response) => {
         connection.query("INSERT INTO users SET ?;",
                         [data],
                         (error, result) => {
-                            console.log('sign up query made');
                             if(error){
-                                console.log('sign up query error', error);
                                 output.error = error;
                                 return response.status(400).send(output);
                             }
@@ -225,7 +220,6 @@ server.post('/api/signUp', (request, response) => {
                                                     output.userId = rows[0].ID;
                                                     output.loggedIn = true;
                                                     request.session.userId = output.userId;
-                                                    connection.end(() => { console.log('connection end'); });
                                                     return response.status(200).send(output);
                                                 } 
                                             }
@@ -235,7 +229,7 @@ server.post('/api/signUp', (request, response) => {
     }
     else{
         output.validation = data_validation;
-        response.send(output);
+        return response.send(output);
     }
 });
 
