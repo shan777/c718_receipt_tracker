@@ -56,13 +56,9 @@ module.exports = {
         return results;
     },
 
-    formatPhoneNum: function(phoneNum){
-        // let tempPhoneNumber = '';
-        // for (let index=1; index<phoneNumArray.length; index++){
-        //     if(phoneNumArray[index]){
-        //         tempPhoneNumber += phoneNumArray[index];
-        //     }
-        // }
-        // let phoneNum = parseInt(tempPhoneNumber);
+    formatPhoneNum: (phoneNum)=>{
+        const removeChars = /[\s-()]+/g;
+        let result = phoneNum.replace(removeChars, '');
+        return parseInt(result);
     }
 }
