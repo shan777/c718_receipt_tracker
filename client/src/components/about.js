@@ -14,7 +14,7 @@ class About extends Component {
     render() {
         return (
             <div>
-                <Header title="About App" />
+                <Header title="Technologies" />
                 <div className="about_container">
                     <img className="med_logo" src={MedSquirrel} />
                         <div className="tech_container">
