@@ -80,7 +80,38 @@ server.post('/api/getUserReceipts', (request, response) => {
     };
     if (userId){
         const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query(`SELECT * FROM receipts WHERE receipts.userId = ? AND receipts.status = 'active';`,
+        connection.query(`SELECT r.storeName, r.total, r.purchaseDate, r.category, r.comment FROM receipts WHERE receipts.userId = ? AND receipts.status = 'active';`,
+                        [userId],
+                        (error, rows) => {
+                            if (error){
+                                output.error = error;
+                                response.status(400).send(output);
+                            }else if(rows){
+                                rows.forEach(element => {
+                                    output.receipts.push(element);
+                                });
+                                output.success = true;
+                                connection.end();                     
+                                response.status(200).send(output);
+                            }
+        });
+    }else{
+        output.error = "User not logged in.";
+        response.status(401).send(output);
+    }
+});
+
+server.post('/api/filterReceipts', (request, response) => {
+    const userId = request.session.userId;
+    const output = {
+        receipts: [],
+        success: false
+    };
+    let dynamicQuery = functions.getQueryForFilters(request.body);
+    console.log(dynamicQuery);
+    if (userId){
+        const connection = mysql.createConnection(sqrlDbCreds);
+        connection.query(dynamicQuery,
                         [userId],
                         (error, rows) => {
                             if (error){
