@@ -1,0 +1,7 @@
+node_modules
+.vscode
+.atom
+.idea
+.DS_Store
+sqrlDbCreds.js
+sessionParams.js
