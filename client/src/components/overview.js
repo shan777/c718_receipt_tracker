@@ -52,7 +52,7 @@ class Overveiw extends Component{
             monthArray.unshift(0);
             month =  monthArray.join('');
         }
-        let day = new Date(date).getDate();
+        let day = new Date(date).getUTCDate();
         if(day < 10){
             dayArray.push(day);
             dayArray.unshift(0);
