@@ -46,7 +46,6 @@ class Overveiw extends Component{
     } 
 
     async componentDidMount(){
-        const login = await axios.post('/api/login', {userName: 'kylePamintuan', password: 'kyleLfz123'})
         const axiosResponse = await axios.post('/api/getUserReceipts');
         const tagResoponse = await axios.post('/api/manageTags/getUserTags')
         console.log('tags:', tagResoponse);
