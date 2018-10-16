@@ -8,6 +8,7 @@ import RenderTag from './receipt_tags/render_tag';
 import Modal from './modal';
 import axios from 'axios';
 import FormatDate from './format_date-M-D-Y';
+import './/receipt_tags/render_tag.css';
 
 class Overveiw extends Component{
     constructor(props){
@@ -21,7 +22,8 @@ class Overveiw extends Component{
             receiptId: null,
             userId: null,
             total: null,
-            date: null
+            date: null, 
+            tags: null
         };
         this.close = this.close.bind(this);
     }
@@ -46,10 +48,13 @@ class Overveiw extends Component{
     async componentDidMount(){
         const login = await axios.post('/api/login', {userName: 'kylePamintuan', password: 'kyleLfz123'})
         const axiosResponse = await axios.post('/api/getUserReceipts');
-        
+        const tagResoponse = await axios.post('/api/manageTags/getUserTags')
+        console.log('tags:', tagResoponse);
         this.setState({
             data: axiosResponse,
+            tags: tagResoponse
         });
+        console.log('this.state/tags', this.state.tags)
     }
 
     makeRow(){
@@ -81,6 +86,9 @@ class Overveiw extends Component{
                         <div className="panel_size">
                             <div className="catagory">Note:</div>
                             <div className="data">{item.comment}</div>
+                        </div>
+                        <div className="render_panel">Tags:
+                            <div className="tag">{this.state.tags.data.tags[index] ? ' '+ this.state.tags.data.tags[index].tagName : 'No Tags' }</div>
                         </div>
                         {/* <RenderTag tags={item.tags} /> */}
                         {/* <button className='editbtn' onClick={()=> this.open(index, item.ID, item.total)}> */}
