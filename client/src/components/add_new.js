@@ -4,7 +4,6 @@ import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
 import SelectTagModal from './select_tag_modal';
-import FormatDateYDM from './format_dateY-M-D';
 // import TagPanel from './receipt_tags/tag_panel';
 
 

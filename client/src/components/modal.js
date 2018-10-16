@@ -17,7 +17,6 @@ class Modal extends Component{
     };
 
     componentDidMount(){
-        console.log('receiptId:',this.props.receiptId);
         const currentUser = [...this.props.data.data.receipts];
         let currentReceipt = currentUser[this.props.row]
 
