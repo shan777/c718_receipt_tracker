@@ -80,7 +80,7 @@ server.post('/api/getUserReceipts', (request, response) => {
     };
     if (userId){
         const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query(`SELECT r.ID, r.storeName, r.total, r.purchaseDate, r.category, r.comment
+        connection.query(`SELECT r.ID, r.storeName, r.total, DATE_FORMAT(r.purchaseDate, "%m/%d/%Y") AS purchaseDate, r.category, r.comment
                           FROM receipts AS r
                           WHERE r.userId = ?
                           AND r.status = 'active';`,
@@ -167,6 +167,8 @@ server.post('/api/addReceipt', (request, response) => {
 
     if (userId){
         request.body.userId = userId;
+        let sqlFormatDate = functions.formatDate(request.body.purchaseDate);
+        request.body.purchaseDate = sqlFormatDate;
         let data_validation = functions.validator(request.body);
 
         if(data_validation.pass){
@@ -200,6 +202,10 @@ server.post('/api/updateReceipt', (request, response) => {
         success: false
     };
     if (userId){
+        if(request.body.hasOwnProperty('purchaseDate')){
+            let sqlFormatDate = functions.formatDate(request.body.purchaseDate);
+            request.body.purchaseDate = sqlFormatDate;
+        }
         let data_validation = functions.validator(request.body);
         if(data_validation.pass){
             const {receiptId} = request.body;
