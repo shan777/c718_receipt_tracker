@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Original Surfer';
+    src: url(../../src/assets/fonts/OriginalSurfer-Regular.ttf);
+}
+
+@font-face {    
+    font-family: 'Roboto Bold';
+    src: url(../../src/assets/fonts/Roboto-Bold.ttf);
+}
+
+@font-face {    
+    font-family: 'Roboto';
+    src: url(../../src/assets/fonts/Roboto-Regular.ttf);
+}
+
+* {
+    font-family: 'Roboto';
+}
+
+.title {
+    color: #98FFA8;
+    text-align: center;
+    padding: 5% 0 5% 2%;
+    font-size: 1.4em;
+    font-family: 'Roboto Bold';
+}
+
+.input_title {
+    margin-left: 2%;
+    text-align: right;
+}
+
+.entry_container {
+    padding: 2% 1%;
+}
+
+.cfm_password {
+    display: inline-block;
+}
+
+.cfm {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 3%;
+}
+
+.signup_container {
+    background-color: #237E80;
+    color: #DEF2F1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.signup_container img {
+    margin: auto;
+    padding: 7% 0 4% 0;
+    display: block;
+    width: 30%;
+}
+
+.letsgo {
+    background-color: #2E3B3B;
+    color: #F2F2F2;
+    padding: 2%;
+    display: block;
+    font-size: 1.3em;
+    float: right;
+    margin-top: 3%;
+    margin-right: 15%;
+    border-radius: 6px;
+    border-color: #2C3531;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-family: 'Original Surfer';
+}
+
+.letsgo:active {
+    background-color: rgb(63, 78, 78);
+    box-shadow: 0 3px rgb(80, 99, 99);
+    transform: translateY(4px);
+    color: white;
+}
+
+.sign_up_input{
+    width: 50%;
+    float: right;
+    margin-right: 10%;
+}
+
+.sign_up_input_inside{
+    width:  100%;
+}
+
+.alert_password_restrictions{
+    color: orangered;
+    font-size: 0.7em;
+}

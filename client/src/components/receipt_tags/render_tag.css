@@ -1,0 +1,29 @@
+.render_panel{
+    min-height: 50px;
+    position: relative;
+}
+
+.tag {
+    border: 1px solid #2C3531;
+    display: inline-block;
+    font-size: 1.1em;
+    background-color: rgba(239, 241, 241, 0.904);
+    color: #2C3531;
+    border-radius: 6px;
+    padding: 1%;
+}
+
+.tag_input {
+    width: 95%;
+    background-color: rgba(239, 241, 241, 0.904);
+    font-size: 0.9em;
+}
+
+.added_tag {
+    font-size: 0.9em;
+    border: 0.5px solid #237E80;
+    padding: 1%;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 1% 2%;
+}
