@@ -4,6 +4,7 @@ import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
 import SelectTagModal from './select_tag_modal';
+import FormatDateYDM from './format_dateY-M-D';
 // import TagPanel from './receipt_tags/tag_panel';
 
 
@@ -15,7 +16,7 @@ class AddNew extends Component {
 
         this.state = {
             merchantName: '',
-            dateOfPurchase: this.calcDate().today,
+            dateOfPurchase: `${this.formatDate()}`,
             totalAmount: '',
             // dateOfPurchase: '',
             category: this.categories[0],
@@ -27,9 +28,9 @@ class AddNew extends Component {
     }
 
     calcDate() {
-        var curr = new Date();
-        curr.setDate(curr.getDate());
-        var today = curr.toISOString().substr(0,10);
+        debugger;
+        var curr = new Date().toLocaleDateString();
+        var today = new Date(curr);
         return {today};
     }
 
@@ -55,31 +56,28 @@ class AddNew extends Component {
         const resp = await axios.post('/api/addReceipt', {
             storeName: merchantName,
             total: totalAmount * 100,
-            purchaseDate: `${this.formatDate(dateOfPurchase)}`,
+            purchaseDate: dateOfPurchase,
             category: category,
             comment: note
         });       
-
+        console.log('resp', resp);
         this.clearStates();
 
         this.props.history.push('/overview');
     }
 
     formatDate = (date) => {
+        date = new Date()
         let monthArray = [];
         let dayArray = [];
         let year = new Date(date).getFullYear();
         let month = (new Date(date).getMonth()+1);
         if(month < 10){
-            monthArray.push(month);
-            monthArray.unshift(0);
-            month =  monthArray.join('');
+         month = '0'+ month
         }
-        let day = new Date(date).getUTCDate();
+        let day = new Date(date).getDate();
         if(day < 10){
-            dayArray.push(day);
-            dayArray.unshift(0);
-            day =  dayArray.join('');
+           day = "0" + day;
         }
         let formatDate = `${year}-${month}-${day}`
         return formatDate;
@@ -114,6 +112,7 @@ class AddNew extends Component {
     
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
+        console.log('date:', dateOfPurchase);
         
         const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);

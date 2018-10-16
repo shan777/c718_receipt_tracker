@@ -7,6 +7,7 @@ import Footer from './footer';
 import RenderTag from './receipt_tags/render_tag';
 import Modal from './modal';
 import axios from 'axios';
+import FormatDate from './format_date-M-D-Y';
 
 class Overveiw extends Component{
     constructor(props){
@@ -42,26 +43,6 @@ class Overveiw extends Component{
         });
     } 
 
-    formatDate(date){
-        let monthArray = [];
-        let dayArray = [];
-        let year = new Date(date).getFullYear();
-        let month = (new Date(date).getMonth()+1);
-        if(month < 10){
-            monthArray.push(month);
-            monthArray.unshift(0);
-            month =  monthArray.join('');
-        }
-        let day = new Date(date).getUTCDate();
-        if(day < 10){
-            dayArray.push(day);
-            dayArray.unshift(0);
-            day = dayArray.join('');
-        }
-        let formatDate = `${month}-${day}-${year}`
-        return formatDate;
-    }
-
     async componentDidMount(){
         const login = await axios.post('/api/login', {userName: 'kylePamintuan', password: 'kyleLfz123'})
         const axiosResponse = await axios.post('/api/getUserReceipts');
@@ -80,7 +61,7 @@ class Overveiw extends Component{
             <div className="row">
                 <div className="store_name">{item.storeName}</div>
                 <br/>
-                <div className="date_of_purchase">{`${this.formatDate(item.purchaseDate)}`}</div>
+        <div className="date_of_purchase">{<FormatDate date={item.purchaseDate}/>}</div>
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
                     <AccordionItem className="panel">
                        <div className="panel_size">
@@ -89,7 +70,7 @@ class Overveiw extends Component{
                         </div>
                         <div className="panel_size">
                             <div className="catagory">Date of Purchase:</div>
-                            <div className="data">{`${this.formatDate(item.purchaseDate)}`}</div>
+                            <div className="data">{<FormatDate date={item.purchaseDate}/>}</div>
                         </div>
                         <div className="panel_size">
                             <div className="catagory">Amount:</div>

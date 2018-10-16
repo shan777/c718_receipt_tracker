@@ -35,38 +35,16 @@ class Modal extends Component{
 
     async handleSubmit(event){
         event.preventDefault();
-        const {merchantName, dateOfPurchase, totalAmount, category, note, receiptId, tag, errorMessage} = this.state;
-
+        let {merchantName, dateOfPurchase, totalAmount, category, note, receiptId, tag, errorMessage} = this.state;
         const update = await axios.post('/api/updateReceipt', {
             receiptId: receiptId,
             storeName: merchantName,
-            purchaseDate: `${this.formatDate(this.state.dateOfPurchase)}`,
-            total: parseInt(totalAmount)*100,
+            purchaseDate: dateOfPurchase,
+            total: parseFloat(totalAmount)*100,
             category: category,
             comment: note
         });
         {this.props.close(this.state.StoreName)}
-    }
-
-    formatDate(date){
-        let monthArray = [];
-        let dayArray = [];
-        let year = new Date(date).getFullYear();
-        let month = (new Date(date).getMonth()+1);
-        if(month < 10){
-            monthArray.push(month);
-            monthArray.unshift(0);
-            month =  monthArray.join('');
-        }
-        let day = new Date(date).getUTCDate();
-        if(day < 10){
-            dayArray.push(day);
-            dayArray.unshift(0);
-            day =  dayArray.join('');
-        }
-        let formatDate = `${year}-${month}-${day}`;
-        console.log(formatDate);
-        return formatDate;
     }
 
     handleChange(event){
@@ -76,7 +54,7 @@ class Modal extends Component{
     }
 
     render(){
-        console.log(this.state.category);
+        console.log(this.state.dateOfPurchase);
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
         const categoryArray = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Transportation', 'Lodging', 'Repairs'];
         const categoryChoices = categoryArray.map((option, index) => 
@@ -102,8 +80,7 @@ class Modal extends Component{
                             />
 
                             <label className="modal_input_label">Amount :</label>
-                            $ <input name='totalAmount' className="amount" onChange={this.handleChange.bind(this)} 
-                                type="number" min="0.00" step="0.01"
+                            $ <input name='totalAmount' className="amount" onChange={this.handleChange.bind(this)}
                                 value={this.state.totalAmount}
                             />
 
