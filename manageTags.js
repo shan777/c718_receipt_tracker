@@ -73,11 +73,17 @@ module.exports = (app) => {
             success: false
         };
         if (userId){
-            connection.query("DELETE FROM tags WHERE tags.ID = ? AND tags.userId = ?;",
+            connection.query(`DELETE FROM tags WHERE tags.ID = ? AND tags.userId = ?;`,
                             [tagId, userId],
                             (error, result) => {
                                 if (error) throw error;
                                 if (result.affectedRows > 0){
+                                    connection.query(`DELETE FROM receipts_tags WHERE receipts_tags.tagId = ?`,
+                                                    [tagId],
+                                                    (error) => {
+                                                        if (error) throw error;
+                                                    }
+                                    );
                                     output.success = true;
                                     return response.status(200).send(output);
                                 }
