@@ -8,7 +8,7 @@ import AddNew from './add_new';
 import Login from './login';
 import SignUp from './signup';
 import AboutUs from './about_us';
-import SelectTagModal from './select_tag_modal';
+import TagModal from './tag_modal';
 import About from './about';
 
 const App = () => (
@@ -20,7 +20,7 @@ const App = () => (
             <Route path ="/login" component = {Login}/>
             <Route path="/signup" component ={SignUp}/>
             <Route path="/about_us" component={AboutUs}/>
-            <Route path="/tagmodal" component={SelectTagModal}/>
+            <Route path="/tagmodal" component={TagModal}/>
             <Route path="/about" component={About}/>
         </div>
     </Router>
