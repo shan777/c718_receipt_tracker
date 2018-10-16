@@ -50,6 +50,8 @@ class AddNew extends Component {
     }
 
     handleSubmit = async (event) => {
+        console.log('inside handleSubmit addnew');
+
         const {merchantName, dateOfPurchase, totalAmount, category, note} = this.state;
 
         event.preventDefault();
@@ -57,11 +59,10 @@ class AddNew extends Component {
         const resp = await axios.post('/api/addReceipt', {
             storeName: merchantName,
             total: totalAmount * 100,
-            purchaseDate: `${this.formatDate(dateOfPurchase)}`,
+            purchaseDate: dateOfPurchase,
             category: category,
             comment: note
         });       
-        console.log('resp', resp);
         this.clearStates();
 
         this.props.history.push('/overview');
@@ -98,8 +99,10 @@ class AddNew extends Component {
 
         
     render() {
+
         const {merchantName, dateOfPurchase, totalAmount, category, note, currentTags} = this.state;
-       
+        console.log('dateOfPurchasae', dateOfPurchase);
+
         const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
               

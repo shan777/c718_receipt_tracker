@@ -167,8 +167,6 @@ server.post('/api/addReceipt', (request, response) => {
 
     if (userId){
         request.body.userId = userId;
-        let sqlFormatDate = functions.formatDate(request.body.purchaseDate);
-        request.body.purchaseDate = sqlFormatDate;
         let data_validation = functions.validator(request.body);
 
         if(data_validation.pass){
@@ -202,10 +200,6 @@ server.post('/api/updateReceipt', (request, response) => {
         success: false
     };
     if (userId){
-        if(request.body.hasOwnProperty('purchaseDate')){
-            let sqlFormatDate = functions.formatDate(request.body.purchaseDate);
-            request.body.purchaseDate = sqlFormatDate;
-        }
         let data_validation = functions.validator(request.body);
         if(data_validation.pass){
             const {receiptId} = request.body;
