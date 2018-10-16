@@ -195,27 +195,32 @@ server.post('/api/addReceipt', (request, response) => {
 });
 
 server.post('/api/updateReceipt', (request, response) => {
+    const userId = request.session.userId;
     const output = {
         success: false
     };
-    let data_validation = functions.validator(request.body);
-
-    if(data_validation.pass){
-        const {receiptId} = request.body;
-        delete request.body.receiptId;
-        const connection = mysql.createConnection(sqrlDbCreds);
-        const query = connection.query("UPDATE receipts SET ? WHERE receipts.ID = ?;",
-                        [request.body, receiptId],
-                        (error) => {
-                            if(error) throw error;
-                            output.success = true;
-                            return response.status(200).send(output);
-                        }
-        );
-    }
-    else{
-        output.validation = data_validation;
-        return response.status(400).send(output);
+    if (userId){
+        let data_validation = functions.validator(request.body);
+        if(data_validation.pass){
+            const {receiptId} = request.body;
+            delete request.body.receiptId;
+            const connection = mysql.createConnection(sqrlDbCreds);
+            const query = connection.query("UPDATE receipts SET ? WHERE receipts.ID = ?;",
+                            [request.body, receiptId],
+                            (error) => {
+                                if(error) throw error;
+                                output.success = true;
+                                return response.status(200).send(output);
+                            }
+            );
+        }
+        else{
+            output.validation = data_validation;
+            return response.status(400).send(output);
+        }
+    }else{
+        output.error = "User not logged in.";
+        return response.status(401).send(output);
     }
 });
 
