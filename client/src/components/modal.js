@@ -42,6 +42,8 @@ class Modal extends Component{
             category: category,
             comment: note
         });
+        console.log('update]:', update);
+        console.log('total', totalAmount);
         {this.props.close(this.state.StoreName)}
     }
 
@@ -62,7 +64,6 @@ class Modal extends Component{
           day = "0" + day;
         }
         let formatDate = `${year}-${month}-${day}`;
-        console.log(formatDate);
         return formatDate;
     }
 

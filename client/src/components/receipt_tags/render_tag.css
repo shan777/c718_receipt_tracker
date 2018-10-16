@@ -10,8 +10,7 @@
     background-color: rgba(239, 241, 241, 0.904);
     color: #2C3531;
     border-radius: 6px;
-    padding-left: 3%;
-    width: 60%;
+    padding: 1%;
 }
 
 .tag_input {
