@@ -50,12 +50,10 @@ class Overveiw extends Component{
         this.setState({
             data: axiosResponse,
         });
-        console.log('this.state.data inside overview componentDidMount: ', this.state.data);
     }
 
     makeRow(){
         const currentUsersReceipts = [...this.state.data.data.receipts];
-        console.log('currentUsersReceipts:',currentUsersReceipts);
         const row = currentUsersReceipts.map((item, index) => (
         <Accordion key={index}>
             <div className="row">
@@ -112,8 +110,6 @@ class Overveiw extends Component{
 
         }
         const currentUsersReceipts = [...this.state.data.data.receipts];
-        
-        console.log('currentUserReceipts: ', currentUsersReceipts);
 
         const total = currentUsersReceipts.map(item => item.total);
         const addTotal = () =>{

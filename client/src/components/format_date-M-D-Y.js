@@ -9,8 +9,6 @@ class FormatDate extends Component{
     }
     render(){
             let date = this.props.date; 
-            let monthArray = [];
-            let dayArray = [];
             let year = new Date(date).getFullYear();
             let month = (new Date(date).getMonth()+1);
             if(month < 10){

@@ -38,7 +38,7 @@ class Modal extends Component{
         const update = await axios.post('/api/updateReceipt', {
             receiptId: receiptId,
             storeName: merchantName,
-            purchaseDate: dateOfPurchase,
+            purchaseDate: `${this.formatDate(dateOfPurchase)}`,
             total: parseFloat(totalAmount)*100,
             category: category,
             comment: note
@@ -50,6 +50,21 @@ class Modal extends Component{
         this.setState({
             [event.target.name]: event.target.value
         });
+    }
+
+    formatDate(date){
+        let year = new Date(date).getFullYear();
+        let month = (new Date(date).getMonth()+1);
+        if(month < 10){
+           month = "0" + month;
+        }
+        let day = new Date(date).getUTCDate();
+        if(day < 10){
+          day = "0" + day;
+        }
+        let formatDate = `${year}-${month}-${day}`;
+        console.log(formatDate);
+        return formatDate;
     }
 
     render(){

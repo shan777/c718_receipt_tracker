@@ -48,7 +48,7 @@ class AddNew extends Component {
         const resp = await axios.post('/api/addReceipt', {
             storeName: merchantName,
             total: totalAmount * 100,
-            purchaseDate: dateOfPurchase,
+            purchaseDate: `${this.formatDate(dateOfPurchase)}`,
             category: category,
             comment: note
         });       
@@ -60,8 +60,6 @@ class AddNew extends Component {
 
     formatDate = (date) => {
         date = new Date()
-        let monthArray = [];
-        let dayArray = [];
         let year = new Date(date).getFullYear();
         let month = (new Date(date).getMonth()+1);
         if(month < 10){
