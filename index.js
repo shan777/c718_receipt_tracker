@@ -80,7 +80,7 @@ server.post('/api/getUserReceipts', (request, response) => {
     };
     if (userId){
         const connection = mysql.createConnection(sqrlDbCreds);
-        connection.query(`SELECT r.storeName, r.total, r.purchaseDate, r.category, r.comment
+        connection.query(`SELECT r.ID, r.storeName, r.total, r.purchaseDate, r.category, r.comment
                           FROM receipts AS r
                           WHERE r.userId = ?
                           AND r.status = 'active';`,
