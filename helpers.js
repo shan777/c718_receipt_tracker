@@ -1,12 +1,12 @@
 module.exports = {
     
-    getCurrentDate: function(){
+    getCurrentDate: ()=>{
         let today = new Date();
         let current_date = today.toISOString().slice(0,10);
         return current_date;
     },
 
-    validator: function(data){
+    validator: (data)=>{
         const regex_patterns = {
             //user table fields
             userId: /^[1-9][\d]{0,9}$/,
@@ -56,7 +56,7 @@ module.exports = {
         return results;
     },
 
-    getQueryForFilters: function(filters){
+    getQueryForFilters: (filters)=>{
         let insert = "";
         let propertyNames = Object.getOwnPropertyNames(filters);
         let values = Object.values(filters);
