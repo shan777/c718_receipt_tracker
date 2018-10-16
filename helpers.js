@@ -17,7 +17,7 @@ module.exports = {
             //status is missing
             comment: /^[a-zA-Z\d'\s\+\?\.]{0,255}$/,
             category: /^[a-zA-Z]{1,20}$/,
-            purchaseDate: /^\d{4}[\/-]{1}\d{2}[\/-]{1}\d{2}$/,
+            purchaseDate: /^\d{4}-{1}\d{2}-{1}\d{2}$/,
             creditCardDigits: /^[\d]{4}$/,
             creditCardName: /^[a-zA-Z ]{2,20}$/,
             tax: /^[1-9][\d]{0,9}$/,
