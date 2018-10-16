@@ -1,10 +1,4 @@
 module.exports = {
-    
-    getCurrentDate: ()=>{
-        let today = new Date();
-        let current_date = today.toISOString().slice(0,10);
-        return current_date;
-    },
 
     validator: (data)=>{
         const regex_patterns = {
@@ -23,7 +17,7 @@ module.exports = {
             //status is missing
             comment: /^[a-zA-Z\d'\s\+\?\.]{0,255}$/,
             category: /^[a-zA-Z]{1,20}$/,
-            purchaseDate: /^\d{4}-{1}\d{2}-{1}\d{2}$/,
+            purchaseDate: /^\d{4}\/{1}\d{2}\/{1}\d{2}$/,
             creditCardDigits: /^[\d]{4}$/,
             creditCardName: /^[a-zA-Z ]{2,20}$/,
             tax: /^[1-9][\d]{0,9}$/,
@@ -63,6 +57,12 @@ module.exports = {
         for(var i=0; i < propertyNames.length; i++){
             let prop = propertyNames[i];
             let val = values[i];
+
+            if (prop==='purchaseDate' || prop==='minDate' || prop==='maxDate'){
+                let sqlFormatDate = module.exports.formatDate(val);
+                val = sqlFormatDate;
+            }
+
             let temp;
             if(prop==="tagName" || prop==="tagId")
                 (typeof val !== "number")? temp = `AND t.${prop} = '${val}' `: temp = `AND t.${prop} = ${val} `;
@@ -76,9 +76,9 @@ module.exports = {
         }
         let query;
         if(propertyNames.includes("tagName") || propertyNames.includes("tagId"))
-            query = `SELECT DISTINCT r.storeName, r.total, r.purchaseDate, r.category, r.comment FROM receipts AS r LEFT JOIN receipts_tags AS rt ON r.ID = rt.receiptId LEFT JOIN tags AS t ON rt.tagId = t.ID WHERE r.userId = ? ${insert} AND r.status = 'active';`;
+            query = `SELECT DISTINCT r.storeName, r.total, DATE_FORMAT(r.purchaseDate, "%m/%d/%Y") AS purchaseDate, r.category, r.comment FROM receipts AS r LEFT JOIN receipts_tags AS rt ON r.ID = rt.receiptId LEFT JOIN tags AS t ON rt.tagId = t.ID WHERE r.userId = ? ${insert} AND r.status = 'active';`;
         else
-            query = `SELECT r.storeName, r.total, r.purchaseDate, r.category, r.comment FROM receipts AS r WHERE r.userId = ? ${insert} AND r.status = 'active';`;
+            query = `SELECT r.storeName, r.total, DATE_FORMAT(r.purchaseDate, "%m/%d/%Y") AS purchaseDate, r.category, r.comment FROM receipts AS r WHERE r.userId = ? ${insert} AND r.status = 'active';`;
         return query;
     },
 
@@ -86,5 +86,12 @@ module.exports = {
         const removeChars = /[\s-()]+/g;
         let result = phoneNum.replace(removeChars, '');
         return parseInt(result);
+    },
+
+    formatDate: (date)=>{
+        let yearRegex = /\/\d{4}/;
+        let year = yearRegex.exec(date)[0];
+        let newDate = year.replace('/', '') + '/' + date.replace(year, '');
+        return newDate;
     }
 }

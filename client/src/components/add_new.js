@@ -35,7 +35,8 @@ class AddNew extends Component {
     }
 
     async componentDidMount(){
-        // const login = await axios.post('/api/login', {userName: 'KylePamintuan', password: 'kyleLfz123'});
+        // const login = await axios.post('/api/login', {userName: 'sarahHan', password: 'sarahLfz123'});
+
     }
      
     clearStates = () => {
