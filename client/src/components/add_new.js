@@ -27,13 +27,6 @@ class AddNew extends Component {
         }
     }
 
-    calcDate() {
-        debugger;
-        var curr = new Date().toLocaleDateString();
-        var today = new Date(curr);
-        return {today};
-    }
-
     async componentDidMount(){
         const login = await axios.post('/api/login', {userName: 'KylePamintuan', password: 'kyleLfz123'});
     }
