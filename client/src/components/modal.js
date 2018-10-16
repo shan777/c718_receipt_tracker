@@ -95,6 +95,7 @@ class Modal extends Component{
 
                             <label className="modal_input_label">Amount :</label>
                             $ <input name='totalAmount' className="amount" onChange={this.handleChange.bind(this)}
+                                type="number" min="0.00" step="0.01"
                                 value={this.state.totalAmount}
                             />
 
