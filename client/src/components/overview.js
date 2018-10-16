@@ -44,7 +44,6 @@ class Overveiw extends Component{
     } 
 
     async componentDidMount(){
-        const login = await axios.post('/api/login', {userName: 'kylePamintuan', password: 'kyleLfz123'})
         const axiosResponse = await axios.post('/api/getUserReceipts');
         
         this.setState({

@@ -51,21 +51,28 @@ class TagModal extends Component{
         const addedTags = Object.keys(tags).map( tagId => {
             return tags[tagId];
         }).filter(tag => tag.checked);
-
-        this.props.selectTags(addedTags);
+        
+                this.props.selectTags(addedTags);
 
         this.props.handleClose();
 
     } 
 
-    handleNewTag = async (newTagText) => {
-        const resp = await axios.post('/api/manageTags/addTag', {
-            tagName: newTagText
-        });
+    handleAddTag = async (event) => {
+        event.preventDefault();
 
-        this.setState({
-            newTagName: newTagText
-        })
+        const { newTagName } = this.state;
+
+        if(newTagName) {
+            const resp = await axios.post('/api/manageTags/addTag', {
+                tagName: newTagName
+            });
+
+            this.setState({
+                newTagName: newTagName
+                // newTagName: []
+            });
+        }
     }
 
     render() {
@@ -96,10 +103,12 @@ class TagModal extends Component{
                         <br />
 
                         <label className="tag_label">New Tag :</label>
-                        <input className="new_tag_input" placeholder="Enter new tag name" onChange={ (e) => this.setState({newTagName: e.target.value})}
+                        <input className="new_tag_input" placeholder="new tag name" onChange={ (e) => this.setState({newTagName: e.target.value})}
                             type="text"
                             value={newTagName}
-                        /><br/><br/>
+                        />
+                        <button className="add_tag_btn" onClick={this.handleAddTag}>Add</button>
+                        <br/><br/>
                         <button type="button" className="tag_modal_close_btn" onClick={this.props.handleClose}>Cancel</button>
                         <button className="tag_modal_apply_btn">Apply</button>
                         </div>
