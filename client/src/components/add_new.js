@@ -3,7 +3,8 @@ import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
-import SelectTagModal from './select_tag_modal';
+import Modal from './modal';
+import TagModal from './tag_modal';
 // import TagPanel from './receipt_tags/tag_panel';
 
 
@@ -21,9 +22,16 @@ class AddNew extends Component {
             category: this.categories[0],
             note: '',
             currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
-            newTags: [],
-            show: false
+            newTagName: '',
+            show: false,
+            currentTags: []
         }
+    }
+
+    selectTags = (tags) => {
+        this.setState({
+            currentTags: tags
+        });
     }
 
     async componentDidMount(){
@@ -81,57 +89,24 @@ class AddNew extends Component {
         show: true,
     });
 
-    hideModal = async () => {
+    hideModal = () => {
         this.setState({
             show: false
         });
     }
 
-    // handleNewTag = async (newTagText) => {
-    //     console.log('new tab adding', newTagText);
-
-    //     const resp = await axios.post('/api/manageTags/addTag', {
-    //         tagName: newTagText
-    //     });
-
-    //     console.log('handle new tag resp: ', resp )
-    //     this.setState({
-    //         newTags: [...this.state.newTags, newTagText]
-    //     })
-    // }
-    
-    render() {
-        const {merchantName, dateOfPurchase, totalAmount, category, note, tag} = this.state;
-        console.log('date:', dateOfPurchase);
         
+    render() {
+        const {merchantName, dateOfPurchase, totalAmount, category, note, currentTags} = this.state;
+       
         const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
-
-        // if(this.state.isOpen){
-            // return (
-                // <div>
-                //     <SelectTagModal show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
-                //         <p>Modal</p>
-                //         <p>Data</p>
-                //     </SelectTagModal>    
-                //     <button type="button" onClick={this.showModal}>
-                //     Open
-                //     </button>
-                // </div>
-            // );
-        //}
+              
+        const tagName = currentTags.map((tagEntry, index) => 
+            <button className="custom_tag" type="button" key={index}><i className="material-icons custom_tag_icon">local_offer</i>{tagEntry.tagName}</button>);
 
         return (
             <div>
-                    <SelectTagModal show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
-                        <p>Modal</p>
-                        <p>Data</p>
-                    </SelectTagModal>    
-                    <button type="button" onClick={this.showModal}>
-                    Open
-                    </button>
-
-
                 <Header title="Add New"/>
                 <div className="main_container">
                     <form onSubmit={this.handleSubmit}>
@@ -183,14 +158,18 @@ class AddNew extends Component {
 
                         <div className="content_container">
                             <label className="input_label">Tag :</label>
-                            <button className="tag_button" tags={this.state.tags} onClick={() => this.showModal}>+</button>
-                            
-                            {/* <TagPanel tags={this.state.newTags} addCallback={this.handleNewTag}/> */}
-                            
+                            <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>+</button>
+                            {tagName}
                         </div> 
                    </form>
                 </div>
                 <Footer/>
+                {
+                (this.state.show) ?
+                    <TagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                    </TagModal>    
+                    : (null)
+                }
             </div>
         );
     }

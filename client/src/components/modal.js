@@ -28,7 +28,6 @@ class Modal extends Component{
             receiptId: this.props.receiptId,
             totalAmount: this.props.total/100,
             category: currentReceipt.category
-
         });
     }
 
@@ -70,15 +69,15 @@ class Modal extends Component{
     render(){
         console.log(this.state.dateOfPurchase);
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
-        const categoryArray = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Transportation', 'Lodging', 'Repairs'];
-        const categoryChoices = categoryArray.map((option, index) => 
+        const categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Transportation', 'Lodging', 'Repairs'];
+        const categoryChoices = categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
             const currentUser = [...this.props.data];
             let currentReceipt = currentUser[this.props.row]
             return (
-                <div className="basic-modal" onClick={this.close}>
-                    <div onClick={e => e.stopPropagation()} className="basic-modal-content">
-                        <div onClick={this.props.close} className="basic-modal-close">X</div>
+                <div className="basic_modal" onClick={this.close}>
+                    <div className="basic_modal_content onClick={e => e.stopPropagation()}">
+                        <div className="basic_modal_close" onClick={this.props.close}>X</div>
                         <form>  
                         <div className="modal_container">
                             <label className="modal_input_label">Merchant :</label>
