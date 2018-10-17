@@ -48,12 +48,14 @@ server.post('/api/login', (request, response) => {
                         if (error){
                             output.error = error;
                             return response.status(400).send(output);
-                        }else if (rows){
+                        }else if (rows.length > 0){
                             output.userId = rows[0].ID;
                             output.loggedIn = true;
                             request.session.userId = output.userId;
                             return response.status(200).send(output);
-                        }   
+                        }
+                        output.error = 'User name or password invalid.';
+                        return response.status(401).send(output);
     });
 });
 
@@ -68,6 +70,7 @@ server.post('/api/logout', (request, response) => {
         output.loggedIn = false;
         return response.status(200).send(output);
     }else{
+        output.error = 'User not logged in.'
         return response.status(400).send(output);
     }
 });
