@@ -21,6 +21,10 @@ class Carousel extends Component {
     }
 
     componentDidMount(){
+        if(localStorage.getItem('hasVisited')){
+            this.props.history.push('/login');
+        }
+
         this.getImageData();
     }
 
@@ -71,6 +75,18 @@ class Carousel extends Component {
         }, () => this.enableClick(transitionTime));
     }
 
+    navigate = () => {
+        const { auth, history: { push }} = this.props;
+
+        localStorage.setItem('hasVisited', true);
+
+        if(auth){
+            return push('/overview');
+        }
+
+        push('/login');
+    }
+
     render(){
         const { direction, currentIndex, images, transitionTime } = this.state;
 
@@ -100,7 +116,7 @@ class Carousel extends Component {
                 <button onClick={this.changeImg.bind(this, 'previous')}>Previous</button>
                 <button className="next_button" onClick={this.changeImg.bind(this, 'next')}>Next</button>
                 <Indicators onClick={this.directToImage.bind(this)} count={images.length} current={currentIndex} />
-                <Link to="/overview" ><button className="finished_button">Finished</button></Link>
+                <button onClick={this.navigate} className="finished_button">Finished</button>
             </div>
         );
     }
