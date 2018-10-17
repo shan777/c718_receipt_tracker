@@ -165,7 +165,8 @@ server.post('/api/deleteReceipt', (request, response) => {
 server.post('/api/addReceipt', (request, response) => {
     const userId = request.session.userId;
     const output = {
-        success: false
+        success: false,
+        tags_inserted: []
     };
 
     if (userId){
@@ -174,10 +175,10 @@ server.post('/api/addReceipt', (request, response) => {
 
         if(data_validation.pass){
             const connection = mysql.createConnection(sqrlDbCreds);
-            let tags = request.body.tags;
+            let tags = request.body.tags.slice();
             if(tags)
                 delete request.body.tags;
-            const query = connection.query("INSERT INTO receipts SET ?;",
+            connection.query("INSERT INTO receipts SET ?;",
                             [request.body],
                             (error, results) => {
                                 if(error){
@@ -187,30 +188,36 @@ server.post('/api/addReceipt', (request, response) => {
                                 }
                                 let last_insertId = results.insertId;
                                 if(tags && last_insertId){
-                                    for(let i in tags){
-                                        let curr_tagId = tags[i].tagId;
-                                        const query = connection.query("SELECT * FROM tags WHERE tags.ID = ?;",
+                                    for(let tag in tags){
+                                        let curr_tagId = tags[tag].tagId;
+                                        connection.query("SELECT * FROM tags WHERE tags.ID = ?;",
                                                         [curr_tagId],
                                                         (error, result) => {
-                                                            if(error){
-                                                                output.error = error;
-                                                                return response.status(400).send(output);
-                                                            }
+                                                            if (error) throw error;
                                                             else if(result){
                                                                 connection.query("INSERT INTO receipts_tags (receiptId, tagId) VALUES (?, ?);",
                                                                                 [last_insertId, curr_tagId],
                                                                                 (error) => {
-                                                                                    if (error) throw error;
-                                                                                    return response.status(400).send(output);
+                                                                                    let tagSuccess = {
+                                                                                        "tagId": curr_tagId,
+                                                                                        "success": false
+                                                                                    };
+                                                                                    if (error){
+                                                                                        throw error;
+                                                                                    }
+                                                                                    tagSuccess.success = true;
+                                                                                    console.log(output);
+                                                                                    console.log(tagSuccess);
+                                                                                    output.tags_inserted.push(tagSuccess);
                                                                                 }
                                                                 );
                                                             }
                                                         }
                                         );
                                     }
+                                    output.success = true;
+                                    return response.status(200).send(output);
                                 }
-                                output.success = true;
-                                return response.status(200).send(output);
                             }
             );
         }
