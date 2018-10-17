@@ -33,6 +33,8 @@ module.exports = {
         results.pass = true;
 
         for (let [key, value] of data_entries){
+            if(key==="tags")
+                continue;
             if(!regex_patterns.hasOwnProperty(key)){
                 results[key] = "data does not match any columns in the database";
                 results.pass = false;
@@ -57,11 +59,6 @@ module.exports = {
         for(var i=0; i < propertyNames.length; i++){
             let prop = propertyNames[i];
             let val = values[i];
-
-            if (prop==='purchaseDate' || prop==='minDate' || prop==='maxDate'){
-                let sqlFormatDate = module.exports.formatDate(val);
-                val = sqlFormatDate;
-            }
 
             let temp;
             if(prop==="tagName" || prop==="tagId")

@@ -174,13 +174,40 @@ server.post('/api/addReceipt', (request, response) => {
 
         if(data_validation.pass){
             const connection = mysql.createConnection(sqrlDbCreds);
+            let tags = request.body.tags;
+            if(tags)
+                delete request.body.tags;
             const query = connection.query("INSERT INTO receipts SET ?;",
                             [request.body],
-                            (error) => {
+                            (error, results) => {
                                 if(error){
                                     output.error = error;
                                     output.success = false;
                                     return response.status(400).send(output);
+                                }
+                                let last_insertId = results.insertId;
+                                if(tags && last_insertId){
+                                    for(let i in tags){
+                                        let curr_tagId = tags[i].tagId;
+                                        const query = connection.query("SELECT * FROM tags WHERE tags.ID = ?;",
+                                                        [curr_tagId],
+                                                        (error, result) => {
+                                                            if(error){
+                                                                output.error = error;
+                                                                return response.status(400).send(output);
+                                                            }
+                                                            else if(result){
+                                                                connection.query("INSERT INTO receipts_tags (receiptId, tagId) VALUES (?, ?);",
+                                                                                [last_insertId, curr_tagId],
+                                                                                (error) => {
+                                                                                    if (error) throw error;
+                                                                                    return response.status(400).send(output);
+                                                                                }
+                                                                );
+                                                            }
+                                                        }
+                                        );
+                                    }
                                 }
                                 output.success = true;
                                 return response.status(200).send(output);
