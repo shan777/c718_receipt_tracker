@@ -42,9 +42,9 @@ class Carousel extends Component {
         const checkStatus = await axios.post('api/checkLoginStatus')
         console.log(checkStatus);
         if(checkStatus.data.loggedIn){
-            this.replace('/overview')
+            <Route path='/overview'></Route>
         }else{
-            this.replace('/login')
+            <Route path='login'></Route>
         }
     }
 
