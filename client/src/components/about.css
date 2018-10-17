@@ -105,6 +105,7 @@ body {
     box-shadow: 5px 5px lightgrey;
 }   
 
-/* .tech_container>p.domain_name {
-    color: red;
-} */
+p.domain {
+    margin-top: 0%;
+    font-size: 20px;
+}

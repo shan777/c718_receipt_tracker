@@ -14,7 +14,8 @@ class Hamburger extends Component {
           <Link to="/overview"><p>Overview</p></Link>
           <Link to="/add_new"><p>Add New</p></Link>
           <Link to="/about_us"><p>Meet the team</p></Link>
-          <Link to="/login"><p>Sign out</p></Link>
+          <Link to="/login"><p>Sign Out</p></Link>
+          <Link to="/tech"><p>About Tech</p></Link>
         </div>
       </div>
     )
