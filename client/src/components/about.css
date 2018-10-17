@@ -1,0 +1,110 @@
+/* @font-face {    
+    font-family: 'Roboto Bold';
+    src: url(../../src/assets/fonts/Roboto-Bold.ttf);
+}
+
+@font-face {    
+    font-family: 'Roboto';
+    src: url(../../src/assets/fonts/Roboto-Regular.ttf);
+} */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 90vh;
+}
+
+.about_container {
+    height: 90vh;
+    width: 100vw;
+    background-color: #237E80;
+    margin-top: 10vh;
+}
+
+.tech_container {
+    width: 90vw;
+    height: 86vh;
+    background-color: #f2f2f2;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.tech_container p {
+    margin-top: 23%;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.app_container_top {
+    display: inline-block;
+    width: 100%;
+}
+
+.html_logo {
+    width: 99px;
+    margin-left: 13%;
+    margin-bottom: 1.5%;
+    padding: 2%;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    box-shadow: 5px 5px lightgrey;
+}
+
+.css_logo {
+    width: 103px;
+    height: 105px;
+    margin-left: 15%;
+    padding: 1%;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    box-shadow: 5px 5px lightgrey;
+}
+
+.js_logo {
+    width: 98px;
+    height: 103px;
+    margin-left: 13%;
+    margin-top: 8%;
+    padding: 1%;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    box-shadow: 5px 5px lightgrey;
+}
+
+.react_logo {
+    width: 105px;
+    height: 103px;
+    margin-left: 15%;
+    padding: 2%;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    box-shadow: 5px 5px lightgrey;
+}
+
+.mySql_logo {
+    width: 98px;
+    margin-left: 15%;
+    margin-top: 14%;
+    padding: 2%;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    box-shadow: 5px 5px lightgrey;
+}
+
+.node_logo {
+    width: 107px;
+    height: 100px;
+    margin-left: 13%;
+    padding: 1%;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    box-shadow: 5px 5px lightgrey;
+}   
+
+/* .tech_container>p.domain_name {
+    color: red;
+} */
