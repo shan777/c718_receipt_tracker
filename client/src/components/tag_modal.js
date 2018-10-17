@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './modal.css';
-import TagPanel from './receipt_tags/tag_panel';
 import axios from 'axios';
 
 class TagModal extends Component{
@@ -12,6 +11,7 @@ class TagModal extends Component{
         };
     
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.createNewTag = this.createNewTag.bind(this);
     }
     
     handleInputChange(event) {
@@ -30,8 +30,11 @@ class TagModal extends Component{
     }
     
     async componentDidMount() {
+        this.createNewTag();
+    }
+    
+    async createNewTag(){
         const resp = await axios.post('/api/manageTags/getUserTags');
-
         const tags = {};
 
         resp.data.tags.map(tag => {
@@ -48,14 +51,14 @@ class TagModal extends Component{
         event.preventDefault();
 
         const { tags } = this.state;
+
         const addedTags = Object.keys(tags).map( tagId => {
             return tags[tagId];
         }).filter(tag => tag.checked);
         
-                this.props.selectTags(addedTags);
+        this.props.selectTags(addedTags);
 
         this.props.handleClose();
-
     } 
 
     handleAddTag = async (event) => {
@@ -68,15 +71,15 @@ class TagModal extends Component{
                 tagName: newTagName
             });
 
+            this.createNewTag();
+
             this.setState({
-                newTagName: newTagName
-                // newTagName: []
+                newTagName: ''
             });
         }
     }
 
     render() {
-
         const { tags, newTagName } = this.state;
         const tagChoices = Object.keys(tags).map((tagId, index) => {
             return (<label className="checkbox_label" key={index}>

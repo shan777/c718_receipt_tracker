@@ -57,6 +57,7 @@
     display: block;
     box-sizing: border-box;
     line-height: 4.1em;
+    overflow: auto;
 }
 
 .tag_modal_container {
@@ -67,7 +68,6 @@
     display: block;
     box-sizing: border-box;
     padding-bottom: 3%;
-    /* line-height: 4.1em; */
 }
 
 .tag_modal_container h2 {
