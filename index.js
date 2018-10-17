@@ -234,6 +234,9 @@ server.post('/api/updateReceipt', (request, response) => {
         if(data_validation.pass){
             const {receiptId} = request.body;
             delete request.body.receiptId;
+            let tags = request.body.tags;
+            // if(tags)
+            //     delete request.body.tags;
             const connection = mysql.createConnection(sqrlDbCreds);
             const query = connection.query("UPDATE receipts SET ? WHERE receipts.ID = ?;",
                             [request.body, receiptId],
@@ -243,6 +246,40 @@ server.post('/api/updateReceipt', (request, response) => {
                                 return response.status(200).send(output);
                             }
             );
+            // if(tags){
+            //     for(let i in tags){
+            //         let curr_tagId = tags[i].tagId;
+            //         const query = connection.query("SELECT * FROM tags WHERE tags.ID = ?;",
+            //                         [curr_tagId],
+            //                         (error, result) => {
+            //                             if(error){
+            //                                 output.error = error;
+            //                                 return response.status(400).send(output);
+            //                             }
+            //                             else if(result){
+            //                                 const query = connection.query("SELECT * FROM receipts_tags AS rt WHERE rt.receiptId = ? AND rt.tagId = ?;",
+            //                                             [receiptId, curr_tagId],
+            //                                             (error, result) => {
+            //                                                 if(error){
+            //                                                     output.error = error;
+            //                                                     return response.status(400).send(output);
+            //                                                 }
+            //                                                 else if(!result){
+            //                                                     connection.query("INSERT INTO receipts_tags (receiptId, tagId) VALUES (?, ?);",
+            //                                                                     [receiptId, curr_tagId],
+            //                                                                     (error) => {
+            //                                                                         if (error) throw error;
+            //                                                                         return response.status(400).send(output);
+            //                                                                     }
+            //                                                     );
+            //                                                 }
+            //                                             }
+            //                                 );
+            //                             }
+            //                         }
+            //         );
+            //     }
+            // }
         }
         else{
             output.validation = data_validation;
