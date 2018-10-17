@@ -5,23 +5,30 @@ import Transition from 'react-addons-css-transition-group';
 import Indicators from './indicators';
 import imageData from '../../assets/images/carousel';
 import './carousel.css';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import axios from 'axios'
 
 class Carousel extends Component {
     constructor(props){
         super(props);
-
+        this.timer = null;
         this.state = {
             currentIndex: 0,
             images: [],
             direction: 'next',
             transitionTime: 500,
-            canClick: true
+            canClick: true,
+            checkStatus: false,
+            componentIsMounted: false,
+            endStep: <div>test</div>
         }
     }
 
     componentDidMount(){
         this.getImageData();
+        // this.setState({
+        //     componentIsMounted: true
+        // })
     }
 
     getImageData(){
@@ -31,10 +38,20 @@ class Carousel extends Component {
         });
     }
 
+    async checkLoginStatus(){
+        const checkStatus = await axios.post('api/checkLoginStatus')
+        console.log(checkStatus);
+        if(checkStatus.data.loggedIn){
+            this.replace('/overview')
+        }else{
+            this.replace('/login')
+        }
+    }
+
     enableClick(delay){
-        setTimeout(() => {
-            this.setState({ canClick: true })
-        }, delay);
+            this.timer = setTimeout(() => {
+                this.setState({ canClick: true })
+            }, delay);
     }
 
     directToImage(index){
@@ -71,6 +88,8 @@ class Carousel extends Component {
         }, () => this.enableClick(transitionTime));
     }
 
+   
+
     render(){
         const { direction, currentIndex, images, transitionTime } = this.state;
 
@@ -83,6 +102,8 @@ class Carousel extends Component {
         }
 
         const { src, text } = images[currentIndex];
+
+        
 
         return (
             <div className="center-all">
@@ -100,7 +121,7 @@ class Carousel extends Component {
                 <button onClick={this.changeImg.bind(this, 'previous')}>Previous</button>
                 <button className="next_button" onClick={this.changeImg.bind(this, 'next')}>Next</button>
                 <Indicators onClick={this.directToImage.bind(this)} count={images.length} current={currentIndex} />
-                <Link to="/overview" ><button className="finished_button">Finished</button></Link>
+                    <button onClick={this.checkLoginStatus.bind(this)} className="finished_button">Finished</button>
             </div>
         );
     }
