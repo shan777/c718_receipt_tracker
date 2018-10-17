@@ -20,7 +20,7 @@ const App = () => (
             <Route path ="/login" component = {auth(Login, true, '/overview')}/>
             <Route path="/signup" component ={SignUp}/>
             <Route path="/about_us" component={AboutUs}/>
-            <Route path="/about" component={About}/>
+            <Route path="/tech" component={About}/>
         </div>
     </Router>
 );
