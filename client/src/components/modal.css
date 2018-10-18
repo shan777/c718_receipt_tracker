@@ -153,6 +153,21 @@
     display: inline-block;
 }
 
+.add_tag_btn {
+    font-size: 0.9em;
+}
+
+.sure{
+    color: red;
+    position: relative;
+    left: 10%;
+}
+
+.surebtn{
+    position: relative;
+    left: 35%;
+}
+
 .material-icons.md-30 { 
     font-size: 30px; 
     color: #2C3531;

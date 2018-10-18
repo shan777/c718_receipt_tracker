@@ -383,6 +383,12 @@ body{
     margin-top: 1%;
 }
 
+.deletebtn{
+    position: relative;
+    float: left;
+
+}
+
 }
 
 
