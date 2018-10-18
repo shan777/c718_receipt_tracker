@@ -52,7 +52,7 @@ class Login extends Component{
         return(
             <div className="login_page_container">
                 <img className="login_logo" src={loginLogo} />
-                <div style={centerStyle}>
+                <div className="login_container" style={centerStyle}>
                     <form className="login_area" onSubmit={this.handleSubmit}>
                         <input name='username' value={this.state.username} 
                         onChange={this.handleChange.bind(this)} className="username" 
@@ -63,7 +63,7 @@ class Login extends Component{
                         type="password" placeholder="Password"
                         />
                         <button className="login_btn">LOGIN</button>
-                        <p style={{color: 'red'}}>{this.state.error}</p>
+                        <p className="error_message" style={{color: 'red'}}>{this.state.error}</p>
                     </form>
                     {/* <div className="forgot_password"> forgot your password is only text at this time
                         forgot your password?
