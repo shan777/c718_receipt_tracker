@@ -21,7 +21,7 @@ class Carousel extends Component {
     }
 
     componentDidMount(){
-        if(localStorage.getItem('hasVisited')){
+        if(localStorage.getItem('hasVisited') && this.props.location.pathname === '/'){
             this.props.history.push('/login');
         }
 
