@@ -34,7 +34,7 @@ class Modal extends Component{
     async handleSubmit(event){
         event.preventDefault();
         let {merchantName, dateOfPurchase, totalAmount, category, note, receiptId, tag, errorMessage} = this.state;
-        const update = await axios.post('/api/updateReceipt', {
+        const update = await axios.post('/api/manageReceipts/updateReceipt', {
             receiptId: receiptId,
             storeName: merchantName,
             purchaseDate: `${this.formatDate(dateOfPurchase)}`,

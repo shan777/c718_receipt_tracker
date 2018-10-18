@@ -41,7 +41,7 @@ class Overveiw extends Component{
             isOpen: false,
             deleteOpen: false
         });
-        const axiosResponse = await axios.post('/api/getUserReceipts');
+        const axiosResponse = await axios.post('/api/manageReceipts/getUserReceipts');
         
         this.setState({
             data: axiosResponse,
@@ -58,7 +58,7 @@ class Overveiw extends Component{
   
 
     async componentDidMount(){
-        const axiosResponse = await axios.post('/api/getUserReceipts');
+        const axiosResponse = await axios.post('/api/manageReceipts/getUserReceipts');
         const tagResoponse = await axios.post('/api/manageTags/getUserTags')
         this.setState({
             data: axiosResponse,
