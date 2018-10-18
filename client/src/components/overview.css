@@ -306,7 +306,9 @@ body{
     left: 52%;
     font-size: 1.4em;
     font-family: "Roboto Bold";
-    text-align: right;
+    /* position: absolute;
+    right: 0px; 
+    padding: 1%; */
 }
 
 .panel{

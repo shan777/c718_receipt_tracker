@@ -130,9 +130,10 @@
 }
 
 .custom_tag {
-    background-color: rgb(213, 241, 240);
+    background-color: #DEF2F1;
     font-family: 'Roberto';
     font-weight: bold;
+    border: 0.7px dotted #237E80;
 }
 
 .custom_tag_icon {
@@ -183,3 +184,25 @@
     padding-bottom: 1.5%;
 }
 
+/* scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px lightgrey; 
+    border-radius: 15px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(241, 158, 3); 
+    border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #98FFA8; 
+}
