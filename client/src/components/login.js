@@ -23,7 +23,7 @@ class Login extends Component{
         e.preventDefault();
 
         try {
-            const resp = await axios.post('/api/login', {
+            const resp = await axios.post('/api/manageUsers/login', {
                 userName: username,
                 password: password
             });
