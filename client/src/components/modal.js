@@ -38,7 +38,7 @@ class Modal extends Component{
             receiptId: receiptId,
             storeName: merchantName,
             purchaseDate: `${this.formatDate(dateOfPurchase)}`,
-            total: parseFloat(totalAmount)*100,
+            total: `${this.fixRoundingError(totalAmount * 100)}`,
             category: category,
             comment: note
         });
@@ -52,6 +52,11 @@ class Modal extends Component{
             [event.target.name]: event.target.value
         });
     }
+
+    fixRoundingError(totalAmount){
+        let correctTotal = Math.round(totalAmount * 1000000000) / 1000000000;
+         return correctTotal;
+     }
 
     formatDate(date){
         let year = new Date(date).getFullYear();

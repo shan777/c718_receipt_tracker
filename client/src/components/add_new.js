@@ -48,6 +48,11 @@ class AddNew extends Component {
         });
     }
 
+    fixRoundingError(totalAmount){
+       let correctTotal = Math.round(totalAmount * 1000000000) / 1000000000;
+        return correctTotal;
+    }
+
     handleSubmit = async (event) => {
         const {merchantName, dateOfPurchase, totalAmount, category, note, currentTags} = this.state;
 
@@ -55,7 +60,7 @@ class AddNew extends Component {
         
         const resp = await axios.post('/api/manageReceipts/addReceipt', {
             storeName: merchantName,
-            total: totalAmount * 100,
+            total: `${this.fixRoundingError(totalAmount * 100)}`,
             purchaseDate: dateOfPurchase,
             category: category,
             comment: note,

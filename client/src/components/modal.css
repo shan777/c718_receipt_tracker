@@ -1,3 +1,193 @@
+@media only screen and (min-width: 600px){
+    .basic_modal {
+        background-color: rgba(0, 0, 0, .7);
+        display: flex;
+        height: 100vh;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: 1000;
+    }
+
+    .basic_modal_content {
+        margin: auto;
+        padding: 5px;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .basic_modal_content h1 {
+        border-bottom: 1px solid #dedede;
+        margin-bottom: 20px;
+        padding-bottom: 25px;
+    }
+
+    .basic_modal_close {
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+        display: inline-block;
+        top: 10px;
+        border-radius: 50%;
+        font-weight: bolder;
+        font-size: 27px;
+        font-family: 'Original Surfer';
+        color: white;
+        cursor: pointer;
+    }
+
+    .basic_modal_close:hover {
+        color: #ff0000;
+        background-color: #dedede;
+    }
+
+    .modalbtn{
+        position: relative;
+        left: 80%;
+        font-size: 1.3em;
+        padding: 1%;
+    }
+
+    .modal_container {
+        background-color: #DEF2F1;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1em;
+        display: block;
+        box-sizing: border-box;
+        line-height: 4.1em;
+        overflow: auto;
+    }
+
+    .tag_modal_container {
+        background-color: #DEF2F1;
+        width: 100%;
+        font-weight: bold;
+        display: block;
+        box-sizing: border-box;
+        padding-bottom: 3%;
+        position: relative;
+        top: -25px;
+    }
+
+    .tag_modal_container h2 {
+        background-color: #237E80;
+        color: #F2F2F2;
+        font-family: 'Roboto Bold';
+        padding: 2% 0 2% 9%;
+    }
+
+    .checkbox_label {
+        font-size: 1.2em;
+        position: relative;
+        left: 15%;
+        line-height: 1.8em;
+    }
+
+    .checkbox {
+        position: relative;
+        width: 20px;
+        height: 20px;
+    }
+
+    .modal_input_label {
+        width: 35%;
+        height: 30%;;
+        text-align: center;
+        display: inline-block;
+        word-break: break-word;
+        font-size: 1.2em;
+    }
+
+    .tag_modal_close_btn {
+        /* height: 30px;
+        width: 30px;
+        line-height: 30px; */
+        position: relative;
+        display: inline-block;
+        font-family: 'Original Surfer';
+        color: black;
+        cursor: pointer;
+        display: inline-block;
+        left: 15%;
+        padding: 1.5%;
+    }
+
+    .tag_modal_apply_btn {
+        position: relative;
+        left: 45%;
+        padding: 1.5%;
+        display: inline-block;
+        font-family: 'Original Surfer';
+        cursor: pointer;
+    }
+
+    .tag_icon {
+        color: rgba(234, 239, 243, 0.925);
+        width: 20px;
+        height: 20px;
+    }
+
+    .custom_tag {
+        background-color: #DEF2F1;
+        font-family: 'Roberto';
+        font-weight: bold;
+        border: 0.7px dotted #237E80;
+    }
+
+    .custom_tag_icon {
+        color: rgb(241, 158, 3);
+    }
+
+    .new_tag_label {
+        width: 35%;
+        height: 30%;;
+        text-align: center;
+        font-size: 1.3em;
+        padding: 1% 2% 1% 4%;
+    }
+
+    .new_tag_input {
+        width: 40%;
+        font-size: 1.2em;
+        display: inline-block;
+    }
+
+    .add_tag_btn {
+        font-size: 0.9em;
+    }
+
+    .sure{
+        color: red;
+        position: relative;
+        left: 10%;
+    }
+
+    .surebtn{
+        position: relative;
+        left: 35%;
+    }
+
+    .material-icons.md-30 { 
+        font-size: 30px; 
+        color: #2C3531;
+        vertical-align: middle;
+    }
+
+    .tag_choices_container {
+        max-height: 45vh;
+        overflow: scroll;
+    }
+
+    .new_tag {
+        padding-bottom: 1.5%;
+    }
+}
+
+
+
 @media only screen and (min-width: 768px){
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
@@ -34,7 +224,7 @@
         font-weight: bolder;
         font-size: 27px;
         font-family: 'Original Surfer';
-        color: black;
+        color: white;
         cursor: pointer;
         position: relative;
         left: 9%;
@@ -192,6 +382,200 @@
     }
 }
 
+@media only screen and (min-width: 1220px){
+    .basic_modal {
+        background-color: rgba(0, 0, 0, .7);
+        display: flex;
+        height: 100vh;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: 1000;
+    }
+
+    .basic_modal_content {
+        margin: auto;
+        padding: 5px;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .basic_modal_content h1 {
+        border-bottom: 1px solid #dedede;
+        margin-bottom: 20px;
+        padding-bottom: 25px;
+    }
+
+    .basic_modal_close {
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+        display: inline-block;
+        top: 10px;
+        border-radius: 50%;
+        font-weight: bolder;
+        font-size: 27px;
+        font-family: 'Original Surfer';
+        color: white;
+        cursor: pointer;
+        position: relative;
+        left: 9%;
+    }
+
+    .basic_modal_close:hover {
+        color: #ff0000;
+        background-color: #dedede;
+    }
+
+    .modalbtn{
+        position: relative;
+        left: 80%;
+        font-size: 1.3em;
+        padding: 1%;
+    }
+
+    .modal_container {
+        background-color: #DEF2F1;
+        width: 80%;
+        font-weight: bold;
+        font-size: 1em;
+        display: block;
+        box-sizing: border-box;
+        line-height: 4.1em;
+        overflow: auto;
+        left: 9%;
+        position: relative;
+        top: 1vh;
+    }
+
+    .tag_modal_container {
+        background-color: #DEF2F1;
+        width: 100%;
+        font-weight: bold;
+        display: block;
+        box-sizing: border-box;
+        padding-bottom: 3%;
+        position: relative;
+        top: -25px;
+    }
+
+    .tag_modal_container h2 {
+        background-color: #237E80;
+        color: #F2F2F2;
+        font-family: 'Roboto Bold';
+        padding: 2% 0 2% 9%;
+    }
+
+    .checkbox_label {
+        font-size: 1.2em;
+        position: relative;
+        left: 15%;
+        line-height: 1.8em;
+    }
+
+    .checkbox {
+        position: relative;
+        width: 20px;
+        height: 20px;
+    }
+
+    .modal_input_label {
+        width: 35%;
+        height: 30%;;
+        text-align: center;
+        display: inline-block;
+        word-break: break-word;
+        font-size: 1.2em;
+    }
+
+    .tag_modal_close_btn {
+        /* height: 30px;
+        width: 30px;
+        line-height: 30px; */
+        position: relative;
+        display: inline-block;
+        font-family: 'Original Surfer';
+        color: black;
+        cursor: pointer;
+        display: inline-block;
+        left: 15%;
+        padding: 1.5%;
+    }
+
+    .tag_modal_apply_btn {
+        position: relative;
+        left: 45%;
+        padding: 1.5%;
+        display: inline-block;
+        font-family: 'Original Surfer';
+        cursor: pointer;
+    }
+
+    .tag_icon {
+        color: rgba(234, 239, 243, 0.925);
+        width: 20px;
+        height: 20px;
+    }
+
+    .custom_tag {
+        background-color: #DEF2F1;
+        font-family: 'Roberto';
+        font-weight: bold;
+        border: 0.7px dotted #237E80;
+    }
+
+    .custom_tag_icon {
+        color: rgb(241, 158, 3);
+    }
+
+    .new_tag_label {
+        width: 35%;
+        height: 30%;;
+        text-align: center;
+        font-size: 1.3em;
+        padding: 1% 2% 1% 4%;
+    }
+
+    .new_tag_input {
+        width: 40%;
+        font-size: 1.2em;
+        display: inline-block;
+    }
+
+    .add_tag_btn {
+        font-size: 0.9em;
+    }
+
+    .sure{
+        color: red;
+        position: relative;
+        left: 32%;
+        font-size: 1.3em;
+    }
+
+    .surebtn{
+        position: relative;
+        left: 42%;
+    }
+
+    .material-icons.md-30 { 
+        font-size: 30px; 
+        color: #2C3531;
+        vertical-align: middle;
+    }
+
+    .tag_choices_container {
+        max-height: 45vh;
+        overflow: scroll;
+    }
+
+    .new_tag {
+        padding-bottom: 1.5%;
+    }
+}
+
 @media only screen and (max-width: 600px){
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
@@ -228,7 +612,7 @@
         font-weight: bolder;
         font-size: 27px;
         font-family: 'Original Surfer';
-        color: black;
+        color: white;
         cursor: pointer;
     }
 
