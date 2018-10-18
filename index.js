@@ -15,8 +15,10 @@ server.use(cors());
 server.use(express.json());
 server.use(sessionExec);
 
-require('./manageTags')(server);
-require('./manageReceipts')(server);
+const connection = mysql.createConnection(sqrlDbCreds);
+
+require('./manageTags')(server, connection);
+require('./manageReceipts')(server, connection);
 
 server.post('/api/checkLoginStatus', (request, response) => {
     const userId = request.session.userId;
@@ -41,7 +43,6 @@ server.post('/api/login', (request, response) => {
     };
 
     const status = 'active';
-    const connection = mysql.createConnection(sqrlDbCreds);
     connection.query("SELECT users.ID FROM users WHERE users.username=? AND users.password=SHA1(?) AND users.status=?",
                     [userName, password, status],
                     (error, rows) => {
@@ -90,7 +91,6 @@ server.post('/api/signUp', (request, response) => {
         data.password = encryptedPassword;
         data.status = "active";
         
-        const connection = mysql.createConnection(sqrlDbCreds);
         connection.query("INSERT INTO users SET ?;",
                         [data],
                         (error, result) => {
