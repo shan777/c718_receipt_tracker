@@ -156,3 +156,14 @@
 .add_tag_btn {
     font-size: 0.9em;
 }
+
+.sure{
+    color: red;
+    position: relative;
+    left: 10%;
+}
+
+.surebtn{
+    position: relative;
+    left: 35%;
+}

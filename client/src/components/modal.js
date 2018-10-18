@@ -23,7 +23,7 @@ class Modal extends Component{
         this.setState({
             merchantName: currentReceipt.storeName,
             totalAmount: currentReceipt.total,
-            dateOfPurchase: currentReceipt.purchaseDate,
+            dateOfPurchase: `${this.formatDate(currentReceipt.purchaseDate)}`,
             note: currentReceipt.comment,
             receiptId: this.props.receiptId,
             totalAmount: this.props.total/100,

@@ -6,6 +6,7 @@ import AccordionItem from './accordion_item';
 import Footer from './footer';
 import RenderTag from './receipt_tags/render_tag';
 import Modal from './modal';
+import DeleteModal from './delete_modal';
 import axios from 'axios';
 import FormatDate from './format_date-M-D-Y';
 import './/receipt_tags/render_tag.css';
@@ -23,7 +24,8 @@ class Overveiw extends Component{
             userId: null,
             total: null,
             date: null, 
-            tags: null
+            tags: null,
+            deleteOpen: false
         };
         this.close = this.close.bind(this);
     }
@@ -36,7 +38,8 @@ class Overveiw extends Component{
 
     async close(){
         this.setState({
-            isOpen: false
+            isOpen: false,
+            deleteOpen: false
         });
         const axiosResponse = await axios.post('/api/getUserReceipts');
         
@@ -44,6 +47,15 @@ class Overveiw extends Component{
             data: axiosResponse,
         });
     } 
+
+    deleteOpen(receiptId){
+        this.setState({
+            deleteOpen: true,
+            receiptId: receiptId
+        })
+    }
+
+  
 
     async componentDidMount(){
         const axiosResponse = await axios.post('/api/getUserReceipts');
@@ -91,6 +103,9 @@ class Overveiw extends Component{
                         </div>
                         {/* <RenderTag tags={item.tags} /> */}
                         {/* <button className='editbtn' onClick={()=> this.open(index, item.ID, item.total)}> */}
+                        <div className="deletebtn">
+                            <i onClick={() => this.deleteOpen(item.ID)}  className="material-icons">delete</i>
+                        </div>
                         <div className='editbtn'>
                             <i className="material-icons" onClick={()=> this.open(index, item.ID, item.total)}>edit</i>
                         </div>
@@ -103,6 +118,7 @@ class Overveiw extends Component{
     }
 
     render(){
+        console.log('deleteopen', this.state.deleteOpen);
         const loadingImg = require('../assets/images/loading_squirrel.gif');
         const loadingImgStyle = {
             backgroundColor: 'white',
@@ -126,12 +142,7 @@ class Overveiw extends Component{
             }
             return totalAmount/100;
         }
-        if(this.state.isOpen){
-            let id = 2;
-            return (
-                <Modal row={this.state.activeButton} total={this.state.total} receiptId={this.state.receiptId} data={this.state.data} close={this.close}/>
-            );
-        }
+      
         return (
             <div>
                 <Header title="Overview"/>
@@ -143,6 +154,14 @@ class Overveiw extends Component{
                     </div>
                 </div>
                 <Footer userID={this.state.currentDisplayedUserID}/>
+                {(this.state.isOpen) ?
+                <Modal row={this.state.activeButton} total={this.state.total} receiptId={this.state.receiptId} data={this.state.data} close={this.close}/>
+                 : null 
+                }
+                {(this.state.deleteOpen) ?
+                <DeleteModal receiptId={this.state.receiptId} close={this.close}/>
+                : null
+                }
             </div>
         );
     }
