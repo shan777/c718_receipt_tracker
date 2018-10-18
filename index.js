@@ -9,14 +9,15 @@ const session = require('express-session');
 const sessionParams = require('./sessionParams');
 const sessionExec = session(sessionParams);
 const functions = require("./helpers.js");
+const connection = mysql.createConnection(sqrlDbCreds);
 
 server.use(express.static(resolve(__dirname, 'client', 'dist')));
 server.use(cors());
 server.use(express.json());
 server.use(sessionExec);
 
-require('./manageTags')(server);
-require('./manageReceipts')(server);
+require('./manageTags')(server, connection);
+require('./manageReceipts')(server, connection);
 require('./manageUsers')(server, connection);
 
 server.get('*', (request, response) => {
