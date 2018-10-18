@@ -27,7 +27,7 @@ export default (WrappedComponent, redirect = false, to = '/', protect = false) =
         async checkLoginStatus(){
 
             try {
-                const resp = await axios.post('/api/checkLoginStatus');
+                const resp = await axios.post('/api/manageUsers/checkLoginStatus');
 
                 console.log('Login Resp:', resp);
     
