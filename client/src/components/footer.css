@@ -33,7 +33,7 @@
 .footer_container {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     height: 80px;
     background-color: #237E80;
 }

@@ -12,121 +12,6 @@
     font-family: "Roboto";
 }
 
-@media only screen and (min-width: 992px){
-    body{
-        height: 100vh;
-        width: 100vw;
-        margin: 0;
-        background-color: #DEF2F1;
-    }
-    
-    .overview_main_container{
-        width: 75%;
-        padding-top: 80px;
-        background-color: #DEF2F1;
-        padding-bottom: 144px;
-        position: relative;
-        left: 11%;
-        top: 0vh;
-    }
-    
-    .row{
-        background-color: #DEF2F1;
-        position: relative;
-        width: 85%;
-        left: 9%;
-        cursor: pointer;
-        transition: 0.4s;
-        border-bottom: 1px solid black;
-    }
-    
-    .date_of_purchase, .store_name, .amount_of_purchase{
-        margin: 0;
-        position: relative;
-        display: inline-block;
-    } 
-    
-    .store_name, .date_of_purchase{
-        left: 3%;
-        font-size: 3em;
-    }
-    
-    .store_name{
-        top: 1vh;
-    }
-    
-    .date_of_purchase{
-        top: 1vh;
-    }
-    .amount_of_purchase{
-        left: 47%;
-        bottom: 2vh;
-        font-size: 3em;
-    }
-    
-    
-    .panel{
-        display: none;
-        overflow: hidden;
-        background-color: #DEF2F1;
-        position: relative;
-        width: 100%;
-        height: 25vh;
-    }
-    
-    .panel_size{
-        width: 100%;
-        position: relative;
-        height: 14%;
-        margin-top: 10px;
-    }
-    
-    .catagory, .data{
-        display: inline-block;
-        width: 50%;
-        position: relative;
-        font-size: 2em;
-    }
-    
-    .data{
-        left: 5%;
-    }
-    
-    .summary{
-        position: fixed;
-        bottom: 80px;
-        background-color: #D9DDE1;
-        width: 100vw;
-        margin: 0;
-        border-bottom: 1px solid black;
-        left: 0;
-    }
-    
-    .number_of_receipts, .total_amount{
-        margin-left: 4%;;
-        font-size: 3em;
-        display: inline-block;
-    }
-    
-    .collapsible_header{
-        position: relative;
-        bottom: 5vh;
-        opacity: 0;
-    }
-
-    .editbtn{
-        float: right;
-        margin-right: 2%;
-        color: #F2F2F2;
-        padding: 1% 2%;
-        font-size: 1.05em;
-        border-radius: 6px;
-        border-color: #2C3531;
-        transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-    }
-}
-
 @media only screen and (min-width: 768px){
     body{
         height: 80vh;
@@ -176,6 +61,7 @@
         left: 38%;
         bottom: 2vh;
         font-size: 2.1em;
+        padding-right: 4%;
     }
     
     
@@ -238,6 +124,9 @@
         right: 5%;
     }
     
+    .material-icons{
+        font-size: 36px;
+    }
     .editbtn{
         float: right;
         position: relative;
@@ -248,12 +137,149 @@
         border-radius: 6px;
         transition-duration: 0.4s;
         font-family: 'Original Surfer';
-        margin-top: 1%;
+        margin-top: 100px;
     }
-    .material-icons{
-        font-size: 36px;
+    
+    .deletebtn{
+        position: relative;
+        float: left;
+        margin-top: 100px;
+    }
+    
+    .render_panel{
+        font-size: 1.5em;
+    }
+      
+    .tag_text{
+        display: inline-block;
+        position: relative;
+        right: 8%;
     }
 }
+
+@media only screen and (min-width: 992px){
+    body{
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        background-color: #DEF2F1;
+    }
+    
+    .overview_main_container{
+        width: 75%;
+        padding-top: 80px;
+        background-color: #DEF2F1;
+        padding-bottom: 144px;
+        position: relative;
+        left: 11%;
+        top: 0vh;
+    }
+    
+    .row{
+        background-color: #DEF2F1;
+        position: relative;
+        width: 85%;
+        left: 9%;
+        cursor: pointer;
+        transition: 0.4s;
+        border-bottom: 1px solid black;
+    }
+    
+    .date_of_purchase, .store_name, .amount_of_purchase{
+        margin: 0;
+        position: relative;
+        display: inline-block;
+    } 
+    
+    .store_name, .date_of_purchase{
+        left: 3%;
+        font-size: 3em;
+    }
+    
+    .store_name{
+        top: 1vh;
+    }
+    
+    .date_of_purchase{
+        top: 1vh;
+    }
+    .amount_of_purchase{
+        left: 47%;
+        bottom: 2vh;
+        font-size: 3em;
+        padding-right: 4%;
+    }
+    
+    
+    .panel{
+        display: none;
+        overflow: hidden;
+        background-color: #DEF2F1;
+        position: relative;
+        width: 100%;
+        height: 25vh;
+    }
+    
+    .panel_size{
+        width: 100%;
+        position: relative;
+        height: 14%;
+        margin-top: 10px;
+    }
+    
+    .catagory, .data{
+        display: inline-block;
+        width: 50%;
+        position: relative;
+        font-size: 2em;
+    }
+    
+    .data{
+        left: 5%;
+    }
+    
+    .summary{
+        position: fixed;
+        bottom: 80px;
+        background-color: #D9DDE1;
+        width: 100vw;
+        margin: 0;
+        border-bottom: 1px solid black;
+        left: 0;
+    }
+    
+    .number_of_receipts, .total_amount{
+        margin-left: 4%;;
+        font-size: 3em;
+        display: inline-block;
+    }
+    
+    .collapsible_header{
+        position: relative;
+        bottom: 5vh;
+        opacity: 0;
+    }
+
+    .editbtn{
+        float: right;
+        position: relative;
+        color: rgb(243, 113, 7);
+        top: 0vh;
+        padding: 1% 2%;
+        font-size: 1.005em;
+        border-radius: 6px;
+        transition-duration: 0.4s;
+        font-family: 'Original Surfer';
+        margin-top: 100px;
+    }
+    .tag_text{
+        display: inline-block;
+        position: relative;
+        right: 4%;
+        font-size: 1.3em;
+    }
+}
+
 
 @media only screen and (max-width: 600px){
 
@@ -307,7 +333,7 @@ body{
     font-family: "Roboto Bold";
     position: absolute;
     right: 0px; 
-    padding: 4%;
+    padding-right: 4%;
 }
 
 .panel{
