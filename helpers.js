@@ -24,7 +24,7 @@ module.exports = {
             total: /^[1-9][\d]{0,9}$/,
             storeName: /^[a-zA-Z \d-&'_!]{2,32}$/,
             //tag table fields
-            tagName: /^[a-zA-Z \d-_]{2,15}$/,
+            tagName: /^[a-zA-Z \d-_']{2,15}$/,
             tagId: /^[1-9][\d]{0,9}$/
         }
 
