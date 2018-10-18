@@ -48,6 +48,7 @@
                 // phone: phone
             });
             console.log(resp);
+            this.props.history.push('/overview');
         }
 
         render() {

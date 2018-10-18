@@ -93,6 +93,10 @@
     color: #98FFA8;
 }
 
+p.sign_out {
+    color: rgb(85, 26, 139);
+}
+
 .menus {
     top: 80px;
 }

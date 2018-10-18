@@ -132,9 +132,10 @@ class Overveiw extends Component{
                 <Modal row={this.state.activeButton} total={this.state.total} receiptId={this.state.receiptId} data={this.state.data} close={this.close}/>
             );
         }
+        console.log('Overview Props:', this.props);
         return (
             <div>
-                <Header title="Overview"/>
+                <Header push={this.props.history.push} title="Overview"/>
                 <div className='overview_main_container'>
                     {this.makeRow()}
                     <div className="summary">
