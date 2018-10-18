@@ -39,7 +39,7 @@
 
             event.preventDefault();
 
-            const resp = await axios.post('/api/signUp',{
+            const resp = await axios.post('/api/manageUsers/signUp',{
                 userName: username,
                 password: password,
                 firstName: firstName,

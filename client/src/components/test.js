@@ -13,7 +13,7 @@ class Test extends Component{
            email: 'test@mail.com',
            password: 'testpassword'
        };
-       const response = await axios.post('/api/login', user);
+       const response = await axios.post('/api/manageUsers/login', user);
        console.log('login response is: ', response);
     }
     render(){
