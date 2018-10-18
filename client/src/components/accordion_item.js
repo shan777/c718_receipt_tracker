@@ -16,7 +16,6 @@ class AccordionItem extends Component {
             visible: !this.state.visible,
             data: receipt_tags
         });
-        console.log('receipt tags:', receipt_tags)
         
     }
 

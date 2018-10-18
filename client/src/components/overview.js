@@ -60,12 +60,10 @@ class Overveiw extends Component{
     async componentDidMount(){
         const axiosResponse = await axios.post('/api/getUserReceipts');
         const tagResoponse = await axios.post('/api/manageTags/getUserTags')
-        console.log('tags:', tagResoponse);
         this.setState({
             data: axiosResponse,
             tags: tagResoponse
         });
-        console.log('this.state/tags', this.state.tags)
     }
 
     makeRow(){
@@ -98,11 +96,6 @@ class Overveiw extends Component{
                             <div className="catagory">Note:</div>
                             <div className="data">{item.comment}</div>
                         </div>
-                        {/* <div className="render_panel">Tags:
-                            <div className="tag">{this.state.tags.data.tags[index] ? ' '+ this.state.tags.data.tags[index].tagName : 'No Tags' }</div>
-                        </div> */}
-                        {/* <RenderTag tags={item.tags} /> */}
-                        {/* <button className='editbtn' onClick={()=> this.open(index, item.ID, item.total)}> */}
                         <div className="deletebtn">
                             <i onClick={() => this.deleteOpen(item.ID)}  className="material-icons">delete</i>
                         </div>
