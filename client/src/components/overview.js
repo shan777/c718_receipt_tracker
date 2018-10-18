@@ -77,7 +77,7 @@ class Overveiw extends Component{
                 <br/>
         <div className="date_of_purchase">{<FormatDate date={item.purchaseDate}/>}</div>
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
-                    <AccordionItem className="panel">
+                    <AccordionItem receiptId={item.ID} className="panel">
                        <div className="panel_size">
                             <div className="catagory">Merchant name:</div>
                             <div className="data">{item.storeName}</div>
@@ -98,9 +98,9 @@ class Overveiw extends Component{
                             <div className="catagory">Note:</div>
                             <div className="data">{item.comment}</div>
                         </div>
-                        <div className="render_panel">Tags:
+                        {/* <div className="render_panel">Tags:
                             <div className="tag">{this.state.tags.data.tags[index] ? ' '+ this.state.tags.data.tags[index].tagName : 'No Tags' }</div>
-                        </div>
+                        </div> */}
                         {/* <RenderTag tags={item.tags} /> */}
                         {/* <button className='editbtn' onClick={()=> this.open(index, item.ID, item.total)}> */}
                         <div className="deletebtn">
