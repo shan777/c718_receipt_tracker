@@ -5,7 +5,7 @@ import axios from 'axios';
 class DeleteModal extends Component {
 
     async delete(receiptId){
-        const deletReceipt = await axios.post('/api/deleteReceipt',{receiptId: receiptId})
+        const deletReceipt = await axios.post('/api/manageReceipts/deleteReceipt',{receiptId: receiptId})
         this.props.close()
     }
 

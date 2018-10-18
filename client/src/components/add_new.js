@@ -53,7 +53,7 @@ class AddNew extends Component {
 
         event.preventDefault();
         
-        const resp = await axios.post('/api/addReceipt', {
+        const resp = await axios.post('/api/manageReceipts/addReceipt', {
             storeName: merchantName,
             total: totalAmount * 100,
             purchaseDate: dateOfPurchase,
