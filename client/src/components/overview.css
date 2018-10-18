@@ -95,7 +95,7 @@
     .summary{
         position: fixed;
         bottom: 80px;
-        background-color: #237E80;
+        background-color: #D9DDE1;
         width: 100vw;
         margin: 0;
         border-bottom: 1px solid black;
@@ -117,7 +117,6 @@
     .editbtn{
         float: right;
         margin-right: 2%;
-        background-color: #2E3B3B;
         color: #F2F2F2;
         padding: 1% 2%;
         font-size: 1.05em;
@@ -210,16 +209,17 @@
     .summary{
         position: fixed;
         bottom: 95px;
-        background-color: #237E80;
+        background-color: #D9DDE1;
         width: 100vw;
         margin: 0;
         border-bottom: 1px solid black;
         left: 0;
+        text-align: center;
     }
     
     .number_of_receipts, .total_amount{
         margin: 0;
-        font-size: 3.3em;
+        font-size: 2.5em;
     }
     
     .collapsible_header{
@@ -388,7 +388,6 @@ body{
 .deletebtn{
     position: relative;
     float: left;
-
 }
 
 }
