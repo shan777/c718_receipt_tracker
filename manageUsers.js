@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-const sqrlDbCreds = require('./sqrlDbCreds');
 const functions = require("./helpers.js");
 
 module.exports = (app, connection) => {

@@ -8,7 +8,6 @@ const sqrlDbCreds = require('./sqrlDbCreds');
 const session = require('express-session');
 const sessionParams = require('./sessionParams');
 const sessionExec = session(sessionParams);
-const functions = require("./helpers.js");
 const connection = mysql.createConnection(sqrlDbCreds);
 
 server.use(express.static(resolve(__dirname, 'client', 'dist')));
