@@ -17,7 +17,6 @@ class AddNew extends Component {
             merchantName: '',
             dateOfPurchase: `${this.formatDate()}`,
             totalAmount: '',
-            // dateOfPurchase: '',
             category: this.categories[0],
             note: '',
             currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
@@ -115,55 +114,56 @@ class AddNew extends Component {
                             <button className="cancel_btn" type="reset" value="Cancel" onClick={this.handleCancel}>Cancel</button>
                             <button className="done_btn"  type="submit" value="Done">Done</button>
                         </div>    
-
-                        <div className="content_container">
-                            <label className="input_label">Merchant :</label>
-                            <input className="merchant" placeholder="Required" onChange={ (e) => this.setState({merchantName: e.target.value})}
-                                type="text"
-                                value={merchantName}
-                                name={merchantName}
-                                required
-                            />
-                        </div>
-
-                        <div className="content_container">
-                            <label className="input_label">Date :</label>
-                            <input className="date" onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
-                                type="date"
-                                value={dateOfPurchase}
-                            />
-                        </div>
-
-                        <div className="content_container">
-                            <label className="input_label">Total :</label>
-                            $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
-                                type="number" min="0.00" step="0.01"
-                                value={totalAmount}
-                            />
-                        </div> 
-
-                        <div className="content_container">
-                            <label className="input_label">Category :</label>
-                            <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
-                                {categoryChoices}
-                            </select>
-                        </div>
-
-                        <div className="content_container">
-                            <label className="input_label">Note :</label>
-                            <input className="note" placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
-                                type="text"
-                                value={note}
-                            />
-                        </div>
-
-                        <div className="content_container">
-                            <label className="tag_label">Tag :</label>
-                            <div className="tag_buttons">
-                                <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>+</button>
-                                {tagName}
+                        <div className="add_new_form_input_container">
+                            <div className="content_container">
+                                <label className="input_label">Merchant :</label>
+                                <input className="merchant" placeholder="Required" onChange={ (e) => this.setState({merchantName: e.target.value})}
+                                    type="text"
+                                    value={merchantName}
+                                    name={merchantName}
+                                    required
+                                />
                             </div>
-                        </div> 
+
+                            <div className="content_container">
+                                <label className="input_label">Date :</label>
+                                <input className="date" onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
+                                    type="date"
+                                    value={dateOfPurchase}
+                                />
+                            </div>
+
+                            <div className="content_container">
+                                <label className="input_label">Total :</label>
+                                $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
+                                    type="number" min="0.00" step="0.01"
+                                    value={totalAmount}
+                                />
+                            </div> 
+
+                            <div className="content_container">
+                                <label className="input_label">Category :</label>
+                                <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
+                                    {categoryChoices}
+                                </select>
+                            </div>
+
+                            <div className="content_container">
+                                <label className="input_label">Note :</label>
+                                <input className="note" placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
+                                    type="text"
+                                    value={note}
+                                />
+                            </div>
+
+                            <div className="content_container">
+                                <label className="tag_label">Tag :</label>
+                                <div className="tag_buttons">
+                                    <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>+</button>
+                                    {tagName}
+                                </div>
+                            </div> 
+                        </div>
                    </form>
                 </div>
                 <Footer/>

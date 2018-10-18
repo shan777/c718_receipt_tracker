@@ -131,3 +131,8 @@ option {
     font-family: 'Original Surfer';
     margin-bottom: 5%;
 }
+
+.add_new_form_input_container {
+    overflow-y: scroll;
+    max-height: 64vh;
+}
