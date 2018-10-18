@@ -11,7 +11,7 @@ class AddNew extends Component {
     constructor(props) { 
         super(props);
 
-        this.categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Entertainment', 'Transportation', 'Lodging', 'Repairs', 'Others'];
+        this.categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Entertainment', 'Transportation', 'Lodging', 'Repairs', 'Other'];
 
         this.state = {
             merchantName: '',
