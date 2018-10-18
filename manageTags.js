@@ -1,9 +1,8 @@
 const mysql = require('mysql');
 const sqrlDbCreds = require('./sqrlDbCreds');
-const connection = mysql.createConnection(sqrlDbCreds);
 const functions = require("./helpers.js");
 
-module.exports = (app) => {
+module.exports = (app, connection) => {
 
     app.post('/api/manageTags/getUserTags', (request, response) => {
         const userId = request.session.userId;
