@@ -90,7 +90,11 @@ option {
 
 .plus_tag_button {
     font-size: 1.5em;
+    font-weight: bolder;
     padding: 0 3%;
+    background-color: rgb(187, 195, 202);
+    border: 0.5px solid #2C3531;
+    border-radius: 20%;
 }
 
 .tag_buttons {
