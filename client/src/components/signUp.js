@@ -98,8 +98,9 @@
                                         value={password}
                                     />
                                     {/* <i className="material-icons">visibility</i> */}
-                                    <div style={this.state.alert ? alertShow: alertNone} className="alert_password_restrictions">
-                                        Must be at least 8 characters long including 1 uppercase letter and 1 number.
+                                    <div style={this.state.alert ? alertShow: alertNone} className="sign_up_input alert_password_restrictions">
+                                    <i class="material-icons">warning</i> 
+                                    Must be at least 8 characters long including 1 uppercase letter and 1 number.
                                     </div>
                                 </div>
 
