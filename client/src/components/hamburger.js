@@ -20,12 +20,12 @@ class Hamburger extends Component {
 		<div>
 			<div>
 				<p><b>Menu</b></p>
-				<Link to="/"><p>Home</p></Link>
 				<Link to="/overview"><p>Overview</p></Link>
 				<Link to="/add_new"><p>Add New</p></Link>
 				<Link to="/about_us"><p>Meet the team</p></Link>
-				<p className="sign_out" onClick={this.signOut.bind(this)}>Sign Out</p>
+				<Link to="/tutorial"><p>Tutorial</p></Link>
 				<Link to="/tech"><p>About Tech</p></Link>
+				<p className="sign_out" onClick={this.signOut.bind(this)}>Sign Out</p>
 			</div>
 		</div>
 		)

@@ -10,12 +10,11 @@ import kyle from '../assets/images/kyle.png';
 import sarah from '../assets/images/sarah.png';
 import chase from '../assets/images/chase.png';
 
-
 class AboutUs extends Component{
     render(){
         return(
             <div className="about_us_container">
-                <Link to="/overview" title="Back to Overview"><img className="logo_img" src={meetTeam}/></Link>
+                <Link to="/overview" title="Back to Overview"><img className="logo_img" src={meetTeam} alt="squirrel logo" /></Link>
 
                 <div className="everybody">
                     <div className="frontend">FRONT-END</div>
