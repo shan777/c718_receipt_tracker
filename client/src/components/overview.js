@@ -142,10 +142,10 @@ class Overveiw extends Component{
             }
             return totalAmount/100;
         }
-      
+
         return (
             <div>
-                <Header title="Overview"/>
+                <Header push={this.props.history.push} title="Overview"/>
                 <div className='overview_main_container'>
                     {this.makeRow()}
                     <div className="summary">

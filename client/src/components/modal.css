@@ -64,10 +64,11 @@
     background-color: #DEF2F1;
     width: 100%;
     font-weight: bold;
-    font-size: 1em;
     display: block;
     box-sizing: border-box;
     padding-bottom: 3%;
+    position: relative;
+    top: -25px;
 }
 
 .tag_modal_container h2 {
@@ -81,6 +82,7 @@
     font-size: 1.2em;
     position: relative;
     left: 15%;
+    line-height: 1.8em;
 }
 
 .checkbox {
@@ -109,13 +111,13 @@
     cursor: pointer;
     display: inline-block;
     left: 15%;
-    padding: 1%;
+    padding: 1.5%;
 }
 
 .tag_modal_apply_btn {
     position: relative;
-    left: 50%;
-    padding: 1%;
+    left: 45%;
+    padding: 1.5%;
     display: inline-block;
     font-family: 'Original Surfer';
     cursor: pointer;
@@ -137,20 +139,18 @@
     color: rgb(241, 158, 3);
 }
 
-.tag_label {
+.new_tag_label {
     width: 35%;
     height: 30%;;
     text-align: center;
-    /* display: inline-block; */
-    font-size: 1.1em;
-    padding: 1% 2% 1% 3%;
+    font-size: 1.3em;
+    padding: 1% 2% 1% 4%;
 }
 
 .new_tag_input {
-    width: 50%;
-    font-size: 1.1em;
+    width: 40%;
+    font-size: 1.2em;
     display: inline-block;
-    padding-right: 1%;
 }
 
 .add_tag_btn {
@@ -167,3 +167,19 @@
     position: relative;
     left: 35%;
 }
+
+.material-icons.md-30 { 
+    font-size: 30px; 
+    color: #2C3531;
+    vertical-align: middle;
+}
+
+.tag_choices_container {
+    max-height: 45vh;
+    overflow: scroll;
+}
+
+.new_tag {
+    padding-bottom: 1.5%;
+}
+

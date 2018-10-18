@@ -98,22 +98,26 @@ class TagModal extends Component{
             <div className="basic_modal">
                 <div className="basic_modal_content">
                     <form onSubmit={this.handleSubmit}>
-                    <div className="tag_modal_container">
-                        <h2><i className="material-icons tag_icon">local_offer</i>
-                            &nbsp;&nbsp;&nbsp;Select Tags 
-                        </h2>
-                        {tagChoices}
-                        <br />
-
-                        <label className="tag_label">New Tag :</label>
-                        <input className="new_tag_input" placeholder="new tag name" onChange={ (e) => this.setState({newTagName: e.target.value})}
-                            type="text"
-                            value={newTagName}
-                        />
-                        <button className="add_tag_btn" onClick={this.handleAddTag}>Add</button>
-                        <br/><br/>
-                        <button type="button" className="tag_modal_close_btn" onClick={this.props.handleClose}>Cancel</button>
-                        <button className="tag_modal_apply_btn">Apply</button>
+                        <div className="tag_modal_container">
+                            <h2><i className="material-icons tag_icon">local_offer</i>
+                                &nbsp;&nbsp;&nbsp;Select Tags 
+                            </h2>
+                            <div className="new_tag">
+                                <label className="new_tag_label">New Tag :</label>
+                                <input className="new_tag_input" placeholder="new tag name" onChange={ (e) => this.setState({newTagName: e.target.value})}
+                                    type="text"
+                                    value={newTagName}
+                                />
+                                <i className="add_tag_btn material-icons md-30" onClick={this.handleAddTag}>add_box</i>
+                            </div>
+                            <br/>
+                            <div className="tag_choices_container">
+                                {tagChoices}
+                            </div>
+                            <br />
+                            <button type="button" className="tag_modal_close_btn" onClick={this.props.handleClose}>Cancel</button>
+                            <button className="tag_modal_apply_btn">Apply</button>
+                            
                         </div>
                     </form>
                 </div>

@@ -65,9 +65,9 @@ class Login extends Component{
                         <button className="login_btn">LOGIN</button>
                         <p style={{color: 'red'}}>{this.state.error}</p>
                     </form>
-                    <div className="forgot_password"> {/*forgot your password is only text at this time*/}
+                    {/* <div className="forgot_password"> forgot your password is only text at this time
                         forgot your password?
-                    </div>
+                    </div> */}
                     <div className="sign_up_container">
                         <Link to='/signup' >or Sign-up</Link>
                     </div>

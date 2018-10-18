@@ -33,7 +33,7 @@ class AboutUs extends Component{
                         </div>
                         <div className="top_right">
                             <img className=" picture img_right" src={esther}/>
-                            <div className="member_name_right">Esther Suh</div>
+                            <div className="member_name_right">Esther Suh<br/></div>
                             <a className='link_right' href="https://www.linkedin.com/in/esther-suh-8b426015b/" target="_blank">
                                 <img src={linkedin_logo} alt="linkedin logo"></img>
                             </a>
