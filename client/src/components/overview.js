@@ -132,7 +132,7 @@ class Overveiw extends Component{
             for(let i = 0; i< total.length; i++){
                 totalAmount+= total[i];
             }
-            totalAmount = totalAmount/100
+            totalAmount = (totalAmount/100).toFixed(2);
             return totalAmount.toLocaleString();
         }
 
