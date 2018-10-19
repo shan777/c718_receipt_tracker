@@ -16,8 +16,8 @@ class Footer extends Component {
             <div className="footer_container">
                 <NavLink to={'/add_new'+this.state.userIDAddressFragment} className="footer-nav-link"><i className="material-icons">library_add</i></NavLink>
                 <NavLink to='/overview' className="footer-nav-link"><i className="material-icons">format_list_bulleted</i></NavLink>
-                <NavLink to='/#' className="footer-nav-link"><i className="material-icons">filter_list</i></NavLink>
-                <NavLink to='/#' className="footer-nav-link"><i className="material-icons">notifications</i></NavLink>
+                <NavLink to='/tutorial' className="footer-nav-link"><i className="material-icons">live_help</i></NavLink>
+                <NavLink to='/about_us' className="footer-nav-link"><i className="material-icons">mood</i></NavLink>
             </div>
         )
     }
