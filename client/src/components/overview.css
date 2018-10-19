@@ -460,7 +460,7 @@
         background-color: #DEF2F1;
         position: relative;
         width: 64%;
-        left: 12%;
+        left: 16%;
         cursor: pointer;
         transition: 0.4s;
         border-bottom: 1px solid black;
@@ -485,7 +485,7 @@
         top: 1vh;
     }
     .amount_of_purchase{
-        left: 60%;
+        left: 70%;
         bottom: 2vh;
         font-size: 2.4em;
         padding-right: 4%;
@@ -532,6 +532,14 @@
         left: 0;
         padding: 1% 0;
         font-size: 1em;
+    }
+
+    .summary>p{
+        margin: 0;
+        font-size: 2.1em;
+        text-align: center;
+        position: relative;
+        right: 5%;
     }
     
     .number_of_receipts, .total_amount{

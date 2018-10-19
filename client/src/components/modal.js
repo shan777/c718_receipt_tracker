@@ -42,8 +42,6 @@ class Modal extends Component{
             category: category,
             comment: note
         });
-        console.log('update]:', update);
-        console.log('total', totalAmount);
         {this.props.close(this.state.StoreName)}
     }
 
@@ -73,7 +71,6 @@ class Modal extends Component{
     }
 
     render(){
-        console.log(this.state.dateOfPurchase);
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
         const categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Transportation', 'Lodging', 'Repairs'];
         const categoryChoices = categories.map((option, index) => 

@@ -11,7 +11,6 @@ class Hamburger extends Component {
 
 	async signOut() {
 		const signOutStatus = await axios.post('/api/manageUsers/logout');
-		console.log(signOutStatus);
 		this.props.push('/login');
 	}
 

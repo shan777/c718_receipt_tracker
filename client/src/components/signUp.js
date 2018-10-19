@@ -29,13 +29,10 @@
 
         checkPassword = () => {
             // if(this.state.password !== this.state.confirmPassword)
-            console.log('password: ', password);
         }
 
         async handleSubmit(event) {
             const {username, firstName, lastName, emailAddress, phoneNumber, password, confirmPassword} = this.state;
-
-            console.log('inside handlesubmit');
 
             event.preventDefault();
 
@@ -47,7 +44,6 @@
                 // email: email,
                 // phone: phone
             });
-            console.log(resp);
             this.props.history.push('/overview');
         }
 

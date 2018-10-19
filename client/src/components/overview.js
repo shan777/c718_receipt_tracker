@@ -111,7 +111,6 @@ class Overveiw extends Component{
     }
 
     render(){
-        console.log('deleteopen', this.state.deleteOpen);
         const loadingImg = require('../assets/images/loading_squirrel.gif');
         const loadingImgStyle = {
             backgroundColor: 'white',
