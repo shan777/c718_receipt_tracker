@@ -29,11 +29,9 @@ export default (WrappedComponent, redirect = false, to = '/', protect = false) =
             try {
                 const resp = await axios.post('/api/manageUsers/checkLoginStatus');
 
-                console.log('Login Resp:', resp);
     
                 this.setState({auth: resp.data.loggedIn});
             } catch(err){
-                console.error('Auth Error');
                 this.setState({auth: false});
             }
         }

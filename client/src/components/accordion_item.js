@@ -22,7 +22,7 @@ class AccordionItem extends Component {
     renderTags(){
         const data = this.state.data.data.tags;
         const render = data.map((item, index) => (
-                <div className="tag">{data[index].tagName ? ' '+ data[index].tagName : 'No Tags' }</div>
+                <div key={index} className="tag">{data[index].tagName ? ' '+ data[index].tagName : 'No Tags' }</div>
             
         ))
         return render;
