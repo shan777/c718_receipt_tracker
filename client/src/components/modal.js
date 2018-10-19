@@ -23,7 +23,7 @@ class Modal extends Component{
         this.setState({
             merchantName: currentReceipt.storeName,
             totalAmount: currentReceipt.total,
-            dateOfPurchase: currentReceipt.purchaseDate,
+            dateOfPurchase: `${this.formatDate(currentReceipt.purchaseDate)}`,
             note: currentReceipt.comment,
             receiptId: this.props.receiptId,
             totalAmount: this.props.total/100,
@@ -34,16 +34,14 @@ class Modal extends Component{
     async handleSubmit(event){
         event.preventDefault();
         let {merchantName, dateOfPurchase, totalAmount, category, note, receiptId, tag, errorMessage} = this.state;
-        const update = await axios.post('/api/updateReceipt', {
+        const update = await axios.post('/api/manageReceipts/updateReceipt', {
             receiptId: receiptId,
             storeName: merchantName,
             purchaseDate: `${this.formatDate(dateOfPurchase)}`,
-            total: parseFloat(totalAmount)*100,
+            total: `${this.fixRoundingError(totalAmount * 100)}`,
             category: category,
             comment: note
         });
-        console.log('update]:', update);
-        console.log('total', totalAmount);
         {this.props.close(this.state.StoreName)}
     }
 
@@ -52,6 +50,11 @@ class Modal extends Component{
             [event.target.name]: event.target.value
         });
     }
+
+    fixRoundingError(totalAmount){
+        let correctTotal = Math.round(totalAmount * 1000000000) / 1000000000;
+         return correctTotal;
+     }
 
     formatDate(date){
         let year = new Date(date).getFullYear();
@@ -68,7 +71,6 @@ class Modal extends Component{
     }
 
     render(){
-        console.log(this.state.dateOfPurchase);
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
         const categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Transportation', 'Lodging', 'Repairs'];
         const categoryChoices = categories.map((option, index) => 

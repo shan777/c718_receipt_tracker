@@ -54,7 +54,10 @@
 
     .sign_up_container {
         color: white;
-        padding-top: 3%;
+    }
+
+    p.error_message {
+        font-size: 1em;
     }
 
     label {
@@ -114,6 +117,9 @@
         color: white;
         font-size: 35px;
         padding: 1%;
+        display: block;
+        margin-left: 41%;
+        margin-top: 3%;
     }
 
     .forgot_password {
@@ -123,8 +129,11 @@
 
     .sign_up_container {
         color: white;
-        padding-top: 3%;
         font-size: 25px;
+    }
+
+    p.error_message {
+        font-size: 1.5em;
     }
 
     label {
@@ -141,55 +150,156 @@
         background-color: #237E80;
     }
 
-    .login_area {
+    .login_container {
         display: inline-block;
-        padding-top: 1%;
+        padding-left: 13%;
     }
 
-    img.login_logo {
-        width: 39%;
-        padding-left: 5%;
-        margin-left: 27%;
-    }
+    /* .login_area {
+        width: 70%;
+        padding: 0%;
+        margin: 10%;
+        margin-left: 15%;
+    } */
+
+    /* img.login_logo {
+        width: 70%;
+        padding: 0%;
+        margin: 10%;
+        margin-left: 15%;
+    } */
 
     .username {
         background-color: #DEF2F1;
         border: 1px solid #def2f1;
-        font-size: 20px;
+        font-size: 35px;
         margin-bottom: 5%;
         padding: 1%;
         text-align: center;
+        width: 70%;
     }
 
     .password {
         background-color: #DEF2F1; 
         border: 1px solid #def2f1;
-        font-size: 20px;
+        font-size: 35px;
         padding: 1%;
         text-align: center;
+        width: 70%;
     }
 
-    .forgot_password {
+    /* .forgot_password {
         color: #98FFA8;
         font-size: 25px;
         padding: 1% 0 1% 0;
-    }
+    } */
 
     .login_btn {
         background-color: black;
         border: 1px solid black;
         color: white;
-        font-size: 22px;
-        padding: 7px;
+        font-size: 35px;
+        padding: 15px;
+        margin-top: 6%;
     }
 
     .sign_up_container {
         color: white;
-        padding-top: 18px;
-        font-size: 20px;
+        font-size: 32px;
     }
 
     label {
         margin-bottom: 5%;
     }
+
+    p.error_message {
+        font-size: 2.5em;
+    }
 }
+
+
+@media only screen and (min-width: 1220px) {
+    /* START @media only screen and (max-width: 600px) */
+        .login_page_container {
+            height: 100vh;
+            width: 100vw;
+            background-color: #237E80;
+        }
+
+        .login_container {
+            display: inline-block;
+            position: relative;
+            left: 22%;
+            top: 4vh;
+        }
+    
+        .login_area {
+            display: inline-block;
+            padding-top: 4%;
+        }
+    
+        img.login_logo {
+            width: 30%;
+            display: block;
+            position: relative;
+            left: 33%;
+        }
+    
+        .username {
+            background-color: #DEF2F1;
+            border: 1px solid #def2f1;
+            font-size: 28px;
+            margin-bottom: 5%;
+            padding: 1%;
+            text-align: center;
+            width: 70%;
+        }
+    
+        .password {
+            background-color: #DEF2F1;
+            border: 1px solid #def2f1;
+            font-size: 28px;
+            padding: 1%;
+            text-align: center;
+            width: 70%;
+        }
+    
+        .forgot_password {
+            color: #98FFA8;
+        }
+    
+        .login_btn {
+            background-color: black;
+            border: 1px solid black;
+            color: white;
+            padding: 0;
+            font-size: 25px;
+            display: block;
+            margin-left: 41%;
+        }
+    
+        .forgot_password {
+            padding-bottom: 5%;
+            padding-top: 5%;
+        }
+    
+        .sign_up_container {
+            color: white;
+            font-size: 32px;
+            position: relative;
+            left: 0;
+        }
+    
+        p.error_message {
+            font-size: 1em;
+        }
+    
+        label {
+            margin-bottom: 5%;
+        }
+    
+        /* button {
+            display: block;
+            margin-left: 35%;
+        } */
+    }

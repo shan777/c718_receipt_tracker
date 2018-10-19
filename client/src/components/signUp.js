@@ -29,17 +29,14 @@
 
         checkPassword = () => {
             // if(this.state.password !== this.state.confirmPassword)
-            console.log('password: ', password);
         }
 
         async handleSubmit(event) {
             const {username, firstName, lastName, emailAddress, phoneNumber, password, confirmPassword} = this.state;
 
-            console.log('inside handlesubmit');
-
             event.preventDefault();
 
-            const resp = await axios.post('/api/signUp',{
+            const resp = await axios.post('/api/manageUsers/signUp',{
                 userName: username,
                 password: password,
                 firstName: firstName,
@@ -47,7 +44,7 @@
                 // email: email,
                 // phone: phone
             });
-            console.log(resp);
+            this.props.history.push('/overview');
         }
 
         render() {
@@ -98,8 +95,9 @@
                                         value={password}
                                     />
                                     {/* <i className="material-icons">visibility</i> */}
-                                    <div style={this.state.alert ? alertShow: alertNone} className="alert_password_restrictions">
-                                        Must be at least 8 characters long including 1 uppercase letter and 1 number.
+                                    <div style={this.state.alert ? alertShow: alertNone} className="sign_up_input alert_password_restrictions">
+                                    <i class="material-icons">warning</i> 
+                                    Must be at least 8 characters long including 1 uppercase letter and 1 number.
                                     </div>
                                 </div>
 

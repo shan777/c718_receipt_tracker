@@ -7,6 +7,7 @@ import JS from '../assets/images/js.png';
 import ReactJS from '../assets/images/react.png';
 import MySql from '../assets/images/mySql.png';
 import Node from '../assets/images/node.png';
+import { Link } from "react-router-dom";
 
 
 class About extends Component {
@@ -28,8 +29,9 @@ class About extends Component {
                             <div className="app_container_bottom">
                                 <img className="mySql_logo" src={MySql}/>
                                 <img className="node_logo" src={Node}/>
+                              <Link to="/overview"><p className="domain">www.squirrelreceipts.com</p></Link>
                             </div>
-                            {/* <p className="domain_name">www.squirrelreceipts.com</p> */}
+                            
                         </div>
                 </div>
                 

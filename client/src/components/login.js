@@ -13,7 +13,8 @@ class Login extends Component{
     state = {
         username: '',
         password: '',
-        userId: null
+        userId: null,
+        error: ''
     }
 
     async handleSubmit(e) {
@@ -21,15 +22,22 @@ class Login extends Component{
 
         e.preventDefault();
 
-        const resp = await axios.post('/api/login', {
-            userName: username,
-            password: password
-        });
-        this.setState({
-            userId: resp.data.userId
-        })
-        this.props.history.push('/overview');
-        console.log(this.state.userId);
+        try {
+            const resp = await axios.post('/api/manageUsers/login', {
+                userName: username,
+                password: password
+            });
+    
+            this.props.setAuth(true);
+        } catch (err){
+            let errorMessage = 'Login Failed';
+
+            if(err.response && err.response.data.error){
+                errorMessage = err.response.data.error;
+            }
+
+            this.setState({error: errorMessage});
+        }
     }
 
     handleChange(event){
@@ -44,7 +52,7 @@ class Login extends Component{
         return(
             <div className="login_page_container">
                 <img className="login_logo" src={loginLogo} />
-                <div style={centerStyle}>
+                <div className="login_container" style={centerStyle}>
                     <form className="login_area" onSubmit={this.handleSubmit}>
                         <input name='username' value={this.state.username} 
                         onChange={this.handleChange.bind(this)} className="username" 
@@ -55,10 +63,11 @@ class Login extends Component{
                         type="password" placeholder="Password"
                         />
                         <button className="login_btn">LOGIN</button>
+                        <p className="error_message" style={{color: 'red'}}>{this.state.error}</p>
                     </form>
-                    <div className="forgot_password"> {/*forgot your password is only text at this time*/}
+                    {/* <div className="forgot_password"> forgot your password is only text at this time
                         forgot your password?
-                    </div>
+                    </div> */}
                     <div className="sign_up_container">
                         <Link to='/signup' >or Sign-up</Link>
                     </div>

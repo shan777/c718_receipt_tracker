@@ -8,20 +8,20 @@ import AddNew from './add_new';
 import Login from './login';
 import SignUp from './signup';
 import AboutUs from './about_us';
-import TagModal from './tag_modal';
 import About from './about';
+import auth from '../hoc/auth';
 
 const App = () => (
     <Router>
         <div>
-            <Route path ="/add_new/:userID?" component={AddNew}/>
-            <Route exact path="/" component={Splash}/>
-            <Route path ="/overview/:userID?" component={Overview}/>
-            <Route path ="/login" component = {Login}/>
+            <Route path ="/add_new/:userID?" component={auth(AddNew, false, '/login', true)}/>
+            <Route exact path="/" component={auth(Splash)}/>
+            <Route path="/tutorial" component={Splash}/>
+            <Route path ="/overview/:userID?" component={auth(Overview, false, '/login', true)}/>
+            <Route path ="/login" component = {auth(Login, true, '/overview')}/>
             <Route path="/signup" component ={SignUp}/>
             <Route path="/about_us" component={AboutUs}/>
-            <Route path="/tagmodal" component={TagModal}/>
-            <Route path="/about" component={About}/>
+            <Route path="/tech" component={About}/>
         </div>
     </Router>
 );

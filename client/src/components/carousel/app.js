@@ -2,9 +2,9 @@ import React from 'react';
 import Carousel from './index';
 import '../../assets/css/app.css';
 
-const App = () => (
+const App = (props) => (
     <div className="flex-container">
-        <Carousel />
+        <Carousel {...props}/>
     </div>
 )
 

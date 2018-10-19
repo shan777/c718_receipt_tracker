@@ -25,7 +25,7 @@ class Header extends Component {
             <div className="headContainer header">
                 {this.props.title || ''}
                 <Sidebar
-                    sidebar={<Hamburger/>}
+                    sidebar={<Hamburger push={this.props.push}/>}
                     open={this.state.sidebarOpen}
                     onSetOpen={this.onSetSidebarOpen}
                     sidebarClassName="sidebar_container"
