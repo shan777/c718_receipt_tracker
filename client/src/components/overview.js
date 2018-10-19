@@ -128,7 +128,7 @@ class Overveiw extends Component{
 
         const total = currentUsersReceipts.map(item => item.total);
         const addTotal = () =>{
-            let totalAmount = null;
+            let totalAmount = 0;
             for(let i = 0; i< total.length; i++){
                 totalAmount+= total[i];
             }
