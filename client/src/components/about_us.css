@@ -13,115 +13,115 @@
 }
 
 @media only screen and (max-width: 600px){
-.about_us_container {
-    background-color: #237E80;
-    color: #F2F2F2;
-    height: 100vh;
-    width: 100vw;
-    font-family: 'Roboto';
-}
+    .about_us_container {
+        background-color: #237E80;
+        color: #F2F2F2;
+        height: 100vh;
+        width: 100vw;
+        font-family: 'Roboto';
+    }
 
-.logo_img {
-    width: 70%;
-    display: block;
-    padding-top: 2%;
-    padding-bottom: 4%;
-    margin: auto;
-}
+    .logo_img {
+        width: 70%;
+        display: block;
+        padding-top: 2%;
+        padding-bottom: 4%;
+        margin: auto;
+    }
 
-.frontend {
-    text-align: center;
-    padding-bottom: 10px;
-    font-weight: bolder;
-    text-shadow: 4px 6px 6px #000000;
-}
+    .frontend {
+        text-align: center;
+        padding-bottom: 10px;
+        font-weight: bolder;
+        text-shadow: 4px 6px 6px #000000;
+    }
 
-.picture {
-    border-radius: 6px;
-    border: 1px #F2F2F2 solid;
-    width: 60%;
-}
+    .picture {
+        border-radius: 6px;
+        border: 1px #F2F2F2 solid;
+        width: 60%;
+    }
 
-/* Top Row */
-.members_top {
-    width: 100%;
-}
+    /* Top Row */
+    .members_top {
+        width: 100%;
+    }
 
-.top_left {
-    width: 45%;
-    display: inline-block;
-    /* margin-left: 5%; */
-    text-align: center;
-}
+    .top_left {
+        width: 45%;
+        display: inline-block;
+        /* margin-left: 5%; */
+        text-align: center;
+    }
 
-.top_right {
-    width: 45%;
-    display: inline-block;
-    margin-left: 10%;
-    text-align: center;
-}
+    .top_right {
+        width: 45%;
+        display: inline-block;
+        margin-left: 10%;
+        text-align: center;
+    }
 
-.member_name_left {
-    font-size: 17px;
-}
+    .member_name_left {
+        font-size: 17px;
+    }
 
-.member_name_right {
-    font-size: 17px;
-}
+    .member_name_right {
+        font-size: 17px;
+    }
 
-.link_right>img {
-    width: 25px;
-    padding: 2%;
-}
+    .link_right>img {
+        width: 25px;
+        padding: 2%;
+    }
 
-.link_left>img {
-    width: 25px;
-    padding: 2%;
-}
+    .link_left>img {
+        width: 25px;
+        padding: 2%;
+    }
 
-/* Center */
-.member_center {
-    width: 45%;
-    margin-left: 27%;
-    text-align: center;
-    margin-top: -20px;
-}
+    /* Center */
+    .member_center {
+        width: 45%;
+        margin-left: 27%;
+        text-align: center;
+        margin-top: -20px;
+    }
 
-.member_name_center {
-    font-size: 17px;
-}
+    .member_name_center {
+        font-size: 17px;
+    }
 
-.link_center>img {
-    width: 25px;
-    padding: 2%;
-}
+    .link_center>img {
+        width: 25px;
+        padding: 2%;
+    }
 
 
-/* Bottom Row */
-.backend {
-    text-align: center;
-    padding: 13px 0 10px 0;
-    font-weight: bolder;
-    text-shadow: 4px 6px 6px #000000;
-}
+    /* Bottom Row */
+    .backend {
+        text-align: center;
+        padding: 13px 0 10px 0;
+        font-weight: bolder;
+        text-shadow: 4px 6px 6px #000000;
+    }
 
-.members_bottom {
-    width: 100%;
-}
+    .members_bottom {
+        width: 100%;
+    }
 
-.member_bottom_left {
-    width: 45%;
-    display: inline-block;
-    /* margin-left: 5%; */
-    text-align: center;
-}
+    .member_bottom_left {
+        width: 45%;
+        display: inline-block;
+        /* margin-left: 5%; */
+        text-align: center;
+    }
 
-.member_bottom_right {
-    width: 45%;
-    display: inline-block;
-    margin-left: 10%;
-    text-align: center;
-}
+    .member_bottom_right {
+        width: 45%;
+        display: inline-block;
+        margin-left: 10%;
+        text-align: center;
+    }
 }
 
 @media only screen and (min-width: 768px){
@@ -258,7 +258,7 @@
     
     .frontend {
         text-align: center;
-        padding-bottom: 10px;
+        padding-bottom: 25px;
         font-weight: bolder;
         text-shadow: 4px 6px 6px #000000;
         font-size: 25px;
@@ -298,12 +298,12 @@
     }
     
     .link_right>img {
-        width: 25px;
+        width: 8%;
         padding: 2%;
     }
     
     .link_left>img {
-        width: 25px;
+        width: 8%;
         padding: 2%;
     }
     
@@ -312,7 +312,7 @@
         width: 45%;
         margin-left: 27%;
         text-align: center;
-        margin-top: -20px;
+        margin-top: -204px;
     }
     
     .member_name_center {
@@ -320,7 +320,7 @@
     }
     
     .link_center>img {
-        width: 25px;
+        width: 8%;
         padding: 2%;
     }
     
@@ -328,7 +328,7 @@
     /* Bottom Row */
     .backend {
         text-align: center;
-        padding: 13px 0 10px 0;
+        padding: 50px 0 10px 0;
         font-weight: bolder;
         text-shadow: 4px 6px 6px #000000;
         font-size: 25px;
