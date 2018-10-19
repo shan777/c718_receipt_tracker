@@ -382,7 +382,7 @@
     }
 }
 
-@media only screen and (min-width: 1220px){{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}
+@media only screen and (min-width: 1220px){
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
         display: flex;
