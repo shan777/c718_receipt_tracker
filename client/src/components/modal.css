@@ -382,7 +382,7 @@
     }
 }
 
-@media only screen and (min-width: 1220px){
+@media only screen and (min-width: 1220px){{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
         display: flex;
@@ -452,13 +452,14 @@
 
     .tag_modal_container {
         background-color: #DEF2F1;
-        width: 100%;
+        width: 40%;
         font-weight: bold;
         display: block;
         box-sizing: border-box;
         padding-bottom: 3%;
         position: relative;
         top: -25px;
+        left: 430px;
     }
 
     .tag_modal_container h2 {
@@ -471,7 +472,7 @@
     .checkbox_label {
         font-size: 1.2em;
         position: relative;
-        left: 15%;
+        left: 22%;
         line-height: 1.8em;
     }
 
@@ -539,7 +540,7 @@
     }
 
     .new_tag_input {
-        width: 40%;
+        width: 35%;
         font-size: 1.2em;
         display: inline-block;
     }
@@ -568,11 +569,12 @@
 
     .tag_choices_container {
         max-height: 45vh;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     .new_tag {
-        padding-bottom: 1.5%;
+        padding-left: 13%;
     }
 }
 
