@@ -453,13 +453,14 @@
         position: relative;
         left: 11%;
         top: 0vh;
+        font-size: 0.7em;
     }
     
     .row{
         background-color: #DEF2F1;
         position: relative;
-        width: 85%;
-        left: 9%;
+        width: 64%;
+        left: 12%;
         cursor: pointer;
         transition: 0.4s;
         border-bottom: 1px solid black;
@@ -484,7 +485,7 @@
         top: 1vh;
     }
     .amount_of_purchase{
-        left: 47%;
+        left: 60%;
         bottom: 2vh;
         font-size: 2.4em;
         padding-right: 4%;
