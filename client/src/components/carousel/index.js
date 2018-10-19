@@ -113,7 +113,7 @@ class Carousel extends Component {
                         <img key={src} src={src} alt={text} className="carousel-img" />
                     </Transition>
                 </div>
-                <button onClick={this.changeImg.bind(this, 'previous')}>Previous</button>
+                <button className='previous' onClick={this.changeImg.bind(this, 'previous')}>Previous</button>
                 <button className="next_button" onClick={this.changeImg.bind(this, 'next')}>Next</button>
                 <Indicators onClick={this.directToImage.bind(this)} count={images.length} current={currentIndex} />
                 <button onClick={this.navigate} className="finished_button">Finished</button>

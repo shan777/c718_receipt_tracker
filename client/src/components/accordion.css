@@ -154,10 +154,10 @@
     .material_icons{
         position: relative;
         font-size:6em;
-        top: -12.8vh;
+        top: -6vh;
         width: 100%;
         right: 0;
-        bottom: 0;
+        bottom: -4.8vh;
     }
 }
 
