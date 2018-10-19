@@ -258,7 +258,7 @@
     
     .frontend {
         text-align: center;
-        padding-bottom: 10px;
+        padding-bottom: 25px;
         font-weight: bolder;
         text-shadow: 4px 6px 6px #000000;
         font-size: 25px;
@@ -298,12 +298,12 @@
     }
     
     .link_right>img {
-        width: 25px;
+        width: 8%;
         padding: 2%;
     }
     
     .link_left>img {
-        width: 25px;
+        width: 8%;
         padding: 2%;
     }
     
@@ -312,7 +312,7 @@
         width: 45%;
         margin-left: 27%;
         text-align: center;
-        margin-top: -20px;
+        margin-top: -204px;
     }
     
     .member_name_center {
@@ -320,7 +320,7 @@
     }
     
     .link_center>img {
-        width: 25px;
+        width: 8%;
         padding: 2%;
     }
     
@@ -328,7 +328,7 @@
     /* Bottom Row */
     .backend {
         text-align: center;
-        padding: 13px 0 10px 0;
+        padding: 50px 0 10px 0;
         font-weight: bolder;
         text-shadow: 4px 6px 6px #000000;
         font-size: 25px;
