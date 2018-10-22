@@ -90,14 +90,13 @@
 
                                 <div className="entry_container">
                                     <label className="input_title">Password</label>
-                                    <input onClick={this.passwordRestrictions.bind(this)}  className='sign_up_input' onChange={ (e) => this.setState({password: e.target.value})}
+                                    <input onClick={this.passwordRestrictions.bind(this)} className='sign_up_input' onChange={ (e) => this.setState({password: e.target.value})}
                                         type="password"
                                         value={password}
                                     />
-                                    {/* <i className="material-icons">visibility</i> */}
                                     <div style={this.state.alert ? alertShow: alertNone} className="sign_up_input alert_password_restrictions">
                                     <i class="material-icons">warning</i> 
-                                    Must be at least 8 characters long including 1 uppercase letter and 1 number.
+                                    Password must be at least 8 characters long including 1 uppercase, 1 lowercase and 1 number.
                                     </div>
                                 </div>
 
@@ -110,6 +109,10 @@
                                             value={confirmPassword}
                                         />
                                     </div>    
+                                    <div style={this.state.alert ? alertShow: alertNone} className="sign_up_input alert_password_restrictions">
+                                    <i class="material-icons">error_outline</i> 
+                                    Does not match. Please check again. 
+                                    </div>
                                 </div>
 
                             <button className="letsgo"  type="submit" value="Letsgo">Let's go!</button>
