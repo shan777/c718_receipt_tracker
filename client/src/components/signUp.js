@@ -34,6 +34,13 @@
         async handleSubmit(event) {
             const {username, firstName, lastName, emailAddress, phoneNumber, password, confirmPassword} = this.state;
 
+            const usernameRegex = '/[0-9]*\w{8,32}\gi';
+            const userNameOK = usernameRegex.test(username);
+            if(!userNameOK) {
+                this.setState({username: username});
+                return alert('not ok username');
+            }
+
             event.preventDefault();
 
             const resp = await axios.post('/api/manageUsers/signUp',{
