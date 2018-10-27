@@ -32,7 +32,8 @@
             const {username, firstName, lastName, password, confirmPassword} = this.state;
 
             // error=true means invalid 
-            const usernameRegex = /(?!\d+)\w{4,16}/i; //4-16 long lowercase/uppercase/digit/underscore except it cannot start with a number
+            const usernameRegex = /^(?=.{4,15}$)^[a-zA-Z][a-zA-Z0-9]+$/i; 
+            //4-15 characters long lowercase/uppercase/digit, must start with a letter
             const firstNameRegex = /[a-zA-Z_.-]{2,}/; 
             const lastNameRegex = /[a-zA-Z_.-]{2,}/;
             const usernameOK = usernameRegex.test(username);
@@ -91,12 +92,11 @@
                                         type="text"
                                         value={username}
                                     />
-                                    <div className="error_p">&nbsp;&nbsp;&nbsp;&nbsp;<i className="material-icons">info</i>&nbsp;<b>Username guidelines:</b>
+                                    <div className="error_p">&nbsp;&nbsp;&nbsp;&nbsp;<i className="material-icons">info</i>&nbsp;<b>Username Guidelines:</b>
                                         <ul>
-                                            <li>Only letters(a-z), numbers(0-9), and underscores(_)</li>
-                                            <li>Cannot start with a number</li>
-                                            <li>Between 4-15 characters</li>
-                                            <li>Not case-sensitive</li>
+                                            <li>Only letters and numbers</li>
+                                            <li>Must start with a letter</li>
+                                            <li>Between 4-15 characters long</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -124,7 +124,7 @@
                                         type="password"
                                         value={password}
                                     />
-                                    <div className="error_p">&nbsp;&nbsp;&nbsp;&nbsp;<i className="material-icons">info</i>&nbsp;<b>Password guidelines:</b>
+                                    <div className="error_p">&nbsp;&nbsp;&nbsp;&nbsp;<i className="material-icons">info</i>&nbsp;<b>Password Guidelines:</b>
                                         <ul>
                                             <li>Must contain at least 1 uppercase, 1 lowercase, and 1 number</li>
                                             <li>Minimum of 8 characters</li>
@@ -141,13 +141,7 @@
                                             value={confirmPassword}
                                         />
                                     </div>    
-                                    <div style={this.state.alert ? alertShow: alertNone} className="sign_up_input alert_password_restrictions">
-                                    <i className="material-icons">error_outline</i> 
-                                    Does not match. Please check again. 
-                                    </div>
                                 </div>
-
-
 
                             <button className="letsgo"  type="submit" value="Letsgo">Let's go!</button> 
                             {/* <button disabled={!isEnabled} className="letsgo"  type="submit" value="Letsgo">Let's go!</button> */}
