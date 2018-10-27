@@ -56,7 +56,7 @@
         margin: auto;
         padding: 6% 0 1%;
         display: block;
-        width: 30%;
+        width: 39%;
     }
     
     .letsgo {
@@ -93,6 +93,18 @@
         width:  100%;
     }
     
+    .username_container {
+        margin-bottom: 3%;
+    }
+
+    .password_container {
+        margin-top: 3%;
+    }
+
+    .confirm_password_container {
+        padding-top: 0;
+    }
+
     .error_p {
         display: none;
         padding: 10px 7px 1px;
@@ -112,7 +124,7 @@
 
 
 }
-
+/* 
 @media only screen and (min-width: 1220px){
 	* {
         font-family: 'Roboto';
@@ -150,14 +162,13 @@
         background-color: #237E80;
         color: #DEF2F1;
         width: 100vw;
-        height: 100vh;
     }
     
     .signup_logo {
         margin: auto;
         padding: 0;
         display: block;
-        width: 7%;
+        width: 1%;
         position: relative;
         padding-bottom: 1%;
     }
@@ -174,7 +185,7 @@
         border-radius: 6px;
         border-color: #2C3531;
         -webkit-transition-duration: 0.4s; /* Safari */
-        transition-duration: 0.4s;
+    /*    transition-duration: 0.4s;
         box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
         font-family: 'Original Surfer';
     }
@@ -195,6 +206,22 @@
     .confirm_password_input{
         width:  100%;
     }
-    
-}
+
+    .error_p {
+        display: none;
+        padding: 10px 7px 1px;
+        margin: 10px 15px;
+        color: orangered;
+        background-color: lightgoldenrodyellow;
+        font-size: 0.9em;
+    }
+
+    .username_input:focus + .error_p {
+        display: block;
+    }
+
+    .password_input:focus + .error_p {
+        display: block;
+    }
+} */
 

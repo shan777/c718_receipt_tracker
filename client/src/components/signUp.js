@@ -86,7 +86,7 @@
                         <img className="signup_logo" src={squirrel}></img>
                         <div className="title">Create an account to start</div>
                             <form  onSubmit={this.handleSubmit}>
-                                <div className="entry_container">
+                                <div className="entry_container username_container">
                                     <label className="input_title">Username</label>
                                     <input className='sign_up_input username_input' onChange={ (e) => this.setState({username: e.target.value})}
                                         type="text"
@@ -117,7 +117,7 @@
                                     />
                                 </div>
 
-                                <div className="entry_container">
+                                <div className="entry_container password_container">
                                     <label className="input_title">Password</label>
                                     {/* <input onClick={this.passwordRestrictions.bind(this)} className='sign_up_input' onChange={ (e) => this.setState({password: e.target.value})} */}
                                     <input className='sign_up_input password_input' onChange={ (e) => this.setState({password: e.target.value})}
@@ -132,7 +132,7 @@
                                     </div>
                                 </div>
 
-                                <div className="entry_container">
+                                <div className="entry_container confirm_password_container">
                                     <label className="input_title cfm_password">Confirm<br/>Password</label>
                                     <div className="cfm sign_up_input">
                                         <input className='confirm_password_input' onChange={ (e) => this.setState({confirmPassword: e.target.value})}
