@@ -19,7 +19,7 @@
     }
     
     .about_container {
-        height: 90vh;
+        min-height: 100vh;
         width: 100vw;
         background-color: #2A9597;
         margin-top: 10vh;

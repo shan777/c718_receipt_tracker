@@ -18,48 +18,37 @@
         font-family: 'Roboto';
     }
     
+    fieldset > input {
+        padding: 1%;
+        font-size: 1.2em;
+        vertical-align: middle;
+        box-shadow: 2px 4px 8px 2px rgba(0,0,0,0.2), 6px 6px 10px 0 rgba(0,0,0,0.19);
+    }
+    
     .title {
         color: #98FFA8;
         text-align: center;
-        padding: 1% 0 4% 2%;
+        padding: 1% 0 7% 2%;
         font-size: 1.4em;
         font-family: 'Roboto Bold';
-    }
-    
-    .input_title {
-        margin-left: 2%;
-        text-align: right;
-    }
-    
-    .entry_container {
-        padding: 3% 1%;
-    }
-    
-    .cfm_password {
-        display: inline-block;
-    }
-    
-    .cfm {
-        display: inline-block;
-        vertical-align: top;
-        margin-top: 3%;
     }
     
     .signup_container {
         background-color: #2A9597;
         color: #DEF2F1;
         width: 100vw;
-        height: 100vh;
+        min-height: 100vh;
+        text-align: center;
     }
     
     .signup_logo {
         margin: auto;
-        padding: 6% 0 1%;
+        padding: 6% 0 8%;
         display: block;
-        width: 80%;
+        width: 90%;
     }
     
-    .letsgo {
+    .signup_button {
         background-color: #2E3B3B;
         color: #F2F2F2;
         padding: 2%;
@@ -74,9 +63,11 @@
         transition-duration: 0.4s;
         box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
         font-family: 'Original Surfer';
+        white-space: nowrap;
+        width: 40%;
     }
     
-    .letsgo:active {
+    .signup_button:active {
         background-color: rgb(63, 78, 78);
         box-shadow: 0 3px rgb(80, 99, 99);
         transform: translateY(4px);
@@ -88,37 +79,26 @@
         float: right;
         margin-right: 10%;
     }
-    
-    .confirm_password_input{
-        width:  100%;
-    }
-    
-    .username_container {
-        margin-bottom: 3%;
-    }
 
-    .password_container {
-        margin-top: 3%;
-    }
-
-    .confirm_password_container {
-        padding-top: 0;
-    }
-
-    .error_p {
+    .guideline {
         display: none;
-        padding: 10px 7px 1px;
-        margin: 10px 15px;
+        padding: 10px 5px 2px;
+        margin: 10px 15px 0;
         color: orangered;
         background-color: lightgoldenrodyellow;
         font-size: 0.9em;
+        text-align: left;
     }
 
-    .username_input:focus + .error_p {
+    .guideline b {
+        font-size: 1.1em;
+    }
+
+    .username_input:focus + .guideline {
         display: block;
     }
 
-    .password_input:focus + .error_p {
+    .password_input:focus + .guideline {
         display: block;
     }
 
@@ -134,104 +114,3 @@
         border: none;
     }
 }
-/* 
-@media only screen and (min-width: 1220px){
-	* {
-        font-family: 'Roboto';
-    }
-    
-    .title {
-        color: #98FFA8;
-        text-align: center;
-        padding: 0;
-        font-size: 1.4em;
-        font-family: 'Roboto Bold';
-    }
-    
-    .input_title {
-        margin-left: 31%;
-        text-align: right;
-        font-size: 1.5em;
-    }
-    
-    .entry_container {
-        padding: 1.5% 1%;
-    }
-    
-    .cfm_password {
-        display: inline-block;
-    }
-    
-    .cfm {
-        display: inline-block;
-        vertical-align: top;
-        margin-top: 3%;
-    }
-    
-    .signup_container {
-        background-color: #2A9597;
-        color: #DEF2F1;
-        width: 100vw;
-    }
-    
-    .signup_logo {
-        margin: auto;
-        padding: 0;
-        display: block;
-        width: 1%;
-        position: relative;
-        padding-bottom: 1%;
-    }
-    
-    .letsgo {
-        background-color: #2E3B3B;
-        color: #F2F2F2;
-        padding: 1%;
-        display: block;
-        font-size: 1.3em;
-        float: right;
-        margin-top: 0;
-        margin-right: 18%;
-        border-radius: 6px;
-        border-color: #2C3531;
-        -webkit-transition-duration: 0.4s; /* Safari */
-    /*    transition-duration: 0.4s;
-        box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        font-family: 'Original Surfer';
-    }
-    
-    .letsgo:active {
-        background-color: rgb(63, 78, 78);
-        box-shadow: 0 3px rgb(80, 99, 99);
-        transform: translateY(4px);
-        color: white;
-    }
-    
-    .sign_up_input{
-        width: 25%;
-        float: right;
-        margin-right: 17%;
-    }
-    
-    .confirm_password_input{
-        width:  100%;
-    }
-
-    .error_p {
-        display: none;
-        padding: 10px 7px 1px;
-        margin: 10px 15px;
-        color: orangered;
-        background-color: lightgoldenrodyellow;
-        font-size: 0.9em;
-    }
-
-    .username_input:focus + .error_p {
-        display: block;
-    }
-
-    .password_input:focus + .error_p {
-        display: block;
-    }
-} */
-
