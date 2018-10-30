@@ -45,18 +45,16 @@ class Login extends Component{
             [event.target.name]: event.target.value
         })
     }
+
     render(){
-        const centerStyle = {
-            'textAlign': 'center'
-        }
         return(
             <div className="login_page_container">
                 <img className="login_logo" src={loginLogo} />
-                <div className="login_container" style={centerStyle}>
+                <div className="login_container">
                     <form className="login_area" onSubmit={this.handleSubmit}>
                         <input name='username' value={this.state.username} 
                         onChange={this.handleChange.bind(this)} className="username" 
-                        ype="text" placeholder="Username"
+                        type="text" placeholder="Username"
                         />
                         <input name='password' value={this.state.password} 
                         onChange={this.handleChange.bind(this)} className="password" 
@@ -69,7 +67,7 @@ class Login extends Component{
                         forgot your password?
                     </div> */}
                     <div className="sign_up_container">
-                        <Link to='/signup' >or Sign-up</Link>
+                        <Link to='/signup'>or Sign-up</Link>
                     </div>
                 </div>  
             </div>

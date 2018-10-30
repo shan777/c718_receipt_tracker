@@ -109,8 +109,8 @@
 .finished_button {
   position: relative;
   float: right;
-  border: 2px solid #237E80;
-  background-color: #237E80;
+  border: 2px solid black;
+  background-color: #2A9597;
   color: #98FFA8;
   bottom: 1vh;
   font-size: 1.3em;
@@ -238,8 +238,8 @@ button {
 .finished_button {
   position: relative;
   float: right;
-  border: 2px solid #237E80;
-  background-color: #237E80;
+  border: 2px solid #2A9597;
+  background-color: #2A9597;
   color: #98FFA8;
   bottom: 1vh;
   font-size: 1.3em;

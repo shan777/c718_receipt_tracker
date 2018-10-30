@@ -46,7 +46,7 @@
     }
     
     .signup_container {
-        background-color: #237E80;
+        background-color: #2A9597;
         color: #DEF2F1;
         width: 100vw;
         height: 100vh;
@@ -56,7 +56,7 @@
         margin: auto;
         padding: 6% 0 1%;
         display: block;
-        width: 39%;
+        width: 80%;
     }
     
     .letsgo {
@@ -122,7 +122,17 @@
         display: block;
     }
 
+    .error {
+        display: block;
+        background-color: #ff8c1a;
+        color: white;
+        padding: 0 5%;
+    }
 
+    fieldset {
+        padding: 0 5%;
+        border: none;
+    }
 }
 /* 
 @media only screen and (min-width: 1220px){
@@ -159,7 +169,7 @@
     }
     
     .signup_container {
-        background-color: #237E80;
+        background-color: #2A9597;
         color: #DEF2F1;
         width: 100vw;
     }

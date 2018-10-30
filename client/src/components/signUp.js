@@ -4,155 +4,120 @@
     import squirrel from '../assets/images/squirrel_logo_small_facing_right.png';
 
     class SignUp extends Component {    
-        constructor(props) {
-            super(props);
-
-            this.handleSubmit = this.handleSubmit.bind(this);
-        
-            this.state = {
-                username: '',
-                firstName: '',
-                lastName: '',
-                emailAddress: '',
-                phoneNumber: '',
-                password: '',
-                confirmPassword: '',
-                touched: {
-                    username: false,
-                    firstName: false,
-                    lastName: false,
-                    password: false,
-                    confirmPassword: false
-                  },
-                alert: false
-            }
-        }
-
-        validate = (event) => {
-            const {username, firstName, lastName, password, confirmPassword} = this.state;
-
-            // error=true means invalid 
-            const usernameRegex = /^(?=.{4,15}$)^[a-zA-Z][a-zA-Z0-9]+$/i; 
-            //4-15 characters long lowercase/uppercase/digit, must start with a letter
-            const firstNameRegex = /[a-zA-Z_.-]{2,}/; 
-            const lastNameRegex = /[a-zA-Z_.-]{2,}/;
-            const usernameOK = usernameRegex.test(username);
-            const firstNameOK = firstNameRegex.test(firstName);
-            const lastNameOK = lastNameRegex.test(lastName);
-            const passwordMatch = password === confirmPassword;
-
-            return {
-              username: usernameOK,
-              firstName: firstNameOK,
-              lastName: lastNameOK,
-              password: passwordOK,
-            };
-          }
-
-        async handleSubmit(event) {
-            const {username, firstName, lastName, emailAddress, phoneNumber, password, confirmPassword} = this.state;
-
-
-            
-
-
-            event.preventDefault();
-
-            const resp = await axios.post('/api/manageUsers/signUp',{
-                userName: username,
-                password: password,
-                firstName: firstName,
-                lastName: lastName,
-                // email: email,
-                // phone: phone
-            });
-            this.props.history.push('/overview');
-        }
-
-        render() {
-            const {username, firstName, lastName, password, confirmPassword} = this.state;
-
-            const alertNone = {
-                display: 'none'
-            }
-
-            const alertShow = {
-                display: 'block'
-            }
-            
-            return (
-                <div className="signup_container">
-                    <div className="sign_up_main_container">
-                        <img className="signup_logo" src={squirrel}></img>
-                        <div className="title">Create an account to start</div>
-                            <form  onSubmit={this.handleSubmit}>
-                                <div className="entry_container username_container">
-                                    <label className="input_title">Username</label>
-                                    <input className='sign_up_input username_input' onChange={ (e) => this.setState({username: e.target.value})}
-                                        type="text"
-                                        value={username}
-                                    />
-                                    <div className="error_p">&nbsp;&nbsp;&nbsp;&nbsp;<i className="material-icons">info</i>&nbsp;<b>Username Guidelines:</b>
-                                        <ul>
-                                            <li>Only letters and numbers</li>
-                                            <li>Must start with a letter</li>
-                                            <li>Between 4-15 characters long</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div className="entry_container">
-                                    <label className="input_title">First Name</label>
-                                    <input className='sign_up_input' onChange={ (e) => this.setState({firstName: e.target.value})}
-                                        type="text"
-                                        value={firstName}
-                                    />
-                                </div>
-
-                                <div className="entry_container">
-                                    <label className="input_title">Last Name</label>
-                                    <input className='sign_up_input' onChange={ (e) => this.setState({lastName: e.target.value})}
-                                        type="text"
-                                        value={lastName}
-                                    />
-                                </div>
-
-                                <div className="entry_container password_container">
-                                    <label className="input_title">Password</label>
-                                    {/* <input onClick={this.passwordRestrictions.bind(this)} className='sign_up_input' onChange={ (e) => this.setState({password: e.target.value})} */}
-                                    <input className='sign_up_input password_input' onChange={ (e) => this.setState({password: e.target.value})}
-                                        type="password"
-                                        value={password}
-                                    />
-                                    <div className="error_p">&nbsp;&nbsp;&nbsp;&nbsp;<i className="material-icons">info</i>&nbsp;<b>Password Guidelines:</b>
-                                        <ul>
-                                            <li>Must contain at least 1 uppercase, 1 lowercase, and 1 number</li>
-                                            <li>Minimum of 8 characters</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div className="entry_container confirm_password_container">
-                                    <label className="input_title cfm_password">Confirm<br/>Password</label>
-                                    <div className="cfm sign_up_input">
-                                        <input className='confirm_password_input' onChange={ (e) => this.setState({confirmPassword: e.target.value})}
-                                            onClick={this.checkPassword}
-                                            type="password"
-                                            value={confirmPassword}
-                                        />
-                                    </div>    
-                                </div>
-
-                            <button className="letsgo"  type="submit" value="Letsgo">Let's go!</button> 
-                            {/* <button disabled={!isEnabled} className="letsgo"  type="submit" value="Letsgo">Let's go!</button> */}
-                        </form>
-                    </div>
-
-                </div>
-    
-            );
+    constructor(props){
+        super(props);
+  
+        this.state = {
+            username: '',
+            firstName: '',
+            lastName: '',
+            password: '',
+            confirmPassword: '',
+            fields: {},
+            errors: {}
         }
     }
+  
+    handleValidation(e) {
+        e.preventDefault();
+
+        let fields = this.state.fields;
+        let errors = {};
+        let formIsValid = true;
+  
+        // Username validation
+        if(!fields["username"]){
+            formIsValid = false;
+            errors["username"] = "Username cannot be empty";
+        }
+  
+        if(typeof fields["username"] !== "undefined"){
+            if(!fields["username"].match(/^(?=.{4,15}$)(?!.*[_]{2})^[a-zA-Z]\w+(?<![_])$/i)){
+            formIsValid = false;
+            errors["username"] = "Invalid Username";
+            }      	
+        }
+  
+        // First name validation
+        if(!fields["firstName"]){
+            formIsValid = false;
+            errors["firstName"] = "First name cannot be empty";
+        }
     
+        if(typeof fields["firstName"] !== "undefined"){
+            if(!fields["firstName"].match(/[a-zA-Z_.-]{2,}/)){
+            formIsValid = false;
+            errors["firstName"] = "Invalid First Name";
+            }      	
+        } 
+  
+        // Last name validation
+        if(!fields["lastName"]){
+            formIsValid = false;
+            errors["lastName"] = "Last name cannot be empty";
+        }
+    
+        if(typeof fields["lastName"] !== "undefined"){
+            if(!fields["lastName"].match(/[a-zA-Z_.-]{2,}/)){
+            formIsValid = false;
+            errors["lastName"] = "Invalid Last Name";
+            }      	
+        } 
+  
+        this.setState({errors: errors});
+        return formIsValid;
+    }
+  
+   
+  
+    handleChange(field, e){    		
+  
+        let fields = this.state.fields;
+        fields[field] = e.target.value;        
+        this.setState({fields});
+    }
+  
+    render(){
+        return (
+    
+            <div className="signup_container">
+                <div className="sign_up_main_container">
+                    <img className="signup_logo" src={squirrel}></img>
+                    <div className="title">Create an account to start</div>
+ 
+                            	
+                    <form name="contactform" className="contactform" onSubmit= {this.handleValidation.bind(this)}>
+                        {/* <div className="entry_container">    */}
+                            <fieldset>
+                                <input className="username_input" ref="username" type="text" size="20" placeholder="Username" onChange={this.handleChange.bind(this, "username")} value={this.state.fields["username"]}/>
+                                <div className="error_p">&nbsp;&nbsp;&nbsp;&nbsp;<i className="material-icons">info</i>&nbsp;<b>Username Guidelines:</b>
+                                    <ul>
+                                        <li>Only letters (a-z), numbers (0-9), and underscores(_)</li>
+                                        <li>Must start and end with a letter</li>
+                                        <li>Between 4-15 characters long</li>
+                                    </ul>
+                                </div>
+                                <span className="error">{this.state.errors["username"]}</span>
+                                <br/>
+                                <input ref="firstName" type="text" size="30" placeholder="First Name" onChange={this.handleChange.bind(this, "firstName")} value={this.state.fields["firstName"]}/>
+                                <span className="error">{this.state.errors["firstName"]}</span>
+                                <br/>
+                                <input ref="lastName" type="text" size="30" placeholder="Last Name" onChange={this.handleChange.bind(this, "lastName")} value={this.state.fields["lastName"]}/>
+                                <span className="error">{this.state.errors["lastName"]}</span>
+                                <br/>
+                            </fieldset>
+                         {/* </div> */}
+            
+                        <fieldset>
+                                <button className="letsgo" id="submit" value="Submit">Let's go</button>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        );
+    }
+}
+  
 
 export default SignUp;

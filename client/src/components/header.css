@@ -11,10 +11,10 @@
 @media only screen and (min-width: 768px){
     .headContainer{
         font-size: 6em;
-        background-color: #237E80;
+        background-color: #2A9597;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        /* height: 80px; */
+        height: 70px;
         font-size: 6em;
         padding-left: 20%;
         text-align: left;
@@ -38,7 +38,7 @@
     .sidebar_container {
         width: 35vw;
         height: 40vh;
-        background-color: #237E80; 
+        background-color: #2A9597; 
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
@@ -56,7 +56,7 @@
 @media only screen and (min-width: 1220px){
     .headContainer{
         font-size: 6em;
-        background-color: #237E80;
+        background-color: #2A9597;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         /* height: 80px; */
@@ -71,6 +71,7 @@
         position: absolute;
         right: 6%;
         top: 15%;
+        border: none;
     }
     
     .header{
@@ -83,7 +84,7 @@
     .sidebar_container {
         width: 13vw;
         height: 40vh;
-        background-color: #237E80; 
+        background-color: #2A9597; 
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
@@ -99,51 +100,51 @@
 }
 
 @media only screen and (max-width: 600px){
-.headContainer {
-    background-color: #237E80;
-    color: #F2F2F2;
-    font-family: 'Roboto Bold';
-    height: 80px;
-    font-size: 3em;
-    padding-left: 20%;
-    text-align: left;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-}
+    .headContainer {
+        background-color: #2A9597;
+        color: #F2F2F2;
+        /* font-family: 'Roboto Bold'; */
+        height: 60px;
+        font-size: 2em;
+        padding: 1% 0 1% 10%;
+        text-align: left;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
 
-.dots {
-    position: absolute;
-    right: 6%;
-    top: 15%;
-}
+    .dots {
+        position: absolute;
+        right: 5%;
+        top: 7%;
+    }
 
-.header{
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: 1;
-}
+    .header{
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: 1;
+    }
 
-.sidebar_container {
-    width: 35vw;
-    height: 45vh;
-    background-color: #237E80; 
-    font-family: 'Roboto Bold';
-    position: fixed !important;
-    padding-left: 2%;
-    font-size: 17px;
-    right: 5%;
-    top: 80px !important;
-    color: #98FFA8;
-}
+    .sidebar_container {
+        width: 35vw;
+        height: 45vh;
+        background-color: #2A9597; 
+        font-family: 'Roboto Bold';
+        position: fixed !important;
+        padding-left: 2%;
+        font-size: 17px;
+        right: 5%;
+        top: 60px !important;
+        color: #98FFA8;
+    }
 
-p.sign_out {
-    color: rgb(85, 26, 139);
-}
+    p.sign_out {
+        color: rgb(85, 26, 139);
+    }
 
-.menus {
-    top: 80px;
-}
+    .menus {
+        top: 80px;
+    }
 }
 

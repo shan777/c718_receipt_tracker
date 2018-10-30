@@ -20,7 +20,7 @@
         font-size: 1em;
         display: block;
         background-color: #DEF2F1;
-        top: 80px;
+        top: 60px;
         position: fixed;
         font-family: 'Roboto';
         padding-bottom: 155px;
@@ -59,13 +59,13 @@
         background-color: #DEF2F1;
         box-shadow: none;
         border-style: none;
-        border-bottom: 1px solid #237E80 ;
+        border-bottom: 1px solid #2A9597 ;
         border-top-color: none;
         font-size: 1.1em;
     }
 
     input:hover {
-        border-bottom: 2.5px solid #237E80;
+        border-bottom: 2.5px solid #2A9597;
     }
 
     select {
@@ -150,7 +150,7 @@
         margin: 0;
         display: block;
         background-color: #DEF2F1;
-        top: 70px;
+        top: 60px;
         position: fixed;
         font-family: 'Roboto';
         padding-bottom: 155px;
@@ -186,17 +186,18 @@
         display: inline-block;
         word-break: break-word;
     }
+
     input {
         background-color: #DEF2F1;
         box-shadow: none;
         border-style: none;
-        border-bottom: 1px solid #237E80 ;
+        border-bottom: 1px solid #2A9597 ;
         border-top-color: none;
         font-size: 1.1em;
     }
 
     input:hover {
-        border-bottom: 2.5px solid #237E80;
+        border-bottom: 2.5px solid #2A9597;
     }
 
     select {
