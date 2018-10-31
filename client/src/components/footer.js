@@ -11,7 +11,6 @@ class Footer extends Component {
     }
 
     render() {
-
         return(
             <div className="footer_container">
                 <NavLink to={'/add_new'+this.state.userIDAddressFragment} className="footer-nav-link"><i className="material-icons">library_add</i></NavLink>

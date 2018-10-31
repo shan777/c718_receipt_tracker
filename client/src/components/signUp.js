@@ -1,19 +1,23 @@
     import React, { Component } from 'react';
     import axios from 'axios';
     import './signup.css';
-    import squirrel from '../assets/images/squirrel_logo_small_facing_right.png';
+    import squirrel from '../assets/images/signup_squirrel.png';
+    import squirrel_head from '../assets/images/head.png';
+
+    import { Link } from 'react-router-dom';
 
     class SignUp extends Component {    
     constructor(props){
         super(props);
   
         this.state = {
-            username: '',
-            firstName: '',
-            lastName: '',
-            password: '',
-            confirmPassword: '',
-            fields: {},
+            fields: {
+                username: '',
+                firstName: '',
+                lastName: '',
+                password: '',
+                confirmPassword: ''
+            },
             errors: {}
         }
     }
@@ -108,7 +112,7 @@
             } catch(err) {
                 if(err.response.data.error.code == "ER_DUP_ENTRY") {
                     formIsValid = false;
-                    errors["username"] = `This username exists already.\nTry a different username.`;
+                    errors["username"] = `This username exists already.<br/>Try a different username.`;
                     this.setState({errors: errors});
 
                     return formIsValid;
@@ -142,7 +146,7 @@
                                 <li>Between 4-15 characters long</li>
                             </ul>
                         </div>
-                        <span className="error">{this.state.errors["username"]}</span>
+                        <span className="error" dangerouslySetInnerHTML={{__html: this.state.errors["username"]}} />
                         <br/>
                         <input ref="firstName" type="text" size="20" placeholder="First Name" onChange={this.handleChange.bind(this, "firstName")} value={this.state.fields["firstName"]}/>
                         <span className="error">{this.state.errors["firstName"]}</span>
@@ -170,10 +174,13 @@
                             <button className="signup_button" id="submit" value="Submit">Sign up</button>
                     </fieldset>
                 </form>
+
+                <br/>
+                <img className="tutorial_img" src={squirrel_head}></img>
+                <div className="tutorial_link"><Link to='/tutorial'>Click here to see Tutorial</Link></div>
             </div>
         );
     }
 }
   
-
 export default SignUp;

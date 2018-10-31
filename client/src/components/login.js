@@ -66,7 +66,7 @@ class Login extends Component{
                     {/* <div className="forgot_password"> forgot your password is only text at this time
                         forgot your password?
                     </div> */}
-                    <div className="sign_up_container">
+                    <div className="sign_up_button">
                         <Link to='/signup'>or Sign-up</Link>
                     </div>
                 </div>  
