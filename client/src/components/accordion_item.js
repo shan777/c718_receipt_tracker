@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import users from '../dummy_data/dummyList.js';
 import axios from 'axios';
 
 class AccordionItem extends Component {
