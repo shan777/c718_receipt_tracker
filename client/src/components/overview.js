@@ -141,7 +141,7 @@ class Overveiw extends Component{
                     {this.makeRow()}
                     <div className="summary">
                         <p className="number_of_receipts"><b>{currentUsersReceipts.length}</b> Receipts 
-                        - <b>Total:</b> ${addTotal()}</p>
+                        &nbsp;&nbsp;&nbsp; <b>Total:</b> ${addTotal()}</p>
                     </div>
                 </div>
                 <Footer userID={this.state.currentDisplayedUserID}/>

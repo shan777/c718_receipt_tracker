@@ -80,7 +80,7 @@
         margin-right: 10%;
     }
 
-    .guideline {
+    .guidelines {
         display: none;
         padding: 10px 5px 2px;
         margin: 10px 15px 0;
@@ -90,15 +90,15 @@
         text-align: left;
     }
 
-    .guideline b {
+    .guidelines b {
         font-size: 1.1em;
     }
 
-    .username_input:focus + .guideline {
+    .username_input:focus + .guidelines {
         display: block;
     }
 
-    .password_input:focus + .guideline {
+    .password_input:focus + .guidelines {
         display: block;
     }
 

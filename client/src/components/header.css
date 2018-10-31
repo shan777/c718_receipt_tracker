@@ -39,7 +39,7 @@
         width: 35vw;
         height: 40vh;
         background-color: #2A9597; 
-        font-family: 'Roboto Bold';
+        /* font-family: 'Roboto Bold'; */
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
