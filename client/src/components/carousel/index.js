@@ -113,11 +113,22 @@ class Carousel extends Component {
                         <img key={src} src={src} alt={text} className="carousel-img" />
                     </Transition>
                 </div>
-                <button className='previous' onClick={this.changeImg.bind(this, 'previous')}>Previous</button>
-                <button className="next_button" onClick={this.changeImg.bind(this, 'next')}>Next</button>
+                {/* <div className="one_row"> */}
+                <button className="previous_button" onClick={this.changeImg.bind(this, 'previous')}>
+                    <i className="material-icons">keyboard_arrow_left</i>
+                </button>
+                {/* <Indicators onClick={this.directToImage.bind(this)} count={images.length} current={currentIndex} /> */}
+
+                <button className="next_button" onClick={this.changeImg.bind(this, 'next')}>
+                    <i className="material-icons">keyboard_arrow_right</i>
+                </button>
+                <button onClick={this.navigate} className="finished_button">
+                    <i className="material-icons">done_outline</i>
+                </button>
                 <Indicators onClick={this.directToImage.bind(this)} count={images.length} current={currentIndex} />
-                <button onClick={this.navigate} className="finished_button">Finished</button>
+
             </div>
+            // </div>
         );
     }
 }
