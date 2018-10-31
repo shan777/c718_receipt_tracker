@@ -18,7 +18,7 @@ class Hamburger extends Component {
 		return (
 		<div>
 			<div>
-				<p><b>Menu</b></p>
+				<p className="hamburger_title">Menu</p>
 				<Link to="/overview"><p>Overview</p></Link>
 				<Link to="/add_new"><p>Add New</p></Link>
 				<Link to="/about_us"><p>Meet the team</p></Link>

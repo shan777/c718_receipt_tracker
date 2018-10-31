@@ -4,12 +4,10 @@ import './overview.css';
 import Accordion from './accordion_container';
 import AccordionItem from './accordion_item';
 import Footer from './footer';
-import RenderTag from './receipt_tags/render_tag';
 import Modal from './modal';
 import DeleteModal from './delete_modal';
 import axios from 'axios';
 import FormatDate from './format_date-M-D-Y';
-import './/receipt_tags/render_tag.css';
 
 class Overveiw extends Component{
     constructor(props){
@@ -77,11 +75,11 @@ class Overveiw extends Component{
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
                     <AccordionItem receiptId={item.ID} className="panel">
                        <div className="panel_size">
-                            <div className="catagory">Merchant name:</div>
+                            <div className="catagory">Merchant:</div>
                             <div className="data">{item.storeName}</div>
                         </div>
                         <div className="panel_size">
-                            <div className="catagory">Date of Purchase:</div>
+                            <div className="catagory">Date:</div>
                             <div className="data">{<FormatDate date={item.purchaseDate}/>}</div>
                         </div>
                         <div className="panel_size">
@@ -143,7 +141,7 @@ class Overveiw extends Component{
                     {this.makeRow()}
                     <div className="summary">
                         <p className="number_of_receipts"><b>{currentUsersReceipts.length}</b> Receipts 
-                        - <b>Total:</b> ${addTotal()}</p>
+                        &nbsp;&nbsp;&nbsp; <b>Total:</b> ${addTotal()}</p>
                     </div>
                 </div>
                 <Footer userID={this.state.currentDisplayedUserID}/>

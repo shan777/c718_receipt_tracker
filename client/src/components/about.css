@@ -19,9 +19,9 @@
     }
     
     .about_container {
-        height: 90vh;
+        min-height: 100vh;
         width: 100vw;
-        background-color: #237E80;
+        background-color: #2A9597;
         margin-top: 10vh;
     }
     
@@ -124,7 +124,7 @@
     .about_container {
         height: 100vh;
         width: 100vw;
-        background-color: #237E80;
+        background-color: #2A9597;
         margin-top: 0;
     }
     

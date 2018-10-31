@@ -8,14 +8,13 @@
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
-/* .menus>a>p:hover {
-    text-decoration: underline;
-}
-
-.menus>a>p:visited {
-    text-decoration: none;
-} */
-
 a {
     text-decoration: none;
+}
+
+.hamburger_title {
+    font-family: 'Roboto Bold';
+    text-align: left;
+    font-size: 1.2em;
+    color: white;
 }

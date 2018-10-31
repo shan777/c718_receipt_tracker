@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import './modal.css';
-import TagPanel from './receipt_tags/tag_panel';
-import Overview from './overview';
 import axios from 'axios';
 
 

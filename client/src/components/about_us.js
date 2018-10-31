@@ -15,71 +15,67 @@ class AboutUs extends Component{
         return(
             <div className="about_us_container">
                 <Link to="/overview" title="Back to Overview"><img className="logo_img" src={meetTeam} alt="squirrel logo" /></Link>
-
+                <div className="info">* Click the squirrel to go back to the Overview page</div>
                 <div className="everybody">
                     <div className="frontend">FRONT-END</div>
-                        <div className="members_top">
-                            <div className="top_left">
-                                <img className=" picture img_left" src={chase}/>
-                                <div className="member_name_left">Chase Caine</div>
-                                <a className='link_left' href="https://www.linkedin.com/in/chase-caine-2a86b5169/" target="_blank">
-                                    <img src={linkedin_logo} alt="linkedin logo"></img>
-                                </a>
-                                <a className='link_left' href="https://github.com/valor323" target="_blank">
-                                    <img src={github_logo} alt="github logo"></img>
-                                </a>
-                            </div>
+                    <div className="top_left">
+                        <img className=" picture img_left" src={chase}/>
+                        <div className="member_name_left">Chase Caine</div>
+                        <a className='link_left' href="https://www.linkedin.com/in/chase-caine-2a86b5169/" target="_blank">
+                            <img src={linkedin_logo} alt="linkedin logo"></img>
+                        </a>
+                        <a className='link_left' href="https://github.com/valor323" target="_blank">
+                            <img src={github_logo} alt="github logo"></img>
+                        </a>
+                    </div>
 
-                            <div className="top_right">
-                                <img className=" picture img_right" src={esther}/>
-                                <div className="member_name_right">Esther Suh<br/></div>
-                                <a className='link_right' href="https://www.linkedin.com/in/esther-suh-8b426015b/" target="_blank">
-                                    <img src={linkedin_logo} alt="linkedin logo"></img>
-                                </a>
-                                <a className='link_right' href="https://github.com/esther2180" target="_blank">
-                                    <img src={github_logo} alt="github logo"></img>
-                                </a>
-                            </div>
-                        </div>
+                    <div className="top_right">
+                        <img className=" picture img_right" src={esther}/>
+                        <div className="member_name_right">Esther Suh<br/></div>
+                        <a className='link_right' href="https://www.linkedin.com/in/esther-suh-8b426015b/" target="_blank">
+                            <img src={linkedin_logo} alt="linkedin logo"></img>
+                        </a>
+                        <a className='link_right' href="https://github.com/esther2180" target="_blank">
+                            <img src={github_logo} alt="github logo"></img>
+                        </a>
+                    </div>
 
-                        <div className="member_center">
-                            <img className=" picture img_center" src={sarah}/>
-                            <div className="member_name_center">Sarah Han</div>
-                            <a className='link_center' href="https://www.linkedin.com/in/sarah-han-1120/" target="_blank">
-                                <img src={linkedin_logo} alt="linkedin logo"></img>
-                            </a>
-                            <a className='link_center' href="https://github.com/shan777" target="_blank">
-                                <img src={github_logo} alt="github logo"></img>
-                            </a>
-                        </div>
+                    <div className="member_center">
+                        <img className=" picture img_center" src={sarah}/>
+                        <div className="member_name_center">Sarah Han</div>
+                        <a className='link_center' href="https://www.linkedin.com/in/sarah-han-1120/" target="_blank">
+                            <img src={linkedin_logo} alt="linkedin logo"></img>
+                        </a>
+                        <a className='link_center' href="https://github.com/shan777" target="_blank">
+                            <img src={github_logo} alt="github logo"></img>
+                        </a>
+                    </div>
                   
                     <div className="backend">BACK-END</div> 
-                        <div className="members_bottom">
-                        <div className="member_bottom_left">
-                            <img className=" picture img_left" src={kyle}/>
-                            <div className="member_name_left">Kyle Pamintuan</div>
-                            <a className='link_right' href="https://www.linkedin.com/in/kylepamintuan/" target="_blank">
-                                <img src={linkedin_logo} alt="linkedin logo"></img>
-                            </a>
-                            <a className='link_left' href="https://github.com/kylepamintuan" target="_blank">
-                                <img src={github_logo} alt="github logo"></img>
-                            </a>
-                        </div>
+                    <div className="member_bottom_left">
+                        <img className=" picture img_left" src={kyle}/>
+                        <div className="member_name_left">Kyle Pamintuan</div>
+                        <a className='link_right' href="https://www.linkedin.com/in/kylepamintuan/" target="_blank">
+                            <img src={linkedin_logo} alt="linkedin logo"></img>
+                        </a>
+                        <a className='link_left' href="https://github.com/kylepamintuan" target="_blank">
+                            <img src={github_logo} alt="github logo"></img>
+                        </a>
+                    </div>
 
-                        <div className="member_bottom_right">
-                            <img className=" picture img_right" src={steve}/>
-                            <div className="member_name_right">Steve Benedict</div>
-                            <a className='link_right' href="https://www.linkedin.com/in/nebevets/" target="_blank">
-                                <img src={linkedin_logo} alt="linkedin logo"></img>
-                            </a>
-                            <a className='link_right' href="https://github.com/nebevets" target="_blank">
-                                <img src={github_logo} alt="github logo"></img>
-                            </a>
-                        </div>
-                   </div>
+                    <div className="member_bottom_right">
+                        <img className=" picture img_right" src={steve}/>
+                        <div className="member_name_right">Steve Benedict</div>
+                        <a className='link_right' href="https://www.linkedin.com/in/nebevets/" target="_blank">
+                            <img src={linkedin_logo} alt="linkedin logo"></img>
+                        </a>
+                        <a className='link_right' href="https://github.com/nebevets" target="_blank">
+                            <img src={github_logo} alt="github logo"></img>
+                        </a>
+                    </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
