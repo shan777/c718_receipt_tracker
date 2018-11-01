@@ -93,14 +93,7 @@ class Overveiw extends Component{
                         <div className="panel_size">
                             <div className="category">Note:</div>
                             <div className="data">{item.comment}</div>
-                        </div>
-                        <div className="deletebtn">
-                            <i onClick={() => this.deleteOpen(item.ID)}  className="material-icons">delete</i>
-                        </div>
-                        <div className='editbtn'>
-                            <i className="material-icons" onClick={()=> this.open(index, item.ID, item.total)}>edit</i>
-                        </div>
-                        
+                        </div>                        
                     </AccordionItem>
             </div>
         </Accordion>
