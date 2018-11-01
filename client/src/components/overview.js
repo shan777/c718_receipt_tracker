@@ -46,12 +46,10 @@ class Overveiw extends Component{
         });
     } 
 
-    deleteOpen(receiptId){
-        this.setState({
+    deleteOpen = (receiptId) => this.setState({
             deleteOpen: true,
             receiptId: receiptId
         })
-    }
 
   
 
@@ -73,7 +71,7 @@ class Overveiw extends Component{
                 <br/>
         <div className="date_of_purchase">{<FormatDate date={item.purchaseDate}/>}</div>
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
-                    <AccordionItem receiptId={item.ID} className="panel">
+                    <AccordionItem receiptId={item.ID} index={index} total={item.total} className="panel" open={this.open} deleteOpen={this.deleteOpen}>
                        <div className="panel_size">
                             <div className="category">Merchant:</div>
                             <div className="data">{item.storeName}</div>
@@ -93,14 +91,7 @@ class Overveiw extends Component{
                         <div className="panel_size">
                             <div className="category">Note:</div>
                             <div className="data">{item.comment}</div>
-                        </div>
-                        <div className="deletebtn">
-                            <i onClick={() => this.deleteOpen(item.ID)}  className="material-icons">delete</i>
-                        </div>
-                        <div className='editbtn'>
-                            <i className="material-icons" onClick={()=> this.open(index, item.ID, item.total)}>edit</i>
-                        </div>
-                        
+                        </div>                        
                     </AccordionItem>
             </div>
         </Accordion>

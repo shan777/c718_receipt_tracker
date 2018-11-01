@@ -703,13 +703,13 @@
         border-radius: 6px;
         transition-duration: 0.4s;
         font-family: 'Original Surfer';
-        margin-top: 100px;
+        margin-top: 20px;
     }
 
     .deletebtn{
         position: relative;
         float: left;
-        margin-top: 100px;
+        margin-top: 20px;
     }
 
     .render_panel{
@@ -719,7 +719,9 @@
     .tag_text{
         display: inline-block;
         position: relative;
-        right: 7%;
+    }
+    .material-icons{
+        font-size:32px;
     }
 
 }
