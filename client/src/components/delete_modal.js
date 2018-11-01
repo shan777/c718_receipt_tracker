@@ -16,7 +16,8 @@ class DeleteModal extends Component {
                         <div className="basic_modal_close" onClick={this.props.close}>X</div>
                         <div className="modal_container">
                             <h4 className="sure">Are you sure you want to delete this entry?</h4>
-                            <button className="surebtn" onClick={() => this.delete(this.props.receiptId)}>I am Sure</button>
+                            <button className="modalbtn cancel" onClick={this.props.close}>Cancel</button>
+                            <button className="modalbtn update-color" onClick={() => this.delete(this.props.receiptId)}>I am Sure</button>
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,6 @@ import FormatDate from './format_date-M-D-Y';
 class Overveiw extends Component{
     constructor(props){
         super(props);
-
         this.state = {
             data: null,
             currentDisplayedUserID: props.match.params.userID !==undefined ? props.match.params.userID : 3,
@@ -50,8 +49,6 @@ class Overveiw extends Component{
             deleteOpen: true,
             receiptId: receiptId
         })
-
-  
 
     async componentDidMount(){
         const axiosResponse = await axios.post('/api/manageReceipts/getUserReceipts');
@@ -106,12 +103,10 @@ class Overveiw extends Component{
             padding: '52% 20% 20% 20%',
             backgroundSize: 'contain'
         };
-
         if(!this.state.data){
             return(
                 <img src={loadingImg} style={loadingImgStyle}></img>
             );
-
         }
         const currentUsersReceipts = [...this.state.data.data.receipts];
 
@@ -124,7 +119,6 @@ class Overveiw extends Component{
             totalAmount = (totalAmount.toFixed(2)/100);
             return totalAmount.toLocaleString();
         }
-
         return (
             <div>
                 <Header push={this.props.history.push} title="OVERVIEW"/>
@@ -148,5 +142,4 @@ class Overveiw extends Component{
         );
     }
 }
-
 export default Overveiw;
