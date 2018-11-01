@@ -625,9 +625,18 @@
 
     .modalbtn{
         position: relative;
-        left: 80%;
+        left: 19%;
         font-size: 1.3em;
         padding: 1%;
+        margin-left: 5%;
+    }
+
+    .cancel{
+        background-color: red;
+    }
+
+    .update-color{
+        background-color: green;
     }
 
     .modal_container {

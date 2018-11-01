@@ -70,7 +70,7 @@ class Modal extends Component{
 
     render(){
         const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
-        const categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Transportation', 'Lodging', 'Repairs'];
+        const categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Entertainment', 'Transportation', 'Lodging', 'Repairs', 'Other'];
         const categoryChoices = categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
             const currentUser = [...this.props.data];
@@ -78,7 +78,6 @@ class Modal extends Component{
             return (
                 <div className="basic_modal" onClick={this.close}>
                     <div className="basic_modal_content onClick={e => e.stopPropagation()}">
-                        <div className="basic_modal_close" onClick={this.props.close}>X</div>
                         <form>  
                         <div className="modal_container">
                             <label className="modal_input_label">Merchant :</label>
@@ -113,7 +112,8 @@ class Modal extends Component{
                                 value={this.state.note}
                             />
                             <br/>
-                            <button className="modalbtn" onClick={this.handleSubmit.bind(this)}>Done</button>
+                            <button className="modalbtn cancel" onClick={this.props.close}>Cancel</button>
+                            <button className="modalbtn update-color" onClick={this.handleSubmit.bind(this)}>Update</button>
                             {/* <label className="input_label">Tag:</label>
                             <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/> */}
                         </div>
