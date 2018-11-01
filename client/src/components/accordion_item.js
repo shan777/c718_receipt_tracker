@@ -20,6 +20,9 @@ class AccordionItem extends Component {
 
     renderTags(){
         const data = this.state.data.data.tags;
+        if(data.length === 0){
+            return <div className='noTags'>No tags</div>
+        }
         const render = data.map((item, index) => (
                 <button className="custom_tag" type="button" key={index}><i className="material-icons custom_tag_icon">local_offer</i>{data[index].tagName}</button>
         ))
@@ -31,6 +34,7 @@ class AccordionItem extends Component {
     render(){
         const { children, title } = this.props;
         const { visible } = this.state;
+        console.log('data:', this.state.data);
         
         return (
             <li className="accordion_item" onClick={this.toggleVisible.bind(this)}>
@@ -39,7 +43,7 @@ class AccordionItem extends Component {
                     <div className="render_panel">
                         <div className="tag_text">Tags:</div> 
                         <br/>
-                        {this.state.data ? this.renderTags() : null}
+                        {this.state.data ? this.renderTags(): null}
                         <br/>
                         <div className="deletebtn">
                             <i onClick={() => this.deleteOpen(item.ID)}  className="material-icons">delete</i>

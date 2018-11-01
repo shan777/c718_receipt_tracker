@@ -135,7 +135,6 @@
         return (
             <div className="signup_container">
                 <img className="signup_logo" src={squirrel}></img>
-                            
                 <form name="contactform" className="contactform" onSubmit= {this.handleSubmit.bind(this)}>
                     <fieldset>
                         <input className="username_input" ref="username" type="text" size="20" placeholder="Username" onChange={this.handleChange.bind(this, "username")} value={this.state.fields["username"]}/>

@@ -213,6 +213,9 @@
     bottom: 1vh;
     font-size: 32px;
 }
+.noTags{
+    display: inline-block;
+}
 }
 
 
