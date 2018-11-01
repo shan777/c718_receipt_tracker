@@ -112,7 +112,7 @@ class AddNew extends Component {
 
         return (
             <div>
-                <Header title="Add New"/>
+                <Header title="ADD NEW"/>
                 <div className="main_container">
                     <form onSubmit={this.handleSubmit}>
                         <div className="btn_container">

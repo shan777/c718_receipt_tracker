@@ -136,8 +136,8 @@ class Overveiw extends Component{
 
         return (
             <div>
-                <Header push={this.props.history.push} title="Overview"/>
-                <div className='overview_main_container'>
+                <Header push={this.props.history.push} title="OVERVIEW"/>
+                <div className="overview_main_container">
                     {this.makeRow()}
                     <div className="summary">
                         <p className="number_of_receipts"><b>{currentUsersReceipts.length}</b> Receipts 
