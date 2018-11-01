@@ -9,7 +9,7 @@ module.exports = {
             email: /^[0-9a-zA-Z_\.]+@[0-9a-zA-Z_\.]{8,255}$/,
             lastName: /^[\. \-'a-zA-Z]{2,50}$/,
             firstName: /^[\. \-'a-zA-Z]{2,32}$/,
-            password: /^(?=[a-zA-Z])(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z]).*$/,
+            password: /^(?=[a-zA-Z])(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[\d]).*$/,
             userName: /^(?=.{8,32}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/,
             //receipt table fields
             receiptId: /^[1-9][\d]{0,9}$/,
@@ -22,7 +22,7 @@ module.exports = {
             creditCardName: /^[a-zA-Z ]{2,20}$/,
             tax: /^[1-9][\d]{0,9}$/,
             total: /^[1-9][\d]{0,9}$/,
-            storeName: /^[a-zA-Z \d-&'_!]{2,32}$/,
+            storeName: /^[äéa-zA-Z \d-&'_!\.,\?\+]{2,32}$/,
             //tag table fields
             tagName: /^[a-zA-Z \d-_']{2,15}$/,
             tagId: /^[1-9][\d]{0,9}$/
