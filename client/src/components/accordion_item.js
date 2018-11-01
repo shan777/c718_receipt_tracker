@@ -46,10 +46,10 @@ class AccordionItem extends Component {
                         {this.state.data ? this.renderTags(): null}
                         <br/>
                         <div className="deletebtn">
-                            <i onClick={() => this.deleteOpen(item.ID)}  className="material-icons">delete</i>
+                            <i onClick={() => this.props.deleteOpen(this.props.receiptId)}  className="material-icons">delete</i>
                         </div>
                         <div className='editbtn'>
-                            <i className="material-icons" onClick={()=> this.open(index, item.ID, item.total)}>edit</i>
+                            <i className="material-icons" onClick={()=> this.props.open(this.props.index, this.props.receiptId, this.props.total)}>edit</i>
                         </div>
                     </div>
                  </div>
