@@ -75,23 +75,23 @@ class Overveiw extends Component{
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
                     <AccordionItem receiptId={item.ID} className="panel">
                        <div className="panel_size">
-                            <div className="catagory">Merchant:</div>
+                            <div className="category">Merchant:</div>
                             <div className="data">{item.storeName}</div>
                         </div>
                         <div className="panel_size">
-                            <div className="catagory">Date:</div>
+                            <div className="category">Date:</div>
                             <div className="data">{<FormatDate date={item.purchaseDate}/>}</div>
                         </div>
                         <div className="panel_size">
-                            <div className="catagory">Amount:</div>
+                            <div className="category">Amount:</div>
                             <div className="data">${(item.total/100).toFixed(2)}</div>
                         </div>
                         <div className="panel_size">
-                            <div className="catagory">Catagory:</div>
+                            <div className="category">Category:</div>
                             <div className="data">{item.category}</div>
                         </div>
                         <div className="panel_size">
-                            <div className="catagory">Note:</div>
+                            <div className="category">Note:</div>
                             <div className="data">{item.comment}</div>
                         </div>
                         <div className="deletebtn">
@@ -136,8 +136,8 @@ class Overveiw extends Component{
 
         return (
             <div>
-                <Header push={this.props.history.push} title="Overview"/>
-                <div className='overview_main_container'>
+                <Header push={this.props.history.push} title="OVERVIEW"/>
+                <div className="overview_main_container">
                     {this.makeRow()}
                     <div className="summary">
                         <p className="number_of_receipts"><b>{currentUsersReceipts.length}</b> Receipts 

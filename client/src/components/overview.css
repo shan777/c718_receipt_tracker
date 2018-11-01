@@ -26,6 +26,7 @@
         padding-top: 80px;
         background-color: #DEF2F1;
         padding-bottom: 155px;
+        color: #15191b;
     }
     
     .row{
@@ -83,14 +84,14 @@
         margin-top: 10px;
     }
     
-    .catagory, .data{
+    .category, .data{
         display: inline-block;
         width: 50%;
         position: relative;
         font-size: 1.2em;
     }
 
-    .catagory{
+    .category{
         left: 2%;
     }
     
@@ -178,6 +179,7 @@
         padding-bottom: 164px;
         position: relative;
         left: 11%;
+        color: #15191b;
     }
     
     .row{
@@ -231,13 +233,13 @@
         margin-top: 10px;
     }
     
-    .catagory, .data{
+    .category, .data{
         display: inline-block;
         width: 50%;
         position: relative;
         font-size: 1.5em;
     }
-    .catagory{
+    .category{
         left: 0;
     }
     
@@ -326,6 +328,7 @@
         position: relative;
         left: 11%;
         top: 0vh;
+        color: #15191b;
     }
     
     .row{
@@ -335,7 +338,8 @@
         left: 9%;
         cursor: pointer;
         transition: 0.4s;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #15191b;
+        ;
     }
     
     .date_of_purchase, .store_name, .amount_of_purchase{
@@ -363,7 +367,6 @@
         padding-right: 4%;
     }
     
-    
     .panel{
         display: none;
         overflow: hidden;
@@ -380,13 +383,13 @@
         margin-top: 10px;
     }
     
-    .catagory, .data{
+    .category, .data{
         display: inline-block;
         width: 50%;
         position: relative;
         font-size: 2em;
     }
-    .catagory{
+    .category{
         left: 2%;
     }
     
@@ -453,6 +456,7 @@
         left: 11%;
         top: 0vh;
         font-size: 0.7em;
+        color: #15191b;
     }
     
     .row{
@@ -462,7 +466,8 @@
         left: 16%;
         cursor: pointer;
         transition: 0.4s;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #15191b;
+        ;
     }
     
     .date_of_purchase, .store_name, .amount_of_purchase{
@@ -490,7 +495,6 @@
         padding-right: 4%;
     }
     
-    
     .panel{
         display: none;
         overflow: hidden;
@@ -507,13 +511,13 @@
         margin-top: 10px;
     }
     
-    .catagory, .data{
+    .category, .data{
         display: inline-block;
         width: 50%;
         position: relative;
         font-size: 2em;
     }
-    .catagory{
+    .category{
         left: 2%;
     }
     
@@ -587,6 +591,7 @@
         padding-top: 60px;
         background-color: #DEF2F1;
         padding-bottom: 155px;
+        color: #15191b;
     }
 
     .row{
@@ -644,7 +649,7 @@
         margin-top: 10px;
     }
 
-    .catagory, .data{
+    .category, .data{
         display: inline-block;
         width: 50%;
         position: relative;
@@ -678,7 +683,6 @@
         bottom: 5vh;
         opacity: 0;
     }
-
 
     .edit{
         position: relative;

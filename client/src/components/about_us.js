@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link, Route } from 'react-router-dom';
 import './about_us.css';
-import meetTeam from '../assets/images/meet_team_upd.png';
+import meetTeam from '../assets/images/meet_team.png';
 import linkedin_logo from '../assets/images/linkedin_logo.png';
 import github_logo from '../assets/images/github_logo.png';
 import esther from '../assets/images/esther.png';
@@ -27,6 +27,9 @@ class AboutUs extends Component{
                         <a className='link_left' href="https://github.com/valor323" target="_blank">
                             <img src={github_logo} alt="github logo"></img>
                         </a>
+                        <a className='link_center' href="http://www.chasecaine.com" target="_blank">
+                            <i className="material-icons">business_center</i>
+                        </a>
                     </div>
 
                     <div className="top_right">
@@ -38,6 +41,9 @@ class AboutUs extends Component{
                         <a className='link_right' href="https://github.com/esther2180" target="_blank">
                             <img src={github_logo} alt="github logo"></img>
                         </a>
+                        <a className='link_center' href="http://www.esthersuh.tech" target="_blank">
+                            <i className="material-icons">business_center</i>
+                        </a>
                     </div>
 
                     <div className="member_center">
@@ -48,6 +54,9 @@ class AboutUs extends Component{
                         </a>
                         <a className='link_center' href="https://github.com/shan777" target="_blank">
                             <img src={github_logo} alt="github logo"></img>
+                        </a>
+                        <a className='link_center' href="http://www.sarah-han.me" target="_blank">
+                            <i className="material-icons">business_center</i>
                         </a>
                     </div>
                   
@@ -71,6 +80,9 @@ class AboutUs extends Component{
                         </a>
                         <a className='link_right' href="https://github.com/nebevets" target="_blank">
                             <img src={github_logo} alt="github logo"></img>
+                        </a>
+                        <a className='link_center' href="http://www.stevebenedict.net" target="_blank">
+                            <i className="material-icons">business_center</i>
                         </a>
                     </div>
                 </div>

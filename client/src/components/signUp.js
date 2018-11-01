@@ -36,7 +36,7 @@
         }
   
         if(typeof fields["username"] !== "undefined"){
-            if(!fields["username"].match(/^(?=.{4,15}$)(?!.*[_]{2})^[a-zA-Z]\w+(?<![_])$/i)){
+            if(!fields["username"].match(/^(?=.{4,15}$)(?!.*[_]{2})^[a-zA-Z]\w+(?<![_])$/)){
                 formIsValid = false;
                 errors["username"] = "Invalid Username";
             }      	
@@ -112,7 +112,7 @@
             } catch(err) {
                 if(err.response.data.error.code == "ER_DUP_ENTRY") {
                     formIsValid = false;
-                    errors["username"] = `This username exists already.<br/>Try a different username.`;
+                    errors["username"] = `This username exists already.<br/>Please try another username.`;
                     this.setState({errors: errors});
 
                     return formIsValid;

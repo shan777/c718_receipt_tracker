@@ -25,7 +25,6 @@
         width: 70%;
         display: block;
         padding-top: 2%;
-
         margin: auto;
     }
 
@@ -43,7 +42,7 @@
     }
 
     .info {
-        font-size: 0.4em;
+        font-size: 0.7em;
         padding-bottom: 3%;
         color: #ABFFB8;
         text-align: center;
@@ -86,6 +85,10 @@
     .link_center>img {
         width: 25px;
         padding: 2%;
+    }
+
+    .link_center>.material-icons {
+        color: black;
     }
 
 
