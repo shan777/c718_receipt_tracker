@@ -1,3 +1,35 @@
+@keyframes login_squirrel {
+    from {top: 25px;} 
+    to {top: 45px;}
+}
+
+.login_logo_sqr {
+    width: 40%;
+    display: block;
+    position: relative;
+    top: 45px;
+    left: 32%;
+    padding-bottom: 3%;
+    animation-name: login_squirrel;
+    animation-delay: 1s;
+    animation-duration: 0.5s;
+    animation-iteration-count: 3;
+
+}
+
+.login_logo_txt {
+    width: 83%;
+    display: block;
+    position: relative;
+    top: 32px;
+    left: 9%;
+}
+
+.login_container {
+    position: relative;
+    top: 35px;
+}
+
 @media only screen and (max-width: 600px) {
 /* START @media only screen and (max-width: 600px) */
     .login_page_container {
@@ -117,11 +149,6 @@
         text-align: center;
     }
 
-    .forgot_password {
-        color: #98FFA8;
-        font-size: 25px;
-    }
-
     .login_btn {
         background-color: #15191b;
         border: 1px solid #15191b;
@@ -166,20 +193,6 @@
         padding-left: 13%;
     }
 
-    /* .login_area {
-        width: 70%;
-        padding: 0%;
-        margin: 10%;
-        margin-left: 15%;
-    } */
-
-    /* img.login_logo {
-        width: 70%;
-        padding: 0%;
-        margin: 10%;
-        margin-left: 15%;
-    } */
-
     .username {
         background-color: #DEF2F1;
         border: 1px solid #def2f1;
@@ -198,12 +211,6 @@
         text-align: center;
         width: 70%;
     }
-
-    /* .forgot_password {
-        color: #98FFA8;
-        font-size: 25px;
-        padding: 1% 0 1% 0;
-    } */
 
     .login_btn {
         background-color: #15191b;
