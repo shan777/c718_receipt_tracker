@@ -17,10 +17,10 @@ class About extends Component {
             <div>
                 <Header title="ABOUT" />
                 <div className="about_container">
-                    <p><img className="sqr" src={Sqr} alt="sqr logo"/><b>SquirrelReceipts</b> App was created to help people to manage receipts 
-                    by receiving them digitally to this app instead of paper receipts.
-                    <br />Our main goal is to eliminate all paper receipts and receive / access all your receipts in this app. 
-                    You are also helping the environment by reducing waste and killing less trees! :D
+                    <p><img className="sqr" src={Sqr} alt="sqr logo"/><b>SquirrelReceipts</b> App is to help people store and manage 
+                    their receipts by creating a central repository for them.
+                    Our goal is to reduce paper receipts by providing a way to receive them digitally. 
+                    Help create a better environment by reducing paper waste and killing less trees. :)
                     </p>
                     <div className="tech_container">
                         <div className="tech_title"><b><u>TECHNOLOGIES USED</u></b></div><br/>
@@ -48,7 +48,14 @@ class About extends Component {
                                 </tbody>
                             </table>    
                         </div>
-                        <Link to="/overview"><div className="domain"><b><i>www.squirrelreceipts.com</i></b></div></Link>
+                        <div className="etcInfo">
+                        <Link to="/overview">
+                            <div className="domain"><b><i>www.squirrelreceipts.com</i></b>
+                            </div>
+                        </Link>
+                        <br />
+                        <b>Version 2.0.1</b>
+                        </div>
                     </div>
                 </div>
             </div>

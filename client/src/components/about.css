@@ -8,120 +8,125 @@
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 90vh;
+}
+
+.about_container {
+    min-height: 100vh;
+    background-color: #CFEEED;
+    color: #2C3531;
+    margin-top: 9vh;
+    font-family: 'Roboto';
+}
+
+.about_container p {
+    font-size: 16px;
+    padding: 5% 4%;
+    line-height: 1.7;
+    margin-top: 1%;
+}
+
+.about_container>p>b {
+    font-size: 18px;
+}
+
+.tech_container {
+    width: 100vw;
+    margin-top: 5%;
+}
+
+.tech_container p {
+    text-align: center;
+}
+
+.tech_title {
+    text-align: center;
+    font-size: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    text-align: center;
+}
+
+.sqr {
+    float: left;
+    padding-right: 3%;
+}
+
+.imgs {
+    border-radius: 12px;
+    box-shadow: 3px 3px lightgrey;
+    border: 1px solid lightgrey;
+    background-color: white;
+    margin: 0 1%;
+    width: 75px;
+    height: 75px;
+}
+
+.app_container_bottom {
+    margin-top: 1%;
+}
+
+.app_container_bottom .imgs {
+    width: 80px;
+    height: 75px;
+}
+
+.app_container_bottom td:nth-child(1) {
+    text-align: right;
+    padding-right: 1%;
+}
+
+.app_container_bottom td:nth-child(2) {
+    text-align: left;3
+    padding-left: 1%;
+}
+
+.html_logo {
+    padding: 2%;
+}
+
+.css_logo {
+    padding: 1%;
+}
+
+.js_logo {
+    padding: 1%;
+}
+
+.react_logo {
+    padding: 1% 0% 1% 3%;
+}
+
+.mySql_logo {
+    padding: 2%;
+}
+
+.node_logo {
+    padding: 1%;
+}   
+
+div.domain {
+    margin-top: 2%;
+    font-size: 20px;
+    color: #2A9597;
+}
+
+.etcInfo {
+    text-align: center;
+}
+
 @media only screen and (max-width: 600px){
-	* {
-        box-sizing: border-box;
-    }
-    
-    body {
-        margin: 0;
-        min-height: 90vh;
-    }
-    
-    .about_container {
-        min-height: 100vh;
-        background-color: #CFEEED;
-        color: #2C3531;
-        margin-top: 9vh;
-        font-family: 'Roboto';
-    }
-    
-    .tech_container {
-        width: 100vw;
-        margin-top: 7%;
-    }
 
-    .tech_container p {
-        text-align: center;
-    }
-
-    .tech_title {
-        text-align: center;
-        font-size: 20px;
-    }
-    
-    table {
-        width: 100%;
-    }
-
-    td {
-        text-align: center;
-    }
-
-    .sqr {
-        float: left;
-        padding-right: 3%;
-    }
-
-    .imgs {
-        border-radius: 12px;
-        box-shadow: 3px 3px lightgrey;
-        border: 1px solid lightgrey;
-        background-color: white;
-        margin: 0 1%;
-        width: 75px;
-        height: 75px;
-    }
-
-    .app_container_bottom {
-        margin-top: 1%;
-    }
-
-    .app_container_bottom .imgs {
-        width: 80px;
-        height: 75px;
-    }
-
-    .app_container_bottom td:nth-child(1) {
-        text-align: right;
-        padding-right: 1%;
-    }
-
-    .app_container_bottom td:nth-child(2) {
-        text-align: left;3
-        padding-left: 1%;
-    }
-
-    .about_container p {
-        font-size: 16px;
-        padding: 3%;
-        line-height: 1.7;
-    }
-    
-    .about_container>p>b {
-        font-size: 18px;
-    }
-
-    .html_logo {
-        padding: 2%;
-    }
-    
-    .css_logo {
-        padding: 1%;
-    }
-    
-    .js_logo {
-        padding: 1%;
-    }
-    
-    .react_logo {
-        padding: 1% 0% 1% 3%;
-    }
-    
-    .mySql_logo {
-        padding: 2%;
-    }
-    
-    .node_logo {
-        padding: 1%;
-    }   
-    
-    div.domain {
-        margin-top: 2%;
-        font-size: 20px;
-        color: #2A9597;
-        text-align: center;
-    }
 }
 @media only screen and (min-width: 1220px){
 	
