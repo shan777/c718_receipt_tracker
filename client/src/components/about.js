@@ -49,12 +49,12 @@ class About extends Component {
                             </table>    
                         </div>
                         <div className="etcInfo">
-                        <Link to="/overview">
-                            <div className="domain"><b><i>www.squirrelreceipts.com</i></b>
-                            </div>
-                        </Link>
-                        <br />
-                        <b>Version 2.0.1</b>
+                            <Link to="/overview">
+                                <div className="domain"><b><i>www.squirrelreceipts.com</i></b>
+                                </div>
+                            </Link>
+                            <br />
+                            <b>Version 2.0.1</b>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './modal.css';
 import axios from 'axios';
+import Chips from './chips';
 
 class TagModal extends Component{
     constructor(props) {
@@ -121,6 +122,9 @@ class TagModal extends Component{
                         </div>
                     </form>
                 </div>
+            <Chips />          
+      
+
             </div>
         );
     }

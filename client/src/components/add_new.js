@@ -5,7 +5,7 @@ import axios from 'axios';
 import './add_new.css';
 import Modal from './modal';
 import TagModal from './tag_modal';
-
+import Chips from './chips';
 
 class AddNew extends Component {    
     constructor(props) { 
@@ -170,12 +170,15 @@ class AddNew extends Component {
                             </div> 
                         </div>
                    </form>
+                   <Chips/>
                 </div>
                 <Footer/>
                 {
                 (this.state.show) ?
                     <TagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
                     </TagModal>    
+                    // <Chips selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                    // </Chips>
                     : (null)
                 }
             </div>
