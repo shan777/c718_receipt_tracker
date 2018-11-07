@@ -117,7 +117,8 @@ class AddNew extends Component {
                     <form className="form_container" onSubmit={this.handleSubmit}>
                         <div className="btn_container">
                             <button className="cancel_btn" type="reset" value="Cancel" onClick={this.handleCancel}>                            
-                                <i className="material-icons tag_icon">clear</i>
+                                Cancel
+                                {/* <i className="material-icons tag_icon">clear</i> */}
                             </button>
                             <button className="done_btn"  type="submit" value="Done">                                    
                                 Done

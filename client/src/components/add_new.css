@@ -82,7 +82,7 @@
 
     select {
         background-color: rgba(239, 241, 241, 0.904);
-        font-size: 1.1em;
+        font-size: 1em;
     }
 
     option {
@@ -114,8 +114,8 @@
     .cancel_btn {
         margin-left: 3%;
         background-color: #2E3B3B;
-        color: #2C3531;
-        padding: 2% 2.5% 0 1%;
+        color: whitesmoke;
+        /* padding: 2% 2.5% 0 1%; */
         /* font-size: 1.05em; */
         border-radius: 6px;
         border: 2px solid #2C3531;
@@ -128,7 +128,7 @@
         margin-top: 0.5%;
         background-color: rgb(242, 247, 244);
         color: #2C3531;
-        padding: 1%;
+        /* padding: 1%; */
         font-size: 1.05em;
         border-radius: 6px;
         border-color: #2C3531;
@@ -215,7 +215,7 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
 
     select {
         background-color: rgba(239, 241, 241, 0.904);
-        font-size: 1.1em;
+        font-size: 1em;
     }
 
     option {

@@ -51,8 +51,8 @@ class Login extends Component{
         return(
             <div className="login_page_container">
                 <div className="login_logo">
-                    <img className="login_logo_sqr" src={loginLogoSqr} />
-                    <img className="login_logo_txt" src={loginLogoTxt} />
+                    <img className="login_logo_sqr" src={loginLogoSqr} alt="squirrel logo" />
+                    <img className="login_logo_txt" src={loginLogoTxt} alt="squirrel logo text" />
                 </div>
                 <div className="login_container">
                     <form className="login_area" onSubmit={this.handleSubmit}>
