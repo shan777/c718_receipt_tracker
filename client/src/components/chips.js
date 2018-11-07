@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
+import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
-import TagFacesIcon from '@material-ui/icons/TagFaces';
+import TagIcon from '@material-ui/icons/LocalOffer';
+// import TagFacesIcon from '@material-ui/icons/TagFaces';
+import DoneIcon from '@material-ui/icons/Done';
+
 
 const styles = theme => ({
   root: {
@@ -20,19 +24,19 @@ const styles = theme => ({
 class ChipsArray extends Component {
     state = {
         chipData: [
-        { key: 0, label: 'Angular' },
-        { key: 1, label: 'jQuery' },
-        { key: 2, label: 'Polymer' },
-        { key: 3, label: 'React' },
-        { key: 4, label: 'Vue.js' },
+        { key: 0, label: 'reimbursable' },
+        { key: 1, label: 'date' },
+        { key: 2, label: 'sister' },
+        { key: 3, label: 'gift' },
+        { key: 4, label: 'Amberlyn' },
         ],
     };
 
   handleDelete = data => () => {
-    if (data.label === 'React') {
-      alert('Why would you want to delete React?! :)'); // eslint-disable-line no-alert
-      return;
-    }
+    // if (data.label === 'React') {
+    //   alert('Why would you want to delete React?! :)'); // eslint-disable-line no-alert
+    //   return;
+    // }
 
     this.setState(state => {
       const chipData = [...state.chipData];
@@ -48,20 +52,22 @@ class ChipsArray extends Component {
     return (
       <Paper className={classes.root}>
         {this.state.chipData.map(data => {
-          let icon = null;
+          let icon = <TagIcon />;
 
-          if (data.label === 'React') {
-            icon = <TagFacesIcon />;
-          }
+          
 
           return (
             <Chip
+            avatar={<Avatar>{data.label.charAt(0).toUpperCase()}</Avatar>}
               key={data.key}
-              icon={icon}
+            //   icon={icon}
               label={data.label}
               onDelete={this.handleDelete(data)}
               className={classes.chip}
+              deleteIcon={<DoneIcon />}
             />
+            
+            
           );
         })}
       </Paper>

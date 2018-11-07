@@ -97,7 +97,7 @@ class TagModal extends Component{
 
         return (
             <div className="basic_modal">
-                <div className="basic_modal_content">
+                {/* <div className="basic_modal_content">
                     <form onSubmit={this.handleSubmit}>
                         <div className="tag_modal_container">
                             <h2><i className="material-icons tag_icon">local_offer</i>
@@ -121,7 +121,7 @@ class TagModal extends Component{
                             
                         </div>
                     </form>
-                </div>
+                </div> */}
             <Chips />          
       
 
