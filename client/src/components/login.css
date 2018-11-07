@@ -1,10 +1,10 @@
 @keyframes login_squirrel {
     0%   {left:250px; top:50px;}
     22%  { left:230px; top:20px;}
-    40%  { left:210px; top:50px;}
-    66%  { left:190px; top:20px;}
-    83%  { left:170px; top:50px;}
-    100% { left:150px; top:10px;}
+    43%  { left:210px; top:50px;}
+    63%  { left:180px; top:20px;}
+    83%  { left:150px; top:50px;}
+    100% { left:130px; top:35px;}
 }
 
 .login_logo_sqr {
@@ -16,7 +16,7 @@
     padding-bottom: 3%;
     animation-name: login_squirrel;
     animation-delay: 0.5s;
-    animation-duration: 1s;
+    animation-duration: 1.6s;
     animation-iteration-count: 1;
 }
 

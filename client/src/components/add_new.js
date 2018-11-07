@@ -114,10 +114,14 @@ class AddNew extends Component {
             <div>
                 <Header title="ADD NEW"/>
                 <div className="main_container">
-                    <form onSubmit={this.handleSubmit}>
+                    <form className="form_container" onSubmit={this.handleSubmit}>
                         <div className="btn_container">
-                            <button className="cancel_btn" type="reset" value="Cancel" onClick={this.handleCancel}>Cancel</button>
-                            <button className="done_btn"  type="submit" value="Done">Done</button>
+                            <button className="cancel_btn" type="reset" value="Cancel" onClick={this.handleCancel}>                            
+                                <i className="material-icons tag_icon">clear</i>
+                            </button>
+                            <button className="done_btn"  type="submit" value="Done">                                    
+                                Done
+                            </button>
                         </div>    
                         <div className="add_new_form_input_container">
                             <div className="content_container">
@@ -162,23 +166,32 @@ class AddNew extends Component {
                             </div>
 
                             <div className="content_container">
+                            <div className="tag_labelssssssssss">
                                 <label className="tag_label">Tag :</label>
-                                <div className="tag_buttons">
-                                    <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>+</button>
+                                {/* <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}> */}
+                                {/* <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}> */}
+
+                                    <i className="material-icons md-light md-36 custom_tag_icon" tags={this.state.tags} onClick={this.showModal}>add_circle</i>
+                                    {/* <i className="material-icons md-light custom_tag_icon">local_offer</i> */}
+                                    {/* </button> */}
+                            </div>   
+                                <div className="tag_buttons"><Chips/>
+                                    {/* <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
+                                    <i className="material-icons md-light custom_tag_icon">add</i>
+                                    <i className="material-icons md-light custom_tag_icon">local_offer</i>
+                                    </button> */}
                                     {tagName}
                                 </div>
                             </div> 
                         </div>
                    </form>
-                   <Chips/>
+                   
                 </div>
                 <Footer/>
                 {
                 (this.state.show) ?
                     <TagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
                     </TagModal>    
-                    // <Chips selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
-                    // </Chips>
                     : (null)
                 }
             </div>

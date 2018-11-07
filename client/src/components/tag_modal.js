@@ -97,10 +97,10 @@ class TagModal extends Component{
 
         return (
             <div className="basic_modal">
-                {/* <div className="basic_modal_content">
+                 <div className="basic_modal_content">
                     <form onSubmit={this.handleSubmit}>
                         <div className="tag_modal_container">
-                            <h2><i className="material-icons tag_icon">local_offer</i>
+                    {/*        <h2><i className="material-icons tag_icon">local_offer</i>
                                 &nbsp;&nbsp;&nbsp;Select Tags 
                             </h2>
                             <div className="new_tag">
@@ -122,9 +122,15 @@ class TagModal extends Component{
                         </div>
                     </form>
                 </div> */}
-            <Chips />          
-      
-
+                <div className="tag_choices_container">
+            <Chips />     
+            </div>     
+            <br />
+            <button type="button" className="tag_modal_close_btn" onClick={this.props.handleClose}>Cancel</button>
+            <button className="tag_modal_apply_btn">Done</button>
+            </div>
+                    </form>
+                </div>
             </div>
         );
     }
