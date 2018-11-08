@@ -83,15 +83,22 @@ class TagModal extends Component{
     render() {
         const { tags, newTagName } = this.state;
         const tagChoices = Object.keys(tags).map((tagId, index) => {
-            return (<label className="checkbox_label" key={index}>
+            return (
+                <div className="each_tag_container rounded_two" key={index}>
+                    <label className="checkbox_label">
+                        {tags[tagId].tagName}
                         <input 
+                        id="round_two"
                         className="checkbox"
                         name={tagId}
                         type="checkbox"
                         checked={tags[tagId].checked}
                         onChange={this.handleInputChange}
-                        />&nbsp;&nbsp;&nbsp;{tags[tagId].tagName}<br />
+                        />
+                        {/* <span className="checkmark"></span> */}
+                        <br/>
                     </label>
+                </div>
             );
         });
 
@@ -100,37 +107,27 @@ class TagModal extends Component{
                  <div className="basic_modal_content">
                     <form onSubmit={this.handleSubmit}>
                         <div className="tag_modal_container">
-                    {/*        <h2><i className="material-icons tag_icon">local_offer</i>
+                            <div className="tag_header"><i className="material-icons tag_icon">local_offer</i>
                                 &nbsp;&nbsp;&nbsp;Select Tags 
-                            </h2>
-                            <div className="new_tag">
+                            </div>
+                            {/* <div className="new_tag">
                                 <label className="new_tag_label">New Tag :</label>
                                 <input className="new_tag_input" placeholder="new tag name" onChange={ (e) => this.setState({newTagName: e.target.value})}
                                     type="text"
                                     value={newTagName}
                                 />
                                 <i className="add_tag_btn material-icons md-30" onClick={this.handleAddTag}>add_box</i>
-                            </div>
-                            <br/>
+                            </div> */}
                             <div className="tag_choices_container">
                                 {tagChoices}
                             </div>
                             <br />
                             <button type="button" className="tag_modal_close_btn" onClick={this.props.handleClose}>Cancel</button>
                             <button className="tag_modal_apply_btn">Apply</button>
-                            
                         </div>
                     </form>
-                </div> */}
-                <div className="tag_choices_container">
-            <Chips />     
-            </div>     
-            <br />
-            <button type="button" className="tag_modal_close_btn" onClick={this.props.handleClose}>Cancel</button>
-            <button className="tag_modal_apply_btn">Done</button>
-            </div>
-                    </form>
-                </div>
+                </div> 
+
             </div>
         );
     }

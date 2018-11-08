@@ -41,9 +41,10 @@
     }
 
     .input_label {
-        width: 35%;
+        width: 38%;
         height: 30%;;
-        text-align: center;
+        text-align: right;
+        padding-right: 20px;
         display: inline-block;
         word-break: break-word;
     }
@@ -83,6 +84,7 @@
     select {
         background-color: rgba(239, 241, 241, 0.904);
         font-size: 1em;
+        width: 50%;
     }
 
     option {
@@ -90,7 +92,7 @@
     }
 
     .merchant, .note {
-        width: 56%;
+        width: 50%;
     }
 
     .date {
@@ -98,7 +100,7 @@
     }
 
     .amount {
-        width: 35%;
+        width: 46%;
     }
 
     .plus_tag_button {

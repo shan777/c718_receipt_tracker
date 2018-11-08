@@ -4,7 +4,7 @@ import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
 import Modal from './modal';
-import TagModal from './tag_modal';
+import TagModal from './select_tag_modal';
 import Chips from './chips';
 
 class AddNew extends Component {    
@@ -160,31 +160,32 @@ class AddNew extends Component {
 
                             <div className="content_container">
                                 <label className="input_label">Note :</label>
-                                <input className="note" placeholder="Not specified" onChange={ (e) => this.setState({note: e.target.value})}
+                                <input className="note" onChange={ (e) => this.setState({note: e.target.value})}
                                     type="text"
                                     value={note}
                                 />
                             </div>
 
                             <div className="content_container">
-                            <div className="tag_labelssssssssss">
-                                <label className="tag_label">Tag :</label>
-                                {/* <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}> */}
-                                {/* <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}> */}
-
-                                    <i className="material-icons md-light md-36 custom_tag_icon" tags={this.state.tags} onClick={this.showModal}>add_circle</i>
-                                    {/* <i className="material-icons md-light custom_tag_icon">local_offer</i> */}
-                                    {/* </button> */}
+        {/* <div className="tag_labelssssssssss"> */}
+                                <label className="input_label">Tag :</label>
+                                
                             </div>   
-                                <div className="tag_buttons"><Chips/>
-                                    {/* <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
+                                <div className="tag_buttons">
+                                {/* <Chips/> */}
+                                     <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
                                     <i className="material-icons md-light custom_tag_icon">add</i>
                                     <i className="material-icons md-light custom_tag_icon">local_offer</i>
-                                    </button> */}
+                                    </button>
                                     {tagName}
+
+                                    <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
+                                    <i className="material-icons md-light md-36 custom_tag_icon" tags={this.state.tags} onClick={this.showModal}>add_circle</i>
+                                    {/* <i className="material-icons md-light custom_tag_icon">local_offer</i> */} 
+                                </button>
                                 </div>
                             </div> 
-                        </div>
+                        {/* </div> */}
                    </form>
                    
                 </div>
