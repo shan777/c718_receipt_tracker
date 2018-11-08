@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
-import Paper from '@material-ui/core/Paper';
-import TagIcon from '@material-ui/icons/LocalOffer';
-// import TagFacesIcon from '@material-ui/icons/TagFaces';
+// import TagIcon from '@material-ui/icons/LocalOffer';
 import DoneIcon from '@material-ui/icons/Done';
 
 
@@ -32,6 +30,11 @@ class ChipsArray extends Component {
         ],
     };
 
+    handleClick = data => () => {
+        console.log('inside handleClick');
+    }
+
+
   handleDelete = data => () => {
     // if (data.label === 'React') {
     //   alert('Why would you want to delete React?! :)'); // eslint-disable-line no-alert
@@ -50,9 +53,9 @@ class ChipsArray extends Component {
     const { classes } = this.props;
 
     return (
-      <Paper className={classes.root}>
+      <div >
         {this.state.chipData.map(data => {
-          let icon = <TagIcon />;
+          let icon = null;
 
           
 
@@ -62,15 +65,17 @@ class ChipsArray extends Component {
               key={data.key}
             //   icon={icon}
               label={data.label}
+              onClick={this.handleClick(data)}
               onDelete={this.handleDelete(data)}
               className={classes.chip}
               deleteIcon={<DoneIcon />}
+              variant="outlined"
             />
             
             
           );
         })}
-      </Paper>
+      </div>
     );
   }
 }
