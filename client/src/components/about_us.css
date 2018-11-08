@@ -16,7 +16,7 @@
     .about_us_container {
         background-color: #2A9597;
         color: #F2F2F2;
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
         font-family: 'Roboto';
     }
@@ -118,7 +118,7 @@
     .about_us_container {
         background-color: #2A9597;
         color: #F2F2F2;
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
         font-family: 'Roboto';
     }
@@ -230,7 +230,7 @@
     .about_us_container {
         background-color: #2A9597;
         color: #F2F2F2;
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
         font-family: 'Roboto';
     }

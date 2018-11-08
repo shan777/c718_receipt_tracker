@@ -279,7 +279,7 @@
         right: 5%;
     }
     
-    .material-icons{
+    .accordion_icon{
         font-size: 36px;
     }
     .editbtn{
@@ -720,7 +720,7 @@
         display: inline-block;
         position: relative;
     }
-    .material-icons{
+    .accordion_icon{
         font-size:32px;
     }
 

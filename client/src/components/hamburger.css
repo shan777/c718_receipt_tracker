@@ -8,6 +8,12 @@
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
-a {
+.menu_link {
     text-decoration: none;
 }
+
+.menu-icons {
+    vertical-align: bottom !important;
+}
+
+
