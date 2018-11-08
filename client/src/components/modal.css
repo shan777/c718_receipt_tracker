@@ -1,4 +1,4 @@
-
+/* add new page tag modal css - input checkbox */
 .custom_tag_icon {
     color: rgb(241, 136, 16);
 }
@@ -20,17 +20,26 @@
 
 .checkmark {
     position: absolute;
-    top: 0;
-    left: 150px;
-    height: 25px;
-    width: 25px;
+    height: 27px;
+    width: 27px;
     background-color: white;
+    border: 1px teal solid;
+    border-radius: 50%;
+    float: right;
+    vertical-align: middle;
+    left: 73vw;
+    top: 0;
 }
+
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
+
+input[type=checkbox] {
+    display: none;
+  }
 
 /* Show the checkmark when checked */
 .checkbox_label input:checked ~ .checkmark:after {
@@ -39,61 +48,21 @@
 
 /* Style the checkmark/indicator */
 .checkbox_label .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
+    position: absolute;
+    left: 7px;
+    width: 8px;
+    height: 12px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+    float: right;
 }
 
-.rounded_two {
-    width: 28px;
-    height: 28px;
-    position: relative;
-    margin: 20px auto;
-    background: teal;
-    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    border-radius: 50px;
-    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-    label {
-      width: 20px;
-      height: 20px;
-      position: absolute;
-      top: 4px;
-      left: 4px;
-      cursor: pointer;
-      background: linear-gradient(top, #222 0%, #45484d 100%);
-      border-radius: 50px;
-      box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
-      &:after {
-        content: '';
-        width: 9px;
-        height: 5px;
-        position: absolute;
-        top: 5px;
-        left: 4px;
-        border: 3px solid #fcfff4;
-        border-top: none;
-        border-right: none;
-        background: transparent;
-        opacity: 0;
-        transform: rotate(-45deg);
-      }
-      &:hover::after {
-        opacity: 0.3;
-      }
-    }
-    input[type=checkbox] {
-      visibility: hidden;
-      &:checked + label:after {
-        opacity: 1;
-      } 
-    }   
-  }
+
+
+
 
 @media only screen and (min-width: 600px){
     .basic_modal {

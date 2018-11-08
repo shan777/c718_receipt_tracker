@@ -13,6 +13,16 @@
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
+
+.merchant, .amount, .note {
+    background-color: #DEF2F1;
+    box-shadow: none;
+    border-style: none;
+    border-bottom: 1px solid #2A9597 ;
+    border-top-color: none;
+    font-size: 1.1em;
+}
+
 @media only screen and (max-width: 600px){
     .main_container {
         width: 100%;
@@ -66,15 +76,6 @@
     .tag_buttons {
         display: inline-block;
         width: 55%;
-    }
-
-    input {
-        background-color: #DEF2F1;
-        box-shadow: none;
-        border-style: none;
-        border-bottom: 1px solid #2A9597 ;
-        border-top-color: none;
-        font-size: 1.1em;
     }
 
     input:hover {
@@ -200,15 +201,6 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         vertical-align: top;
         display: inline-block;
         word-break: break-word;
-    }
-
-    input {
-        background-color: #DEF2F1;
-        box-shadow: none;
-        border-style: none;
-        border-bottom: 1px solid #2A9597 ;
-        border-top-color: none;
-        font-size: 1.1em;
     }
 
     input:hover {

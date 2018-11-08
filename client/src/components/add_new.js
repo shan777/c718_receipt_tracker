@@ -179,10 +179,10 @@ class AddNew extends Component {
                                     </button>
                                     {tagName}
 
-                                    <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
-                                    <i className="material-icons md-light md-36 custom_tag_icon" tags={this.state.tags} onClick={this.showModal}>add_circle</i>
+                                    {/* <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
+                                    <i className="material-icons md-light md-36 custom_tag_icon" tags={this.state.tags} onClick={this.showModal}>add_circle</i> */}
                                     {/* <i className="material-icons md-light custom_tag_icon">local_offer</i> */} 
-                                </button>
+                                {/* </button> */}
                                 </div>
                             </div> 
                         {/* </div> */}

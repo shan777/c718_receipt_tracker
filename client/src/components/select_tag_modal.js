@@ -84,18 +84,18 @@ class TagModal extends Component{
         const { tags, newTagName } = this.state;
         const tagChoices = Object.keys(tags).map((tagId, index) => {
             return (
-                <div className="each_tag_container rounded_two" key={index}>
+                <div className="each_tag_container" key={index}>
                     <label className="checkbox_label">
                         {tags[tagId].tagName}
                         <input 
-                        id="round_two"
-                        className="checkbox"
-                        name={tagId}
                         type="checkbox"
+                        />
+                        <span 
+                        className="checkmark"
+                        name={tagId}
                         checked={tags[tagId].checked}
                         onChange={this.handleInputChange}
                         />
-                        {/* <span className="checkmark"></span> */}
                         <br/>
                     </label>
                 </div>
