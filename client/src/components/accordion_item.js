@@ -21,12 +21,12 @@ class AccordionItem extends Component {
     renderTags(){
         const data = this.state.data.data.tags;
         if(data.length === 0){
-            return <div className='noTags'>No tags</div>
+            return <div className='noTags'>N/A</div>
         }
-        const render = data.map((item, index) => (
-                <button className="custom_tag" type="button" key={index}><i className="material-icons custom_tag_icon">local_offer</i>{data[index].tagName}</button>
+        const renderTags = data.map((item, index) => (
+            <button className="custom_tag" type="button" key={index}># {data[index].tagName}</button>
         ))
-        return render;
+        return renderTags;
     }
 
 
@@ -41,15 +41,16 @@ class AccordionItem extends Component {
                 <div className="collapsible_header">{title} <i className={`material_icons ${visible && 'open'}`}>View Details</i></div>
                 <div className={`collapsible_body ${visible && 'visible'}`}>{children}
                     <div className="render_panel">
-                        <div className="tag_text">Tags:</div> 
-                        <br/>
+                        {/* <label className="input_label">Tags:</label>  */}
+
+                        <label className="tag_text">Tags:</label> 
+                        <div className="accordion_tag_buttons">
                         {this.state.data ? this.renderTags(): null}
-                        <br/>
-                        <div className="deletebtn">
-                            <i onClick={() => this.props.deleteOpen(this.props.receiptId)}  className="material-icons accordion_icon">delete</i>
                         </div>
-                        <div className='editbtn'>
-                            <i className="material-icons accordion_icon" onClick={()=> this.props.open(this.props.index, this.props.receiptId, this.props.total)}>edit</i>
+
+                        <div className="accordion_buttons_container">
+                            <i className="material-icons accordion_icon delete_btn" onClick={() => this.props.deleteOpen(this.props.receiptId)}>delete</i>
+                            <i className="material-icons accordion_icon edit_btn" onClick={() => this.props.open(this.props.index, this.props.receiptId, this.props.total)}>edit</i>
                         </div>
                     </div>
                  </div>

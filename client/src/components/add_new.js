@@ -127,14 +127,13 @@ class AddNewTag extends Component {
         const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
               
-        const tagName = currentTags.map((tagEntry, index) => 
+        const renderTags = currentTags.map((tagEntry, index) => 
             <button className="custom_tag" type="button" key={index} 
             // style={{display: deletedTag ? 'block' : 'block'}}
             >
-            {tagEntry.tagName} 
-            <i className="material-icons custom_tag_icon">check</i>
+            # {tagEntry.tagName} 
+            {/* <i className="material-icons custom_tag_icon">check</i> */}
             </button>);
-
 
         return (
             <div>
@@ -168,7 +167,6 @@ class AddNewTag extends Component {
                                     required
                                 />
                             </div>
-
                             
                             <div className="content_container">
                                 <label className="input_label">Total :</label>
@@ -195,19 +193,16 @@ class AddNewTag extends Component {
 
                             <div className="content_container">
                                 <label className="input_label">Tag :</label>
-                                <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
-                                    <i className="material-icons drop_down_arrow_icon">arrow_drop_down_circle</i>
-                                </button>
+                                {/* <button className="plus_tag_button" > */}
+                                <i className="material-icons drop_down_arrow_icon" type="button" tags={this.state.tags} onClick={this.showModal}>arrow_drop_down_circle</i>
+                                {/* </button> */}
                                 <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showNewTagModal}>add_box</i>
-                            </div>   
                                 <div className="tag_buttons">
-
-                                    {tagName}
-
+                                    {renderTags}
                                 </div>
-                            </div> 
-                   </form>
-                   
+                            </div>
+                        </div> 
+                    </form>
                 </div>
                 <Footer/>
                 {

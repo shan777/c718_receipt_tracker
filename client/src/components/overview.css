@@ -12,6 +12,22 @@
     font-family: "Roboto";
 }
 
+.category, .tag_text{
+    font-weight: bold;
+    width: 35%;
+    text-align: right;
+}
+
+.tag_text {
+    line-height: 2;
+    display: inline-block;
+}
+
+.panel_size:nth-child(1) {
+    padding-top: 5%;
+}
+
+
 @media only screen and (min-width: 600px){
 
     body{
@@ -86,13 +102,8 @@
     
     .category, .data{
         display: inline-block;
-        width: 50%;
         position: relative;
         font-size: 1.2em;
-    }
-
-    .category{
-        left: 2%;
     }
     
     .data{
@@ -133,36 +144,31 @@
         right: 5%;
     }
     
-    .editbtn{
+    .edit_btn{
         float: right;
         position: relative;
         color: rgb(243, 113, 7);
         top: 0vh;
         padding: 1% 2%;
-        font-size: 1.005em;
-        border-radius: 6px;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-        margin-top: 100px;
     }
     
-    .deletebtn{
+    .delete_btn{
         position: relative;
         float: left;
-        margin-top: 100px;
     }
     
     .render_panel{
         font-size: 1.2em;
     }
       
-    .tag_text{
+    /* .tag_text{
         display: inline-block;
         position: relative;
         right: 1.5%;
     }
-    
-    }
+     */
+}
 
 @media only screen and (min-width: 768px){
     body{
@@ -235,12 +241,8 @@
     
     .category, .data{
         display: inline-block;
-        width: 50%;
         position: relative;
         font-size: 1.5em;
-    }
-    .category{
-        left: 0;
     }
     
     .data{
@@ -282,34 +284,29 @@
     .accordion_icon{
         font-size: 36px;
     }
-    .editbtn{
+    .edit_btn{
         float: right;
         position: relative;
         color: rgb(243, 113, 7);
         top: 0vh;
         padding: 1% 2%;
-        font-size: 1.005em;
-        border-radius: 6px;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-        margin-top: 100px;
     }
     
-    .deletebtn{
+    .delete_btn{
         position: relative;
         float: left;
-        margin-top: 100px;
-    }
+     }
     
     .render_panel{
         font-size: 1.5em;
     }
       
-    .tag_text{
+    /* .tag_text{
         display: inline-block;
         position: relative;
         right: 8%;
-    }
+    } */
 }
 
 @media only screen and (min-width: 992px){
@@ -385,14 +382,10 @@
     
     .category, .data{
         display: inline-block;
-        width: 50%;
         position: relative;
         font-size: 2em;
     }
-    .category{
-        left: 2%;
-    }
-    
+
     .data{
         left: 5%;
     }
@@ -419,24 +412,21 @@
         opacity: 0;
     }
 
-    .editbtn{
+    .edit_btn{
         float: right;
         position: relative;
         color: rgb(243, 113, 7);
         top: 0vh;
         padding: 1% 2%;
-        font-size: 1.005em;
-        border-radius: 6px;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-        margin-top: 100px;
     }
-    .tag_text{
+
+    /* .tag_text{
         display: inline-block;
         position: relative;
         right: 4%;
         font-size: 1.3em;
-    }
+    } */
 }
 
 @media only screen and (min-width: 1220px){
@@ -513,14 +503,10 @@
     
     .category, .data{
         display: inline-block;
-        width: 50%;
         position: relative;
         font-size: 2em;
     }
-    .category{
-        left: 2%;
-    }
-    
+
     .data{
         left: 5%;
     }
@@ -557,24 +543,21 @@
         opacity: 0;
     }
 
-    .editbtn{
+    .edit_btn{
         float: right;
         position: relative;
         color: rgb(243, 113, 7);
         top: 0vh;
         padding: 1% 2%;
-        font-size: 1.005em;
-        border-radius: 6px;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-        margin-top: 100px;
     }
-    .tag_text{
+
+    /* .tag_text{
         display: inline-block;
         position: relative;
         right: 1.5%;
         font-size: 1.3em;
-    }
+    } */
 }
 
 @media only screen and (max-width: 600px){
@@ -651,11 +634,10 @@
 
     .category, .data{
         display: inline-block;
-        width: 50%;
         position: relative;
         font-size: 1.2em;
     }
-
+    
     .data{
         left: 5%;
         font-size: 1.2em;
@@ -693,33 +675,29 @@
         right: 5%;
     }
 
-    .editbtn{
+    .edit_btn{
         float: right;
         position: relative;
         color: rgb(243, 113, 7);
         top: 0vh;
         padding: 1% 2%;
-        font-size: 1.005em;
-        border-radius: 6px;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-        margin-top: 20px;
     }
 
-    .deletebtn{
+    .delete_btn{
         position: relative;
         float: left;
-        margin-top: 20px;
     }
 
     .render_panel{
         font-size: 1.2em;
     }
     
-    .tag_text{
+    /* .tag_text{
         display: inline-block;
         position: relative;
-    }
+    } */
+
     .accordion_icon{
         font-size:32px;
     }
