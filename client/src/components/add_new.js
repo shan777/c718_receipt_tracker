@@ -33,10 +33,9 @@ class AddNewTag extends Component {
         });
     }
 
-    // async componentDidMount(){
-    //     // const login = await axios.post('/api/login', {userName: 'sarahHan', password: 'sarahLfz123'});
-
-    // }
+    async componentDidMount(){
+        // const login = await axios.post('/api/login', {userName: 'sarahHan', password: 'sarahLfz123'});
+    }
      
     clearStates = () => {
         this.setState({
@@ -112,11 +111,15 @@ class AddNewTag extends Component {
         });
     }
 
-    deleteTag = async () => {
-        this.setState({
-            deletedTag: true
-        });
-    }
+    // deleteTag= async (tagId) => {
+    //     this.setState({
+    //         deletedTag: true
+    //     });
+
+    //     const resp = await axios.post('/api/manageTags/deleteTag', {
+    //         tagId: tagId
+    //     });
+    // }
 
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, currentTags, deletedTag} = this.state;
@@ -129,7 +132,7 @@ class AddNewTag extends Component {
             // style={{display: deletedTag ? 'block' : 'block'}}
             >
             {tagEntry.tagName}
-            <i className="material-icons custom_tag_icon" onClick={this.deleteTag}>cancel</i>
+            <i className="material-icons custom_tag_icon">check</i>
             </button>);
 
 
