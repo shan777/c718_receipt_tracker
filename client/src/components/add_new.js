@@ -131,7 +131,7 @@ class AddNewTag extends Component {
             <button className="custom_tag" type="button" key={index} 
             // style={{display: deletedTag ? 'block' : 'block'}}
             >
-            {tagEntry.tagName}
+            {tagEntry.tagName} 
             <i className="material-icons custom_tag_icon">check</i>
             </button>);
 
@@ -196,7 +196,7 @@ class AddNewTag extends Component {
                             <div className="content_container">
                                 <label className="input_label">Tag :</label>
                                 <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
-                                    select<i className="material-icons drop_down_arrow_icon">arrow_drop_down_circle</i>
+                                    <i className="material-icons drop_down_arrow_icon">arrow_drop_down_circle</i>
                                 </button>
                                 <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showNewTagModal}>add_box</i>
                             </div>   

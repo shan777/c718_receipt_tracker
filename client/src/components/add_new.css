@@ -68,17 +68,17 @@ input:focus {
     display: inline-block;
     width: 55%;
     position: relative;
-    left: 40%;
+    left: 37%;
 }
 
 .custom_tag {
-    background-color: #DEF2F1;
+    background-color: #e6fff2;
     border: 1px solid #2A9597;
     color: #2C3531;
     padding: 2% 5%;
     text-align: center;
     text-decoration: none;
-    display: block;
+    display: inline-block;
     margin: 2%;
     cursor: pointer;
     border-radius: 20px;

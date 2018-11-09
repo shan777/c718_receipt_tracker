@@ -69,7 +69,7 @@ input[type=checkbox] {
 
 
 .new_tag {
-    padding: 15% 3%;
+    padding: 8% 3%;
 }
 
 .new_tag_input:focus {
@@ -79,13 +79,13 @@ input[type=checkbox] {
 
 /* add new tag modal cancel button */
 .new_tag+button { 
-    left: 6%;
+    left: 8%;
     width: 20vw;
 }
 
 .tag_modal_add_btn {
     position: relative;
-    left: 35%;
+    left: 40%;
     width: 20vw;
     display: inline-block;
     font-family: 'Original Surfer';
@@ -95,14 +95,14 @@ input[type=checkbox] {
 
 .add_tag_modal_container {
     background-color: #DEF2F1;
-    width: 75%;
+    width: 80%;
     font-weight: bold;
     display: block;
     box-sizing: border-box;
     padding-bottom: 6%;
     position: absolute;
     bottom: -10vh;
-    left: 13vw;
+    left: 10vw;
 }
 
 .add_tag_modal_container .tag_header {
@@ -252,6 +252,7 @@ input[type=checkbox] {
     .new_tag_input {
         width: 90%;
         padding-left: 2%;
+        line-height: 1.8;
         font-size: 0.9em;
         display: inline-block;
         border: 0.5px solid #2A9597;
@@ -427,7 +428,8 @@ input[type=checkbox] {
     .new_tag_input {
         width: 90%;
         padding-left: 2%;
-        font-size: 1.0em;
+        line-height: 1.8;
+        font-size: 0.9em;
         display: inline-block;
         border: 0.5px solid #2A9597;
     }
@@ -606,7 +608,8 @@ input[type=checkbox] {
     .new_tag_input {
         width: 90%;
         padding-left: 2%;
-        font-size: 1.0em;
+        line-height: 1.8;
+        font-size: 0.9em;
         display: inline-block;
         border: 0.5px solid #2A9597;
     }
@@ -790,7 +793,8 @@ input[type=checkbox] {
     .new_tag_input {
         width: 90%;
         padding-left: 2%;
-        font-size: 1.0em;
+        font-size: 0.9em;
+        line-height: 1.8;
         display: inline-block;
         background-color: #DEF2F1;
         border: 0.5px solid #2A9597;
