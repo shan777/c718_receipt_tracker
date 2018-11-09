@@ -127,12 +127,12 @@ class AddNewTag extends Component {
         const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
               
-        const tagName = currentTags.map((tagEntry, index) => 
+        const renderTags = currentTags.map((tagEntry, index) => 
             <button className="custom_tag" type="button" key={index} 
             // style={{display: deletedTag ? 'block' : 'block'}}
             >
-            {tagEntry.tagName} 
-            <i className="material-icons custom_tag_icon">check</i>
+            # {tagEntry.tagName} 
+            {/* <i className="material-icons custom_tag_icon">check</i> */}
             </button>);
 
         return (
@@ -197,29 +197,27 @@ class AddNewTag extends Component {
                                 <i className="material-icons drop_down_arrow_icon" type="button" tags={this.state.tags} onClick={this.showModal}>arrow_drop_down_circle</i>
                                 {/* </button> */}
                                 <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showNewTagModal}>add_box</i>
-                               
                                 <div className="tag_buttons">
-                                    {tagName}
+                                    {renderTags}
                                 </div>
                             </div>
                         </div> 
                     </form>
-                    </div>
-                    <Footer/>
-                    {
-                    (this.state.show) ?
-                        <SelectTagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
-                        </SelectTagModal>    
-                        : (null)
-                    }
-                    {
-                    (this.state.addTagModalShow) ?
-                        <AddTagModal selectTags={this.selectTags} show={this.state.addTagModalShow} handleClose={this.hideAddTagModal} tags={this.state.tags}>
-                        </AddTagModal>    
-                        : (null)
-                    }
                 </div>
-                
+                <Footer/>
+                {
+                (this.state.show) ?
+                    <SelectTagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                    </SelectTagModal>    
+                    : (null)
+                }
+                {
+                (this.state.addTagModalShow) ?
+                    <AddTagModal selectTags={this.selectTags} show={this.state.addTagModalShow} handleClose={this.hideAddTagModal} tags={this.state.tags}>
+                    </AddTagModal>    
+                    : (null)
+                }
+            </div>
         );
     }
 }

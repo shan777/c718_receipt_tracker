@@ -70,7 +70,7 @@ class Overveiw extends Component{
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
                     <AccordionItem receiptId={item.ID} index={index} total={item.total} className="panel" open={this.open} deleteOpen={this.deleteOpen}>
                        <div className="panel_size">
-                            <div className="category">Merchant :</div>
+                        <div className="category">Merchant :</div>
                             <div className="data">{item.storeName}</div>
                         </div>
                         <div className="panel_size">
