@@ -135,7 +135,6 @@ class AddNewTag extends Component {
             <i className="material-icons custom_tag_icon">check</i>
             </button>);
 
-
         return (
             <div>
                 <Header title="ADD NEW"/>
@@ -168,7 +167,6 @@ class AddNewTag extends Component {
                                     required
                                 />
                             </div>
-
                             
                             <div className="content_container">
                                 <label className="input_label">Total :</label>
@@ -195,34 +193,33 @@ class AddNewTag extends Component {
 
                             <div className="content_container">
                                 <label className="input_label">Tag :</label>
-                                <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
-                                    <i className="material-icons drop_down_arrow_icon">arrow_drop_down_circle</i>
-                                </button>
+                                {/* <button className="plus_tag_button" > */}
+                                <i className="material-icons drop_down_arrow_icon" type="button" tags={this.state.tags} onClick={this.showModal}>arrow_drop_down_circle</i>
+                                {/* </button> */}
                                 <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showNewTagModal}>add_box</i>
-                            </div>   
+                               
                                 <div className="tag_buttons">
-
                                     {tagName}
-
                                 </div>
-                            </div> 
-                   </form>
-                   
+                            </div>
+                        </div> 
+                    </form>
+                    </div>
+                    <Footer/>
+                    {
+                    (this.state.show) ?
+                        <SelectTagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                        </SelectTagModal>    
+                        : (null)
+                    }
+                    {
+                    (this.state.addTagModalShow) ?
+                        <AddTagModal selectTags={this.selectTags} show={this.state.addTagModalShow} handleClose={this.hideAddTagModal} tags={this.state.tags}>
+                        </AddTagModal>    
+                        : (null)
+                    }
                 </div>
-                <Footer/>
-                {
-                (this.state.show) ?
-                    <SelectTagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
-                    </SelectTagModal>    
-                    : (null)
-                }
-                {
-                (this.state.addTagModalShow) ?
-                    <AddTagModal selectTags={this.selectTags} show={this.state.addTagModalShow} handleClose={this.hideAddTagModal} tags={this.state.tags}>
-                    </AddTagModal>    
-                    : (null)
-                }
-            </div>
+                
         );
     }
 }

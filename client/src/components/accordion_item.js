@@ -42,7 +42,6 @@ class AccordionItem extends Component {
                 <div className={`collapsible_body ${visible && 'visible'}`}>{children}
                     <div className="render_panel">
                         <div className="tag_text">Tags:</div> 
-                        <br/>
                         {this.state.data ? this.renderTags(): null}
                         <br/>
                         <div className="deletebtn">

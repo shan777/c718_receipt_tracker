@@ -70,25 +70,25 @@ class Overveiw extends Component{
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
                     <AccordionItem receiptId={item.ID} index={index} total={item.total} className="panel" open={this.open} deleteOpen={this.deleteOpen}>
                        <div className="panel_size">
-                            <div className="category">Merchant:</div>
+                            <div className="category">Merchant :</div>
                             <div className="data">{item.storeName}</div>
                         </div>
                         <div className="panel_size">
-                            <div className="category">Date:</div>
+                            <div className="category">Date :</div>
                             <div className="data">{<FormatDate date={item.purchaseDate}/>}</div>
                         </div>
                         <div className="panel_size">
-                            <div className="category">Amount:</div>
+                            <div className="category">Amount :</div>
                             <div className="data">${(item.total/100).toFixed(2)}</div>
                         </div>
                         <div className="panel_size">
-                            <div className="category">Category:</div>
+                            <div className="category">Category :</div>
                             <div className="data">{item.category}</div>
                         </div>
                         <div className="panel_size">
-                            <div className="category">Note:</div>
+                            <div className="category">Note :</div>
                             <div className="data">{item.comment}</div>
-                        </div>                        
+                        </div>                     
                     </AccordionItem>
             </div>
         </Accordion>
@@ -103,11 +103,13 @@ class Overveiw extends Component{
             padding: '52% 20% 20% 20%',
             backgroundSize: 'contain'
         };
+
         if(!this.state.data){
             return(
                 <img src={loadingImg} style={loadingImgStyle}></img>
             );
         }
+
         const currentUsersReceipts = [...this.state.data.data.receipts];
 
         const total = currentUsersReceipts.map(item => item.total);
@@ -119,6 +121,7 @@ class Overveiw extends Component{
             totalAmount = (totalAmount.toFixed(2)/100);
             return totalAmount.toLocaleString();
         }
+
         return (
             <div>
                 <Header push={this.props.history.push} title="OVERVIEW"/>
