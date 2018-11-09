@@ -64,9 +64,13 @@ class Overveiw extends Component{
         const row = currentUsersReceipts.map((item, index) => (
         <Accordion key={index}>
             <div className="row">
-                <div className="store_name">{item.storeName}</div>
+                {(item.storeName).includes('&') && (item.storeName).includes(';') ?
+                <div className="store_name" dangerouslySetInnerHTML={{__html: `${item.storeName}`}}/>
+                 : <div className="store_name">{item.storeName}</div>
+                }
+                
                 <br/>
-        <div className="date_of_purchase">{<FormatDate date={item.purchaseDate}/>}</div>
+                <div className="date_of_purchase">{<FormatDate date={item.purchaseDate}/>}</div>
                 <div className="amount_of_purchase">${(item.total/100).toFixed(2)}</div>
                     <AccordionItem receiptId={item.ID} index={index} total={item.total} className="panel" open={this.open} deleteOpen={this.deleteOpen}>
                        <div className="panel_size">
