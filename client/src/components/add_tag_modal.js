@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './modal.css';
 import axios from 'axios';
-import Chips from './chips';
 
 class AddTagModal extends Component{
     constructor(props) {
@@ -47,20 +46,6 @@ class AddTagModal extends Component{
             tags: tags
         });
     }
-
-    // handleSubmit = (event) => {
-    //     event.preventDefault();
-
-    //     const { tags } = this.state;
-
-    //     const addedTags = Object.keys(tags).map( tagId => {
-    //         return tags[tagId];
-    //     }).filter(tag => tag.checked);
-        
-    //     this.props.selectTags(addedTags);
-
-    //     this.props.handleClose();
-    // } 
 
     handleAddTag = async (event) => {
         event.preventDefault();

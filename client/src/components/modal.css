@@ -227,6 +227,7 @@ input[type=checkbox] {
         position: relative;
         left: 45%;
         padding: 1.5%;
+        width: 20vw;
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
@@ -402,6 +403,7 @@ input[type=checkbox] {
         position: relative;
         left: 45%;
         padding: 1.5%;
+        width: 20vw;
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
@@ -579,6 +581,7 @@ input[type=checkbox] {
     .tag_modal_apply_btn {
         position: relative;
         left: 45%;
+        width: 20vw;
         padding: 1.5%;
         display: inline-block;
         font-family: 'Original Surfer';
@@ -762,6 +765,7 @@ input[type=checkbox] {
         position: relative;
         left: 45%;
         padding: 1.5%;
+        width: 20vw;
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;

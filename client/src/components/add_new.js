@@ -3,11 +3,8 @@ import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
-import Modal from './modal';
 import SelectTagModal from './select_tag_modal';
 import AddTagModal from './add_tag_modal';
-
-import Chips from './chips';
 
 class AddNewTag extends Component {    
     constructor(props) { 
@@ -114,6 +111,10 @@ class AddNewTag extends Component {
         });
     }
 
+    deleteTag = () => {
+
+    }
+
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, currentTags} = this.state;
 
@@ -121,7 +122,12 @@ class AddNewTag extends Component {
             <option key={index} value={option}>{option}</option>);
               
         const tagName = currentTags.map((tagEntry, index) => 
-            <button className="custom_tag" type="button" key={index}><i className="material-icons custom_tag_icon">local_offer</i>{tagEntry.tagName}</button>);
+            <button className="custom_tag" type="button" key={index}>
+            {/* <i className="material-icons custom_tag_icon">local_offer</i> */}
+            {tagEntry.tagName}
+            <i className="material-icons custom_tag_icon" onClick={this.deleteTag}>cancel</i>
+            </button>);
+
 
         return (
             <div>
@@ -181,17 +187,14 @@ class AddNewTag extends Component {
                             </div>
 
                             <div className="content_container">
-
                                 <label className="input_label">Tag :</label>
                                 <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
                                     select<i className="material-icons drop_down_arrow_icon">arrow_drop_down_circle</i>
                                 </button>
                                 <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showNewTagModal}>add_box</i>
-
                             </div>   
                                 <div className="tag_buttons">
-                                {/* <Chips/> */}
-                                    
+
                                     {tagName}
 
                                 </div>

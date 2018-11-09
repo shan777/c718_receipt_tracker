@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import './modal.css';
 import axios from 'axios';
-import Chips from './chips';
 
 class SelectTagModal extends Component{
     constructor(props) {
         super(props);
         this.state = {
             tags: {},
-            newTagName: ''
         };
     
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -62,26 +60,10 @@ class SelectTagModal extends Component{
         this.props.handleClose();
     } 
 
-    handleAddTag = async (event) => {
-        event.preventDefault();
-
-        const { newTagName } = this.state;
-
-        if(newTagName) {
-            const resp = await axios.post('/api/manageTags/addTag', {
-                tagName: newTagName
-            });
-
-            this.createNewTag();
-
-            this.setState({
-                newTagName: ''
-            });
-        }
-    }
+   
 
     render() {
-        const { tags, newTagName } = this.state;
+        const { tags } = this.state;
         const tagChoices = Object.keys(tags).map((tagId, index) => {
             return (
                 <div className="each_tag_container" key={index}>
@@ -89,6 +71,9 @@ class SelectTagModal extends Component{
                         {tags[tagId].tagName}
                         <input 
                         type="checkbox"
+                        name={tagId}
+                        checked={tags[tagId].checked}
+                        onChange={this.handleInputChange}
                         />
                         <span 
                         className="checkmark"
@@ -110,14 +95,7 @@ class SelectTagModal extends Component{
                             <div className="tag_header"><i className="material-icons tag_icon">local_offer</i>
                                 &nbsp;&nbsp;&nbsp;Select Tags 
                             </div>
-                            {/* <div className="new_tag">
-                                <label className="new_tag_label">New Tag :</label>
-                                <input className="new_tag_input" placeholder="new tag name" onChange={ (e) => this.setState({newTagName: e.target.value})}
-                                    type="text"
-                                    value={newTagName}
-                                />
-                                <i className="add_tag_btn material-icons md-30" onClick={this.handleAddTag}>add_box</i>
-                            </div> */}
+                 
                             <div className="tag_choices_container">
                                 {tagChoices}
                             </div>
@@ -127,7 +105,6 @@ class SelectTagModal extends Component{
                         </div>
                     </form>
                 </div> 
-
             </div>
         );
     }
