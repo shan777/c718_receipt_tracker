@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import './add_new.css';
 import Header from './header';
 import Footer from './footer';
 import axios from 'axios';
-import './add_new.css';
 import SelectTagModal from './select_tag_modal';
 import AddTagModal from './add_tag_modal';
 
@@ -22,6 +22,7 @@ class AddNewTag extends Component {
             newTagName: '',
             show: false,
             addTagModalShow: false,
+            deletedTag: false,
             currentTags: []
         }
     }
@@ -32,10 +33,10 @@ class AddNewTag extends Component {
         });
     }
 
-    async componentDidMount(){
-        // const login = await axios.post('/api/login', {userName: 'sarahHan', password: 'sarahLfz123'});
+    // async componentDidMount(){
+    //     // const login = await axios.post('/api/login', {userName: 'sarahHan', password: 'sarahLfz123'});
 
-    }
+    // }
      
     clearStates = () => {
         this.setState({
@@ -111,19 +112,22 @@ class AddNewTag extends Component {
         });
     }
 
-    deleteTag = () => {
-
+    deleteTag = async () => {
+        this.setState({
+            deletedTag: true
+        });
     }
 
     render() {
-        const {merchantName, dateOfPurchase, totalAmount, category, note, currentTags} = this.state;
+        const {merchantName, dateOfPurchase, totalAmount, category, note, currentTags, deletedTag} = this.state;
 
         const categoryChoices = this.categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
               
         const tagName = currentTags.map((tagEntry, index) => 
-            <button className="custom_tag" type="button" key={index}>
-            {/* <i className="material-icons custom_tag_icon">local_offer</i> */}
+            <button className="custom_tag" type="button" key={index} 
+            // style={{display: deletedTag ? 'block' : 'block'}}
+            >
             {tagEntry.tagName}
             <i className="material-icons custom_tag_icon" onClick={this.deleteTag}>cancel</i>
             </button>);
