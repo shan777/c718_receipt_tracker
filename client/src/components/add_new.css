@@ -14,13 +14,18 @@
 }
 
 
-.merchant, .amount, .note {
+option {
+    font-size: 0.95em;
+    background-color: white;
+}
+
+.date, .merchant, .amount, .note {
     background-color: #DEF2F1;
     box-shadow: none;
     border-style: none;
     border-bottom: 1px solid #2A9597 ;
     border-top-color: none;
-    font-size: 1.1em;
+    font-size: 1.05em;
 }
 
 .plus_tag_button {
@@ -47,6 +52,15 @@
     margin-left: 2%;
     color: rgba(31, 34, 32, 0.842);
     border-radius: 5px;
+}
+
+input:hover {
+    border-bottom: 2.5px solid #2A9597;
+}
+
+input:focus {
+    border: 1px solid #2A9597;  
+    background-color: white;
 }
 
 @media only screen and (max-width: 600px){
@@ -102,13 +116,14 @@
     }
 
     select {
-        background-color: rgba(239, 241, 241, 0.904);
+        background-color: #DEF2F1;
         font-size: 1em;
         width: 50%;
     }
 
-    option {
-        font-size: 0.6em;
+    select:focus {
+        border: 1px solid #2A9597;  
+        background-color: white;
     }
 
     .merchant, .note {
@@ -212,17 +227,9 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         word-break: break-word;
     }
 
-    input:hover {
-        border-bottom: 2.5px solid #2A9597;
-    }
-
     select {
         background-color: rgba(239, 241, 241, 0.904);
         font-size: 1em;
-    }
-
-    option {
-        font-size: 0.6em;
     }
 
     .merchant, .note {

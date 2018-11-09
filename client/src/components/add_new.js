@@ -21,7 +21,7 @@ class AddNew extends Component {
             note: '',
             currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
             newTagName: '',
-            selectTagModalShow: false,
+            show: false,
             currentTags: []
         }
     }
@@ -91,17 +91,13 @@ class AddNew extends Component {
         this.props.history.push('/overview');
     }
 
-    showSelectTagModal = () => this.setState({
-        selectTagModalShow: true,
+    showModal = () => this.setState({
+        show: true,
     });
 
-    showAddTagModal = () => this.setState({
-        selectTagModalShow: true,
-    });
-
-    hideSelectTagModal = () => {
+    hideModal = () => {
         this.setState({
-            selectTagModalShow: false
+            show: false
         });
     }
 
@@ -130,6 +126,14 @@ class AddNew extends Component {
                         </div>    
                         <div className="add_new_form_input_container">
                             <div className="content_container">
+                                <label className="input_label">Date :</label>
+                                <input className="date" onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
+                                    type="date"
+                                    value={dateOfPurchase}
+                                />
+                            </div>
+                            
+                            <div className="content_container">
                                 <label className="input_label">Merchant :</label>
                                 <input className="merchant" placeholder="required" onChange={ (e) => this.setState({merchantName: e.target.value})}
                                     type="text"
@@ -139,14 +143,7 @@ class AddNew extends Component {
                                 />
                             </div>
 
-                            <div className="content_container">
-                                <label className="input_label">Date :</label>
-                                <input className="date" onChange={ (e) => this.setState({dateOfPurchase: e.target.value})}
-                                    type="date"
-                                    value={dateOfPurchase}
-                                />
-                            </div>
-
+                            
                             <div className="content_container">
                                 <label className="input_label">Total :</label>
                                 $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
@@ -173,10 +170,10 @@ class AddNew extends Component {
                             <div className="content_container">
 
                                 <label className="input_label">Tag :</label>
-                                <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showSelectTagModal}>
+                                <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
                                     select<i className="material-icons drop_down_arrow_icon">arrow_drop_down_circle</i>
                                 </button>
-                                <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showAddTagModal}>add_box</i>
+                                <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showModal}>add_box</i>
 
                             </div>   
                                 <div className="tag_buttons">
@@ -191,8 +188,8 @@ class AddNew extends Component {
                 </div>
                 <Footer/>
                 {
-                (this.state.selectTagShow) ?
-                    <SelectTagModal selectTags={this.selectTags} selectTagModalShow={this.state.selectTagShow} handleClose={this.hideSelectTagModal} tags={this.state.tags}>
+                (this.state.show) ?
+                    <SelectTagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
                     </SelectTagModal>    
                     : (null)
                 }
