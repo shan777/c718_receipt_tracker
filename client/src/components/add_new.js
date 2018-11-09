@@ -5,9 +5,11 @@ import axios from 'axios';
 import './add_new.css';
 import Modal from './modal';
 import SelectTagModal from './select_tag_modal';
+import AddTagModal from './add_tag_modal';
+
 import Chips from './chips';
 
-class AddNew extends Component {    
+class AddNewTag extends Component {    
     constructor(props) { 
         super(props);
 
@@ -22,6 +24,7 @@ class AddNew extends Component {
             currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
             newTagName: '',
             show: false,
+            addTagModalShow: false,
             currentTags: []
         }
     }
@@ -95,9 +98,19 @@ class AddNew extends Component {
         show: true,
     });
 
+    showNewTagModal = () => this.setState({
+        addTagModalShow: true
+    });
+
     hideModal = () => {
         this.setState({
             show: false
+        });
+    }
+
+    hideAddTagModal = () => {
+        this.setState({
+            addTagModalShow: false
         });
     }
 
@@ -132,7 +145,7 @@ class AddNew extends Component {
                                     value={dateOfPurchase}
                                 />
                             </div>
-                            
+
                             <div className="content_container">
                                 <label className="input_label">Merchant :</label>
                                 <input className="merchant" placeholder="required" onChange={ (e) => this.setState({merchantName: e.target.value})}
@@ -173,7 +186,7 @@ class AddNew extends Component {
                                 <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
                                     select<i className="material-icons drop_down_arrow_icon">arrow_drop_down_circle</i>
                                 </button>
-                                <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showModal}>add_box</i>
+                                <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showNewTagModal}>add_box</i>
 
                             </div>   
                                 <div className="tag_buttons">
@@ -193,9 +206,15 @@ class AddNew extends Component {
                     </SelectTagModal>    
                     : (null)
                 }
+                {
+                (this.state.addTagModalShow) ?
+                    <AddTagModal selectTags={this.selectTags} show={this.state.addTagModalShow} handleClose={this.hideAddTagModal} tags={this.state.tags}>
+                    </AddTagModal>    
+                    : (null)
+                }
             </div>
         );
     }
 }
 
-export default AddNew;
+export default AddNewTag;

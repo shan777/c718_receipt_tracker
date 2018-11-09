@@ -3,7 +3,7 @@ import './modal.css';
 import axios from 'axios';
 import Chips from './chips';
 
-class SelectTagModal extends Component{
+class AddTagModal extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -48,19 +48,19 @@ class SelectTagModal extends Component{
         });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    // handleSubmit = (event) => {
+    //     event.preventDefault();
 
-        const { tags } = this.state;
+    //     const { tags } = this.state;
 
-        const addedTags = Object.keys(tags).map( tagId => {
-            return tags[tagId];
-        }).filter(tag => tag.checked);
+    //     const addedTags = Object.keys(tags).map( tagId => {
+    //         return tags[tagId];
+    //     }).filter(tag => tag.checked);
         
-        this.props.selectTags(addedTags);
+    //     this.props.selectTags(addedTags);
 
-        this.props.handleClose();
-    } 
+    //     this.props.handleClose();
+    // } 
 
     handleAddTag = async (event) => {
         event.preventDefault();
@@ -78,60 +78,38 @@ class SelectTagModal extends Component{
                 newTagName: ''
             });
         }
+        this.props.handleClose();
+
     }
 
     render() {
-        const { tags, newTagName } = this.state;
-        const tagChoices = Object.keys(tags).map((tagId, index) => {
-            return (
-                <div className="each_tag_container" key={index}>
-                    <label className="checkbox_label">
-                        {tags[tagId].tagName}
-                        <input 
-                        type="checkbox"
-                        />
-                        <span 
-                        className="checkmark"
-                        name={tagId}
-                        checked={tags[tagId].checked}
-                        onChange={this.handleInputChange}
-                        />
-                        <br/>
-                    </label>
-                </div>
-            );
-        });
-
+        const { newTagName } = this.state;
+        
         return (
             <div className="basic_modal">
                  <div className="basic_modal_content">
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="tag_modal_container">
+                    <form onSubmit={this.handleAddTag}>
+                        <div className="add_tag_modal_container">
                             <div className="tag_header"><i className="material-icons tag_icon">local_offer</i>
-                                &nbsp;&nbsp;&nbsp;Select Tags 
+                                &nbsp;&nbsp;&nbsp;Add New Tag
                             </div>
-                            {/* <div className="new_tag">
-                                <label className="new_tag_label">New Tag :</label>
-                                <input className="new_tag_input" placeholder="new tag name" onChange={ (e) => this.setState({newTagName: e.target.value})}
+                            <div className="new_tag">
+                                <label className="new_tag_label">
+                                <input className="new_tag_input" placeholder="Enter new tag name" onChange={ (e) => this.setState({newTagName: e.target.value})}
                                     type="text"
                                     value={newTagName}
                                 />
-                                <i className="add_tag_btn material-icons md-30" onClick={this.handleAddTag}>add_box</i>
-                            </div> */}
-                            <div className="tag_choices_container">
-                                {tagChoices}
+                                </label>
                             </div>
-                            <br />
+
                             <button type="button" className="tag_modal_close_btn" onClick={this.props.handleClose}>Cancel</button>
-                            <button className="tag_modal_apply_btn">Apply</button>
+                            <button className="tag_modal_add_btn">Add</button>
                         </div>
                     </form>
                 </div> 
-
             </div>
         );
     }
 }
 
-export default SelectTagModal;
-
+export default AddTagModal;

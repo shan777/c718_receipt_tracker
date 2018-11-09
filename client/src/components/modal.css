@@ -68,7 +68,50 @@ input[type=checkbox] {
 
 
 
+.new_tag {
+    padding: 15% 3%;
+}
 
+.new_tag_input:focus {
+    background-color: white;
+    border-bottom: 2px solid #2A9597;
+}
+
+/* add new tag modal cancel button */
+.new_tag+button { 
+    left: 6%;
+    width: 20vw;
+}
+
+.tag_modal_add_btn {
+    position: relative;
+    left: 35%;
+    width: 20vw;
+    display: inline-block;
+    font-family: 'Original Surfer';
+    cursor: pointer;
+    padding: 1.5%;
+}
+
+.add_tag_modal_container {
+    background-color: #DEF2F1;
+    width: 75%;
+    font-weight: bold;
+    display: block;
+    box-sizing: border-box;
+    padding-bottom: 6%;
+    position: absolute;
+    bottom: -10vh;
+    left: 13vw;
+}
+
+.add_tag_modal_container .tag_header {
+    background-color: #2A9597;
+    color: #F2F2F2;
+    font-family: 'Roboto Bold';
+    padding: 2% 0 2% 9%;
+    font-size: 1.3em;
+}
 
 @media only screen and (min-width: 600px){
     .basic_modal {
@@ -139,7 +182,7 @@ input[type=checkbox] {
         font-weight: bold;
         display: block;
         box-sizing: border-box;
-        padding-bottom: 3%;
+        padding-bottom: 6%;
         position: relative;
         top: -25px;
     }
@@ -202,17 +245,15 @@ input[type=checkbox] {
         height: 30%;;
         text-align: center;
         font-size: 1.3em;
-        padding: 1% 2% 1% 4%;
+        padding: 1% 5% 1% 4%;
     }
 
     .new_tag_input {
-        width: 40%;
-        font-size: 1.2em;
-        display: inline-block;
-    }
-
-    .add_tag_btn {
+        width: 90%;
+        padding-left: 2%;
         font-size: 0.9em;
+        display: inline-block;
+        border: 0.5px solid #2A9597;
     }
 
     .sure{
@@ -237,9 +278,6 @@ input[type=checkbox] {
         overflow: scroll;
     }
 
-    .new_tag {
-        padding-bottom: 1.5%;
-    }
 }
 
 
@@ -318,7 +356,7 @@ input[type=checkbox] {
         font-weight: bold;
         display: block;
         box-sizing: border-box;
-        padding-bottom: 3%;
+        padding-bottom: 6%;
         position: relative;
         top: -25px;
     }
@@ -381,13 +419,15 @@ input[type=checkbox] {
         height: 30%;;
         text-align: center;
         font-size: 1.3em;
-        padding: 1% 2% 1% 4%;
+        padding: 1% 5% 1% 4%;
     }
 
     .new_tag_input {
-        width: 40%;
-        font-size: 1.2em;
+        width: 90%;
+        padding-left: 2%;
+        font-size: 1.0em;
         display: inline-block;
+        border: 0.5px solid #2A9597;
     }
 
     .add_tag_btn {
@@ -417,9 +457,6 @@ input[type=checkbox] {
         overflow: scroll;
     }
 
-    .new_tag {
-        padding-bottom: 1.5%;
-    }
 }
 
 @media only screen and (min-width: 1220px){
@@ -496,7 +533,7 @@ input[type=checkbox] {
         font-weight: bold;
         display: block;
         box-sizing: border-box;
-        padding-bottom: 3%;
+        padding-bottom: 6%;
         position: relative;
         top: -25px;
         left: 430px;
@@ -560,13 +597,15 @@ input[type=checkbox] {
         height: 30%;;
         text-align: center;
         font-size: 1.3em;
-        padding: 1% 2% 1% 4%;
+        padding: 1% 5% 1% 4%;
     }
 
     .new_tag_input {
-        width: 35%;
-        font-size: 1.2em;
+        width: 90%;
+        padding-left: 2%;
+        font-size: 1.0em;
         display: inline-block;
+        border: 0.5px solid #2A9597;
     }
 
     .add_tag_btn {
@@ -597,9 +636,6 @@ input[type=checkbox] {
         overflow-x: hidden;
     }
 
-    .new_tag {
-        padding-left: 13%;
-    }
 }
 
 @media only screen and (max-width: 600px){
@@ -680,7 +716,7 @@ input[type=checkbox] {
         font-weight: bold;
         display: block;
         box-sizing: border-box;
-        padding-bottom: 3%;
+        padding-bottom: 6%;
         position: relative;
         top: -25px;
     }
@@ -744,14 +780,18 @@ input[type=checkbox] {
         height: 30%;;
         text-align: center;
         font-size: 1.3em;
-        padding: 1% 2% 1% 4%;
+        padding: 1% 5% 1% 4%;
     }
 
     .new_tag_input {
-        width: 40%;
-        font-size: 1.2em;
+        width: 90%;
+        padding-left: 2%;
+        font-size: 1.0em;
         display: inline-block;
+        background-color: #DEF2F1;
+        border: 0.5px solid #2A9597;
     }
+
 
     .add_tag_btn {
         font-size: 0.9em;
@@ -779,8 +819,5 @@ input[type=checkbox] {
         overflow: scroll;
     }
 
-    .new_tag {
-        padding-bottom: 1.5%;
-    }
 }
 
