@@ -13,6 +13,91 @@
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
+
+option {
+    font-size: 0.95em;
+    background-color: white;
+}
+
+.date, .merchant, .amount, .note {
+    background-color: #DEF2F1;
+    box-shadow: none;
+    border-style: none;
+    border-bottom: 1px solid #2A9597 ;
+    border-top-color: none;
+    font-size: 1.05em;
+}
+
+.plus_tag_button {
+    background-color: #DEF2F1;
+    border: 0.5px solid #2A9597;
+    color: rgba(44, 53, 49, 0.747);
+    width: 40%;
+    vertical-align: middle;
+    font-family: 'Roboto';
+    text-align: left;
+    padding-left: 2%;
+}
+
+.drop_down_arrow_icon {
+    float: right;
+    line-height: 1.1;
+    font-size: 1.39em;
+    color: rgba(31, 34, 32, 0.842);
+}
+
+.add_tag_icon {
+    font-size: 1.9em;
+    vertical-align: middle;
+    margin-left: 2%;
+    color: rgba(31, 34, 32, 0.842);
+    border-radius: 5px;
+}
+
+input:hover {
+    border-bottom: 2.5px solid #2A9597;
+}
+
+input:focus {
+    border: 1px solid #2A9597;  
+    background-color: white;
+}
+
+
+.tag_buttons {
+    display: inline-block;
+    width: 55%;
+    position: relative;
+    left: 37%;
+}
+
+.custom_tag {
+    background-color: #e6fff2;
+    border: 1px solid #2A9597;
+    color: #2C3531;
+    padding: 2% 5%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2%;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.content_container:nth-child(6) {
+    background-color: #DEF2F1;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+    box-sizing: border-box;
+    line-height: 0.15em;
+}
+
+
+
+
+
 @media only screen and (max-width: 600px){
     .main_container {
         width: 100%;
@@ -41,28 +126,19 @@
     }
 
     .input_label {
-        width: 35%;
+        width: 38%;
         height: 30%;;
-        text-align: center;
+        text-align: right;
+        padding-right: 20px;
         display: inline-block;
         word-break: break-word;
     }
 
     .tag_label {
-        width: 35%;
         height: 30%;;
         text-align: center;
-        vertical-align: top;
-        display: inline-block;
+        display: block;
         word-break: break-word;
-    }
-    input {
-        background-color: #DEF2F1;
-        box-shadow: none;
-        border-style: none;
-        border-bottom: 1px solid #2A9597 ;
-        border-top-color: none;
-        font-size: 1.1em;
     }
 
     input:hover {
@@ -70,16 +146,18 @@
     }
 
     select {
-        background-color: rgba(239, 241, 241, 0.904);
-        font-size: 1.1em;
+        background-color: #DEF2F1;
+        font-size: 1em;
+        width: 50%;
     }
 
-    option {
-        font-size: 0.6em;
+    select:focus {
+        border: 1px solid #2A9597;  
+        background-color: white;
     }
 
     .merchant, .note {
-        width: 56%;
+        width: 50%;
     }
 
     .date {
@@ -87,62 +165,52 @@
     }
 
     .amount {
-        width: 35%;
-    }
-
-    .plus_tag_button {
-        font-size: 1.5em;
-        font-weight: bolder;
-        padding: 0 3%;
-        background-color: rgb(187, 195, 202);
-        border: 0.5px solid #2C3531;
-        border-radius: 20%;
-    }
-
-    .tag_buttons {
-        display: inline-block;
-        width: 55%;
+        width: 46%;
     }
 
     .cancel_btn {
-        margin-left: 2%;
-        background-color: #C9CED2;
-        color: #2C3531;
-        padding: 1% 2%;
-        font-size: 1.005em;
+        margin-left: 3%;
+        background-color: #2E3B3B;
+        color: whitesmoke;
+        padding: 1.5%;
         border-radius: 6px;
         border: 2px solid #2C3531;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
     }
 
     .done_btn {
         float: right;
-        margin-right: 2%;
-        background-color: #2E3B3B;
-        color: #F2F2F2;
-        padding: 1% 2%;
+        margin-right: 3%;
+        margin-top: 0.5%;
+        background-color: rgb(242, 247, 244);
+        color: #2C3531;
+        padding: 1.5%;
         font-size: 1.05em;
         border-radius: 6px;
         border-color: #2C3531;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
     }
 
     .btn_container {
         width: 100%;
         background-color: #D9DDE1;
-        padding: 2% 0;
+        padding: 1.2% 0;
         font-weight: bold;
         font-family: 'Original Surfer';
         margin-bottom: 5%;
+        border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
     }
 
     .add_new_form_input_container {
         overflow-y: scroll;
-        max-height: 64vh;
+        max-height: 71vh; 
     }
-} /* end of @media only screen and (max-width: 600px) */
+} /* end of @media only screen and (max-width: 600px) 
+
+add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHONE X 
+71VH IS CUSTOM SIZE FOR IPHONE 6/7/8
+
+*/
 
 
 @media only screen and (min-width: 1220px){
@@ -188,26 +256,9 @@
         word-break: break-word;
     }
 
-    input {
-        background-color: #DEF2F1;
-        box-shadow: none;
-        border-style: none;
-        border-bottom: 1px solid #2A9597 ;
-        border-top-color: none;
-        font-size: 1.1em;
-    }
-
-    input:hover {
-        border-bottom: 2.5px solid #2A9597;
-    }
-
     select {
         background-color: rgba(239, 241, 241, 0.904);
-        font-size: 1.1em;
-    }
-
-    option {
-        font-size: 0.6em;
+        font-size: 1em;
     }
 
     .merchant, .note {
@@ -222,25 +273,11 @@
         width: 35%;
     }
 
-    .plus_tag_button {
-        font-size: 1.5em;
-        font-weight: bolder;
-        padding: 0 3%;
-        background-color: rgb(187, 195, 202);
-        border: 0.5px solid #2C3531;
-        border-radius: 20%;
-    }
-
-    .tag_buttons {
-        display: inline-block;
-        width: 55%;
-    }
-
     .cancel_btn {
         margin-left: 20%;
         background-color: #C9CED2;
         color: #2C3531;
-        padding: 1% 2%;
+        padding: 1.5%;
         font-size: 1.005em;
         border-radius: 6px;
         border: 2px solid #2C3531;
@@ -253,7 +290,7 @@
         margin-right: 30%;
         background-color: #2E3B3B;
         color: #F2F2F2;
-        padding: 1% 2%;
+        padding: 1.5%;
         font-size: 1.05em;
         border-radius: 6px;
         border-color: #2C3531;

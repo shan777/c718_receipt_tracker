@@ -10,6 +10,12 @@
 
 .menu_link {
     text-decoration: none;
+    text-align: left;
+}
+
+.menu_link+p {
+    text-decoration: none;
+    text-align: left;
 }
 
 .menu-icons {

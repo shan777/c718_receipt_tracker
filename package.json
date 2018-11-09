@@ -21,10 +21,14 @@
   },
   "homepage": "https://github.com/nebevets/mern_example#readme",
   "dependencies": {
+    "@material-ui/core": "^3.4.0",
+    "@material-ui/icons": "^3.0.1",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.4",

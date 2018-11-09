@@ -20,7 +20,7 @@ class About extends Component {
                     <p><img className="sqr" src={Sqr} alt="sqr logo"/><b>SquirrelReceipts</b> App is to help people store and manage 
                     their receipts by creating a central repository for them.
                     Our goal is to reduce paper receipts by providing a way to receive them digitally. 
-                    Help create a better environment by reducing paper waste and killing less trees. :)
+                    Help create a better environment by reducing paper waste and killing less trees.
                     </p>
                     <div className="tech_container">
                         <div className="tech_title"><b><u>TECHNOLOGIES USED</u></b></div><br/>
@@ -49,12 +49,12 @@ class About extends Component {
                             </table>    
                         </div>
                         <div className="etcInfo">
-                        <Link to="/overview">
-                            <div className="domain"><b><i>www.squirrelreceipts.com</i></b>
-                            </div>
-                        </Link>
-                        <br />
-                        <b>Version 2.0.1</b>
+                            <Link to="/overview">
+                                <div className="domain"><b><i>www.squirrelreceipts.com</i></b>
+                                </div>
+                            </Link>
+                            <br />
+                            <b>Version 2.0.1</b>
                         </div>
                     </div>
                 </div>

@@ -126,5 +126,5 @@ class Modal extends Component{
         return
 }
 
-    export default Modal;
+export default Modal;
 

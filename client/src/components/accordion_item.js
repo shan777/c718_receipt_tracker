@@ -34,7 +34,7 @@ class AccordionItem extends Component {
     render(){
         const { children, title } = this.props;
         const { visible } = this.state;
-        console.log('data:', this.state.data);
+        // console.log('data:', this.state.data);
         
         return (
             <li className="accordion_item" onClick={this.toggleVisible.bind(this)}>

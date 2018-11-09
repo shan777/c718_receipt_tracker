@@ -70,6 +70,9 @@ class AboutUs extends Component{
                         <a className='link_left' href="https://github.com/kylepamintuan" target="_blank">
                             <img src={github_logo} alt="github logo"></img>
                         </a>
+                        <a className='link_center' href="http://www.kylep.tech" target="_blank">
+                            <i className="material-icons">business_center</i>
+                        </a>
                     </div>
 
                     <div className="member_bottom_right">

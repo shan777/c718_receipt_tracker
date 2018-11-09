@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import './modal.css';
 import axios from 'axios';
 
-class TagModal extends Component{
+class SelectTagModal extends Component{
     constructor(props) {
         super(props);
         this.state = {
             tags: {},
-            newTagName: ''
         };
     
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -61,70 +60,55 @@ class TagModal extends Component{
         this.props.handleClose();
     } 
 
-    handleAddTag = async (event) => {
-        event.preventDefault();
-
-        const { newTagName } = this.state;
-
-        if(newTagName) {
-            const resp = await axios.post('/api/manageTags/addTag', {
-                tagName: newTagName
-            });
-
-            this.createNewTag();
-
-            this.setState({
-                newTagName: ''
-            });
-        }
-    }
+   
 
     render() {
-        const { tags, newTagName } = this.state;
+        const { tags } = this.state;
         const tagChoices = Object.keys(tags).map((tagId, index) => {
-            return (<label className="checkbox_label" key={index}>
+            return (
+                <div className="each_tag_container" key={index}>
+                    <label className="checkbox_label">
+                        {tags[tagId].tagName}
                         <input 
-                        className="checkbox"
-                        name={tagId}
                         type="checkbox"
+                        name={tagId}
                         checked={tags[tagId].checked}
                         onChange={this.handleInputChange}
-                        />&nbsp;&nbsp;&nbsp;{tags[tagId].tagName}<br />
+                        />
+                        <span 
+                        className="checkmark"
+                        name={tagId}
+                        checked={tags[tagId].checked}
+                        onChange={this.handleInputChange}
+                        />
+                        <br/>
                     </label>
+                </div>
             );
         });
 
         return (
             <div className="basic_modal">
-                <div className="basic_modal_content">
+                 <div className="basic_modal_content">
                     <form onSubmit={this.handleSubmit}>
                         <div className="tag_modal_container">
-                            <h2><i className="material-icons tag_icon">local_offer</i>
+                            <div className="tag_header"><i className="material-icons tag_icon">local_offer</i>
                                 &nbsp;&nbsp;&nbsp;Select Tags 
-                            </h2>
-                            <div className="new_tag">
-                                <label className="new_tag_label">New Tag :</label>
-                                <input className="new_tag_input" placeholder="new tag name" onChange={ (e) => this.setState({newTagName: e.target.value})}
-                                    type="text"
-                                    value={newTagName}
-                                />
-                                <i className="add_tag_btn material-icons md-30" onClick={this.handleAddTag}>add_box</i>
                             </div>
-                            <br/>
+                 
                             <div className="tag_choices_container">
                                 {tagChoices}
                             </div>
                             <br />
                             <button type="button" className="tag_modal_close_btn" onClick={this.props.handleClose}>Cancel</button>
                             <button className="tag_modal_apply_btn">Apply</button>
-                            
                         </div>
                     </form>
-                </div>
+                </div> 
             </div>
         );
     }
 }
 
-export default TagModal;
+export default SelectTagModal;
 

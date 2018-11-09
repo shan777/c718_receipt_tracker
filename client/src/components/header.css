@@ -16,8 +16,8 @@
         font-family: 'Roboto Bold';
         height: 70px;
         font-size: 6em;
-        padding-left: 20%;
-        text-align: left;
+        /* padding-left: 20%; */
+        text-align: center;
         top: 0;
         width: 100%;
         z-index: 1;
@@ -62,7 +62,7 @@
         /* height: 80px; */
         font-size: 3em;
         padding-left: 20%;
-        text-align: left;
+        text-align: center;
         top: 0;
         width: 100%;
         z-index: 1;
@@ -103,11 +103,10 @@
     .headContainer {
         background-color: #2A9597;
         color: #F2F2F2;
-        /* font-family: 'Roboto Bold'; */
         height: 60px;
-        font-size: 1.8em;
-        padding: 1% 0 1% 10%;
-        text-align: left;
+        font-size: 1.7em;
+        padding: 1.5% 0;
+        text-align: center;
         top: 0;
         width: 100%;
         z-index: 1;
