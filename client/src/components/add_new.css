@@ -23,6 +23,32 @@
     font-size: 1.1em;
 }
 
+.plus_tag_button {
+    background-color: #DEF2F1;
+    border: 0.5px solid #2A9597;
+    color: rgba(44, 53, 49, 0.747);
+    width: 40%;
+    vertical-align: middle;
+    font-family: 'Roboto';
+    text-align: left;
+    padding-left: 2%;
+}
+
+.drop_down_arrow_icon {
+    float: right;
+    line-height: 1.1;
+    font-size: 1.39em;
+    color: rgba(31, 34, 32, 0.842);
+}
+
+.add_tag_icon {
+    font-size: 1.9em;
+    vertical-align: middle;
+    margin-left: 2%;
+    color: rgba(31, 34, 32, 0.842);
+    border-radius: 5px;
+}
+
 @media only screen and (max-width: 600px){
     .main_container {
         width: 100%;
@@ -65,13 +91,6 @@
         display: block;
         word-break: break-word;
     }
-    
-    .tag_labelssssssssss {
-        display: inline-block;
-        width: 35%;
-        text-align: center;
-        vertical-align: top;
-    }
 
     .tag_buttons {
         display: inline-block;
@@ -102,16 +121,6 @@
 
     .amount {
         width: 46%;
-    }
-
-    .plus_tag_button {
-        /* font-size: 1.5em; */
-        font-weight: bolder;
-        padding: 0 3%;
-        background-color: #DEF2F1;
-        border: 0.5px solid #2C3531;
-        border-radius: 20%;       
-        color: rgb(241, 136, 16);
     }
 
     .cancel_btn {
@@ -226,16 +235,6 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
 
     .amount {
         width: 35%;
-    }
-
-    .plus_tag_button {
-        font-size: 1.5em;
-        font-weight: bolder;
-        padding: 0 3%;
-        background-color: #DEF2F1;
-        border: 0.5px solid #2C3531;
-        border-radius: 20%;
-        /* color: rgb(33, 131, 133); */
     }
 
     .tag_buttons {

@@ -4,7 +4,7 @@ import Footer from './footer';
 import axios from 'axios';
 import './add_new.css';
 import Modal from './modal';
-import TagModal from './select_tag_modal';
+import SelectTagModal from './select_tag_modal';
 import Chips from './chips';
 
 class AddNew extends Component {    
@@ -21,7 +21,7 @@ class AddNew extends Component {
             note: '',
             currentDisplayedUserID: this.props.match ? this.props.match.params.userID : 2,
             newTagName: '',
-            show: false,
+            selectTagModalShow: false,
             currentTags: []
         }
     }
@@ -91,13 +91,17 @@ class AddNew extends Component {
         this.props.history.push('/overview');
     }
 
-    showModal = () => this.setState({
-        show: true,
+    showSelectTagModal = () => this.setState({
+        selectTagModalShow: true,
     });
 
-    hideModal = () => {
+    showAddTagModal = () => this.setState({
+        selectTagModalShow: true,
+    });
+
+    hideSelectTagModal = () => {
         this.setState({
-            show: false
+            selectTagModalShow: false
         });
     }
 
@@ -127,7 +131,7 @@ class AddNew extends Component {
                         <div className="add_new_form_input_container">
                             <div className="content_container">
                                 <label className="input_label">Merchant :</label>
-                                <input className="merchant" placeholder="Required" onChange={ (e) => this.setState({merchantName: e.target.value})}
+                                <input className="merchant" placeholder="required" onChange={ (e) => this.setState({merchantName: e.target.value})}
                                     type="text"
                                     value={merchantName}
                                     name={merchantName}
@@ -167,33 +171,29 @@ class AddNew extends Component {
                             </div>
 
                             <div className="content_container">
-        {/* <div className="tag_labelssssssssss"> */}
+
                                 <label className="input_label">Tag :</label>
-                                
+                                <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showSelectTagModal}>
+                                    select<i className="material-icons drop_down_arrow_icon">arrow_drop_down_circle</i>
+                                </button>
+                                <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showAddTagModal}>add_box</i>
+
                             </div>   
                                 <div className="tag_buttons">
                                 {/* <Chips/> */}
-                                     <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
-                                    <i className="material-icons md-light custom_tag_icon">add</i>
-                                    <i className="material-icons md-light custom_tag_icon">local_offer</i>
-                                    </button>
+                                    
                                     {tagName}
 
-                                    {/* <button className="plus_tag_button" type="button" tags={this.state.tags} onClick={this.showModal}>
-                                    <i className="material-icons md-light md-36 custom_tag_icon" tags={this.state.tags} onClick={this.showModal}>add_circle</i> */}
-                                    {/* <i className="material-icons md-light custom_tag_icon">local_offer</i> */} 
-                                {/* </button> */}
                                 </div>
                             </div> 
-                        {/* </div> */}
                    </form>
                    
                 </div>
                 <Footer/>
                 {
-                (this.state.show) ?
-                    <TagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
-                    </TagModal>    
+                (this.state.selectTagShow) ?
+                    <SelectTagModal selectTags={this.selectTags} selectTagModalShow={this.state.selectTagShow} handleClose={this.hideSelectTagModal} tags={this.state.tags}>
+                    </SelectTagModal>    
                     : (null)
                 }
             </div>

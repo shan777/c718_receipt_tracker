@@ -1,3 +1,9 @@
+.tag_icon {
+    color: white;
+    width: 20px;
+    height: 20px;
+}
+
 /* add new page tag modal css - input checkbox */
 .custom_tag_icon {
     color: rgb(241, 136, 16);
@@ -183,11 +189,6 @@ input[type=checkbox] {
         cursor: pointer;
     }
 
-    .tag_icon {
-        color: rgba(234, 239, 243, 0.925);
-        width: 20px;
-        height: 20px;
-    }
 
     .custom_tag {
         background-color: #DEF2F1;
@@ -368,12 +369,6 @@ input[type=checkbox] {
         cursor: pointer;
     }
 
-    .tag_icon {
-        color: rgba(234, 239, 243, 0.925);
-        width: 20px;
-        height: 20px;
-    }
-
     .custom_tag {
         background-color: #DEF2F1;
         font-family: 'Roberto';
@@ -551,12 +546,6 @@ input[type=checkbox] {
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
-    }
-
-    .tag_icon {
-        color: rgba(234, 239, 243, 0.925);
-        width: 20px;
-        height: 20px;
     }
 
     .custom_tag {
@@ -742,11 +731,6 @@ input[type=checkbox] {
         cursor: pointer;
     }
 
-    .tag_icon {
-        color: rgba(234, 239, 243, 0.925);
-        width: 20px;
-        height: 20px;
-    }
 
     .custom_tag {
         background-color: #DEF2F1;
