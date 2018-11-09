@@ -48,7 +48,7 @@ class AccordionItem extends Component {
                         {this.state.data ? this.renderTags(): null}
                         </div>
 
-                        <div>
+                        <div className="accordion_buttons_container">
                             <i className="material-icons accordion_icon delete_btn" onClick={() => this.props.deleteOpen(this.props.receiptId)}>delete</i>
                             <i className="material-icons accordion_icon edit_btn" onClick={() => this.props.open(this.props.index, this.props.receiptId, this.props.total)}>edit</i>
                         </div>

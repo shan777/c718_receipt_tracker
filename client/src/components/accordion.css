@@ -1,7 +1,3 @@
-/* .accordion_container .collapsible_body {
-    background-color: rgba(255, 255, 255, 0.445);;
-} */
-
 .accordion_container .collapsible_body.visible {
     border-top: 0.5px dotted silver;
 }
@@ -12,6 +8,10 @@
     position: relative;
     left: 3%;
     line-height: 2.6;
+}
+
+.accordion_buttons_container {
+    padding-bottom: 12%;
 }
 
 @media only screen and (min-width: 600px){
