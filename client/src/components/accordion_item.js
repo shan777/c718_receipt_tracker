@@ -15,7 +15,6 @@ class AccordionItem extends Component {
             visible: !this.state.visible,
             data: receipt_tags
         });
-        
     }
 
     renderTags(){
@@ -34,15 +33,12 @@ class AccordionItem extends Component {
     render(){
         const { children, title } = this.props;
         const { visible } = this.state;
-        // console.log('data:', this.state.data);
         
         return (
             <li className="accordion_item" onClick={this.toggleVisible.bind(this)}>
                 <div className="collapsible_header">{title} <i className={`material_icons ${visible && 'open'}`}>View Details</i></div>
                 <div className={`collapsible_body ${visible && 'visible'}`}>{children}
                     <div className="render_panel">
-                        {/* <label className="input_label">Tags:</label>  */}
-
                         <label className="tag_text">Tags:</label> 
                         <div className="accordion_tag_buttons">
                         {this.state.data ? this.renderTags(): null}

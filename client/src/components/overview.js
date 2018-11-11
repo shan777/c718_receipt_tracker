@@ -75,7 +75,7 @@ class Overveiw extends Component{
                     <AccordionItem receiptId={item.ID} index={index} total={item.total} className="panel" open={this.open} deleteOpen={this.deleteOpen}>
                        <div className="panel_size">
                         <div className="category">Merchant :</div>
-                            <div className="data">{item.storeName}</div>
+                        <div className="data" dangerouslySetInnerHTML={{__html: `${item.storeName}`}}/>
                         </div>
                         <div className="panel_size">
                             <div className="category">Date :</div>
