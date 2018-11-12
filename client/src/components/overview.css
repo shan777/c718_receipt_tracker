@@ -21,10 +21,15 @@
 .tag_text {
     line-height: 2;
     display: inline-block;
+    vertical-align: top;
 }
 
 .panel_size:nth-child(1) {
     padding-top: 5%;
+}
+
+.noNote {
+    color: #8c8c8c;
 }
 
 
@@ -160,6 +165,7 @@
     
     .render_panel{
         font-size: 1.2em;
+        margin-top: 1%;
     }
       
     /* .tag_text{
@@ -300,6 +306,7 @@
     
     .render_panel{
         font-size: 1.5em;
+        margin-top: 1%;
     }
       
     /* .tag_text{
@@ -691,6 +698,7 @@
 
     .render_panel{
         font-size: 1.2em;
+        margin-top: 1%;
     }
     
     /* .tag_text{
