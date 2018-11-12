@@ -75,7 +75,7 @@ input[type=checkbox] {
 
 .new_tag_input:focus {
     background-color: white;
-    border-bottom: 2px solid #2A9597;
+    border-bottom: 2px solid #2EB4BA;
 }
 
 /* add new tag modal cancel button */
@@ -95,7 +95,7 @@ input[type=checkbox] {
 }
 
 .add_tag_modal_container {
-    background-color: #DEF2F1;
+    background-color: white;
     width: 80%;
     font-weight: bold;
     display: block;
@@ -107,7 +107,7 @@ input[type=checkbox] {
 }
 
 .add_tag_modal_container .tag_header {
-    background-color: #2A9597;
+    background-color: #2EB4BA;
     color: #F2F2F2;
     font-family: 'Roboto Bold';
     padding: 2% 0 2% 9%;
@@ -167,7 +167,7 @@ input[type=checkbox] {
     }
 
     .modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         font-size: 1em;
@@ -178,7 +178,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         display: block;
@@ -189,7 +189,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2A9597;
+        background-color: #2EB4BA;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -236,10 +236,10 @@ input[type=checkbox] {
 
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -256,7 +256,7 @@ input[type=checkbox] {
         line-height: 1.8;
         font-size: 0.9em;
         display: inline-block;
-        border: 0.5px solid #2A9597;
+        border: 0.5px solid #2EB4BA;
     }
 
     .sure{
@@ -340,7 +340,7 @@ input[type=checkbox] {
     }
 
     .modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 80%;
         font-weight: bold;
         font-size: 1em;
@@ -354,7 +354,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         display: block;
@@ -365,7 +365,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2A9597;
+        background-color: #2EB4BA;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -412,10 +412,10 @@ input[type=checkbox] {
     }
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -432,7 +432,7 @@ input[type=checkbox] {
         line-height: 1.8;
         font-size: 0.9em;
         display: inline-block;
-        border: 0.5px solid #2A9597;
+        border: 0.5px solid #2EB4BA;
     }
 
     .add_tag_btn {
@@ -519,7 +519,7 @@ input[type=checkbox] {
     }
 
     .modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 80%;
         font-weight: bold;
         font-size: 1em;
@@ -533,7 +533,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 40%;
         font-weight: bold;
         display: block;
@@ -545,7 +545,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2A9597;
+        background-color: #2EB4BA;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -592,10 +592,10 @@ input[type=checkbox] {
     }
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -612,7 +612,7 @@ input[type=checkbox] {
         line-height: 1.8;
         font-size: 0.9em;
         display: inline-block;
-        border: 0.5px solid #2A9597;
+        border: 0.5px solid #2EB4BA;
     }
 
     .add_tag_btn {
@@ -707,7 +707,7 @@ input[type=checkbox] {
     }
 
     .modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         font-size: 1em;
@@ -718,7 +718,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         display: block;
@@ -729,7 +729,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2A9597;
+        background-color: #2EB4BA;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -777,10 +777,10 @@ input[type=checkbox] {
 
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -797,8 +797,8 @@ input[type=checkbox] {
         font-size: 0.9em;
         line-height: 1.8;
         display: inline-block;
-        background-color: #DEF2F1;
-        border: 0.5px solid #2A9597;
+        background-color: white;
+        border: 0.5px solid #2EB4BA;
     }
 
 

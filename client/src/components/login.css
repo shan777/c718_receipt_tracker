@@ -38,7 +38,7 @@
     .login_page_container {
         height: 100vh;
         width: 100vw;
-        background-color: #2A9597;
+        background-color: #2EB4BA;
     }
 
     .login_container {
@@ -56,8 +56,8 @@
     }
 
     .username {
-        background-color: #DEF2F1;
-        border: 1px solid #def2f1;
+        background-color: white;
+        border: 1px solid white;
         font-size: 20px;
         margin-bottom: 5%;
         padding: 1%;
@@ -65,8 +65,8 @@
     }
 
     .password {
-        background-color: #DEF2F1; 
-        border: 1px solid #def2f1;
+        background-color: white; 
+        border: 1px solid white;
         font-size: 20px;
         padding: 1%;
         text-align: center;
@@ -123,7 +123,7 @@
     .login_page_container {
         height: 100vh;
         width: 100vw;
-        background-color: #2A9597;
+        background-color: #2EB4BA;
     }
 
     .login_area {
@@ -136,8 +136,8 @@
     }
 
     .username {
-        background-color: #DEF2F1;
-        border: 1px solid #def2f1;
+        background-color: white;
+        border: 1px solid white;
         font-size: 35px;
         margin-bottom: 5%;
         padding: 1%;
@@ -145,8 +145,8 @@
     }
 
     .password {
-        background-color: #DEF2F1; 
-        border: 1px solid #def2f1;
+        background-color: white; 
+        border: 1px solid white;
         font-size: 35px;
         padding: 1%;
         text-align: center;
@@ -188,7 +188,7 @@
     .login_page_container {
         height: 100vh;
         width: 100vw;
-        background-color: #2A9597;
+        background-color: #2EB4BA;
     }
 
     .login_container {
@@ -197,8 +197,8 @@
     }
 
     .username {
-        background-color: #DEF2F1;
-        border: 1px solid #def2f1;
+        background-color: white;
+        border: 1px solid white;
         font-size: 35px;
         margin-bottom: 5%;
         padding: 1%;
@@ -207,8 +207,8 @@
     }
 
     .password {
-        background-color: #DEF2F1; 
-        border: 1px solid #def2f1;
+        background-color: white; 
+        border: 1px solid white;
         font-size: 35px;
         padding: 1%;
         text-align: center;
@@ -244,7 +244,7 @@
         .login_page_container {
             height: 100vh;
             width: 100vw;
-            background-color: #2A9597;
+            background-color: #2EB4BA;
         }
 
         .login_container {
@@ -267,8 +267,8 @@
         }
     
         .username {
-            background-color: #DEF2F1;
-            border: 1px solid #def2f1;
+            background-color: white;
+            border: 1px solid white;
             font-size: 28px;
             margin-bottom: 5%;
             padding: 1%;
@@ -277,8 +277,8 @@
         }
     
         .password {
-            background-color: #DEF2F1;
-            border: 1px solid #def2f1;
+            background-color: white;
+            border: 1px solid white;
             font-size: 28px;
             padding: 1%;
             text-align: center;

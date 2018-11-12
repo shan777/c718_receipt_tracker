@@ -114,7 +114,7 @@
       position: relative;
       float: right;
       border: 1px solid #404040;
-      background-color: #2A9597;
+      background-color: #2EB4BA;
       color: #98FFA8;
     }
 
@@ -248,8 +248,8 @@
     .finished_button {
       position: relative;
       float: right;
-      border: 1px solid #2A9597;
-      background-color: #2A9597;
+      border: 1px solid #2EB4BA;
+      background-color: #2EB4BA;
       color: #98FFA8;
       bottom: 1vh;
       font-size: 1.3em;

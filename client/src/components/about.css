@@ -18,7 +18,7 @@ body {
 
 .about_container {
     min-height: 100vh;
-    background-color: #CFEEED;
+    background-color: white;
     color: #2C3531;
     margin-top: 9vh;
     font-family: 'Roboto';
@@ -118,7 +118,7 @@ td {
 div.domain {
     margin-top: 2%;
     font-size: 20px;
-    color: #2A9597;
+    color: #2EB4BA;
 }
 
 .etcInfo {

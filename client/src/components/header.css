@@ -11,7 +11,7 @@
 @media only screen and (min-width: 768px){
     .headContainer{
         font-size: 6em;
-        background-color: #2A9597;
+        background-color: #2EB4BA;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         height: 70px;
@@ -38,7 +38,7 @@
     .sidebar_container {
         width: 35vw;
         height: 40vh;
-        background-color: #2A9597; 
+        background-color: #2EB4BA; 
         /* font-family: 'Roboto Bold'; */
         position: fixed !important;
         padding-left: 2%;
@@ -56,7 +56,7 @@
 @media only screen and (min-width: 1220px){
     .headContainer{
         font-size: 6em;
-        background-color: #2A9597;
+        background-color: #2EB4BA;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         /* height: 80px; */
@@ -84,7 +84,7 @@
     .sidebar_container {
         width: 13vw;
         height: 40vh;
-        background-color: #2A9597; 
+        background-color: #2EB4BA; 
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
@@ -101,7 +101,8 @@
 
 @media only screen and (max-width: 600px){
     .headContainer {
-        background-color: #2A9597;
+        /* background-color: #2EB4BA; */
+        background-image: linear-gradient(to right, #46D9C6, #26A7B6, #149099); 
         color: #F2F2F2;
         height: 60px;
         font-size: 1.7em;
@@ -128,7 +129,7 @@
     .sidebar_container {
         width: 35vw;
         height: 45vh;
-        background-color: #2A9597; 
+        background-color: #2EB4BA; 
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
