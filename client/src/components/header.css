@@ -102,7 +102,7 @@
 @media only screen and (max-width: 600px){
     .headContainer {
         /* background-color: #2EB4BA; */
-        background-image: linear-gradient(to right, #46D9C6, #26A7B6, #149099); 
+        background-image: linear-gradient(to right, #46D9C6 10%, #26A7B6, #149099); 
         color: #F2F2F2;
         height: 60px;
         font-size: 1.7em;

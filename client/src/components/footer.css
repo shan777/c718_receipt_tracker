@@ -6,7 +6,7 @@
         bottom: 0;
         width: 100%;
         height: 60px;
-        background-color: #2EB4BA;
+        background-color: rgb(43, 164, 170);
     }
     
     /* .icon_image {
@@ -62,7 +62,8 @@
     bottom: 0;
     width: 100vw;
     height: 60px;
-    background-color: #2EB4BA;
+    /* background-color: rgb(43, 156, 161); */
+    background-color: #44CFCB;
 }
 
 /* .icon_image {
