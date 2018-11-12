@@ -91,7 +91,10 @@ class Overveiw extends Component{
                         </div>
                         <div className="panel_size">
                             <div className="category">Note :</div>
+                            {(item.comment) ?
                             <div className="data">{item.comment}</div>
+                            : <div className="data noNote"> — </div>
+                            }
                         </div>                     
                     </AccordionItem>
             </div>

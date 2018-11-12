@@ -20,7 +20,7 @@ class AccordionItem extends Component {
     renderTags(){
         const data = this.state.data.data.tags;
         if(data.length === 0){
-            return <div className='noTags'>N/A</div>
+            return <div className='noTags'> — </div>
         }
         const renderTags = data.map((item, index) => (
             <button className="custom_tag" type="button" key={index}># {data[index].tagName}</button>
@@ -39,7 +39,7 @@ class AccordionItem extends Component {
                 <div className="collapsible_header">{title} <i className={`material_icons ${visible && 'open'}`}>View Details</i></div>
                 <div className={`collapsible_body ${visible && 'visible'}`}>{children}
                     <div className="render_panel">
-                        <label className="tag_text">Tags:</label> 
+                        <label className="tag_text">Tags :</label> 
                         <div className="accordion_tag_buttons">
                         {this.state.data ? this.renderTags(): null}
                         </div>
