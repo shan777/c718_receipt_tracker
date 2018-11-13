@@ -137,7 +137,7 @@ class AddNewTag extends Component {
 
         return (
             <div>
-                <Header title="ADD NEW"/>
+                <Header title="ADD RECEIPT"/>
                 <div className="main_container">
                     <form className="form_container" onSubmit={this.handleSubmit}>
                         <div className="btn_container">
