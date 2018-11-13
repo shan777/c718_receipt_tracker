@@ -145,8 +145,8 @@ class AddNewTag extends Component {
                                 Cancel
                                 {/* <i className="material-icons tag_icon">clear</i> */}
                             </button>
-                            <button className="done_btn"  type="submit" value="Done">                                    
-                                Done
+                            <button className="done_btn"  type="submit" value="Submit">                                    
+                                Submit
                             </button>
                         </div>    
                         <div className="add_new_form_input_container">
