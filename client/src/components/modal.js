@@ -111,11 +111,13 @@ class Modal extends Component{
                                 type="text"
                                 value={this.state.note}
                             />
-                            <br/>
+                            <br/><br/>
+                            {/* <i className="material-icons modalbtn cancel" onClick={this.props.close}>close</i> */}
                             <button className="modalbtn cancel" onClick={this.props.close}>Cancel</button>
+                            {/* <i className="material-icons modalbtn update-color" onClick={this.props.close}>done_outline</i>update */}
+
                             <button className="modalbtn update-color" onClick={this.handleSubmit.bind(this)}>Update</button>
-                            {/* <label className="input_label">Tag:</label>
-                            <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/> */}
+                            {/* {/* <label className="input_label">Tag:</label> */}
                         </div>
                     </form>
                     </div>

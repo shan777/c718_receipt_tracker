@@ -161,9 +161,10 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        left: 80%;
-        font-size: 1.3em;
-        padding: 1%;
+        margin-left: 20%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: white;
     }
 
     .modal_container {
@@ -173,8 +174,11 @@ input[type=checkbox] {
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 2px teal solid;
     }
 
     .tag_modal_container {
@@ -186,6 +190,7 @@ input[type=checkbox] {
         padding-bottom: 6%;
         position: relative;
         top: -25px;
+        border: 2px teal solid;
     }
 
     .tag_modal_container .tag_header {
@@ -202,12 +207,12 @@ input[type=checkbox] {
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 38%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
 
     .tag_modal_close_btn {
@@ -334,23 +339,24 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        left: 80%;
-        font-size: 1.3em;
-        padding: 1%;
+        margin-left: 20%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: white;
     }
 
     .modal_container {
         background-color: white;
-        width: 80%;
+        width: 100%;
         font-weight: bold;
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
-        left: 9%;
-        position: relative;
-        top: 1vh;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 2px teal solid;
     }
 
     .tag_modal_container {
@@ -362,6 +368,7 @@ input[type=checkbox] {
         padding-bottom: 6%;
         position: relative;
         top: -25px;
+        border: 2px teal solid;
     }
 
     .tag_modal_container .tag_header {
@@ -379,12 +386,12 @@ input[type=checkbox] {
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 38%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
 
     .tag_modal_close_btn {
@@ -513,23 +520,24 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        left: 80%;
-        font-size: 1.3em;
-        padding: 1%;
+        margin-left: 20%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: white;
     }
 
     .modal_container {
         background-color: white;
-        width: 80%;
+        width: 100%;
         font-weight: bold;
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
-        left: 9%;
-        position: relative;
-        top: 1vh;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 2px teal solid;
     }
 
     .tag_modal_container {
@@ -542,6 +550,7 @@ input[type=checkbox] {
         position: relative;
         top: -25px;
         left: 430px;
+        border: 2px teal solid;
     }
 
     .tag_modal_container .tag_header {
@@ -559,12 +568,12 @@ input[type=checkbox] {
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 38%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
 
     .tag_modal_close_btn {
@@ -692,18 +701,21 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        left: 19%;
-        font-size: 1.3em;
-        padding: 1%;
-        margin-left: 5%;
+        margin-left: 20%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: white;
     }
 
     .cancel{
-        background-color: red;
+        background-color: #FF0606d9;
+        border: 0.5px solid rgba(167, 15, 15, 0.851);
+
     }
 
     .update-color{
-        background-color: green;
+        background-color: rgba(8, 116, 31, 0.767);
+        border: 0.5px solid rgb(65, 88, 23);
     }
 
     .modal_container {
@@ -713,8 +725,11 @@ input[type=checkbox] {
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 2px teal solid;
     }
 
     .tag_modal_container {
@@ -726,6 +741,7 @@ input[type=checkbox] {
         padding-bottom: 6%;
         position: relative;
         top: -25px;
+        border: 2px teal solid;
     }
 
     .tag_modal_container .tag_header {
@@ -743,12 +759,12 @@ input[type=checkbox] {
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 38%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
 
     .tag_modal_close_btn {

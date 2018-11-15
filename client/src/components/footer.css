@@ -20,7 +20,8 @@
     
     
     .footer-nav-link i {
-        font-size: 3em;
+        font-size: 2.5em;
+        text-align: center;
         color: #000;
         padding: 6px 13px 0px 14px;
     }
@@ -46,6 +47,7 @@
     
     .footer-nav-link i {
         font-size: 4em;
+        text-align: center;
         color: #000;
         padding: 8px 13px 0px 14px;
         margin-left: 5%;
@@ -62,8 +64,7 @@
     bottom: 0;
     width: 100vw;
     height: 60px;
-    /* background-color: rgb(43, 156, 161); */
-    background-color: #44CFCB;
+    background-color: #11A2A8;
 }
 
 /* .icon_image {
@@ -77,7 +78,8 @@
 
 
 .footer-nav-link i {
-    font-size: 3em;
+    font-size: 2.5em;
+    text-align: center;
     color: #000;
     padding: 6px 13px 0px 14px;
 }
