@@ -71,7 +71,7 @@ class Login extends Component{
                         forgot your password?
                     </div> */}
                     <div className="sign_up_button">
-                        <Link to='/signup'>or Sign-up</Link>
+                        <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
                     </div>
                 </div>  
             </div>
