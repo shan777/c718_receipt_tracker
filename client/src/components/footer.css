@@ -64,7 +64,9 @@
     bottom: 0;
     width: 100vw;
     height: 60px;
-    background-color: #11A2A8;
+    /* background-color: #11A2A8; */
+    background-image: linear-gradient(to right, #18657D, #2BA6AB, #1F617F); 
+
 }
 
 /* .icon_image {
