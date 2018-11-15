@@ -92,6 +92,7 @@ input[type=checkbox] {
     font-family: 'Original Surfer';
     cursor: pointer;
     padding: 1.5%;
+    background-color: #A3FFF7;
 }
 
 .add_tag_modal_container {
@@ -107,7 +108,7 @@ input[type=checkbox] {
 }
 
 .add_tag_modal_container .tag_header {
-    background-color: #2EB4BA;
+    background-color: rgb(16, 152, 159);
     color: #F2F2F2;
     font-family: 'Roboto Bold';
     padding: 2% 0 2% 9%;
@@ -194,7 +195,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2EB4BA;
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -222,11 +223,13 @@ input[type=checkbox] {
         position: relative;
         display: inline-block;
         font-family: 'Original Surfer';
-        color: black;
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
@@ -237,6 +240,7 @@ input[type=checkbox] {
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
+        background-color: #A3FFF7;
     }
 
 
@@ -284,6 +288,7 @@ input[type=checkbox] {
     .tag_choices_container {
         max-height: 50vh;
         overflow: scroll;
+        color: #2C3531;
     }
 
 }
@@ -372,7 +377,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2EB4BA;
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -401,11 +406,13 @@ input[type=checkbox] {
         position: relative;
         display: inline-block;
         font-family: 'Original Surfer';
-        color: black;
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
@@ -416,6 +423,7 @@ input[type=checkbox] {
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
+        background-color: #A3FFF7;
     }
 
     .custom_tag {
@@ -467,6 +475,7 @@ input[type=checkbox] {
     .tag_choices_container {
         max-height: 45vh;
         overflow: scroll;
+        color: #2C3531;
     }
 
 }
@@ -554,7 +563,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2EB4BA;
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -583,11 +592,13 @@ input[type=checkbox] {
         position: relative;
         display: inline-block;
         font-family: 'Original Surfer';
-        color: black;
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
@@ -598,6 +609,7 @@ input[type=checkbox] {
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
+        background-color: #A3FFF7;
     }
 
     .custom_tag {
@@ -650,6 +662,7 @@ input[type=checkbox] {
         max-height: 45vh;
         overflow-y: scroll;
         overflow-x: hidden;
+        color: #2C3531;
     }
 
 }
@@ -745,7 +758,7 @@ input[type=checkbox] {
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2EB4BA;
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -774,11 +787,13 @@ input[type=checkbox] {
         position: relative;
         display: inline-block;
         font-family: 'Original Surfer';
-        color: black;
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
@@ -789,6 +804,7 @@ input[type=checkbox] {
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
+        background-color: #A3FFF7;
     }
 
 
@@ -842,6 +858,7 @@ input[type=checkbox] {
     .tag_choices_container {
         max-height: 60vh;
         overflow: scroll;
+        color: #2C3531;
     }
 
 }
