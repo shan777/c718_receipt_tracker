@@ -59,11 +59,11 @@ class Login extends Component{
                         <input name='username' value={this.state.username} 
                         onChange={this.handleChange.bind(this)} className="username" 
                         type="text" placeholder="Username"
-                        />
+                        /><br/><br/>
                         <input name='password' value={this.state.password} 
                         onChange={this.handleChange.bind(this)} className="password" 
                         type="password" placeholder="Password"
-                        />
+                        /><br/><br/>
                         <button className="login_btn">LOGIN</button>
                         <p className="error_message" style={{color: 'red'}}>{this.state.error}</p>
                     </form>
