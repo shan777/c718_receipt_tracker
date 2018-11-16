@@ -8,13 +8,14 @@
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
+
 @media only screen and (min-width: 768px){
     .headContainer{
         font-size: 6em;
-        background-color: #2A9597;
+        background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        height: 70px;
+        height: 55px;
         font-size: 6em;
         /* padding-left: 20%; */
         text-align: center;
@@ -26,6 +27,7 @@
         position: absolute;
         right: 6%;
         top: 15%;
+        height: 80%;
     }
     
     .header{
@@ -38,7 +40,7 @@
     .sidebar_container {
         width: 35vw;
         height: 40vh;
-        background-color: #2A9597; 
+        background-color: #40B0B7; 
         /* font-family: 'Roboto Bold'; */
         position: fixed !important;
         padding-left: 2%;
@@ -56,15 +58,15 @@
 @media only screen and (min-width: 1220px){
     .headContainer{
         font-size: 6em;
-        background-color: #2A9597;
+        background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        /* height: 80px; */
         font-size: 3em;
         padding-left: 20%;
         text-align: center;
         top: 0;
         width: 100%;
+        height: 55px;
         z-index: 1;
     }
     .dots {
@@ -72,6 +74,7 @@
         right: 6%;
         top: 15%;
         border: none;
+        height: 80%;
     }
     
     .header{
@@ -84,7 +87,7 @@
     .sidebar_container {
         width: 13vw;
         height: 40vh;
-        background-color: #2A9597; 
+        background-color: #40B0B7; 
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
@@ -101,11 +104,11 @@
 
 @media only screen and (max-width: 600px){
     .headContainer {
-        background-color: #2A9597;
+        background-color: #1997A2;
         color: #F2F2F2;
         height: 60px;
-        font-size: 1.7em;
-        padding: 1.5% 0;
+        font-size: 1.5em;
+        padding: 2.5% 0;
         text-align: center;
         top: 0;
         width: 100%;
@@ -115,7 +118,8 @@
     .dots {
         position: absolute;
         right: 5%;
-        top: 7%;
+        top: 11%;
+        height: 80%;
     }
 
     .header{
@@ -128,7 +132,7 @@
     .sidebar_container {
         width: 35vw;
         height: 45vh;
-        background-color: #2A9597; 
+        background-color: #40B0B7;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;

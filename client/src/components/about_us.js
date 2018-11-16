@@ -14,8 +14,10 @@ class AboutUs extends Component{
     render(){
         return(
             <div className="about_us_container">
-                <Link to="/overview" title="Back to Overview"><img className="logo_img" src={meetTeam} alt="squirrel logo" /></Link>
-                <div className="info">* Click the squirrel to go back to the Overview page</div>
+            <Link className="info" to="/overview" title="Back to Overview">
+                <i className="material-icons">arrow_back_ios</i>
+            </Link>
+                <img className="logo_img" src={meetTeam} alt="squirrel logo" />
                 <div className="everybody">
                     <div className="frontend">FRONT-END</div>
                     <div className="top_left">

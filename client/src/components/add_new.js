@@ -137,7 +137,7 @@ class AddNewTag extends Component {
 
         return (
             <div>
-                <Header title="ADD NEW"/>
+                <Header title="ADD RECEIPT"/>
                 <div className="main_container">
                     <form className="form_container" onSubmit={this.handleSubmit}>
                         <div className="btn_container">
@@ -145,8 +145,8 @@ class AddNewTag extends Component {
                                 Cancel
                                 {/* <i className="material-icons tag_icon">clear</i> */}
                             </button>
-                            <button className="done_btn"  type="submit" value="Done">                                    
-                                Done
+                            <button className="done_btn"  type="submit" value="Submit">                                    
+                                Submit
                             </button>
                         </div>    
                         <div className="add_new_form_input_container">

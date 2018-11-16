@@ -135,8 +135,11 @@ class Overveiw extends Component{
                 <div className="overview_main_container">
                     {this.makeRow()}
                     <div className="summary">
-                        <p className="number_of_receipts"><b>{currentUsersReceipts.length}</b> Receipts 
-                        &nbsp;&nbsp;&nbsp; <b>Total:</b> ${addTotal()}</p>
+                    {(currentUsersReceipts.length <= 1) ?
+                        <p className="number_of_receipts"><b>{currentUsersReceipts.length}</b> Receipt &nbsp;&nbsp;&nbsp; <b>Total:</b> ${addTotal()}</p>
+                        : <p className="number_of_receipts"><b>{currentUsersReceipts.length}</b> Receipts &nbsp;&nbsp;&nbsp; <b>Total:</b> ${addTotal()}</p>
+                        
+                    }    
                     </div>
                 </div>
                 <Footer userID={this.state.currentDisplayedUserID}/>

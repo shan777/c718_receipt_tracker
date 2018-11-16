@@ -31,6 +31,81 @@
     min-width: 350px;
 }
 
+
+@media only screen and (max-width: 600px) {
+/* START @media only screen and (max-width: 600px) */
+    .login_page_container {
+        height: 100vh;
+        width: 100vw;
+        background-color: #1997A2;
+    }
+
+    .login_container {
+        text-align: center;
+    }
+
+    .login_area {
+        display: inline-block;
+        padding-top: 4%;
+    }
+
+    img.login_logo {
+        width: 100%;
+        padding: 3% 1%;
+    }
+
+    .username {
+        background-color: white;
+        border: 1px solid white;
+        font-size: 20px;
+        margin-bottom: 5%;
+        padding: 1%;
+        text-align: center;
+    }
+
+    .password {
+        background-color: white; 
+        border: 1px solid white;
+        font-size: 20px;
+        padding: 1%;
+        text-align: center;
+        margin-bottom: 5%;
+    }
+
+    .forgot_password {
+        color: #98FFA8;
+    }
+
+    .login_btn {
+        background-color: #15191b;
+        border: 1px solid #15191b;
+        color: white;
+        font-size: 25px;
+        margin: 5%;
+        padding:2%;
+        display: block;
+        margin-left: 35%;
+    }
+
+    .forgot_password {
+        padding-bottom: 5%;
+        padding-top: 5%;
+    }
+
+    .sign_up_button {
+        color: #98FFA8;
+        font-size: 1.5em;
+    }
+
+    a:visited {
+        color: #98FFA8;
+
+    }
+
+    p.error_message {
+        font-size: 1em;
+    }
+
 .username, .password {
     background-color: #DEF2F1;
     border: 1px solid #def2f1;
@@ -40,6 +115,7 @@
     padding: 0.5rem 0;
     border-radius: 5px;
 }
+
 
 .login_btn {
     background-color: #15191b;
@@ -65,8 +141,57 @@
 }
 
 @media only screen and (min-width: 768px) {
-    
+    /* START @media only screen and (min-width: 768px) */
+    .login_page_container {
+        height: 100vh;
+        width: 100vw;
+        background-color: #1997A2;
+    }
+
+    .login_area {
+        display: inline-block;
+    }
+
+    img.login_logo {
+        width: 90%;
+        padding-left: 10%;
+    }
+
+    .username {
+        background-color: white;
+        border: 1px solid white;
+        font-size: 35px;
+        margin-bottom: 5%;
+        padding: 1%;
+        text-align: center;
+    }
+
+    .password {
+        background-color: white; 
+        border: 1px solid white;
+        font-size: 35px;
+        padding: 1%;
+        text-align: center;
+    }
+
+    .login_btn {
+        background-color: #15191b;
+        border: 1px solid #15191b;
+        color: white;
+        font-size: 35px;
+        padding: 1%;
+        display: block;
+        margin-left: 41%;
+        margin-top: 3%;
+    }
+
+    .forgot_password {
+        padding-bottom: 4%;
+        padding-top: 3%;
+    }
+  
 }
+
 
 @media only screen and (max-width: 600px) {
     .login_logo_sqr {
@@ -84,6 +209,38 @@
     }
 }
 
+
+@media only screen and (min-width: 992px){
+    /* START @media only screen and (min-width: 992px) */
+    .login_page_container {
+        height: 100vh;
+        width: 100vw;
+        background-color: #1997A2;
+    }
+
+    .login_container {
+        display: inline-block;
+        padding-left: 13%;
+    }
+
+    .username {
+        background-color: white;
+        border: 1px solid white;
+        font-size: 35px;
+        margin-bottom: 5%;
+        padding: 1%;
+        text-align: center;
+        width: 70%;
+    }
+
+    .password {
+        background-color: white; 
+        border: 1px solid white;
+        font-size: 35px;
+        padding: 1%;
+        text-align: center;
+        width: 70%;
+
 @media only screen and (max-width: 400px) {
     .login_logo_sqr {
         height: 12rem;
@@ -97,6 +254,7 @@
 
     .login_area {
         min-width: 260px;
+
     }
 
     .login_btn {
@@ -107,4 +265,98 @@
     .username, .password {
         padding: 0.2rem 0;
     }
+
+
+    p.error_message {
+        font-size: 2.5em;
+    }
 }
+
+
+@media only screen and (min-width: 1220px) {
+    /* START @media only screen and (max-width: 600px) */
+        .login_page_container {
+            height: 100vh;
+            width: 100vw;
+            background-color: #1997A2;
+        }
+
+        .login_container {
+            display: inline-block;
+            position: relative;
+            left: 22%;
+            top: 4vh;
+        }
+    
+        .login_area {
+            display: inline-block;
+            padding-top: 4%;
+        }
+    
+        img.login_logo {
+            width: 30%;
+            display: block;
+            position: relative;
+            left: 33%;
+        }
+    
+        .username {
+            background-color: white;
+            border: 1px solid white;
+            font-size: 28px;
+            margin-bottom: 5%;
+            padding: 1%;
+            text-align: center;
+            width: 70%;
+        }
+    
+        .password {
+            background-color: white;
+            border: 1px solid white;
+            font-size: 28px;
+            padding: 1%;
+            text-align: center;
+            width: 70%;
+        }
+    
+        .forgot_password {
+            color: #98FFA8;
+        }
+    
+        .login_btn {
+            background-color: #15191b;
+            border: 1px solid #15191b;
+            color: white;
+            padding: 0;
+            font-size: 25px;
+            display: block;
+            margin-left: 41%;
+        }
+    
+        .forgot_password {
+            padding-bottom: 5%;
+            padding-top: 5%;
+        }
+    
+        .sign_up_container {
+            color: white;
+            font-size: 32px;
+            position: relative;
+            left: 0;
+        }
+    
+        p.error_message {
+            font-size: 1em;
+        }
+    
+        label {
+            margin-bottom: 5%;
+        }
+    
+        /* button {
+            display: block;
+            margin-left: 35%;
+        } */
+    }
+}
+

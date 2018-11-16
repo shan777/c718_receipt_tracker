@@ -75,7 +75,7 @@ input[type=checkbox] {
 
 .new_tag_input:focus {
     background-color: white;
-    border-bottom: 2px solid #2A9597;
+    border-bottom: 2px solid #2EB4BA;
 }
 
 /* add new tag modal cancel button */
@@ -92,10 +92,11 @@ input[type=checkbox] {
     font-family: 'Original Surfer';
     cursor: pointer;
     padding: 1.5%;
+    background-color: #A3FFF7;
 }
 
 .add_tag_modal_container {
-    background-color: #DEF2F1;
+    background-color: white;
     width: 80%;
     font-weight: bold;
     display: block;
@@ -107,12 +108,31 @@ input[type=checkbox] {
 }
 
 .add_tag_modal_container .tag_header {
-    background-color: #2A9597;
+    background-color: rgb(16, 152, 159);
     color: #F2F2F2;
     font-family: 'Roboto Bold';
     padding: 2% 0 2% 9%;
     font-size: 1.3em;
 }
+
+.delete_modal_container {
+    background-color: white;
+    width: 95%;
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    box-sizing: border-box;
+    line-height: 2.1em;
+    overflow: auto;
+    min-height: 32vh;
+    padding: 6% 0;
+    border: 2px teal solid;
+    position: absolute;
+    bottom: -189%;
+    left: 3%;
+}
+
+
 
 @media only screen and (min-width: 600px){
     .basic_modal {
@@ -141,17 +161,14 @@ input[type=checkbox] {
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -161,24 +178,28 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        left: 80%;
-        font-size: 1.3em;
-        padding: 1%;
+        margin-left: 20%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: white;
     }
 
     .modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 2px teal solid;
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         display: block;
@@ -186,10 +207,11 @@ input[type=checkbox] {
         padding-bottom: 6%;
         position: relative;
         top: -25px;
+        border: 2px teal solid;
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2A9597;
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -202,12 +224,12 @@ input[type=checkbox] {
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 38%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
 
     .tag_modal_close_btn {
@@ -217,11 +239,13 @@ input[type=checkbox] {
         position: relative;
         display: inline-block;
         font-family: 'Original Surfer';
-        color: black;
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
@@ -232,14 +256,15 @@ input[type=checkbox] {
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
+        background-color: #A3FFF7;
     }
 
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -256,13 +281,13 @@ input[type=checkbox] {
         line-height: 1.8;
         font-size: 0.9em;
         display: inline-block;
-        border: 0.5px solid #2A9597;
+        border: 0.5px solid #2EB4BA;
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 10%;
+        text-align: center;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -279,6 +304,7 @@ input[type=checkbox] {
     .tag_choices_container {
         max-height: 50vh;
         overflow: scroll;
+        color: #2C3531;
     }
 
 }
@@ -312,19 +338,14 @@ input[type=checkbox] {
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
-        position: relative;
-        left: 9%;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -334,27 +355,28 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        left: 80%;
-        font-size: 1.3em;
-        padding: 1%;
+        margin-left: 20%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: white;
     }
 
     .modal_container {
-        background-color: #DEF2F1;
-        width: 80%;
+        background-color: white;
+        width: 100%;
         font-weight: bold;
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
-        left: 9%;
-        position: relative;
-        top: 1vh;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 2px teal solid;
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         display: block;
@@ -362,10 +384,11 @@ input[type=checkbox] {
         padding-bottom: 6%;
         position: relative;
         top: -25px;
+        border: 2px teal solid;
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2A9597;
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -379,12 +402,12 @@ input[type=checkbox] {
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 38%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
 
     .tag_modal_close_btn {
@@ -394,11 +417,13 @@ input[type=checkbox] {
         position: relative;
         display: inline-block;
         font-family: 'Original Surfer';
-        color: black;
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
@@ -409,13 +434,14 @@ input[type=checkbox] {
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
+        background-color: #A3FFF7;
     }
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -432,7 +458,7 @@ input[type=checkbox] {
         line-height: 1.8;
         font-size: 0.9em;
         display: inline-block;
-        border: 0.5px solid #2A9597;
+        border: 0.5px solid #2EB4BA;
     }
 
     .add_tag_btn {
@@ -440,10 +466,10 @@ input[type=checkbox] {
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 10%;
+        text-align: center;
         font-size: 1.3em;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -460,6 +486,7 @@ input[type=checkbox] {
     .tag_choices_container {
         max-height: 45vh;
         overflow: scroll;
+        color: #2C3531;
     }
 
 }
@@ -491,19 +518,14 @@ input[type=checkbox] {
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
-        position: relative;
-        left: 9%;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -513,27 +535,28 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        left: 80%;
-        font-size: 1.3em;
-        padding: 1%;
+        margin-left: 20%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: white;
     }
 
     .modal_container {
-        background-color: #DEF2F1;
-        width: 80%;
+        background-color: white;
+        width: 100%;
         font-weight: bold;
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
-        left: 9%;
-        position: relative;
-        top: 1vh;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 2px teal solid;
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 40%;
         font-weight: bold;
         display: block;
@@ -542,10 +565,11 @@ input[type=checkbox] {
         position: relative;
         top: -25px;
         left: 430px;
+        border: 2px teal solid;
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2A9597;
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -559,12 +583,12 @@ input[type=checkbox] {
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 38%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
 
     .tag_modal_close_btn {
@@ -574,11 +598,13 @@ input[type=checkbox] {
         position: relative;
         display: inline-block;
         font-family: 'Original Surfer';
-        color: black;
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
@@ -589,13 +615,14 @@ input[type=checkbox] {
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
+        background-color: #A3FFF7;
     }
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -612,7 +639,7 @@ input[type=checkbox] {
         line-height: 1.8;
         font-size: 0.9em;
         display: inline-block;
-        border: 0.5px solid #2A9597;
+        border: 0.5px solid #2EB4BA;
     }
 
     .add_tag_btn {
@@ -620,10 +647,10 @@ input[type=checkbox] {
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 32%;
+        text-align: center;
         font-size: 1.3em;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -641,6 +668,7 @@ input[type=checkbox] {
         max-height: 45vh;
         overflow-y: scroll;
         overflow-x: hidden;
+        color: #2C3531;
     }
 
 }
@@ -672,17 +700,14 @@ input[type=checkbox] {
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -692,33 +717,39 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        left: 19%;
-        font-size: 1.3em;
-        padding: 1%;
-        margin-left: 5%;
+        margin-left: 20%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: white;
     }
 
     .cancel{
-        background-color: red;
+        background-color: #FF0606d9;
+        border: 0.5px solid rgba(167, 15, 15, 0.851);
+
     }
 
     .update-color{
-        background-color: green;
+        background-color: rgba(8, 116, 31, 0.767);
+        border: 0.5px solid rgb(65, 88, 23);
     }
 
     .modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 2px teal solid;
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         display: block;
@@ -726,10 +757,11 @@ input[type=checkbox] {
         padding-bottom: 6%;
         position: relative;
         top: -25px;
+        border: 2px teal solid;
     }
 
     .tag_modal_container .tag_header {
-        background-color: #2A9597;
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
@@ -743,12 +775,12 @@ input[type=checkbox] {
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 38%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
 
     .tag_modal_close_btn {
@@ -758,11 +790,13 @@ input[type=checkbox] {
         position: relative;
         display: inline-block;
         font-family: 'Original Surfer';
-        color: black;
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
@@ -773,14 +807,15 @@ input[type=checkbox] {
         display: inline-block;
         font-family: 'Original Surfer';
         cursor: pointer;
+        background-color: #A3FFF7;
     }
 
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -797,8 +832,8 @@ input[type=checkbox] {
         font-size: 0.9em;
         line-height: 1.8;
         display: inline-block;
-        background-color: #DEF2F1;
-        border: 0.5px solid #2A9597;
+        background-color: white;
+        border: 0.5px solid #2EB4BA;
     }
 
 
@@ -807,9 +842,9 @@ input[type=checkbox] {
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 10%;
+        text-align: center;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -826,6 +861,7 @@ input[type=checkbox] {
     .tag_choices_container {
         max-height: 60vh;
         overflow: scroll;
+        color: #2C3531;
     }
 
 }
