@@ -39,7 +39,7 @@
     .picture {
         border-radius: 6px;
         border: 1px #F2F2F2 solid;
-        width: 55%;
+        width: 50%;
     }
 
     .info {
@@ -240,7 +240,7 @@
     .picture {
         border-radius: 6px;
         border: 1px #F2F2F2 solid;
-        width: 17%;
+        width: 50%;
     }
     
     /* Top Row */

@@ -181,8 +181,9 @@ input:focus {
         color: #2C3531;
         padding: 1.5%;
         border-radius: 6px;
-        border: 2px solid #2C3531;
+        border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
+        font-family: 'roboto';
     }
 
     .done_btn {
@@ -194,8 +195,9 @@ input:focus {
         padding: 1.5%;
         font-size: 1.05em;
         border-radius: 6px;
-        border: 0.5px solid #2C3531;
+        border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
+        font-family: 'roboto';
     }
 
     .btn_container {
@@ -288,9 +290,9 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         padding: 1.5%;
         font-size: 1.005em;
         border-radius: 6px;
-        border: 0.5px solid #2C3531;
+        border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
+        font-family: 'roboto';
     }
 
     .done_btn {
@@ -301,9 +303,9 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         padding: 1.5%;
         font-size: 1.05em;
         border-radius: 6px;
-        border: 0.5px solid #2C3531;
+        border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
+        font-family: 'roboto';
     }
 
     .btn_container {

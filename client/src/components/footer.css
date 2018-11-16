@@ -6,8 +6,7 @@
         bottom: 0;
         width: 100%;
         height: 60px;
-        background-color: rgb(43, 164, 170);
-    }
+        background-color: #1997A2    }
     
     /* .icon_image {
         padding: 4%;
@@ -37,7 +36,7 @@
         bottom: 0;
         width: 100%;
         height: 68px;
-        background-color: #2EB4BA;
+        background-color: #1997A2
     }
     
     .footer_container i {
@@ -64,9 +63,7 @@
     bottom: 0;
     width: 100vw;
     height: 60px;
-    /* background-color: #11A2A8; */
-    background-image: linear-gradient(to right, #18657D, #2BA6AB, #1F617F); 
-
+    background-color: #1997A2
 }
 
 /* .icon_image {

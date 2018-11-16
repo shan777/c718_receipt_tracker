@@ -12,7 +12,7 @@
 @media only screen and (min-width: 768px){
     .headContainer{
         font-size: 6em;
-        background-color: #2EB4BA;
+        background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         height: 70px;
@@ -57,7 +57,7 @@
 @media only screen and (min-width: 1220px){
     .headContainer{
         font-size: 6em;
-        background-color: #2EB4BA;
+        background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         /* height: 80px; */
@@ -102,13 +102,7 @@
 
 @media only screen and (max-width: 600px){
     .headContainer {
-        /* background-color: #2EB4BA; */
-        /* background-image: linear-gradient(to right, #149099, #117C81, #1796B2);  */
-                background-image: linear-gradient(to right, #18657D, #2BA6AB, #1F617F); 
-
-                /* background-image: linear-gradient(to right,#48C2C7, rgb(19, 70, 94), #48C2C7);  */
-
-        /* background-image: linear-gradient(to left, rgb(30, 182, 187), rgb(43, 172, 177)); */
+        background-color: #1997A2;
         color: #F2F2F2;
         height: 60px;
         font-size: 1.6em;

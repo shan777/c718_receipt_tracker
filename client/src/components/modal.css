@@ -115,6 +115,25 @@ input[type=checkbox] {
     font-size: 1.3em;
 }
 
+.delete_modal_container {
+    background-color: white;
+    width: 95%;
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    box-sizing: border-box;
+    line-height: 2.1em;
+    overflow: auto;
+    min-height: 32vh;
+    padding: 6% 0;
+    border: 2px teal solid;
+    position: absolute;
+    bottom: -189%;
+    left: 3%;
+}
+
+
+
 @media only screen and (min-width: 600px){
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
@@ -142,17 +161,14 @@ input[type=checkbox] {
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -269,9 +285,9 @@ input[type=checkbox] {
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 10%;
+        text-align: center;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -322,19 +338,14 @@ input[type=checkbox] {
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
-        position: relative;
-        left: 9%;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -455,10 +466,10 @@ input[type=checkbox] {
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 10%;
+        text-align: center;
         font-size: 1.3em;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -507,19 +518,14 @@ input[type=checkbox] {
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
-        position: relative;
-        left: 9%;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -641,10 +647,10 @@ input[type=checkbox] {
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 32%;
+        text-align: center;
         font-size: 1.3em;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -694,17 +700,14 @@ input[type=checkbox] {
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -839,9 +842,9 @@ input[type=checkbox] {
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 10%;
+        text-align: center;
+        padding-bottom: 7%;
     }
 
     .surebtn{
