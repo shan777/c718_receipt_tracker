@@ -50,30 +50,25 @@ class Login extends Component{
     render(){
         return(
             <div className="login_page_container">
-                <div className="login_logo">
-                    <img className="login_logo_sqr" src={loginLogoSqr} alt="squirrel logo" />
-                    <img className="login_logo_txt" src={loginLogoTxt} alt="squirrel logo text" />
+                <img className="login_logo_sqr" src={loginLogoSqr} alt="squirrel logo" />
+                <img className="login_logo_txt" src={loginLogoTxt} alt="squirrel logo text" />
+
+                <form className="login_area" onSubmit={this.handleSubmit}>
+                    <input name='username' value={this.state.username} 
+                    onChange={this.handleChange.bind(this)} className="username" 
+                    type="text" placeholder="Username"
+                    /><br/><br/>
+                    <input name='password' value={this.state.password} 
+                    onChange={this.handleChange.bind(this)} className="password" 
+                    type="password" placeholder="Password"
+                    /><br/><br/>
+                    <button className="login_btn">LOGIN</button>
+                    <p className="error_message" style={{color: 'red'}}>{this.state.error}</p>
+                </form>
+
+                <div className="sign_up_button">
+                    <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
                 </div>
-                <div className="login_container">
-                    <form className="login_area" onSubmit={this.handleSubmit}>
-                        <input name='username' value={this.state.username} 
-                        onChange={this.handleChange.bind(this)} className="username" 
-                        type="text" placeholder="Username"
-                        />
-                        <input name='password' value={this.state.password} 
-                        onChange={this.handleChange.bind(this)} className="password" 
-                        type="password" placeholder="Password"
-                        />
-                        <button className="login_btn">LOGIN</button>
-                        <p className="error_message" style={{color: 'red'}}>{this.state.error}</p>
-                    </form>
-                    {/* <div className="forgot_password"> forgot your password is only text at this time
-                        forgot your password?
-                    </div> */}
-                    <div className="sign_up_button">
-                        <Link to='/signup'>or Sign-up</Link>
-                    </div>
-                </div>  
             </div>
         )
     }
