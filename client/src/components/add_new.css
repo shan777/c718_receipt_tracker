@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
     font-family: 'Original Surfer';
     src: url(../../src/assets/fonts/OriginalSurfer-Regular.ttf);
-}
+} */
 
 @font-face {    
     font-family: 'Roboto Bold';
@@ -204,7 +204,7 @@ input:focus {
         background-color: #f1f2f4;
         padding: 1.2% 0;
         font-weight: bold;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         margin-bottom: 5%;
         border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
     }
@@ -311,7 +311,7 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         background-color: #f1f2f4;
         padding: 1% 0;
         font-weight: bold;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
     }
 
     .add_new_form_input_container {

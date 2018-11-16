@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
     font-family: 'Original Surfer';
     src: url(../../src/assets/fonts/OriginalSurfer-Regular.ttf);
-}
+} */
 
 @font-face {    
     font-family: 'Roboto Bold';
@@ -62,9 +62,9 @@
         -webkit-transition-duration: 0.4s; /* Safari */
         transition-duration: 0.4s;
         box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         white-space: nowrap;
-        width: 40%;
+        width: 69%;
     }
     
     .signup_button:active {

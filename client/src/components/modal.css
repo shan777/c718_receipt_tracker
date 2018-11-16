@@ -89,7 +89,7 @@ input[type=checkbox] {
     left: 40%;
     width: 20vw;
     display: inline-block;
-    font-family: 'Original Surfer';
+    /* font-family: 'Original Surfer'; */
     cursor: pointer;
     padding: 1.5%;
     background-color: #A3FFF7;
@@ -181,7 +181,7 @@ input[type=checkbox] {
         margin-left: 20%;
         font-size: 1.0em;
         padding: 1.5%;
-        color: white;
+        color: #2C3531;
     }
 
     .modal_container {
@@ -238,7 +238,7 @@ input[type=checkbox] {
         line-height: 30px; */
         position: relative;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         color: #2C3531;
         cursor: pointer;
         display: inline-block;
@@ -254,7 +254,7 @@ input[type=checkbox] {
         padding: 1.5%;
         width: 20vw;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         cursor: pointer;
         background-color: #A3FFF7;
     }
@@ -358,7 +358,7 @@ input[type=checkbox] {
         margin-left: 20%;
         font-size: 1.0em;
         padding: 1.5%;
-        color: white;
+        color: #2C3531;
     }
 
     .modal_container {
@@ -416,7 +416,7 @@ input[type=checkbox] {
         line-height: 30px; */
         position: relative;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         color: #2C3531;
         cursor: pointer;
         display: inline-block;
@@ -432,7 +432,7 @@ input[type=checkbox] {
         padding: 1.5%;
         width: 20vw;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         cursor: pointer;
         background-color: #A3FFF7;
     }
@@ -538,7 +538,7 @@ input[type=checkbox] {
         margin-left: 20%;
         font-size: 1.0em;
         padding: 1.5%;
-        color: white;
+        color: #2C3531;
     }
 
     .modal_container {
@@ -597,7 +597,7 @@ input[type=checkbox] {
         line-height: 30px; */
         position: relative;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         color: #2C3531;
         cursor: pointer;
         display: inline-block;
@@ -613,7 +613,7 @@ input[type=checkbox] {
         width: 20vw;
         padding: 1.5%;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         cursor: pointer;
         background-color: #A3FFF7;
     }
@@ -720,18 +720,18 @@ input[type=checkbox] {
         margin-left: 20%;
         font-size: 1.0em;
         padding: 1.5%;
-        color: white;
+        color: #2C3531;
     }
 
     .cancel{
-        background-color: #FF0606d9;
-        border: 0.5px solid rgba(167, 15, 15, 0.851);
+        background-color: #f2f2f2;
+        border: 0.5px solid #2C3531;
 
     }
 
     .update-color{
-        background-color: rgba(8, 116, 31, 0.767);
-        border: 0.5px solid rgb(65, 88, 23);
+        background-color: #a3fff7;
+        border: 0.5px solid #2C3531;
     }
 
     .modal_container {
@@ -789,7 +789,7 @@ input[type=checkbox] {
         line-height: 30px; */
         position: relative;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         color: #2C3531;
         cursor: pointer;
         display: inline-block;
@@ -805,7 +805,7 @@ input[type=checkbox] {
         padding: 1.5%;
         width: 20vw;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         cursor: pointer;
         background-color: #A3FFF7;
     }

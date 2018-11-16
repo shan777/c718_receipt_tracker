@@ -35,7 +35,7 @@
             errors["username"] = "Username cannot be empty";
         }
   
-        if(typeof fields["username"] !== "undefined"){
+        else if(typeof fields["username"] !== "undefined"){
             if(!fields["username"].match(/^(?=.{4,15}$)(?!.*[_]{2})^[a-zA-Z]\w+(?<![_])$/)){
                 formIsValid = false;
                 errors["username"] = "Invalid Username";
@@ -48,7 +48,7 @@
             errors["firstName"] = "First name cannot be empty";
         }
     
-        if(typeof fields["firstName"] !== "undefined"){
+        else if(typeof fields["firstName"] !== "undefined"){
             if(!fields["firstName"].match(/[a-zA-Z_.-]{2,}/)){
                 formIsValid = false;
                 errors["firstName"] = "Invalid First Name";
@@ -61,8 +61,8 @@
             errors["lastName"] = "Last name cannot be empty";
         }
     
-        if(typeof fields["lastName"] !== "undefined"){
-            if(!fields["lastName"].match(/[a-zA-Z_.-]{2,}/)){
+        else if(typeof fields["lastName"] !== "undefined"){
+            if(!fields["lastName"].match(/^[a-z A-Z \-\.']{2,50}$/)){
             formIsValid = false;
             errors["lastName"] = "Invalid Last Name";
             }      	
@@ -74,7 +74,7 @@
             errors["password"] = "Password cannot be empty";
         }
     
-        if(typeof fields["password"] !== "undefined"){
+        else if(typeof fields["password"] !== "undefined"){
             if(!fields["password"].match(/^(?=[a-zA-Z])(?=.{8,32}$)(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).*$/)){
             formIsValid = false;
             errors["password"] = "Invalid Password";
@@ -87,7 +87,7 @@
             errors["confirmPassword"] = "Confirm Password cannot be empty";
         }
     
-        if(typeof fields["confirmPassword"] !== "undefined"){
+        else if(typeof fields["confirmPassword"] !== "undefined"){
             if(fields["password"] !== fields["confirmPassword"]){
             formIsValid = false;
             errors["confirmPassword"] = "Does not match";
@@ -118,7 +118,6 @@
                     return formIsValid;
                 }
             }
-            
         } else
             return formIsValid;
     }
@@ -142,7 +141,7 @@
                             <ul>
                                 <li>Only letters (a-z), numbers (0-9), and underscores(_)</li>
                                 <li>Must start and end with a letter</li>
-                                <li>Between 4-15 characters long</li>
+                                <li>Between 5-15 characters long</li>
                             </ul>
                         </div>
                         <span className="error" dangerouslySetInnerHTML={{__html: this.state.errors["username"]}} />

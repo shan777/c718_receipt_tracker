@@ -13,6 +13,9 @@ body {
     font-family: 'Roboto';
 }
 
+a {
+    text-decoration: none;
+}
 
 /* Carousel CSS */
 .center {
