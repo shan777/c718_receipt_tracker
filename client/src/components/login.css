@@ -240,6 +240,8 @@
         padding: 1%;
         text-align: center;
         width: 70%;
+    }
+}
 
 @media only screen and (max-width: 400px) {
     .login_logo_sqr {
