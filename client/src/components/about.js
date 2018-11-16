@@ -27,7 +27,7 @@ class About extends Component {
                         <div className="app_container_top">
                             <table>
                                 <tbody>
-                                    <tr><th colSpan="4">FRONT-END</th></tr>
+                                    <tr><th colSpan="4">&#8226; FRONT-END &#8226;</th></tr>
                                     <tr>
                                         <td><img className="html_logo imgs" src={HTML}/></td>
                                         <td><img className="css_logo imgs" src={CSS}/></td>
@@ -40,7 +40,7 @@ class About extends Component {
                         <div className="app_container_bottom">
                             <table>
                                 <tbody>
-                                    <tr><th colSpan="4">BACK-END</th></tr>
+                                    <tr><th colSpan="4">&#8226; BACK-END &#8226;</th></tr>
                                     <tr>
                                         <td colSpan="2"><img className="mySql_logo imgs" src={MySql}/></td>
                                         <td colSpan="2"><img className="node_logo imgs" src={Node}/></td>

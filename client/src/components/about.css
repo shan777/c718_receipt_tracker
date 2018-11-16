@@ -16,6 +16,10 @@ body {
     min-height: 90vh;
 }
 
+th {
+    padding-bottom: 2%;
+}
+
 .about_container {
     min-height: 100vh;
     background-color: #E7FFFE;
