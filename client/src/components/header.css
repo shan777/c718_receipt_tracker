@@ -15,7 +15,7 @@
         background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        height: 70px;
+        height: 55px;
         font-size: 6em;
         /* padding-left: 20%; */
         text-align: center;
@@ -27,6 +27,7 @@
         position: absolute;
         right: 6%;
         top: 15%;
+        height: 80%;
     }
     
     .header{
@@ -60,12 +61,12 @@
         background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        /* height: 80px; */
         font-size: 3em;
         padding-left: 20%;
         text-align: center;
         top: 0;
         width: 100%;
+        height: 55px;
         z-index: 1;
     }
     .dots {
@@ -73,6 +74,7 @@
         right: 6%;
         top: 15%;
         border: none;
+        height: 80%;
     }
     
     .header{
@@ -105,8 +107,8 @@
         background-color: #1997A2;
         color: #F2F2F2;
         height: 60px;
-        font-size: 1.6em;
-        padding: 2% 0;
+        font-size: 1.5em;
+        padding: 2.5% 0;
         text-align: center;
         top: 0;
         width: 100%;
@@ -116,7 +118,8 @@
     .dots {
         position: absolute;
         right: 5%;
-        top: 7%;
+        top: 11%;
+        height: 80%;
     }
 
     .header{

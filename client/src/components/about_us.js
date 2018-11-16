@@ -19,7 +19,7 @@ class AboutUs extends Component{
             </Link>
                 <img className="logo_img" src={meetTeam} alt="squirrel logo" />
                 <div className="everybody">
-                    <div className="frontend">- - - - - - - - - - FRONT-END - - - - - - - - - -</div>
+                    <div className="frontend">FRONT-END</div>
                     <div className="top_left">
                         <img className=" picture img_left" src={chase}/>
                         <div className="member_name_left">Chase Caine</div>
@@ -62,7 +62,7 @@ class AboutUs extends Component{
                         </a>
                     </div>
                   
-                    <div className="backend">- - - - - - - - - -  BACK-END - - - - - - - - - - </div> 
+                    <div className="backend">BACK-END</div> 
                     <div className="member_bottom_left">
                         <img className=" picture img_left" src={kyle}/>
                         <div className="member_name_left">Kyle Pamintuan</div>
