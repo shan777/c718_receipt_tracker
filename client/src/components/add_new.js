@@ -50,7 +50,7 @@ class AddNewTag extends Component {
     }
 
     fixRoundingError(totalAmount){
-       let correctTotal = Math.round(totalAmount * 1000000000) / 1000000000;
+        let correctTotal = Math.round(totalAmount * 1000000000) / 1000000000;
         return correctTotal;
     }
 
@@ -59,31 +59,31 @@ class AddNewTag extends Component {
 
         event.preventDefault();
 
-        let fields = this.state.fields;
-        let errors = {};
+        // let errors = {};
         let formIsValid = true;
   
         //  merchantName validation
         if((typeof merchantName) !== "undefined"){
-            if(! merchantName.match(/^[äéa-zA-Z \d-&'_!\.,\?\+]{2,32}$/)){
+            if(! merchantName.match(/^[äéa-zA-Z \d-&'_!\.,\?\+]{1,32}$/)){
                 formIsValid = false;
                 errors["merchantName"] = "Invalid merchantName";
             }      	
         }
 
-        
-        const resp = await axios.post('/api/manageReceipts/addReceipt', {
-            storeName: merchantName,
-            total: `${this.fixRoundingError(totalAmount * 100)}`,
-            purchaseDate: dateOfPurchase,
-            category: category,
-            comment: note,
-            tags: currentTags
-        });    
-        
-        this.clearStates();
+        if(formIsValid){        
+            const resp = await axios.post('/api/manageReceipts/addReceipt', {
+                storeName: merchantName,
+                total: `${this.fixRoundingError(totalAmount * 100)}`,
+                purchaseDate: dateOfPurchase,
+                category: category,
+                comment: note,
+                tags: currentTags
+            });    
+            
+            this.clearStates();
 
-        this.props.history.push('/overview');
+            this.props.history.push('/overview');
+        }
     }
 
     formatDate = (date) => {
@@ -181,7 +181,7 @@ class AddNewTag extends Component {
                                 />
                             </div>
                             <span className="error">{this.state.errors["merchantName"]}</span>
-
+                            
                             <div className="content_container">
                                 <label className="input_label">Total :</label>
                                 $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 

@@ -31,7 +31,10 @@ module.exports = {
             creditCardName: /^[a-zA-Z ]{2,20}$/,
             tax: /^[1-9][\d]{0,9}$/,
             total: /^[1-9][\d]{0,9}$/,
-            storeName: /^[äéa-zA-Z \d-&'_!\.,\?\+]{2,32}$/,
+            
+            storeName: /^[äéa-zA-Z \d-&'_!\.,\?\+]{1,32}$/,
+            // storeName: /^[äéa-zA-Z \d-&'_!\.,\?\+]{2,32}$/,
+
             //tag table fields
             tagName: /^[a-zA-Z \d-_']{2,15}$/,
             tagId: /^[1-9][\d]{0,9}$/
