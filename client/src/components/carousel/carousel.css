@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: 'Original Surfer';
   src: url(../../assets/fonts/OriginalSurfer-Regular.ttf);
-}
+} */
 @media only screen and (max-width: 600px){
     .carousel-container {
       border: 1px solid #404040;
@@ -130,7 +130,7 @@
     }
 
     button {
-      font-family: 'Original Surfer';
+      /* font-family: 'Original Surfer'; */
       font-size: 1em;
       background-color: rgb(183, 188, 192);
       color: #2C3531;
@@ -269,7 +269,7 @@
     }
 
     button {
-      font-family: 'Original Surfer';
+      /* font-family: 'Original Surfer'; */
       font-size: 1em;
       background-color: rgb(183, 188, 192);
       color: #2C3531;
