@@ -33,9 +33,7 @@
         if(!fields["username"]){
             formIsValid = false;
             errors["username"] = "Username cannot be empty";
-        }
-  
-        else if(typeof fields["username"] !== "undefined"){
+        } else if(typeof fields["username"] !== "undefined"){
             if(!fields["username"].match(/^(?=.{4,15}$)(?!.*[_]{2})^[a-zA-Z]\w+(?<![_])$/)){
                 formIsValid = false;
                 errors["username"] = "Invalid Username";
@@ -46,10 +44,8 @@
         if(!fields["firstName"]){
             formIsValid = false;
             errors["firstName"] = "First name cannot be empty";
-        }
-    
-        else if(typeof fields["firstName"] !== "undefined"){
-            if(!fields["firstName"].match(/[a-zA-Z_.-]{2,}/)){
+        } else if(typeof fields["firstName"] !== "undefined"){
+            if(!fields["firstName"].match(/^[a-zA-Z.\-' ]{2,32}$/)){
                 formIsValid = false;
                 errors["firstName"] = "Invalid First Name";
             }      	
@@ -59,10 +55,8 @@
         if(!fields["lastName"]){
             formIsValid = false;
             errors["lastName"] = "Last name cannot be empty";
-        }
-    
-        else if(typeof fields["lastName"] !== "undefined"){
-            if(!fields["lastName"].match(/^[a-z A-Z \-\.']{2,50}$/)){
+        } else if(typeof fields["lastName"] !== "undefined"){
+            if(!fields["lastName"].match(/^[a-zA-Z.\-' ]{2,32}$/)){
             formIsValid = false;
             errors["lastName"] = "Invalid Last Name";
             }      	
@@ -72,9 +66,7 @@
         if(!fields["password"]){
             formIsValid = false;
             errors["password"] = "Password cannot be empty";
-        }
-    
-        else if(typeof fields["password"] !== "undefined"){
+        } else if(typeof fields["password"] !== "undefined"){
             if(!fields["password"].match(/^(?=[a-zA-Z])(?=.{8,32}$)(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).*$/)){
             formIsValid = false;
             errors["password"] = "Invalid Password";
@@ -85,9 +77,7 @@
         if(!fields["confirmPassword"]){
             formIsValid = false;
             errors["confirmPassword"] = "Confirm Password cannot be empty";
-        }
-    
-        else if(typeof fields["confirmPassword"] !== "undefined"){
+        } else if(typeof fields["confirmPassword"] !== "undefined"){
             if(fields["password"] !== fields["confirmPassword"]){
             formIsValid = false;
             errors["confirmPassword"] = "Does not match";

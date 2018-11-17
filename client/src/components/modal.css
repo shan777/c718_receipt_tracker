@@ -124,12 +124,13 @@ input[type=checkbox] {
     box-sizing: border-box;
     line-height: 2.1em;
     overflow: auto;
-    min-height: 32vh;
-    padding: 6% 0;
-    border: 2px teal solid;
+    min-height: 30vh;
+    padding: 8% 0;
+    border: 3px teal solid;
     position: absolute;
     bottom: -189%;
     left: 3%;
+    border-radius: 10px;
 }
 
 
@@ -195,7 +196,8 @@ input[type=checkbox] {
         overflow: auto;
         min-height: 70vh;
         padding: 8% 0;
-        border: 2px teal solid;
+        border: 3px teal solid;
+        border-radius: 10px;
     }
 
     .tag_modal_container {
@@ -372,7 +374,8 @@ input[type=checkbox] {
         overflow: auto;
         min-height: 70vh;
         padding: 8% 0;
-        border: 2px teal solid;
+        border: 3px teal solid;
+        border-radius: 10px;
     }
 
     .tag_modal_container {
@@ -552,7 +555,8 @@ input[type=checkbox] {
         overflow: auto;
         min-height: 70vh;
         padding: 8% 0;
-        border: 2px teal solid;
+        border: 3px teal solid;
+        border-radius: 10px;
     }
 
     .tag_modal_container {
@@ -745,7 +749,8 @@ input[type=checkbox] {
         overflow: auto;
         min-height: 70vh;
         padding: 8% 0;
-        border: 2px teal solid;
+        border: 3px teal solid;
+        border-radius: 10px;
     }
 
     .tag_modal_container {

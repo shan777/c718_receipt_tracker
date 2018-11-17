@@ -112,12 +112,8 @@ class Modal extends Component{
                                 value={this.state.note}
                             />
                             <br/><br/>
-                            {/* <i className="material-icons modalbtn cancel" onClick={this.props.close}>close</i> */}
                             <button className="modalbtn cancel" onClick={this.props.close}>Cancel</button>
-                            {/* <i className="material-icons modalbtn update-color" onClick={this.props.close}>done_outline</i>update */}
-
                             <button className="modalbtn update-color" onClick={this.handleSubmit.bind(this)}>Update</button>
-                            {/* {/* <label className="input_label">Tag:</label> */}
                         </div>
                     </form>
                     </div>

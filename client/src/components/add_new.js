@@ -23,7 +23,8 @@ class AddNewTag extends Component {
             show: false,
             addTagModalShow: false,
             deletedTag: false,
-            currentTags: []
+            currentTags: [],
+            errors: {}
         }
     }
 
@@ -57,6 +58,19 @@ class AddNewTag extends Component {
         const {merchantName, dateOfPurchase, totalAmount, category, note, currentTags} = this.state;
 
         event.preventDefault();
+
+        let fields = this.state.fields;
+        let errors = {};
+        let formIsValid = true;
+  
+        //  merchantName validation
+        if((typeof merchantName) !== "undefined"){
+            if(! merchantName.match(/^[äéa-zA-Z \d-&'_!\.,\?\+]{2,32}$/)){
+                formIsValid = false;
+                errors["merchantName"] = "Invalid merchantName";
+            }      	
+        }
+
         
         const resp = await axios.post('/api/manageReceipts/addReceipt', {
             storeName: merchantName,
@@ -143,7 +157,6 @@ class AddNewTag extends Component {
                         <div className="btn_container">
                             <button className="cancel_btn" type="reset" value="Cancel" onClick={this.handleCancel}>                            
                                 Cancel
-                                {/* <i className="material-icons tag_icon">clear</i> */}
                             </button>
                             <button className="done_btn"  type="submit" value="Submit">                                    
                                 Submit
@@ -167,12 +180,14 @@ class AddNewTag extends Component {
                                     required
                                 />
                             </div>
-                            
+                            <span className="error">{this.state.errors["merchantName"]}</span>
+
                             <div className="content_container">
                                 <label className="input_label">Total :</label>
                                 $ <input className="amount" onChange={ (e) => this.setState({totalAmount: (e.target.value)})} 
                                     type="number" min="0.00" step="0.01"
                                     value={totalAmount}
+                                    required
                                 />
                             </div> 
 
