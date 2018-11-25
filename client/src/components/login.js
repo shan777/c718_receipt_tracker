@@ -15,7 +15,8 @@ class Login extends Component{
         username: '',
         password: '',
         userId: null,
-        error: ''
+        error: '',
+        signedUp: false
     }
 
     async handleSubmit(e) {
@@ -47,7 +48,20 @@ class Login extends Component{
         })
     }
 
+    async successfullySignedUp(){
+        await this.setState({
+            signedUp: true
+        })
+    }
+
     render(){
+        const signedUp = {
+            display: 'block'
+        }
+
+        const notSignedUp = {
+            display: 'none'
+        }
         return(
             <div className="login_page_container">
                 <div className="login_logo">
@@ -55,6 +69,7 @@ class Login extends Component{
                     <img className="login_logo_txt" src={loginLogoTxt} alt="squirrel logo text" />
                 </div>
                 <div className="login_container">
+                <div style={this.state.signedUp ? signedUp : notSignedUp} >You have successfully signed up.</div>
                     <form className="login_area" onSubmit={this.handleSubmit}>
                         <input name='username' value={this.state.username} 
                         onChange={this.handleChange.bind(this)} className="username" 

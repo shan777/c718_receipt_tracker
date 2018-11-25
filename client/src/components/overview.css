@@ -44,19 +44,22 @@
     
     .overview_main_container{
         width: 100%;
-        padding-top: 80px;
+        padding-top: 100px;
         background-color: white;
         padding-bottom: 155px;
         color: #15191b;
+        left: 10%;
+        position: relative;
     }
     
     .row{
         background-color: white;
         position: relative;
-        width: 100%;
+        width: 75%;
         cursor: pointer;
         transition: 0.4s;
         font-size: 0.9em;
+        border-bottom: 1px solid black;
     }
     
     .date_of_purchase, .store_name, .amount_of_purchase{
@@ -112,19 +115,20 @@
     }
     
     .data{
-        left: 25%;
+        left: 5%;
         font-size: 1.2em;
     }
     
     .summary{
         position: fixed;
-        bottom: 80px;
+        bottom: 100px;
         background-color: #E4FDE1;
         width: 100vw;
         margin: 0;
         border: 0.1px solid #8c8c8c;
         font-size: 0.6em;
         padding: 3% 0;
+        left: 0;
     }
     
     .summary>p {
@@ -223,7 +227,7 @@
         top: 1vh;
     }
     .amount_of_purchase{
-        left: 38%;
+        left: 46%;
         bottom: 2vh;
         font-size: 2.1em;
         padding-right: 4%;
@@ -257,7 +261,7 @@
     
     .summary{
         position: fixed;
-        bottom: 95px;
+        bottom: 115px;
         background-color: #E4FDE1;
         width: 100vw;
         margin: 0;
@@ -265,10 +269,13 @@
         left: 0;
         text-align: center;
     }
+    .summary>p {
+        font-size: 3.5em;
+    }
     
     .number_of_receipts, .total_amount{
         margin: 0;
-        font-size: 2.5em;
+        font-size: 3.5em;
     }
     
     .collapsible_header{
@@ -326,11 +333,11 @@
     
     .overview_main_container{
         width: 75%;
-        padding-top: 80px;
+        padding-top: 115px;
         background-color: white;
         padding-bottom: 144px;
         position: relative;
-        left: 11%;
+        left: 15%;
         top: 0vh;
         color: #15191b;
     }
@@ -354,7 +361,7 @@
     
     .store_name, .date_of_purchase{
         left: 3%;
-        font-size: 3em;
+        font-size: 2.4em;
     }
     
     .store_name{
@@ -367,7 +374,7 @@
     .amount_of_purchase{
         left: 47%;
         bottom: 2vh;
-        font-size: 3em;
+        font-size: 2.4em;
         padding-right: 4%;
     }
     
@@ -399,7 +406,7 @@
     
     .summary{
         position: fixed;
-        bottom: 80px;
+        bottom: 115px;
         background-color: #E4FDE1;
         width: 100vw;
         margin: 0;
@@ -427,6 +434,10 @@
         padding: 1% 2%;
         transition-duration: 0.4s;
     }
+    .render_panel{
+        font-size: 2em;
+        margin-top: 1%;
+    }
 
     /* .tag_text{
         display: inline-block;
@@ -446,11 +457,11 @@
     
     .overview_main_container{
         width: 75%;
-        padding-top: 80px;
+        padding-top: 115px;
         background-color: white;
-        padding-bottom: 144px;
+        padding-bottom: 196px;
         position: relative;
-        left: 11%;
+        left: 15%;
         top: 0vh;
         font-size: 0.7em;
         color: #15191b;
@@ -475,7 +486,7 @@
     
     .store_name, .date_of_purchase{
         left: 3%;
-        font-size: 2.4em;
+        font-size: 3em;
     }
     
     .store_name{
@@ -486,9 +497,9 @@
         top: 1vh;
     }
     .amount_of_purchase{
-        left: 63%;
+        left: 57%;
         bottom: 2vh;
-        font-size: 2.4em;
+        font-size: 3em;
         padding-right: 4%;
     }
     
@@ -520,7 +531,7 @@
     
     .summary{
         position: fixed;
-        bottom: 68px;
+        bottom: 115px;
         background-color: #E4FDE1;
         width: 100vw;
         margin: 0;
@@ -532,10 +543,10 @@
 
     .summary>p{
         margin: 0;
-        font-size: 2.1em;
+        font-size: 3.5em;
         text-align: center;
         position: relative;
-        right: 5%;
+        right: 0%;
     }
     
     .number_of_receipts, .total_amount{
@@ -711,10 +722,3 @@
     }
 
 }
-
-
-
-
-
-
-
