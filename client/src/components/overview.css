@@ -12,30 +12,54 @@
     font-family: "Roboto";
 }
 
+.category, .tag_text{
+    font-weight: bold;
+    width: 35%;
+    text-align: right;
+}
+
+.tag_text {
+    line-height: 2;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.panel_size:nth-child(1) {
+    padding-top: 5%;
+}
+
+.noNote {
+    color: #8c8c8c;
+}
+
+
 @media only screen and (min-width: 600px){
 
     body{
         min-height: 100vh;
         width: 100vw;
         margin: 0;
-        background-color: #DEF2F1;
+        background-color: white;
     }
     
     .overview_main_container{
         width: 100%;
-        padding-top: 80px;
-        background-color: #DEF2F1;
+        padding-top: 100px;
+        background-color: white;
         padding-bottom: 155px;
         color: #15191b;
+        left: 10%;
+        position: relative;
     }
     
     .row{
-        background-color: #DEF2F1;
+        background-color: white;
         position: relative;
-        width: 100%;
+        width: 75%;
         cursor: pointer;
         transition: 0.4s;
         font-size: 0.9em;
+        border-bottom: 1px solid black;
     }
     
     .date_of_purchase, .store_name, .amount_of_purchase{
@@ -71,7 +95,7 @@
     .panel{
         display: none;
         overflow: hidden;
-        background-color: #DEF2F1;
+        background-color: white;
         position: relative;
         width: 100%;
         height: 25vh;
@@ -86,29 +110,25 @@
     
     .category, .data{
         display: inline-block;
-        width: 50%;
         position: relative;
         font-size: 1.2em;
     }
-
-    .category{
-        left: 2%;
-    }
     
     .data{
-        left: 25%;
+        left: 5%;
         font-size: 1.2em;
     }
     
     .summary{
         position: fixed;
-        bottom: 80px;
-        background-color: #D9DDE1;
+        bottom: 100px;
+        background-color: #E4FDE1;
         width: 100vw;
         margin: 0;
         border: 0.1px solid #8c8c8c;
         font-size: 0.6em;
         padding: 3% 0;
+        left: 0;
     }
     
     .summary>p {
@@ -133,49 +153,45 @@
         right: 5%;
     }
     
-    .editbtn{
+    .edit_btn{
         float: right;
         position: relative;
         color: rgb(243, 113, 7);
         top: 0vh;
         padding: 1% 2%;
-        font-size: 1.005em;
-        border-radius: 6px;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-        margin-top: 100px;
     }
     
-    .deletebtn{
+    .delete_btn{
         position: relative;
         float: left;
-        margin-top: 100px;
     }
     
     .render_panel{
         font-size: 1.2em;
+        margin-top: 1%;
     }
       
-    .tag_text{
+    /* .tag_text{
         display: inline-block;
         position: relative;
         right: 1.5%;
     }
-    
-    }
+     */
+}
 
 @media only screen and (min-width: 768px){
     body{
         height: 80vh;
         width: 100vw;
         margin: 0;
-        background-color: #DEF2F1;
+        background-color: white;
     }
     
     .overview_main_container{
         width: 85%;
         padding-top: 127px;
-        background-color: #DEF2F1;
+        background-color: white;
         padding-bottom: 164px;
         position: relative;
         left: 11%;
@@ -183,7 +199,7 @@
     }
     
     .row{
-        background-color: #DEF2F1;
+        background-color: white;
         position: relative;
         width: 75%;
         left: 8%;
@@ -211,7 +227,7 @@
         top: 1vh;
     }
     .amount_of_purchase{
-        left: 38%;
+        left: 46%;
         bottom: 2vh;
         font-size: 2.1em;
         padding-right: 4%;
@@ -220,7 +236,7 @@
     .panel{
         display: none;
         overflow: hidden;
-        background-color: #DEF2F1;
+        background-color: white;
         position: relative;
         width: 100%;
         height: 25vh;
@@ -235,12 +251,8 @@
     
     .category, .data{
         display: inline-block;
-        width: 50%;
         position: relative;
         font-size: 1.5em;
-    }
-    .category{
-        left: 0;
     }
     
     .data{
@@ -249,18 +261,21 @@
     
     .summary{
         position: fixed;
-        bottom: 95px;
-        background-color: #D9DDE1;
+        bottom: 115px;
+        background-color: #E4FDE1;
         width: 100vw;
         margin: 0;
         border: 0.1px solid #8c8c8c;
         left: 0;
         text-align: center;
     }
+    .summary>p {
+        font-size: 3.5em;
+    }
     
     .number_of_receipts, .total_amount{
         margin: 0;
-        font-size: 2.5em;
+        font-size: 3.5em;
     }
     
     .collapsible_header{
@@ -279,37 +294,33 @@
         right: 5%;
     }
     
-    .material-icons{
+    .accordion_icon{
         font-size: 36px;
     }
-    .editbtn{
+    .edit_btn{
         float: right;
         position: relative;
         color: rgb(243, 113, 7);
         top: 0vh;
         padding: 1% 2%;
-        font-size: 1.005em;
-        border-radius: 6px;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-        margin-top: 100px;
     }
     
-    .deletebtn{
+    .delete_btn{
         position: relative;
         float: left;
-        margin-top: 100px;
-    }
+     }
     
     .render_panel{
         font-size: 1.5em;
+        margin-top: 1%;
     }
       
-    .tag_text{
+    /* .tag_text{
         display: inline-block;
         position: relative;
         right: 8%;
-    }
+    } */
 }
 
 @media only screen and (min-width: 992px){
@@ -317,22 +328,22 @@
         height: 100vh;
         width: 100vw;
         margin: 0;
-        background-color: #DEF2F1;
+        background-color: white;
     }
     
     .overview_main_container{
         width: 75%;
-        padding-top: 80px;
-        background-color: #DEF2F1;
+        padding-top: 115px;
+        background-color: white;
         padding-bottom: 144px;
         position: relative;
-        left: 11%;
+        left: 15%;
         top: 0vh;
         color: #15191b;
     }
     
     .row{
-        background-color: #DEF2F1;
+        background-color: white;
         position: relative;
         width: 85%;
         left: 9%;
@@ -350,7 +361,7 @@
     
     .store_name, .date_of_purchase{
         left: 3%;
-        font-size: 3em;
+        font-size: 2.4em;
     }
     
     .store_name{
@@ -363,14 +374,14 @@
     .amount_of_purchase{
         left: 47%;
         bottom: 2vh;
-        font-size: 3em;
+        font-size: 2.4em;
         padding-right: 4%;
     }
     
     .panel{
         display: none;
         overflow: hidden;
-        background-color: #DEF2F1;
+        background-color: white;
         position: relative;
         width: 100%;
         height: 25vh;
@@ -385,22 +396,18 @@
     
     .category, .data{
         display: inline-block;
-        width: 50%;
         position: relative;
         font-size: 2em;
     }
-    .category{
-        left: 2%;
-    }
-    
+
     .data{
         left: 5%;
     }
     
     .summary{
         position: fixed;
-        bottom: 80px;
-        background-color: #D9DDE1;
+        bottom: 115px;
+        background-color: #E4FDE1;
         width: 100vw;
         margin: 0;
         border: 0.1px solid #8c8c8c;
@@ -419,24 +426,25 @@
         opacity: 0;
     }
 
-    .editbtn{
+    .edit_btn{
         float: right;
         position: relative;
         color: rgb(243, 113, 7);
         top: 0vh;
         padding: 1% 2%;
-        font-size: 1.005em;
-        border-radius: 6px;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-        margin-top: 100px;
     }
-    .tag_text{
+    .render_panel{
+        font-size: 2em;
+        margin-top: 1%;
+    }
+
+    /* .tag_text{
         display: inline-block;
         position: relative;
         right: 4%;
         font-size: 1.3em;
-    }
+    } */
 }
 
 @media only screen and (min-width: 1220px){
@@ -444,23 +452,23 @@
         height: 100vh;
         width: 100vw;
         margin: 0;
-        background-color: #DEF2F1;
+        background-color: white;
     }
     
     .overview_main_container{
         width: 75%;
-        padding-top: 80px;
-        background-color: #DEF2F1;
-        padding-bottom: 144px;
+        padding-top: 115px;
+        background-color: white;
+        padding-bottom: 196px;
         position: relative;
-        left: 11%;
+        left: 15%;
         top: 0vh;
         font-size: 0.7em;
         color: #15191b;
     }
     
     .row{
-        background-color: #DEF2F1;
+        background-color: white;
         position: relative;
         width: 64%;
         left: 16%;
@@ -478,7 +486,7 @@
     
     .store_name, .date_of_purchase{
         left: 3%;
-        font-size: 2.4em;
+        font-size: 3em;
     }
     
     .store_name{
@@ -489,16 +497,16 @@
         top: 1vh;
     }
     .amount_of_purchase{
-        left: 63%;
+        left: 57%;
         bottom: 2vh;
-        font-size: 2.4em;
+        font-size: 3em;
         padding-right: 4%;
     }
     
     .panel{
         display: none;
         overflow: hidden;
-        background-color: #DEF2F1;
+        background-color: white;
         position: relative;
         width: 100%;
         height: 25vh;
@@ -513,22 +521,18 @@
     
     .category, .data{
         display: inline-block;
-        width: 50%;
         position: relative;
         font-size: 2em;
     }
-    .category{
-        left: 2%;
-    }
-    
+
     .data{
         left: 5%;
     }
     
     .summary{
         position: fixed;
-        bottom: 68px;
-        background-color: #D9DDE1;
+        bottom: 115px;
+        background-color: #E4FDE1;
         width: 100vw;
         margin: 0;
         border: 0.1px solid #8c8c8c;
@@ -539,10 +543,10 @@
 
     .summary>p{
         margin: 0;
-        font-size: 2.1em;
+        font-size: 3.5em;
         text-align: center;
         position: relative;
-        right: 5%;
+        right: 0%;
     }
     
     .number_of_receipts, .total_amount{
@@ -557,24 +561,21 @@
         opacity: 0;
     }
 
-    .editbtn{
+    .edit_btn{
         float: right;
         position: relative;
         color: rgb(243, 113, 7);
         top: 0vh;
         padding: 1% 2%;
-        font-size: 1.005em;
-        border-radius: 6px;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-        margin-top: 100px;
     }
-    .tag_text{
+
+    /* .tag_text{
         display: inline-block;
         position: relative;
         right: 1.5%;
         font-size: 1.3em;
-    }
+    } */
 }
 
 @media only screen and (max-width: 600px){
@@ -583,19 +584,19 @@
         height: 100vh;
         width: 100vw;
         margin: 0;
-        background-color: #DEF2F1;
+        background-color: white;
     }
 
     .overview_main_container{
         width: 100%;
         padding-top: 60px;
-        background-color: #DEF2F1;
+        background-color: white;
         padding-bottom: 155px;
         color: #15191b;
     }
 
     .row{
-        background-color: #DEF2F1;
+        background-color: white;
         position: relative;
         width: 100%;
         cursor: pointer;
@@ -636,7 +637,7 @@
     .panel{
         display: none;
         overflow: hidden;
-        background-color: #DEF2F1;
+        background-color: white;
         position: relative;
         width: 100%;
         height: 25vh;
@@ -651,11 +652,10 @@
 
     .category, .data{
         display: inline-block;
-        width: 50%;
         position: relative;
         font-size: 1.2em;
     }
-
+    
     .data{
         left: 5%;
         font-size: 1.2em;
@@ -664,7 +664,7 @@
     .summary{
         position: fixed;
         bottom: 60px;
-        background-color: #D9DDE1;
+        background-color: #E4FDE1;
         width: 100vw;
         margin: 0;
         border: 0.1px solid #8c8c8c;
@@ -693,34 +693,31 @@
         right: 5%;
     }
 
-    .editbtn{
+    .edit_btn{
         float: right;
         position: relative;
         color: rgb(243, 113, 7);
         top: 0vh;
         padding: 1% 2%;
-        font-size: 1.005em;
-        border-radius: 6px;
         transition-duration: 0.4s;
-        font-family: 'Original Surfer';
-        margin-top: 20px;
     }
 
-    .deletebtn{
+    .delete_btn{
         position: relative;
         float: left;
-        margin-top: 20px;
     }
 
     .render_panel{
         font-size: 1.2em;
+        margin-top: 1%;
     }
     
-    .tag_text{
+    /* .tag_text{
         display: inline-block;
         position: relative;
-    }
-    .material-icons{
+    } */
+
+    .accordion_icon{
         font-size:32px;
     }
 

@@ -84,7 +84,9 @@ class Carousel extends Component {
             return push('/overview');
         }
 
-        push('/login');
+        else {
+            return push('/login');
+        }    
     }
 
     render(){

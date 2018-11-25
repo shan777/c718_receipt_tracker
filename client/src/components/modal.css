@@ -1,3 +1,154 @@
+.tag_icon {
+    color: white;
+    width: 20px;
+    height: 20px;
+}
+
+.date1, .merchant1, .amount1, .note1 {
+    background-color: white;
+    box-shadow: none;
+    border-style: none;
+    border-bottom: 1px solid #2EB4BA ;
+    border-top-color: none;
+    font-size: 1.05em;
+}
+
+.update-color{
+    background-color: #a3fff7;
+    border: 0.5px solid #2C3531;
+}
+
+/* add new page tag modal css - input checkbox */
+.custom_tag_icon {
+    color: rgb(241, 136, 16);
+    float: right;
+}
+    
+.each_tag_container {
+    border-bottom: solid 0.5px silver;
+}
+
+.checkbox_label {
+    font-size: 1.2em;
+    position: relative;
+    left: 10%;
+    line-height: 2em;
+}
+
+.checkbox_label input:checked  ~ .checkmark {
+    background-color: teal;
+}
+
+.checkmark {
+    position: absolute;
+    height: 27px;
+    width: 27px;
+    background-color: white;
+    border: 1px teal solid;
+    border-radius: 50%;
+    float: right;
+    vertical-align: middle;
+    left: 73vw;
+    top: 0;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+input[type=checkbox] {
+    display: none;
+  }
+
+/* Show the checkmark when checked */
+.checkbox_label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox_label .checkmark:after {
+    position: absolute;
+    left: 7px;
+    width: 8px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    float: right;
+}
+
+
+
+.new_tag {
+    padding: 8% 3%;
+}
+
+.new_tag_input:focus {
+    background-color: white;
+    border-bottom: 2px solid #2EB4BA;
+}
+
+/* add new tag modal cancel button */
+.new_tag+button { 
+    left: 8%;
+    width: 20vw;
+}
+
+.tag_modal_add_btn {
+    position: relative;
+    left: 40%;
+    width: 20vw;
+    display: inline-block;
+    /* font-family: 'Original Surfer'; */
+    cursor: pointer;
+    padding: 1.5%;
+    background-color: #A3FFF7;
+}
+
+.add_tag_modal_container {
+    background-color: white;
+    width: 80%;
+    font-weight: bold;
+    display: block;
+    box-sizing: border-box;
+    padding-bottom: 6%;
+    position: absolute;
+    bottom: -10vh;
+    left: 10vw;
+}
+
+.add_tag_modal_container .tag_header {
+    background-color: rgb(16, 152, 159);
+    color: #F2F2F2;
+    font-family: 'Roboto Bold';
+    padding: 2% 0 2% 9%;
+    font-size: 1.3em;
+}
+
+.delete_modal_container {
+    background-color: white;
+    width: 95%;
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    box-sizing: border-box;
+    line-height: 2.1em;
+    overflow: auto;
+    min-height: 30vh;
+    padding: 8% 0;
+    border: 3px teal solid;
+    position: absolute;
+    bottom: -189%;
+    left: 3%;
+    border-radius: 10px;
+}
+
+
+
 @media only screen and (min-width: 600px){
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
@@ -25,17 +176,14 @@
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -45,45 +193,44 @@
 
     .modalbtn{
         position: relative;
-        left: 80%;
-        font-size: 1.3em;
-        padding: 1%;
+        margin-left: 26%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: #2C3531;
     }
 
     .modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 3px teal solid;
+        border-radius: 10px;
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         display: block;
         box-sizing: border-box;
-        padding-bottom: 3%;
+        padding-bottom: 6%;
         position: relative;
         top: -25px;
+        border: 2px teal solid;
     }
 
-    .tag_modal_container h2 {
-        background-color: #2A9597;
+    .tag_modal_container .tag_header {
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
-    }
-
-    .checkbox_label {
-        font-size: 1.2em;
-        position: relative;
-        left: 15%;
-        line-height: 1.8em;
     }
 
     .checkbox {
@@ -93,12 +240,13 @@
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 43%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
+        margin-top: 4%;
     }
 
     .tag_modal_close_btn {
@@ -107,38 +255,33 @@
         line-height: 30px; */
         position: relative;
         display: inline-block;
-        font-family: 'Original Surfer';
-        color: black;
+        /* font-family: 'Original Surfer'; */
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
         position: relative;
         left: 45%;
         padding: 1.5%;
+        width: 20vw;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         cursor: pointer;
+        background-color: #A3FFF7;
     }
 
-    .tag_icon {
-        color: rgba(234, 239, 243, 0.925);
-        width: 20px;
-        height: 20px;
-    }
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
-    }
-
-    .custom_tag_icon {
-        color: rgb(241, 158, 3);
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -146,23 +289,22 @@
         height: 30%;;
         text-align: center;
         font-size: 1.3em;
-        padding: 1% 2% 1% 4%;
+        padding: 1% 5% 1% 4%;
     }
 
     .new_tag_input {
-        width: 40%;
-        font-size: 1.2em;
-        display: inline-block;
-    }
-
-    .add_tag_btn {
+        width: 90%;
+        padding-left: 2%;
+        line-height: 1.8;
         font-size: 0.9em;
+        display: inline-block;
+        border: 0.5px solid #2EB4BA;
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 10%;
+        text-align: center;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -177,13 +319,11 @@
     }
 
     .tag_choices_container {
-        max-height: 45vh;
+        max-height: 50vh;
         overflow: scroll;
+        color: #2C3531;
     }
 
-    .new_tag {
-        padding-bottom: 1.5%;
-    }
 }
 
 
@@ -215,19 +355,14 @@
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
-        position: relative;
-        left: 9%;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -237,48 +372,45 @@
 
     .modalbtn{
         position: relative;
-        left: 80%;
-        font-size: 1.3em;
-        padding: 1%;
+        margin-left: 29%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: #2C3531;
     }
 
     .modal_container {
-        background-color: #DEF2F1;
-        width: 80%;
+        background-color: white;
+        width: 100%;
         font-weight: bold;
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
-        left: 9%;
-        position: relative;
-        top: 1vh;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 3px teal solid;
+        border-radius: 10px;
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         display: block;
         box-sizing: border-box;
-        padding-bottom: 3%;
+        padding-bottom: 6%;
         position: relative;
         top: -25px;
+        border: 2px teal solid;
     }
 
-    .tag_modal_container h2 {
-        background-color: #2A9597;
+    .tag_modal_container .tag_header {
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
-    }
-
-    .checkbox_label {
-        font-size: 1.2em;
-        position: relative;
-        left: 15%;
-        line-height: 1.8em;
+        font-size: 1.3em;
     }
 
     .checkbox {
@@ -288,12 +420,13 @@
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 43%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
+        margin-top: 0%;
     }
 
     .tag_modal_close_btn {
@@ -302,38 +435,32 @@
         line-height: 30px; */
         position: relative;
         display: inline-block;
-        font-family: 'Original Surfer';
-        color: black;
+        /* font-family: 'Original Surfer'; */
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
         position: relative;
         left: 45%;
         padding: 1.5%;
+        width: 20vw;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         cursor: pointer;
-    }
-
-    .tag_icon {
-        color: rgba(234, 239, 243, 0.925);
-        width: 20px;
-        height: 20px;
+        background-color: #A3FFF7;
     }
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
-    }
-
-    .custom_tag_icon {
-        color: rgb(241, 158, 3);
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -341,13 +468,16 @@
         height: 30%;;
         text-align: center;
         font-size: 1.3em;
-        padding: 1% 2% 1% 4%;
+        padding: 1% 5% 1% 4%;
     }
 
     .new_tag_input {
-        width: 40%;
-        font-size: 1.2em;
+        width: 90%;
+        padding-left: 2%;
+        line-height: 1.8;
+        font-size: 0.9em;
         display: inline-block;
+        border: 0.5px solid #2EB4BA;
     }
 
     .add_tag_btn {
@@ -355,10 +485,10 @@
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 10%;
+        text-align: center;
         font-size: 1.3em;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -375,11 +505,44 @@
     .tag_choices_container {
         max-height: 45vh;
         overflow: scroll;
+        color: #2C3531;
     }
 
-    .new_tag {
-        padding-bottom: 1.5%;
+    .date1, .merchant1, .amount1, .note1 {
+        width: 32%;
+      }
+
+}
+
+@media only screen and (min-width: 992px){
+
+    .modal_input_label{
+        width: 47%;
     }
+
+    .modalbtn{
+        margin-left: 29%;
+    }
+
+    .date1, .merchant1, .amount1, .note1 {
+      width: 32%;
+    }
+
+    .date1, .merchant1, .note1, .category1, .select1 {
+        right: 7%;
+        position: relative;
+    }
+
+    .amount1{
+        right: 8%;
+        position: relative;
+    }
+
+    .modal_input_label {
+        position: relative;
+        right: 7%;
+    }
+
 }
 
 @media only screen and (min-width: 1220px){
@@ -409,19 +572,14 @@
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
-        position: relative;
-        left: 9%;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -431,49 +589,46 @@
 
     .modalbtn{
         position: relative;
-        left: 80%;
-        font-size: 1.3em;
-        padding: 1%;
+        margin-left: 29%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: #2C3531;
     }
 
     .modal_container {
-        background-color: #DEF2F1;
-        width: 80%;
+        background-color: white;
+        width: 100%;
         font-weight: bold;
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
-        left: 9%;
-        position: relative;
-        top: 1vh;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 3px teal solid;
+        border-radius: 10px;
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 40%;
         font-weight: bold;
         display: block;
         box-sizing: border-box;
-        padding-bottom: 3%;
+        padding-bottom: 6%;
         position: relative;
         top: -25px;
         left: 430px;
+        border: 2px teal solid;
     }
 
-    .tag_modal_container h2 {
-        background-color: #2A9597;
+    .tag_modal_container .tag_header {
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
-    }
-
-    .checkbox_label {
-        font-size: 1.2em;
-        position: relative;
-        left: 22%;
-        line-height: 1.8em;
+        font-size: 1.3em;
     }
 
     .checkbox {
@@ -483,12 +638,12 @@
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 38%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
 
     .tag_modal_close_btn {
@@ -497,38 +652,32 @@
         line-height: 30px; */
         position: relative;
         display: inline-block;
-        font-family: 'Original Surfer';
-        color: black;
+        /* font-family: 'Original Surfer'; */
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
         position: relative;
         left: 45%;
+        width: 20vw;
         padding: 1.5%;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         cursor: pointer;
-    }
-
-    .tag_icon {
-        color: rgba(234, 239, 243, 0.925);
-        width: 20px;
-        height: 20px;
+        background-color: #A3FFF7;
     }
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
-    }
-
-    .custom_tag_icon {
-        color: rgb(241, 158, 3);
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -536,13 +685,16 @@
         height: 30%;;
         text-align: center;
         font-size: 1.3em;
-        padding: 1% 2% 1% 4%;
+        padding: 1% 5% 1% 4%;
     }
 
     .new_tag_input {
-        width: 35%;
-        font-size: 1.2em;
+        width: 90%;
+        padding-left: 2%;
+        line-height: 1.8;
+        font-size: 0.9em;
         display: inline-block;
+        border: 0.5px solid #2EB4BA;
     }
 
     .add_tag_btn {
@@ -550,10 +702,10 @@
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 32%;
+        text-align: center;
         font-size: 1.3em;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -571,11 +723,18 @@
         max-height: 45vh;
         overflow-y: scroll;
         overflow-x: hidden;
+        color: #2C3531;
     }
 
-    .new_tag {
-        padding-left: 13%;
+    .date1, .merchant1, .amount1, .note1 {
+        width: 32%;
     }
+
+    .date1, .merchant1, .note1, .category1, .select1, .amount1, .modal_input_label {
+        right: 0%;
+    }
+
+
 }
 
 @media only screen and (max-width: 600px){
@@ -605,17 +764,14 @@
     }
 
     .basic_modal_close {
-        height: 30px;
-        width: 30px;
         line-height: 30px;
         display: inline-block;
         top: 10px;
-        border-radius: 50%;
         font-weight: bolder;
-        font-size: 27px;
-        font-family: 'Original Surfer';
+        font-size: 28px;
         color: white;
         cursor: pointer;
+        padding-left: 2%;
     }
 
     .basic_modal_close:hover {
@@ -625,54 +781,56 @@
 
     .modalbtn{
         position: relative;
-        left: 19%;
-        font-size: 1.3em;
-        padding: 1%;
-        margin-left: 5%;
+        margin-left: 20%;
+        font-size: 1.0em;
+        padding: 1.5%;
+        color: #2C3531;
     }
 
     .cancel{
-        background-color: red;
+        background-color: #f2f2f2;
+        border: 0.5px solid #2C3531;
+
     }
 
     .update-color{
-        background-color: green;
+        background-color: #a3fff7;
+        border: 0.5px solid #2C3531;
     }
 
     .modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         font-size: 1em;
         display: block;
         box-sizing: border-box;
-        line-height: 4.1em;
+        line-height: 2.1em;
         overflow: auto;
+        min-height: 70vh;
+        padding: 8% 0;
+        border: 3px teal solid;
+        border-radius: 10px;
     }
 
     .tag_modal_container {
-        background-color: #DEF2F1;
+        background-color: white;
         width: 100%;
         font-weight: bold;
         display: block;
         box-sizing: border-box;
-        padding-bottom: 3%;
+        padding-bottom: 6%;
         position: relative;
         top: -25px;
+        border: 2px teal solid;
     }
 
-    .tag_modal_container h2 {
-        background-color: #2A9597;
+    .tag_modal_container .tag_header {
+        background-color: rgb(38, 164, 171);
         color: #F2F2F2;
         font-family: 'Roboto Bold';
         padding: 2% 0 2% 9%;
-    }
-
-    .checkbox_label {
-        font-size: 1.2em;
-        position: relative;
-        left: 15%;
-        line-height: 1.8em;
+        font-size: 1.3em;
     }
 
     .checkbox {
@@ -682,12 +840,12 @@
     }
 
     .modal_input_label {
-        width: 35%;
-        height: 30%;;
-        text-align: center;
+        width: 38%;
+        text-align: right;
+        padding-right: 4%;
         display: inline-block;
         word-break: break-word;
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
 
     .tag_modal_close_btn {
@@ -696,38 +854,33 @@
         line-height: 30px; */
         position: relative;
         display: inline-block;
-        font-family: 'Original Surfer';
-        color: black;
+        /* font-family: 'Original Surfer'; */
+        color: #2C3531;
         cursor: pointer;
         display: inline-block;
         left: 15%;
         padding: 1.5%;
+        background-color: #F2F2F2;
+
     }
 
     .tag_modal_apply_btn {
         position: relative;
         left: 45%;
         padding: 1.5%;
+        width: 20vw;
         display: inline-block;
-        font-family: 'Original Surfer';
+        /* font-family: 'Original Surfer'; */
         cursor: pointer;
+        background-color: #A3FFF7;
     }
 
-    .tag_icon {
-        color: rgba(234, 239, 243, 0.925);
-        width: 20px;
-        height: 20px;
-    }
 
     .custom_tag {
-        background-color: #DEF2F1;
+        background-color: white;
         font-family: 'Roberto';
         font-weight: bold;
-        border: 0.7px dotted #2A9597;
-    }
-
-    .custom_tag_icon {
-        color: rgb(241, 158, 3);
+        border: 0.7px dotted #2EB4BA;
     }
 
     .new_tag_label {
@@ -735,23 +888,28 @@
         height: 30%;;
         text-align: center;
         font-size: 1.3em;
-        padding: 1% 2% 1% 4%;
+        padding: 1% 5% 1% 4%;
     }
 
     .new_tag_input {
-        width: 40%;
-        font-size: 1.2em;
+        width: 90%;
+        padding-left: 2%;
+        font-size: 0.9em;
+        line-height: 1.8;
         display: inline-block;
+        background-color: white;
+        border: 0.5px solid #2EB4BA;
     }
+
 
     .add_tag_btn {
         font-size: 0.9em;
     }
 
     .sure{
-        color: red;
         position: relative;
-        left: 10%;
+        text-align: center;
+        padding-bottom: 7%;
     }
 
     .surebtn{
@@ -766,12 +924,10 @@
     }
 
     .tag_choices_container {
-        max-height: 45vh;
+        max-height: 60vh;
         overflow: scroll;
+        color: #2C3531;
     }
 
-    .new_tag {
-        padding-bottom: 1.5%;
-    }
 }
 

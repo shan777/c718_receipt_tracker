@@ -8,16 +8,61 @@
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
+@media only screen and (min-width: 600px){
+
+    .headContainer {
+        background-color: #1997A2;
+        color: #F2F2F2;
+        height: 100px;
+        font-size: 3.5em;
+        padding: 2.5% 0;
+        text-align: center;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .dots {
+        position: absolute;
+        right: 5%;
+        top: 11%;
+        height: 80%;
+    }
+
+    .header{
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: 1;
+    }
+
+    .sidebar_container {
+        width: 35vw;
+        height: 45vh;
+        background-color: #40B0B7;
+        font-family: 'Roboto Bold';
+        position: fixed !important;
+        padding-left: 2%;
+        font-size: 17px;
+        right: 5%;
+        top: 60px !important;
+        color: #98FFA8;
+    }
+
+    .menus {
+        top: 80px;
+    }
+}
+
 @media only screen and (min-width: 768px){
     .headContainer{
-        font-size: 6em;
-        background-color: #2A9597;
+        background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        height: 70px;
-        font-size: 6em;
-        padding-left: 20%;
-        text-align: left;
+        height: 115px;
+        font-size: 4em;
+        padding-left: 3%;
+        text-align: center;
         top: 0;
         width: 100%;
         z-index: 1;
@@ -26,6 +71,7 @@
         position: absolute;
         right: 6%;
         top: 15%;
+        height: 80%;
     }
     
     .header{
@@ -38,7 +84,7 @@
     .sidebar_container {
         width: 35vw;
         height: 40vh;
-        background-color: #2A9597; 
+        background-color: #40B0B7; 
         /* font-family: 'Roboto Bold'; */
         position: fixed !important;
         padding-left: 2%;
@@ -55,16 +101,15 @@
 
 @media only screen and (min-width: 1220px){
     .headContainer{
-        font-size: 6em;
-        background-color: #2A9597;
+        background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        /* height: 80px; */
-        font-size: 3em;
-        padding-left: 20%;
-        text-align: left;
+        font-size: 4em;
+        padding-left: 0%;
+        text-align: center;
         top: 0;
         width: 100%;
+        height: 115px;
         z-index: 1;
     }
     .dots {
@@ -72,6 +117,7 @@
         right: 6%;
         top: 15%;
         border: none;
+        height: 80%;
     }
     
     .header{
@@ -84,7 +130,7 @@
     .sidebar_container {
         width: 13vw;
         height: 40vh;
-        background-color: #2A9597; 
+        background-color: #40B0B7; 
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
@@ -101,13 +147,12 @@
 
 @media only screen and (max-width: 600px){
     .headContainer {
-        background-color: #2A9597;
+        background-color: #1997A2;
         color: #F2F2F2;
-        /* font-family: 'Roboto Bold'; */
         height: 60px;
-        font-size: 1.8em;
-        padding: 1% 0 1% 10%;
-        text-align: left;
+        font-size: 1.5em;
+        padding: 2.5% 0;
+        text-align: center;
         top: 0;
         width: 100%;
         z-index: 1;
@@ -116,7 +161,8 @@
     .dots {
         position: absolute;
         right: 5%;
-        top: 7%;
+        top: 11%;
+        height: 80%;
     }
 
     .header{
@@ -129,7 +175,7 @@
     .sidebar_container {
         width: 35vw;
         height: 45vh;
-        background-color: #2A9597; 
+        background-color: #40B0B7;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
@@ -137,10 +183,6 @@
         right: 5%;
         top: 60px !important;
         color: #98FFA8;
-    }
-
-    p.sign_out {
-        color: rgb(85, 26, 139);
     }
 
     .menus {
