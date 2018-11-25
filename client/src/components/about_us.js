@@ -14,8 +14,10 @@ class AboutUs extends Component{
     render(){
         return(
             <div className="about_us_container">
-                <Link to="/overview" title="Back to Overview"><img className="logo_img" src={meetTeam} alt="squirrel logo" /></Link>
-                <div className="info">* Click the squirrel to go back to the Overview page</div>
+            <Link className="info" to="/overview" title="Back to Overview">
+                <i className="material-icons">arrow_back_ios</i>
+            </Link>
+                <img className="logo_img" src={meetTeam} alt="squirrel logo" />
                 <div className="everybody">
                     <div className="frontend">FRONT-END</div>
                     <div className="top_left">
@@ -69,6 +71,9 @@ class AboutUs extends Component{
                         </a>
                         <a className='link_left' href="https://github.com/kylepamintuan" target="_blank">
                             <img src={github_logo} alt="github logo"></img>
+                        </a>
+                        <a className='link_center' href="http://www.kylep.tech" target="_blank">
+                            <i className="material-icons">business_center</i>
                         </a>
                     </div>
 

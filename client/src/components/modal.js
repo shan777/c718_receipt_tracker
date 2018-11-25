@@ -111,11 +111,9 @@ class Modal extends Component{
                                 type="text"
                                 value={this.state.note}
                             />
-                            <br/>
+                            <br/><br/>
                             <button className="modalbtn cancel" onClick={this.props.close}>Cancel</button>
                             <button className="modalbtn update-color" onClick={this.handleSubmit.bind(this)}>Update</button>
-                            {/* <label className="input_label">Tag:</label>
-                            <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/> */}
                         </div>
                     </form>
                     </div>
@@ -126,5 +124,5 @@ class Modal extends Component{
         return
 }
 
-    export default Modal;
+export default Modal;
 
