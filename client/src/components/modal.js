@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './modal.css';
+import AddTagModal from './add_tag_modal';
+import SelectTags from './select_tag_modal';
 import axios from 'axios';
 
 
@@ -12,6 +14,9 @@ class Modal extends Component{
         note: '',
         newTags:[],
         receiptId: null,
+        modalTags: null, 
+        currentTags: this.props.modalTags,
+        show: false
     };
 
     componentDidMount(){
@@ -25,13 +30,16 @@ class Modal extends Component{
             note: currentReceipt.comment,
             receiptId: this.props.receiptId,
             totalAmount: this.props.total/100,
-            category: currentReceipt.category
+            category: currentReceipt.category,
+            currentTags: this.props.modalTags,
+            tagModalOpen: false
         });
     }
 
     async handleSubmit(event){
         event.preventDefault();
-        let {merchantName, dateOfPurchase, totalAmount, category, note, receiptId, tag, errorMessage} = this.state;
+        let {merchantName, dateOfPurchase, totalAmount, category, note, receiptId, tag, errorMessage, currentTags} = this.state;
+        const updateTags = await axios.post('/api/manageTags/addReceiptTag', {receiptId: receiptId, tagId: currentTags})
         const update = await axios.post('/api/manageReceipts/updateReceipt', {
             receiptId: receiptId,
             storeName: merchantName,
@@ -68,8 +76,49 @@ class Modal extends Component{
         return formatDate;
     }
 
+    renderTags(){
+        let data = this.state.currentTags
+        if(data.length === 0){
+            return <div className='noTags'> — </div>
+        }
+        const renderTags = data.map((item, index) => (
+            <button className="custom_tag" type="button" key={index}># {data[index].tagName}</button>
+        ))
+        return renderTags;
+    }
+
+    tagModalOpen(event){
+        this.setState({
+            tagModalOpen: true
+        })
+    }
+
+    hideAddTagModal = () => {
+        this.setState({
+            tagModalOpen: false
+        });
+    }
+
+    hideModal = () => {
+        this.setState({
+            show: false
+        });
+    }
+
+    showModal = () => {
+        this.setState({
+            show: true
+        });
+    }
+
+    selectTags = (tags) => {
+        this.setState({
+            currentTags: tags
+        });
+    }
+
     render(){
-        const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage} = this.state;
+        const {merchantName, dateOfPurchase, totalAmount, category, note, tag, errorMessage, currentTags} = this.state;
         const categories = ['Dining', 'Groceries', 'Shopping', 'Beauty', 'Health', 'Entertainment', 'Transportation', 'Lodging', 'Repairs', 'Other'];
         const categoryChoices = categories.map((option, index) => 
             <option key={index} value={option}>{option}</option>);
@@ -111,14 +160,30 @@ class Modal extends Component{
                                 type="text"
                                 value={this.state.note}
                             />
+                            <br/><br/>
+                            <label className="modal_input_label">Tags :</label>
+                            <i className="material-icons drop_down_arrow_icon" type="button" tags={this.state.tags} onClick={this.showModal.bind(this)}>arrow_drop_down_circle</i>
+                                {/* </button> */}
+                            <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.tagModalOpen.bind(this)}>add_box</i>
+                            {this.renderTags()}
+                            
                             <br/>
+                            <div className="modalbtn update-color" onClick={this.tagModalOpen.bind(this)}>Update Tags</div>
                             <button className="modalbtn cancel" onClick={this.props.close}>Cancel</button>
                             <button className="modalbtn update-color" onClick={this.handleSubmit.bind(this)}>Update</button>
-                            {/* <label className="input_label">Tag:</label>
-                            <TagPanel tags={this.state.newTags} addCallback={this.handleNewTab}/> */}
                         </div>
                     </form>
                     </div>
+                    {
+                    (this.state.show) ?
+                    <SelectTags selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                    </SelectTags>    
+                    : (null)
+                    }
+                    {(this.state.tagModalOpen) ?
+                    <AddTagModal selectTags={this.selectTags} show={this.state.tagModalOpen} handleClose={this.hideAddTagModal} tags={this.props.modalTags}/>
+                    : null
+                    }
                 </div>
         
             )
@@ -126,5 +191,5 @@ class Modal extends Component{
         return
 }
 
-    export default Modal;
+export default Modal;
 
