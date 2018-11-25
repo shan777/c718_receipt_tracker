@@ -88,6 +88,7 @@ class Modal extends Component{
     }
 
     tagModalOpen(event){
+        event.preventDefault();
         this.setState({
             tagModalOpen: true
         })
@@ -165,10 +166,10 @@ class Modal extends Component{
                             <i className="material-icons drop_down_arrow_icon" type="button" tags={this.state.tags} onClick={this.showModal.bind(this)}>arrow_drop_down_circle</i>
                                 {/* </button> */}
                             <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.tagModalOpen.bind(this)}>add_box</i>
+                            <br/>
                             {this.renderTags()}
                             
                             <br/>
-                            <div className="modalbtn update-color" onClick={this.tagModalOpen.bind(this)}>Update Tags</div>
                             <button className="modalbtn cancel" onClick={this.props.close}>Cancel</button>
                             <button className="modalbtn update-color" onClick={this.handleSubmit.bind(this)}>Update</button>
                         </div>
