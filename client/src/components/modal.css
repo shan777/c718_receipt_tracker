@@ -4,6 +4,20 @@
     height: 20px;
 }
 
+.date1, .merchant1, .amount1, .note1 {
+    background-color: white;
+    box-shadow: none;
+    border-style: none;
+    border-bottom: 1px solid #2EB4BA ;
+    border-top-color: none;
+    font-size: 1.05em;
+}
+
+.update-color{
+    background-color: #a3fff7;
+    border: 0.5px solid #2C3531;
+}
+
 /* add new page tag modal css - input checkbox */
 .custom_tag_icon {
     color: rgb(241, 136, 16);
@@ -179,7 +193,7 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        margin-left: 20%;
+        margin-left: 26%;
         font-size: 1.0em;
         padding: 1.5%;
         color: #2C3531;
@@ -226,12 +240,13 @@ input[type=checkbox] {
     }
 
     .modal_input_label {
-        width: 38%;
+        width: 43%;
         text-align: right;
         padding-right: 4%;
         display: inline-block;
         word-break: break-word;
         font-size: 1.05em;
+        margin-top: 4%;
     }
 
     .tag_modal_close_btn {
@@ -357,7 +372,7 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        margin-left: 20%;
+        margin-left: 29%;
         font-size: 1.0em;
         padding: 1.5%;
         color: #2C3531;
@@ -405,12 +420,13 @@ input[type=checkbox] {
     }
 
     .modal_input_label {
-        width: 38%;
+        width: 43%;
         text-align: right;
         padding-right: 4%;
         display: inline-block;
         word-break: break-word;
         font-size: 1.05em;
+        margin-top: 0%;
     }
 
     .tag_modal_close_btn {
@@ -492,6 +508,41 @@ input[type=checkbox] {
         color: #2C3531;
     }
 
+    .date1, .merchant1, .amount1, .note1 {
+        width: 32%;
+      }
+
+}
+
+@media only screen and (min-width: 992px){
+
+    .modal_input_label{
+        width: 47%;
+    }
+
+    .modalbtn{
+        margin-left: 29%;
+    }
+
+    .date1, .merchant1, .amount1, .note1 {
+      width: 32%;
+    }
+
+    .date1, .merchant1, .note1, .category1, .select1 {
+        right: 7%;
+        position: relative;
+    }
+
+    .amount1{
+        right: 8%;
+        position: relative;
+    }
+
+    .modal_input_label {
+        position: relative;
+        right: 7%;
+    }
+
 }
 
 @media only screen and (min-width: 1220px){
@@ -538,7 +589,7 @@ input[type=checkbox] {
 
     .modalbtn{
         position: relative;
-        margin-left: 20%;
+        margin-left: 29%;
         font-size: 1.0em;
         padding: 1.5%;
         color: #2C3531;
@@ -674,6 +725,15 @@ input[type=checkbox] {
         overflow-x: hidden;
         color: #2C3531;
     }
+
+    .date1, .merchant1, .amount1, .note1 {
+        width: 32%;
+    }
+
+    .date1, .merchant1, .note1, .category1, .select1, .amount1, .modal_input_label {
+        right: 0%;
+    }
+
 
 }
 
@@ -870,4 +930,3 @@ input[type=checkbox] {
     }
 
 }
-

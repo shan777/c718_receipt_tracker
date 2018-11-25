@@ -81,19 +81,19 @@ class Modal extends Component{
                         <form>  
                         <div className="modal_container">
                             <label className="modal_input_label">Merchant :</label>
-                            <input name='merchantName' className="merchant" onChange={this.handleChange.bind(this)}
+                            <input name='merchantName' className="merchant1" onChange={this.handleChange.bind(this)}
                                 type="text"
                                 value = {this.state.merchantName}
                             />
 
                             <label className="modal_input_label">Date :</label>
-                            <input name='dateOfPurchase' className="date" onChange={this.handleChange.bind(this)}
+                            <input name='dateOfPurchase' className="date1" onChange={this.handleChange.bind(this)}
                                 type="date"
                                 value={this.state.dateOfPurchase.slice(0,10)}
                             />
 
                             <label className="modal_input_label">Amount :</label>
-                            $ <input name='totalAmount' className="amount" onChange={this.handleChange.bind(this)}
+                            $ <input name='totalAmount' className="amount1" onChange={this.handleChange.bind(this)}
                                 type="number" min="0.00" step="0.01"
                                 value={this.state.totalAmount}
                             />
@@ -101,13 +101,13 @@ class Modal extends Component{
                             <br/>
                             
                             <label className="modal_input_label">Category :</label>
-                            <select name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
+                            <select className="select1" name="category" onChange={ (e) => this.setState({category: (e.target.value)})} value={category}>
                                 {categoryChoices}
                             </select>
                             <br/>
 
                             <label className="modal_input_label">Note :</label>
-                            <input name='note' className="note" placeholder="Not specified" onChange={this.handleChange.bind(this)}
+                            <input name='note' className="note1" placeholder="Not specified" onChange={this.handleChange.bind(this)}
                                 type="text"
                                 value={this.state.note}
                             />
