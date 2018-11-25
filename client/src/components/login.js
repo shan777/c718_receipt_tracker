@@ -14,7 +14,8 @@ class Login extends Component{
         username: '',
         password: '',
         userId: null,
-        error: ''
+        error: '',
+        signedUp: false
     }
 
     async handleSubmit(e) {
@@ -46,11 +47,25 @@ class Login extends Component{
         })
     }
 
+    async successfullySignedUp(){
+        await this.setState({
+            signedUp: true
+        })
+    }
+
     render(){
+        const signedUp = {
+            display: 'block'
+        }
+
+        const notSignedUp = {
+            display: 'none'
+        }
         return(
             <div className="login_page_container">
                 <img className="login_logo" src={loginLogo} />
                 <div className="login_container">
+                <div style={this.state.signedUp ? signedUp : notSignedUp} >You have successfully signed up.</div>
                     <form className="login_area" onSubmit={this.handleSubmit}>
                         <input name='username' value={this.state.username} 
                         onChange={this.handleChange.bind(this)} className="username" 
@@ -66,7 +81,7 @@ class Login extends Component{
                     {/* <div className="forgot_password"> forgot your password is only text at this time
                         forgot your password?
                     </div> */}
-                    <div className="sign_up_button">
+                    <div onClick={this.successfullySignedUp.bind(this)} className="sign_up_button">
                         <Link to='/signup'>or Sign-up</Link>
                     </div>
                 </div>  
