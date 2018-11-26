@@ -22,15 +22,17 @@ class Overveiw extends Component{
             total: null,
             date: null, 
             tags: null,
-            deleteOpen: false
+            deleteOpen: false,
+            modalTags: null
         };
         this.close = this.close.bind(this);
     }
-    open = (index, receiptId, total) => this.setState({
+    open = (index, receiptId, total, tags) => this.setState({
         isOpen: true, 
         activeButton: index, 
         receiptId: receiptId, 
-        total: total
+        total: total,
+        modalTags: tags
     });
 
     async close(){
@@ -144,7 +146,7 @@ class Overveiw extends Component{
                 </div>
                 <Footer userID={this.state.currentDisplayedUserID}/>
                 {(this.state.isOpen) ?
-                <Modal row={this.state.activeButton} total={this.state.total} receiptId={this.state.receiptId} data={this.state.data} close={this.close}/>
+                <Modal row={this.state.activeButton} total={this.state.total} receiptId={this.state.receiptId} modalTags={this.state.modalTags} data={this.state.data} close={this.close}/>
                  : null 
                 }
                 {(this.state.deleteOpen) ?
