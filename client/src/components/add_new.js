@@ -177,7 +177,7 @@ class AddNewTag extends Component {
                                 <label className="input_label">Merchant :</label>
                                 <input className="merchant" placeholder="required" onChange={ (e) => this.setState({merchantName: e.target.value})}
                                     pattern="^[\u00E4\u00E9a-zA-Z \d\-&'_!.,?+]{1,32}$" 
-                                    title="no invaldfdfd"
+                                    title="Must be a valid merchant name."
                                     type="text"
                                     value={merchantName}
                                     name={merchantName}
