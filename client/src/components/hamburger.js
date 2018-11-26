@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./hamburger.css";
 import axios from 'axios';
 
@@ -11,7 +11,7 @@ class Hamburger extends Component {
 
 	async signOut() {
 		const signOutStatus = await axios.post('/api/manageUsers/logout');
-		this.props.push('/login');
+		this.props.history.push('/login');
 	}
 
 	render() {
@@ -30,4 +30,4 @@ class Hamburger extends Component {
 	}
 }
 
-export default Hamburger;
+export default withRouter(Hamburger);

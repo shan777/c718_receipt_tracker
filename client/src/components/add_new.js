@@ -24,7 +24,6 @@ class AddNewTag extends Component {
             addTagModalShow: false,
             deletedTag: false,
             currentTags: [],
-            errors: {}
         }
     }
 
@@ -34,10 +33,6 @@ class AddNewTag extends Component {
         });
     }
 
-    async componentDidMount(){
-        // const login = await axios.post('/api/login', {userName: 'sarahHan', password: 'sarahLfz123'});
-    }
-     
     clearStates = () => {
         this.setState({
             merchantName: '',
@@ -58,33 +53,20 @@ class AddNewTag extends Component {
         const {merchantName, dateOfPurchase, totalAmount, category, note, currentTags} = this.state;
 
         event.preventDefault();
+       
+        const resp = await axios.post('/api/manageReceipts/addReceipt', {
+            storeName: merchantName,
+            total: `${this.fixRoundingError(totalAmount * 100)}`,
+            purchaseDate: dateOfPurchase,
+            category: category,
+            comment: note,
+            tags: currentTags
+        });    
+        
+        this.clearStates();
 
-        // let errors = {};
-        let formIsValid = true;
-  
-        //  merchantName validation
-        if((typeof merchantName) !== "undefined"){
-            if(! merchantName.match(/^[äéa-zA-Z \d-&'_!\.,\?\+]{1,32}$/)){
-                formIsValid = false;
-                errors["merchantName"] = "Invalid merchantName";
-            }      	
-        }
-
-        if(formIsValid){        
-            const resp = await axios.post('/api/manageReceipts/addReceipt', {
-                storeName: merchantName,
-                total: `${this.fixRoundingError(totalAmount * 100)}`,
-                purchaseDate: dateOfPurchase,
-                category: category,
-                comment: note,
-                tags: currentTags
-            });    
-            
-            this.clearStates();
-
-            this.props.history.push('/overview');
-        }
-    }
+        this.props.history.push('/overview');
+}
 
     formatDate = (date) => {
         date = new Date()
@@ -125,16 +107,6 @@ class AddNewTag extends Component {
         });
     }
 
-    // deleteTag= async (tagId) => {
-    //     this.setState({
-    //         deletedTag: true
-    //     });
-
-    //     const resp = await axios.post('/api/manageTags/deleteTag', {
-    //         tagId: tagId
-    //     });
-    // }
-
     render() {
         const {merchantName, dateOfPurchase, totalAmount, category, note, currentTags, deletedTag} = this.state;
 
@@ -143,10 +115,8 @@ class AddNewTag extends Component {
               
         const renderTags = currentTags.map((tagEntry, index) => 
             <button className="custom_tag" type="button" key={index} 
-            // style={{display: deletedTag ? 'block' : 'block'}}
             >
             # {tagEntry.tagName} 
-            {/* <i className="material-icons custom_tag_icon">check</i> */}
             </button>);
 
         return (
@@ -174,13 +144,14 @@ class AddNewTag extends Component {
                             <div className="content_container">
                                 <label className="input_label">Merchant :</label>
                                 <input className="merchant" placeholder="required" onChange={ (e) => this.setState({merchantName: e.target.value})}
+                                    pattern="^[\u00E4\u00E9a-zA-Z \d\-&'_!.,?+]{1,32}$" 
+                                    title="Must be a valid merchant name."
                                     type="text"
                                     value={merchantName}
                                     name={merchantName}
                                     required
                                 />
                             </div>
-                            <span className="error">{this.state.errors["merchantName"]}</span>
                             
                             <div className="content_container">
                                 <label className="input_label">Total :</label>
@@ -208,9 +179,7 @@ class AddNewTag extends Component {
 
                             <div className="content_container">
                                 <label className="input_label">Tag :</label>
-                                {/* <button className="plus_tag_button" > */}
                                 <i className="material-icons drop_down_arrow_icon" type="button" tags={this.state.tags} onClick={this.showModal}>arrow_drop_down_circle</i>
-                                {/* </button> */}
                                 <i className="material-icons add_tag_icon" type="button" tags={this.state.tags} onClick={this.showNewTagModal}>add_box</i>
                                 <div className="tag_buttons">
                                     {renderTags}
