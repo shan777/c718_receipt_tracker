@@ -59,14 +59,14 @@ class AddNewTag extends Component {
 
         event.preventDefault();
 
-        // let errors = {};
+        let errors = {};
         let formIsValid = true;
   
         //  merchantName validation
         if((typeof merchantName) !== "undefined"){
-            if(! merchantName.match(/^[äéa-zA-Z \d-&'_!\.,\?\+]{1,32}$/)){
+            if(!merchantName.match(/^[äéa-zA-Z \d-&'_!\.,\?\+]{1,32}$/)){
                 formIsValid = false;
-                errors["merchantName"] = "Invalid merchantName";
+                errors["merchantName"] = "Invalid";
             }      	
         }
 
