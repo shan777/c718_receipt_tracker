@@ -158,6 +158,66 @@ module.exports = (app, connection) => {
         }
     });
 
+    app.post('/api/manageTags/addTagsToReceipt', (request, response) => {
+        const {receiptId, tags} = request.body;
+        const userId = request.session.userId;
+
+        const output = {
+            success: false,
+            tagsInserted: []
+        };
+
+        if(userId){
+            if (!tags.length || !receiptId){
+                output.error = "invalid tag format or receiptId";
+                return response.status(400).send(output);
+            }else{
+                connection.query("SELECT tags.ID, tags.tagName FROM tags WHERE tags.userId = ?;",
+                                [userId],
+                                (error, rows) => {
+                                    if (error) throw error;
+                                    else if(rows.length){
+                                        let queryString = "INSERT IGNORE INTO receipts_tags (receipts_tags.tagId, receipts_tags.receiptId) VALUES ";
+                                        const valuesArray = [];
+
+                                        for(let tagIndex=0; tagIndex<tags.length; tagIndex++){
+                                            for(let rowIndex=0; rowIndex<rows.length; rowIndex++){
+                                                if (tags[tagIndex].tagId === rows[rowIndex].ID && tags[tagIndex].tagName === rows[rowIndex].tagName){
+                                                    let newTagObject = {
+                                                        tagId: tags[tagIndex].tagId,
+                                                        tagName: tags[tagIndex].tagName,
+                                                        inserted: true
+                                                    };
+                                                    output.tagsInserted.push(newTagObject);
+                                                    valuesArray.push('(' + tags[tagIndex].tagId + ',' + receiptId + ')');
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if(valuesArray.length){
+                                            queryString += valuesArray.join(',');
+                                            connection.query(queryString, (error)=>{
+                                                if (error) throw error;
+                                                output.success = true;
+                                                return response.status(200).send(output);
+                                            });
+                                        }else{
+                                            output.error = 'tags sent do not match any user tags'
+                                            return response.status(400).send(output);
+                                        }
+                                    }else{
+                                        output.error = 'tags sent do not match any user tags'
+                                        return response.status(400).send(output);
+                                    }
+                                }
+                );
+            }
+            }else{
+            output.error = "User not logged in.";
+            return response.status(401).send(output);
+        }
+    });
+
     app.post('/api/manageTags/deleteReceiptTag', (request, response) => {
         const {receiptId, tagId} = request.body;
         const userId = request.session.userId;
