@@ -28,6 +28,15 @@ class Carousel extends Component {
         this.getImageData();
     }
 
+    componentDidUpdate(){
+        const { images } = this.state;
+
+        if (images.length) {
+            const thing = document.getElementById('thing');
+            this.swipe(thing);
+        }
+    }
+
     getImageData(){
         // This is where you would make an API call to get image data
         this.setState({
@@ -52,7 +61,7 @@ class Carousel extends Component {
         }, () => this.enableClick(transitionTime));
     }
 
-    changeImg(nextDirection = 'next'){
+    changeImg = (nextDirection = 'next') => {
         const { canClick, currentIndex, images: { length }, transitionTime } = this.state;
         if(!canClick) return;
 
@@ -89,6 +98,51 @@ class Carousel extends Component {
         }    
     }
 
+    swipe(el,func) {
+        var swipe_det = new Object();
+        swipe_det.sX = 0;
+        swipe_det.sY = 0;
+        swipe_det.eX = 0;
+        swipe_det.eY = 0;
+        var min_x = 20;  //min x swipe for horizontal swipe
+        var max_x = 40;  //max x difference for vertical swipe
+        var min_y = 40;  //min y swipe for vertical swipe
+        var max_y = 50;  //max y difference for horizontal swipe
+        var direc = "";
+        var ele = document.getElementById('thing');
+        ele.addEventListener('pointerdown',function(e){
+        swipe_det.sX = e.clientX; 
+        swipe_det.sY = e.clientY;
+        },false);
+        ele.addEventListener('pointermove',function(e){
+        e.preventDefault();
+        swipe_det.eX = e.clientX; 
+        swipe_det.eY = e.clientY;    
+        },false);
+        ele.addEventListener('pointercancel',(function(e){
+        if ((((swipe_det.eX - min_x > swipe_det.sX) || (swipe_det.eX + min_x < swipe_det.sX)) && ((swipe_det.eY < swipe_det.sY + max_y) && (swipe_det.sY > swipe_det.eY - max_y)))) {
+            debugger;
+            if(swipe_det.eX > swipe_det.sX) {
+                direc = "previous";
+                this.changeImg(direc)
+            } else {
+                direc = "next";
+                this.changeImg(direc)
+            } 
+        }
+        //vertical detection
+        if ((((swipe_det.eY - min_y > swipe_det.sY) || (swipe_det.eY + min_y < swipe_det.sY)) && ((swipe_det.eX < swipe_det.sX + max_x) && (swipe_det.sX > swipe_det.eX - max_x)))) {
+            if(swipe_det.eY > swipe_det.sY) direc = "d";
+            else direc = "u";
+        }
+
+        if (direc != "") {
+            if(typeof func == 'function') func(el,direc);
+        }
+        direc = "";
+        }).bind(this),false);  
+    }
+
     render(){
         const { direction, currentIndex, images, transitionTime } = this.state;
 
@@ -106,7 +160,7 @@ class Carousel extends Component {
             <div className="center-all">
                 {/* <h3 className="carousel-text center">{text}</h3> */}
 
-                <div className="carousel-container">
+                <div id="thing" className="carousel-container">
                     <Transition
                         transitionName={`carousel-${direction}`}
                         transitionEnterTimeout={transitionTime}
