@@ -121,7 +121,6 @@ class Carousel extends Component {
         },false);
         ele.addEventListener('pointercancel',(function(e){
         if ((((swipe_det.eX - min_x > swipe_det.sX) || (swipe_det.eX + min_x < swipe_det.sX)) && ((swipe_det.eY < swipe_det.sY + max_y) && (swipe_det.sY > swipe_det.eY - max_y)))) {
-            debugger;
             if(swipe_det.eX > swipe_det.sX) {
                 direc = "previous";
                 this.changeImg(direc)
