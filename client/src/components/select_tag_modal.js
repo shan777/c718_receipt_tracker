@@ -66,7 +66,7 @@ class SelectTagModal extends Component{
         const { tags } = this.state;
         const tagChoices = Object.keys(tags).map((tagId, index) => {
             return (
-                <div className="each_tag_container" key={index}>
+                // <div className="each_tag_container" key={index}>
                     <label className="checkbox_label">
                         {tags[tagId].tagName}
                         <input 
@@ -83,7 +83,7 @@ class SelectTagModal extends Component{
                         />
                         <br/>
                     </label>
-                </div>
+                // </div>
             );
         });
 

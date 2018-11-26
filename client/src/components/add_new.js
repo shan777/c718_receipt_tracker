@@ -24,7 +24,7 @@ class AddNewTag extends Component {
             addTagModalShow: false,
             deletedTag: false,
             currentTags: [],
-            errors: {}
+            // errors: {}
         }
     }
 
@@ -59,18 +59,20 @@ class AddNewTag extends Component {
 
         event.preventDefault();
 
-        let errors = {};
-        let formIsValid = true;
+        // let errors = {};
+        // let formIsValid = true;
   
-        //  merchantName validation
-        if((typeof merchantName) !== "undefined"){
-            if(!merchantName.match(/^[äéa-zA-Z \d-&'_!\.,\?\+]{1,32}$/)){
-                formIsValid = false;
-                errors["merchantName"] = "Invalid";
-            }      	
-        }
+        // //  merchantName validation
+        // if((typeof merchantName) !== "undefined"){
+        //     if(!merchantName.match(/^[äéa-zA-Z \d-&'_!\.,\?\+]{1,32}$/)){
+        //         formIsValid = false;
+        //         errors["merchantName"] = "Invalid";
+        //     }      	
+        // }
 
-        if(formIsValid){        
+        // this.setState({errors: errors});
+
+        // if(formIsValid){        
             const resp = await axios.post('/api/manageReceipts/addReceipt', {
                 storeName: merchantName,
                 total: `${this.fixRoundingError(totalAmount * 100)}`,
@@ -83,8 +85,8 @@ class AddNewTag extends Component {
             this.clearStates();
 
             this.props.history.push('/overview');
-        }
-    }
+        // }
+}
 
     formatDate = (date) => {
         date = new Date()
@@ -174,13 +176,15 @@ class AddNewTag extends Component {
                             <div className="content_container">
                                 <label className="input_label">Merchant :</label>
                                 <input className="merchant" placeholder="required" onChange={ (e) => this.setState({merchantName: e.target.value})}
+                                    pattern="^[\u00E4\u00E9a-zA-Z \d\-&'_!.,?+]{1,32}$" 
+                                    title="no invaldfdfd"
                                     type="text"
                                     value={merchantName}
                                     name={merchantName}
                                     required
                                 />
                             </div>
-                            <span className="error">{this.state.errors["merchantName"]}</span>
+                            {/* <span className="error">{this.state.errors["merchantName"]}</span> */}
                             
                             <div className="content_container">
                                 <label className="input_label">Total :</label>

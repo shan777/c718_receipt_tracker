@@ -126,7 +126,7 @@
                 <img className="signup_logo" src={squirrel}></img>
                 <form name="contactform" className="contactform" onSubmit= {this.handleSubmit.bind(this)}>
                     <fieldset>
-                        <input className="username_input" ref="username" type="text" size="20" placeholder="Username" onChange={this.handleChange.bind(this, "username")} value={this.state.fields["username"]}/>
+                        <input pattern="(?=.{4,15}$)(?!.*[_]{2})^[a-zA-Z]\w+(?<![_])$" className="username_input" ref="username" type="text" size="20" placeholder="Username" onChange={this.handleChange.bind(this, "username")} value={this.state.fields["username"]}/>
                         <div className="guidelines">&nbsp;&nbsp;&nbsp;<i className="material-icons">info</i>&nbsp;<b>Username Guidelines:</b>
                             <ul>
                                 <li>Only letters (a-z), numbers (0-9), and underscores(_)</li>
@@ -142,7 +142,7 @@
                         <input ref="lastName" type="text" size="20" placeholder="Last Name" onChange={this.handleChange.bind(this, "lastName")} value={this.state.fields["lastName"]}/>
                         <span className="error">{this.state.errors["lastName"]}</span>
                         <br/>
-                        <input className="password_input" ref="password" type="password" size="20" placeholder="Password" onChange={this.handleChange.bind(this, "password")} value={this.state.fields["password"]}/>
+                        <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" className="password_input" ref="password" type="password" size="20" placeholder="Password" onChange={this.handleChange.bind(this, "password")} value={this.state.fields["password"]}/>
                         <div className="guidelines">&nbsp;&nbsp;&nbsp;<i className="material-icons">info</i>&nbsp;<b>Password Guidelines:</b>
                             <ul>
                                 <li>Must contain at least 1 uppercase AND 1 lowercase AND 1 number</li>
