@@ -67,7 +67,7 @@ class SelectTagModal extends Component{
         const tagChoices = Object.keys(tags).map((tagId, index) => {
             return (
                 // <div className="each_tag_container" key={index}>
-                    <label className="checkbox_label">
+                    <label className="checkbox_label" key={index}>
                         {tags[tagId].tagName}
                         <input 
                         type="checkbox"

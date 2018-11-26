@@ -31,8 +31,10 @@
 .checkbox_label {
     font-size: 1.2em;
     position: relative;
-    left: 10%;
-    line-height: 2em;
+    display: block;
+    padding-left: 25px;
+    padding-bottom: 6px;
+    border-bottom: solid 0.5px silver;
 }
 
 .checkbox_label input:checked  ~ .checkmark {
@@ -48,7 +50,7 @@
     border-radius: 50%;
     float: right;
     vertical-align: middle;
-    left: 73vw;
+    left: 82vw;
     top: 0;
 }
 
@@ -322,6 +324,7 @@ input[type=checkbox] {
         max-height: 50vh;
         overflow: scroll;
         color: #2C3531;
+        padding-top: 4%;
     }
 
 }
@@ -506,6 +509,8 @@ input[type=checkbox] {
         max-height: 45vh;
         overflow: scroll;
         color: #2C3531;
+        padding-top: 4%;
+
     }
 
     .date1, .merchant1, .amount1, .note1 {
@@ -723,8 +728,9 @@ input[type=checkbox] {
         max-height: 45vh;
         overflow-y: scroll;
         overflow-x: hidden;
-        color: #2C3531;
-    }
+        color: #2C3531;        
+        padding-top: 4%;
+   }
 
     .date1, .merchant1, .amount1, .note1 {
         width: 32%;
@@ -927,6 +933,8 @@ input[type=checkbox] {
         max-height: 60vh;
         overflow: scroll;
         color: #2C3531;
+        padding-top: 4%;
+
     }
 
 }
