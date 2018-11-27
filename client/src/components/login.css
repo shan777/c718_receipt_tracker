@@ -47,7 +47,7 @@
 
     .login_area {
         display: inline-block;
-        padding-top: 4%;
+        padding-top: 8%;
     }
 
     img.login_logo {
@@ -58,17 +58,17 @@
     .username {
         background-color: #DEF2F1;
         border: 1px solid #def2f1;
-        font-size: 20px;
+        font-size: 22px;
         margin-bottom: 5%;
-        padding: 1%;
+        padding: 2% 0;
         text-align: center;
     }
 
     .password {
         background-color: #DEF2F1; 
         border: 1px solid #def2f1;
-        font-size: 20px;
-        padding: 1%;
+        font-size: 22px;
+        padding: 2% 0;
         text-align: center;
         margin-bottom: 5%;
     }
@@ -87,7 +87,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 56%;
+        width: 60%;
     }
 
     .forgot_password {
@@ -95,13 +95,13 @@
         padding-top: 5%;
     }
 
-    .sign_up_button {
-        padding-top: 2%;
+    .signup_area {
+        padding-top: 3%;
         color: #15191b;
         font-size: 1.2em;
     }
 
-    a:visited {
+    .signup_link, .signup_link:visited {
         color: #98FFA8;
     }
 

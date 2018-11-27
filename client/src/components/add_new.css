@@ -243,8 +243,8 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         font-size: 1.1em;
         display: block;
         box-sizing: border-box;
-        line-height: 2.5em;
-        padding-left: 32px;
+        line-height: 2.65em;
+        padding-left: 125px;
     }
 
     .content_container:nth-child(6) {
@@ -265,7 +265,7 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         display: inline-block;
         word-break: break-word;
         vertical-align: top;
-        padding-right: 10%;
+        padding-right: 95px;
     }
 
     .tag_label {
@@ -301,9 +301,9 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
 
     .cancel_btn {
         margin-left: 29%;
-        background-color: #f2f2f2;
+        background-color: #C9CED2;
         color: #2C3531;
-        padding: 0.5%;
+        padding: 0.5% 0.5%;
         font-size: 1.005em;
         border-radius: 6px;
         border: 1.0px solid #2C3531;
@@ -334,10 +334,11 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
     .add_new_form_input_container {
         overflow-y: auto;
         max-height: 72%;
-        width: 40%;
+        width: 55%;
         position: relative;
         margin: 0px auto;
-        border: #2C3531 solid 0.5px;
+        border: dotted 0.5px silver;
+        padding-top: 20px;
     }
 
 } /* @media only screen and (min-width: 1220px) */

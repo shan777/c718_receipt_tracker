@@ -39,14 +39,14 @@
     .sidebar_container {
         width: 35vw;
         height: 45vh;
-        background-color: #40B0B7;
+        background-color: #18757E;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
         top: 60px !important;
-        color: #98FFA8;
+        color: white;
     }
 
     .menus {
@@ -84,14 +84,14 @@
     .sidebar_container {
         width: 35vw;
         height: 40vh;
-        background-color: #40B0B7; 
+        background-color: #18757E; 
         /* font-family: 'Roboto Bold'; */
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
         top: 80px !important;
-        color: #98FFA8;
+        color: white;
     }
     
     .menus {
@@ -128,17 +128,21 @@
 
     }
     
+    a:visited {
+        color: white;
+    }
+
     .sidebar_container {
         width: 13vw;
         height: 45%;
-        background-color: #40B0B7; 
+        background-color: #18757E; 
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
         top: 80px !important;
-        color: #98FFA8;
+        color: white;
     }
     
     .menus {
@@ -176,14 +180,14 @@
     .sidebar_container {
         width: 35vw;
         height: 45vh;
-        background-color: #40B0B7;
+        background-color: #18757E;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
         top: 60px !important;
-        color: #98FFA8;
+        color: white;
     }
 
     .menus {
