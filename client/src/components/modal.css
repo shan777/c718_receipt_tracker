@@ -4,6 +4,17 @@
     height: 20px;
 }
 
+.deleteTag{
+    position: absolute;
+    visibility: hidden
+}
+
+#customTag:hover .deleteTag{
+    visibility: visible;
+    color: red;
+}
+
+
 .date1, .merchant1, .amount1, .note1 {
     background-color: white;
     box-shadow: none;
@@ -327,6 +338,7 @@ input[type=checkbox] {
         padding-top: 4%;
     }
 
+
 }
 
 
@@ -546,6 +558,7 @@ input[type=checkbox] {
     .modal_input_label {
         position: relative;
         right: 7%;
+        margin-bottom: 4%;
     }
 
 }
@@ -649,6 +662,7 @@ input[type=checkbox] {
         display: inline-block;
         word-break: break-word;
         font-size: 1.05em;
+        margin-bottom: 3%;
     }
 
     .tag_modal_close_btn {
@@ -935,6 +949,15 @@ input[type=checkbox] {
         color: #2C3531;
         padding-top: 4%;
 
+    }
+
+    .deleteTag{
+        visibility: hidden;
+    }
+
+    #customTag:hover .deleteTag{
+        visibility: visible;
+        color: red;
     }
 
 }

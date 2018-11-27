@@ -48,7 +48,7 @@ option {
 
 .add_tag_icon {
     font-size: 1.9em;
-    vertical-align: top;
+    /* vertical-align: top; */
     margin-left: 10%;
     color: rgba(31, 34, 32, 0.842);
     border-radius: 5px;
