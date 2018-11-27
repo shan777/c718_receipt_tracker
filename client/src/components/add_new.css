@@ -204,7 +204,6 @@ input:focus {
         background-color: #f1f2f4;
         padding: 1.2% 0;
         font-weight: bold;
-        /* font-family: 'Original Surfer'; */
         margin-bottom: 5%;
         border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
     }
@@ -238,21 +237,21 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
     .content_container {
         background-color: white;
         width: 100%;
-        /* border-bottom: 0.5px solid #116466; */
         font-weight: bold;
         font-size: 1.1em;
         display: block;
         box-sizing: border-box;
-        /* text-align: center; */
-        line-height: 2.1em;
+        line-height: 2.5em;
     }
 
     .input_label {
-        width: 35%;
+        width: 38%;
         height: 30%;;
-        text-align: center;
+        text-align: right;
         display: inline-block;
         word-break: break-word;
+        vertical-align: top;
+        padding-right: 10%;
     }
 
     .tag_label {
@@ -267,26 +266,30 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
     select {
         background-color: rgba(239, 241, 241, 0.904);
         font-size: 1em;
-        margin-top: 3%;
+        margin-top: 1%;
     }
 
-    .merchant, .note {
-        width: 56%;
+    .note {
+        width: 300px;
+    }
+
+    .merchant {
+        width: 275px;
     }
 
     .date {
-        width: 50%;
+        width: 235px;
     }
 
     .amount {
-        width: 35%;
+        width: 165px;
     }
 
     .cancel_btn {
-        margin-left: 20%;
+        margin-left: 27%;
         background-color: #f2f2f2;
         color: #2C3531;
-        padding: 1.5%;
+        padding: 0.5%;
         font-size: 1.005em;
         border-radius: 6px;
         border: 1.0px solid #2C3531;
@@ -298,8 +301,8 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         float: right;
         margin-right: 30%;
         background-color: #A3FFF7;;
-        color: #F2F2F2;
-        padding: 1.5%;
+        color: #2C3531;
+        padding: 0.5%;
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
@@ -309,16 +312,28 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
     .btn_container {
         width: 100%;
         background-color: #f1f2f4;
-        padding: 1% 0;
+        padding: 0.7% 0;
         font-weight: bold;
-        /* font-family: 'Original Surfer'; */
+        border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
     }
 
     .add_new_form_input_container {
         overflow-y: auto;
-        max-height: 66vh;
-        width: 54%;
+        max-height: 72vh;
+        width: 46%;
         position: relative;
-        left: 17%;
+        margin: 0px auto;
+        padding-top: 1%;
+    }
+
+    .content_container:nth-child(6) {
+        background-color: white;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.1em;
+        display: block;
+        box-sizing: border-box;
+        line-height: 0.15em;
+        margin-top: 0%;
     }
 } /* @media only screen and (min-width: 1220px) */

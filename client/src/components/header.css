@@ -104,27 +104,29 @@
         background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        font-size: 4em;
-        padding-left: 0%;
+        font-size: 2.3em;
         text-align: center;
         top: 0;
         width: 100%;
-        height: 115px;
+        height: 60px;
         z-index: 1;
+        padding-top: 0%;
     }
+
     .dots {
         position: absolute;
-        right: 6%;
+        right: 30%;
         top: 15%;
         border: none;
         height: 80%;
+        
     }
     
     .header{
         position: fixed;
         top: 0;
-        width: 100%;
         z-index: 1;
+
     }
     
     .sidebar_container {
