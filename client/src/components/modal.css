@@ -83,8 +83,6 @@ input[type=checkbox] {
     float: right;
 }
 
-
-
 .new_tag {
     padding: 8% 3%;
 }
@@ -510,7 +508,6 @@ input[type=checkbox] {
         overflow: scroll;
         color: #2C3531;
         padding-top: 4%;
-
     }
 
     .date1, .merchant1, .amount1, .note1 {
@@ -617,14 +614,14 @@ input[type=checkbox] {
 
     .tag_modal_container {
         background-color: white;
-        width: 40%;
+        width: 500px;
         font-weight: bold;
         display: block;
         box-sizing: border-box;
-        padding-bottom: 6%;
+        padding-bottom: 3%;
         position: relative;
-        top: -25px;
-        left: 430px;
+        top: 0px;
+        left: 476px;
         border: 2px teal solid;
     }
 
@@ -657,23 +654,20 @@ input[type=checkbox] {
         line-height: 30px; */
         position: relative;
         display: inline-block;
-        /* font-family: 'Original Surfer'; */
         color: #2C3531;
         cursor: pointer;
         display: inline-block;
-        left: 15%;
+        left: 10%;
         padding: 1.5%;
         background-color: #F2F2F2;
-
     }
 
     .tag_modal_apply_btn {
         position: relative;
-        left: 45%;
-        width: 20vw;
+        left: 62%;
+        width: 75px;
         padding: 1.5%;
         display: inline-block;
-        /* font-family: 'Original Surfer'; */
         cursor: pointer;
         background-color: #A3FFF7;
     }
@@ -725,11 +719,11 @@ input[type=checkbox] {
     }
 
     .tag_choices_container {
-        max-height: 45vh;
+        max-height: 60vh;
         overflow-y: scroll;
         overflow-x: hidden;
         color: #2C3531;        
-        padding-top: 4%;
+        padding-top: 0%;
    }
 
     .date1, .merchant1, .amount1, .note1 {
@@ -740,8 +734,41 @@ input[type=checkbox] {
         right: 0%;
     }
 
+    .checkmark {
+        position: absolute;
+        height: 27px;
+        width: 27px;
+        background-color: white;
+        border: 1px teal solid;
+        border-radius: 50%;
+        float: right;
+        vertical-align: middle;
+        left: 425px;
+        top: 0px;
+    }
+
+    .checkbox_label {
+        font-size: 1.2em;
+        position: relative;
+        display: block;
+        padding-left: 25px;
+        padding-bottom: 11px;
+        border-bottom: solid 0.5px silver;
+        margin: 10px 0;
+    }
+
+    .checkbox_label .checkmark:after {
+        height: 15px;
+        
+    }    
 
 }
+
+
+
+
+
+
 
 @media only screen and (max-width: 600px){
     .basic_modal {

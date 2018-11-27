@@ -104,13 +104,11 @@
         background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        font-size: 2.25em;
+        font-size: 2.15em;
         text-align: center;
-        top: 0;
         width: 100%;
-        height: 60px;
-        z-index: 1;
-        padding-top: 0%;
+        height: 65px;
+        padding-top: 0.3%;
     }
 
     .dots {

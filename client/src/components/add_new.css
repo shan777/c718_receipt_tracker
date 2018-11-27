@@ -107,7 +107,7 @@ input:focus {
     .main_container {
         width: 100%;
         margin: 0;
-        font-size: 1em;
+        font-size: 1.1em;
         display: block;
         /* background-color: rgba(235, 249, 249, 0.9); */
         background-color: white;
@@ -337,7 +337,6 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         width: 55%;
         position: relative;
         margin: 0px auto;
-        border: dotted 0.5px silver;
         padding-top: 20px;
     }
 
