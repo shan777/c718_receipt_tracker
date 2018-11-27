@@ -104,7 +104,7 @@
         background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        font-size: 2.3em;
+        font-size: 2.25em;
         text-align: center;
         top: 0;
         width: 100%;
@@ -114,12 +114,11 @@
     }
 
     .dots {
+        /* display: none; */
         position: absolute;
-        right: 30%;
-        top: 15%;
-        border: none;
+        right: 15%;
+        top: 11%;
         height: 80%;
-        
     }
     
     .header{
@@ -131,7 +130,7 @@
     
     .sidebar_container {
         width: 13vw;
-        height: 40vh;
+        height: 45%;
         background-color: #40B0B7; 
         font-family: 'Roboto Bold';
         position: fixed !important;

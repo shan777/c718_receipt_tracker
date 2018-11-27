@@ -57,28 +57,12 @@
     }
 }
 
+
+
+
 @media only screen and (min-width: 1220px){
     .footer_container {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: 70px;
-        background-color: #1997A2;
-        text-align: center;
-    }
-    
-    .footer_container i {
-        width: 12%;;
-    }
-    
-    .footer-nav-link i {
-        font-size: 3.5em;
-        text-align: center;
-        color: #000;
-    }
-    
-    .footer-nav-link.active i { 3.5
-        color: #98FFA8;
+        display: none;
     }
 }
 
