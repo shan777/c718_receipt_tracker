@@ -63,19 +63,10 @@ class Modal extends Component{
     }
 
     openDeleteTag(receiptId, tagId){
-        // debugger;
-        // let deleteTagCall = await axios.post('/api/manageTags/deleteReceiptTag', {receiptId: receiptId, tagId: tagId})
-        // let tagsForReceipt = await axios.post('/api/manageTags/getTagsForReceipt', {receiptId: receiptId})
-        // this.setState({
-        //     currentTags: tagsForReceipt.data.tags
-        // })
-
         this.setState({
             tagId: tagId,
             deleteTagShow: true
         })
-
-
     }
 
     closeDeleteTag = (currenttag) => {

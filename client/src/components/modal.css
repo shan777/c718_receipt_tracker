@@ -951,13 +951,4 @@ input[type=checkbox] {
 
     }
 
-    .deleteTag{
-        visibility: hidden;
-    }
-
-    #customTag:hover .deleteTag{
-        visibility: visible;
-        color: red;
-    }
-
 }
