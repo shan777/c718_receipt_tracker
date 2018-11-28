@@ -149,6 +149,8 @@ input[type=checkbox] {
 
 
 
+
+
 @media only screen and (min-width: 600px){
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
@@ -326,6 +328,8 @@ input[type=checkbox] {
     }
 
 }
+
+
 
 
 
@@ -516,6 +520,9 @@ input[type=checkbox] {
 
 }
 
+
+
+
 @media only screen and (min-width: 992px){
 
     .modal_input_label{
@@ -546,6 +553,10 @@ input[type=checkbox] {
     }
 
 }
+
+
+
+
 
 @media only screen and (min-width: 1220px){
     .basic_modal {
@@ -761,6 +772,20 @@ input[type=checkbox] {
         height: 15px;
         
     }    
+
+    .add_tag_modal_container {
+        background-color: white;
+        width: 400px;
+        font-weight: bold;
+        display: block;
+        box-sizing: border-box;
+        padding-bottom: 6%;
+        /* position: absolute; */
+        /* bottom: -10vh; */
+        /* left: 10vw; */
+        margin: 0 auto;
+        border: 2px solid teal;
+    }
 
 }
 

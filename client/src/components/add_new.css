@@ -221,6 +221,10 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
 */
 
 
+
+
+
+
 @media only screen and (min-width: 1220px){
     .main_container {
         width: 100%;
@@ -243,7 +247,7 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         font-size: 1.1em;
         display: block;
         box-sizing: border-box;
-        line-height: 2.65em;
+        line-height: 2.4em;
         padding-left: 125px;
     }
 

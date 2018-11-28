@@ -8,8 +8,13 @@
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
-@media only screen and (min-width: 600px){
+    
+a:visited {
+    color: white;
+}
 
+
+@media only screen and (min-width: 600px){
     .headContainer {
         background-color: #1997A2;
         color: #F2F2F2;
@@ -53,6 +58,11 @@
         top: 80px;
     }
 }
+
+
+
+
+
 
 @media only screen and (min-width: 768px){
     .headContainer{
@@ -99,6 +109,10 @@
     }
 }
 
+
+
+
+
 @media only screen and (min-width: 1220px){
     .headContainer{
         background-color: #1997A2;
@@ -125,14 +139,10 @@
         z-index: 1;
 
     }
-    
-    a:visited {
-        color: white;
-    }
 
     .sidebar_container {
-        width: 13vw;
-        height: 45%;
+        width: 200px;
+        height: 300px;
         background-color: #18757E; 
         font-family: 'Roboto Bold';
         position: fixed !important;
@@ -147,6 +157,11 @@
         top: 80px;
     }
 }
+
+
+
+
+
 
 @media only screen and (max-width: 600px){
     .headContainer {
