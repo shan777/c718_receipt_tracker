@@ -3,6 +3,8 @@ import './modal.css';
 import AddTagModal from './add_tag_modal';
 import SelectTags from './select_tag_modal';
 import axios from 'axios';
+import DeleteTag from './deleteTagModal';
+import { runInThisContext } from 'vm';
 
 
 class Modal extends Component{
@@ -16,7 +18,9 @@ class Modal extends Component{
         receiptId: null,
         modalTags: null, 
         currentTags: this.props.modalTags,
-        show: false
+        show: false,
+        tagId: null,
+        deleteTagShow: false
     };
 
     componentDidMount(){
@@ -58,6 +62,26 @@ class Modal extends Component{
         {this.props.close(this.state.StoreName)}
     }
 
+    openDeleteTag(receiptId, tagId){
+        this.setState({
+            tagId: tagId,
+            deleteTagShow: true
+        })
+    }
+
+    closeDeleteTag = (currenttag) => {
+        this.setState({
+            deleteTagShow: false,
+            currentTags: currenttag
+        })
+    }
+
+    cancelDeletetag = () => {
+        this.setState({
+            deleteTagShow: false
+        })
+    }
+
     handleChange(event){
         this.setState({
             [event.target.name]: event.target.value
@@ -87,9 +111,9 @@ class Modal extends Component{
         let data = this.state.currentTags
         if(data.length === 0){
             return <div className='noTags'> — </div>
-        }
+        };
         const renderTags = data.map((item, index) => (
-            <button className="custom_tag" type="button" key={index}># {data[index].tagName}</button>
+            <button id="customTag" className="custom_tag" type="button" key={index}><i onClick={() => this.openDeleteTag(this.state.receiptId, data[index].tagId)} className="material-icons deleteTag">clear</i># {data[index].tagName}</button>
         ))
         return renderTags;
     }
@@ -191,6 +215,12 @@ class Modal extends Component{
                     {(this.state.tagModalOpen) ?
                     <AddTagModal selectTags={this.selectTags} show={this.state.tagModalOpen} handleClose={this.hideAddTagModal} tags={this.props.modalTags}/>
                     : null
+                    }
+                    {
+                    (this.state.deleteTagShow) ?
+                    <DeleteTag tagId={this.state.tagId} receiptId={this.state.receiptId} cancel={this.cancelDeletetag} close={this.closeDeleteTag}>
+                    </DeleteTag>    
+                    : (null)
                     }
                 </div>
         
