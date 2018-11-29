@@ -105,7 +105,7 @@ input:focus {
 
 @media only screen and (max-width: 600px){
     .main_container {
-        width: 100%;
+        width: 100vw;
         margin: 0;
         font-size: 1.1em;
         display: block;
@@ -227,13 +227,13 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
 
 @media only screen and (min-width: 1220px){
     .main_container {
-        width: 100%;
+        width: 100vw;
         margin: 0;
         display: block;
         /* background-color: rgba(235, 249, 249, 0.9); */
         background-color: white;
         top: 60px;
-        position: fixed;
+        /* position: fixed; */
         font-family: 'Roboto';
         /* padding-bottom: 155px; */
         overflow: auto;
@@ -336,7 +336,7 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
     }
 
     .add_new_form_input_container {
-        overflow-y: auto;
+        /* overflow-y: auto; */
         max-height: 72%;
         width: 55%;
         position: relative;

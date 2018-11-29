@@ -87,8 +87,8 @@ class AddTagModal extends Component{
                                 </label>
                             </div>
 
-                            <button type="button" className="tag_modal_cancel_btn" onClick={this.props.handleClose}>Cancel</button>
-                            <button className="tag_modal_add_btn">Add</button>
+                            <button type="button" className="add_tag_modal_cancel_btn" onClick={this.props.handleClose}>Cancel</button>
+                            <button className="add_tag_modal_add_btn">Add</button>
                         </div>
                     </form>
                 </div> 

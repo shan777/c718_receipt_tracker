@@ -92,35 +92,6 @@ input[type=checkbox] {
     border-bottom: 2px solid #2EB4BA;
 }
 
-/* add new tag modal cancel button */
-.new_tag+button { 
-    left: 8%;
-    width: 20vw;
-}
-
-.tag_modal_add_btn {
-    position: relative;
-    left: 40%;
-    width: 20vw;
-    display: inline-block;
-    /* font-family: 'Original Surfer'; */
-    cursor: pointer;
-    padding: 1.5%;
-    background-color: #A3FFF7;
-}
-
-.add_tag_modal_container {
-    background-color: white;
-    width: 80%;
-    font-weight: bold;
-    display: block;
-    box-sizing: border-box;
-    padding-bottom: 6%;
-    position: absolute;
-    bottom: -10vh;
-    left: 10vw;
-}
-
 .add_tag_modal_container .tag_header {
     background-color: rgb(16, 152, 159);
     color: #F2F2F2;
@@ -161,6 +132,7 @@ input[type=checkbox] {
         top: 0;
         width: 100vw;
         z-index: 1000;
+        overflow-y: auto;
     }
 
     .basic_modal_content {
@@ -263,7 +235,7 @@ input[type=checkbox] {
         display: inline-block;
         left: 15%;
         padding: 1.5%;
-        background-color: #F2F2F2;
+        background-color: #C9CED2;
 
     }
 
@@ -321,12 +293,31 @@ input[type=checkbox] {
     }
 
     .tag_choices_container {
-        max-height: 50vh;
-        overflow: scroll;
         color: #2C3531;
         padding-top: 4%;
     }
 
+    .add_tag_modal_add_btn {
+        position: relative;
+        left: 40%;
+        width: 20vw;
+        display: inline-block;
+        /* font-family: 'Original Surfer'; */
+        cursor: pointer;
+        padding: 1.5%;
+        background-color: #A3FFF7;
+    }
+
+    .add_tag_modal_cancel_btn {
+        position: relative;
+        display: inline-block;
+        color: #2C3531;
+        cursor: pointer;
+        display: inline-block;
+        left: 10%;
+        padding: 1.5%;
+        background-color: #C9CED2;
+    }
 }
 
 
@@ -343,6 +334,7 @@ input[type=checkbox] {
         top: 0;
         width: 100vw;
         z-index: 1000;
+        overflow-y: auto;
     }
 
     .basic_modal_content {
@@ -446,7 +438,7 @@ input[type=checkbox] {
         display: inline-block;
         left: 15%;
         padding: 1.5%;
-        background-color: #F2F2F2;
+        background-color: #C9CED2;
 
     }
 
@@ -508,8 +500,6 @@ input[type=checkbox] {
     }
 
     .tag_choices_container {
-        max-height: 45vh;
-        overflow: scroll;
         color: #2C3531;
         padding-top: 4%;
     }
@@ -518,6 +508,16 @@ input[type=checkbox] {
         width: 32%;
       }
 
+    .add_tag_modal_cancel_btn {
+        position: relative;
+        display: inline-block;
+        color: #2C3531;
+        cursor: pointer;
+        display: inline-block;
+        left: 10%;
+        padding: 1.5%;
+        background-color: #C9CED2;
+    }
 }
 
 
@@ -552,6 +552,16 @@ input[type=checkbox] {
         right: 7%;
     }
 
+    .add_tag_modal_cancel_btn {
+        position: relative;
+        display: inline-block;
+        color: #2C3531;
+        cursor: pointer;
+        display: inline-block;
+        left: 10%;
+        padding: 1.5%;
+        background-color: #C9CED2;
+    }
 }
 
 
@@ -568,6 +578,8 @@ input[type=checkbox] {
         top: 0;
         width: 100vw;
         z-index: 1000;
+        overflow-y: auto;
+
     }
 
     .basic_modal_content {
@@ -630,9 +642,7 @@ input[type=checkbox] {
         display: block;
         box-sizing: border-box;
         padding-bottom: 3%;
-        position: relative;
-        top: 0px;
-        left: 476px;
+        margin: 0 auto;
         border: 2px teal solid;
     }
 
@@ -670,7 +680,8 @@ input[type=checkbox] {
         display: inline-block;
         left: 10%;
         padding: 1.5%;
-        background-color: #F2F2F2;
+        background-color: #C9CED2;
+        margin-top: 5%;
     }
 
     .tag_modal_apply_btn {
@@ -730,8 +741,6 @@ input[type=checkbox] {
     }
 
     .tag_choices_container {
-        max-height: 60vh;
-        overflow-y: scroll;
         overflow-x: hidden;
         color: #2C3531;        
         padding-top: 0%;
@@ -779,14 +788,39 @@ input[type=checkbox] {
         font-weight: bold;
         display: block;
         box-sizing: border-box;
-        padding-bottom: 6%;
-        /* position: absolute; */
-        /* bottom: -10vh; */
-        /* left: 10vw; */
+        padding-bottom: 3%;
         margin: 0 auto;
         border: 2px solid teal;
     }
 
+    .add_tag_modal_add_btn {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        padding: 1.5%;
+        background-color: #A3FFF7;
+        width: 80px;
+        left: 50%;
+    }
+
+    .add_tag_modal_cancel_btn {
+        position: relative;
+        display: inline-block;
+        color: #2C3531;
+        cursor: pointer;
+        display: inline-block;
+        left: 10%;
+        padding: 1.5%;
+        background-color: #C9CED2;
+        width: 80px;
+        margin-top: 5%;
+    }
+
+    .new_tag {
+        padding: 8% 3%;
+        width: 75%;
+        margin: 0 auto;
+    }
 }
 
 
@@ -805,6 +839,7 @@ input[type=checkbox] {
         top: 0;
         width: 100vw;
         z-index: 1000;
+        overflow-y: auto;
     }
 
     .basic_modal_content {
@@ -918,7 +953,7 @@ input[type=checkbox] {
         display: inline-block;
         left: 15%;
         padding: 1.5%;
-        background-color: #F2F2F2;
+        background-color: #C9CED2;
 
     }
 
@@ -959,7 +994,6 @@ input[type=checkbox] {
         border: 0.5px solid #2EB4BA;
     }
 
-
     .add_tag_btn {
         font-size: 0.9em;
     }
@@ -982,11 +1016,32 @@ input[type=checkbox] {
     }
 
     .tag_choices_container {
-        max-height: 60vh;
-        overflow: scroll;
         color: #2C3531;
         padding-top: 4%;
 
+    }
+
+    .add_tag_modal_container {
+        background-color: white;
+        width: 80%;
+        font-weight: bold;
+        display: block;
+        box-sizing: border-box;
+        padding-bottom: 6%;
+        position: absolute;
+        bottom: -10vh;
+        left: 10vw;
+    }
+
+    .add_tag_modal_cancel_btn {
+        position: relative;
+        display: inline-block;
+        color: #2C3531;
+        cursor: pointer;
+        display: inline-block;
+        left: 10%;
+        padding: 1.5%;
+        background-color: #C9CED2;
     }
 
 }
