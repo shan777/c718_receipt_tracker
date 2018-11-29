@@ -109,14 +109,18 @@ input:focus {
         margin: 0;
         font-size: 1.1em;
         display: block;
-        /* background-color: rgba(235, 249, 249, 0.9); */
         background-color: white;
         top: 60px;
-        position: fixed;
+        position: relative;
         font-family: 'Roboto';
         padding-bottom: 155px;
         overflow: auto;
         color: #15191b;
+    }
+    
+    .form_container {
+        position: relative;
+        top: 80px;
     }
 
     .content_container {
@@ -201,6 +205,9 @@ input:focus {
     }
 
     .btn_container {
+        position: fixed;
+        top: 60px;
+        z-index: 1;
         width: 100%;
         background-color: #f1f2f4;
         padding: 1.2% 0;
@@ -209,19 +216,7 @@ input:focus {
         border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
     }
 
-    .add_new_form_input_container {
-        overflow-y: scroll;
-        max-height: 71vh; 
-    }
-} /* end of @media only screen and (max-width: 600px) 
-
-add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHONE X 
-71VH IS CUSTOM SIZE FOR IPHONE 6/7/8
-
-*/
-
-
-
+} /* end of @media only screen and (max-width: 600px) */
 
 
 
@@ -230,14 +225,15 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
         width: 100vw;
         margin: 0;
         display: block;
-        /* background-color: rgba(235, 249, 249, 0.9); */
         background-color: white;
         top: 60px;
-        /* position: fixed; */
-        font-family: 'Roboto';
-        /* padding-bottom: 155px; */
-        overflow: auto;
+        position: relative;
         font-size: 1.2em;
+    }
+
+    .form_container {
+        position: relative;
+        top: 80px;
     }
 
     .content_container {
@@ -328,16 +324,20 @@ add_new_form_input_container MUST BE REVISITED FOR LONGER MOBILE SIZE I.E. IPHON
     }
 
     .btn_container {
+        position: fixed;
+        top: 60px;
+        z-index: 1;
         width: 100%;
         background-color: #f1f2f4;
-        padding: 0.7% 0;
+        padding: 0.6% 0;
         font-weight: bold;
+        margin-bottom: 5%;
         border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
     }
 
     .add_new_form_input_container {
         /* overflow-y: auto; */
-        max-height: 72%;
+        /* max-height: 72%; */
         width: 55%;
         position: relative;
         margin: 0px auto;
