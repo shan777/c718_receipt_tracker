@@ -10,16 +10,18 @@
 
 @media only screen and (min-width: 600px){
 
-    .headContainer {
+    .headContainer{
         background-color: #1997A2;
         color: #F2F2F2;
-        height: 100px;
-        font-size: 3.5em;
-        padding: 2.5% 0;
+        font-family: 'Roboto Bold';
+        height: 60px;
+        font-size: 2em;
+        padding-left: 3%;
         text-align: center;
         top: 0;
         width: 100%;
         z-index: 1;
+        padding-top: 6px;
     }
 
     .dots {
@@ -52,21 +54,24 @@
     .menus {
         top: 80px;
     }
-}
+} /*end of @media only screen and (min-width: 600px)*/
+
 
 @media only screen and (min-width: 768px){
     .headContainer{
         background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        height: 115px;
-        font-size: 4em;
+        height: 80px;
+        font-size: 3em;
         padding-left: 3%;
         text-align: center;
         top: 0;
         width: 100%;
         z-index: 1;
+        padding-top: 10px;
     }
+
     .dots {
         position: absolute;
         right: 6%;
@@ -97,7 +102,26 @@
     .menus {
         top: 80px;
     }
-}
+} /*end of @media only screen and (min-width: 768px)*/
+
+
+@media only screen and (min-width: 992px){
+    .headContainer{
+        background-color: #1997A2;
+        color: #F2F2F2;
+        font-family: 'Roboto Bold';
+        font-size: 4em;
+        padding-left: 0%;
+        text-align: center;
+        top: 0;
+        width: 100%;
+        height: 110px;
+        z-index: 1;
+        position: fixed;
+        padding-top: 14px;
+    }
+} /*end of @media only screen and (min-width: 992px)*/
+
 
 @media only screen and (min-width: 1220px){
     .headContainer{
@@ -111,20 +135,16 @@
         width: 100%;
         height: 115px;
         z-index: 1;
+        position: fixed;
+        padding-top: 14px;
     }
+
     .dots {
         position: absolute;
         right: 6%;
         top: 15%;
         border: none;
         height: 80%;
-    }
-    
-    .header{
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1;
     }
     
     .sidebar_container {
@@ -143,15 +163,17 @@
     .menus {
         top: 80px;
     }
-}
+} /*end of @media only screen and (min-width: 1220px)*/
+
 
 @media only screen and (max-width: 600px){
     .headContainer {
         background-color: #1997A2;
         color: #F2F2F2;
+        font-family: 'Roboto Bold';
         height: 60px;
         font-size: 1.5em;
-        padding: 2.5% 0;
+        padding: 12px 0;
         text-align: center;
         top: 0;
         width: 100%;
@@ -188,5 +210,5 @@
     .menus {
         top: 80px;
     }
-}
+} /*end of @media only screen and (max-width: 600px)*/
 
