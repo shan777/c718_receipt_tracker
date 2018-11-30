@@ -166,14 +166,13 @@ a:visited {
         background-color: #1997A2;
         color: #F2F2F2;
         font-family: 'Roboto Bold';
-        height: 115px;
-        font-size: 4em;
-        padding-left: 3%;
+        height: 65px;
+        font-size: 2em;
+        padding-top: 0.55%;
         text-align: center;
-        top: 0;
-        width: 100%;
         z-index: 1;
     }
+    
     .dots {
         position: absolute;
         right: 6%;
