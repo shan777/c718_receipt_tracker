@@ -348,7 +348,10 @@ input:focus {
         border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
     }
 
-} /* end of @media only screen and (max-width: 600px) */
+} /* end of @media only screen and (min-width: 375px) and(max-width: 600px){ */
+
+
+
 
 
 
@@ -358,15 +361,15 @@ input:focus {
         margin: 0;
         display: block;
         background-color: white;
-        top: 60px;
         position: relative;
+        margin: 90px 0;
         font-size: 1.2em;
     }
 
-    .form_container {
+    /* .form_container {
         position: relative;
-        top: 80px;
-    }
+        margin-top: 5%;
+    } */
 
     .content_container {
         background-color: white;
@@ -375,7 +378,7 @@ input:focus {
         font-size: 1.1em;
         display: block;
         box-sizing: border-box;
-        line-height: 2.4em;
+        line-height: 2.2em;
         padding-left: 125px;
     }
 
@@ -391,13 +394,12 @@ input:focus {
     }
 
     .input_label {
-        width: 38%;
+        width: 40%;
         height: 30%;;
         text-align: right;
         display: inline-block;
-        word-break: break-word;
         vertical-align: top;
-        padding-right: 95px;
+        padding-right: 10%;
     }
 
     .tag_label {
@@ -431,8 +433,16 @@ input:focus {
         width: 165px;
     }
 
+    .tag_buttons {
+        display: inline-block;
+        width: 40%;
+        position: relative;
+        left: 37%;
+    }
+
     .cancel_btn {
-        margin-left: 29%;
+        margin-left: 35%;
+        margin-right: 25%;
         background-color: #C9CED2;
         color: #2C3531;
         padding: 0.5% 0.5%;
@@ -444,8 +454,6 @@ input:focus {
     }
 
     .done_btn {
-        float: right;
-        margin-right: 30%;
         background-color: #A3FFF7;;
         color: #2C3531;
         padding: 0.5%;
@@ -457,23 +465,19 @@ input:focus {
 
     .btn_container {
         position: fixed;
-        top: 60px;
+        bottom: 0;
         z-index: 1;
         width: 100%;
         background-color: #f1f2f4;
         padding: 0.6% 0;
         font-weight: bold;
-        margin-bottom: 5%;
         border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
     }
 
     .add_new_form_input_container {
-        /* overflow-y: auto; */
-        /* max-height: 72%; */
         width: 55%;
         position: relative;
         margin: 0px auto;
-        padding-top: 20px;
     }
 
 } /* @media only screen and (min-width: 1220px) */

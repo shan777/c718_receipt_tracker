@@ -1319,7 +1319,7 @@ input[type=checkbox] {
 
     .tag_modal_container {
         background-color: white;
-        width: 500px;
+        width: 450px;
         font-weight: bold;
         display: block;
         box-sizing: border-box;
@@ -1368,7 +1368,7 @@ input[type=checkbox] {
 
     .tag_modal_apply_btn {
         position: relative;
-        left: 62%;
+        left: 57%;
         width: 75px;
         padding: 1.5%;
         display: inline-block;
@@ -1447,7 +1447,7 @@ input[type=checkbox] {
         border-radius: 50%;
         float: right;
         vertical-align: middle;
-        left: 425px;
+        left: 370px;
         top: 0px;
     }
 
@@ -1455,7 +1455,7 @@ input[type=checkbox] {
         font-size: 1.2em;
         position: relative;
         display: block;
-        padding-left: 25px;
+        padding-left: 44px;
         padding-bottom: 11px;
         border-bottom: solid 0.5px silver;
         margin: 10px 0;
