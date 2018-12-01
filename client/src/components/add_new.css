@@ -107,7 +107,7 @@ input:focus {
 
 
 
-@media only screen and (min-width: 320px) and (max-width: 375px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
     .main_container {
         width: 100vw;
         margin: 0;
@@ -233,18 +233,18 @@ input:focus {
         position: relative;
         top: -30px;
     }
-} /* @media only screen and (min-width: 320px) and (max-width: 375px) */
+} /* end of @media only screen and (min-width: 320px) and (max-width: 480px)   */
 
 
 
 
 
 
-@media only screen and (min-width: 375px) and(max-width: 600px){
+@media only screen and (min-width: 480px) and (max-width: 768px){
     .main_container {
         width: 100vw;
         margin: 0;
-        font-size: 1.1em;
+        font-size: 1.0em;
         display: block;
         background-color: white;
         top: 60px;
@@ -273,7 +273,7 @@ input:focus {
     }
 
     .input_label {
-        width: 38%;
+        width: 40%;
         height: 30%;;
         text-align: right;
         padding-right: 20px;
@@ -305,6 +305,15 @@ input:focus {
         background-color: white;
     }
 
+    .date, .merchant, .amount, .note {
+        background-color: white;
+        box-shadow: none;
+        border-style: none;
+        border-bottom: 1px solid #2EB4BA;
+        border-top-color: none;
+        font-size: 1.0em;
+    }
+
     .merchant, .note {
         width: 50%;
     }
@@ -321,45 +330,49 @@ input:focus {
         margin-left: 3%;
         background-color: #f2f2f2;
         color: #2C3531;
-        padding: 1.5%;
+        padding: 1.0%;
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
-        font-family: 'roboto';
+        font-size: 1em;
     }
 
     .done_btn {
         float: right;
         margin-right: 3%;
-        margin-top: 0.5%;
         background-color: #A3FFF7;
         color: #2C3531;
-        padding: 1.5%;
+        padding: 1.0%;
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
-        font-family: 'roboto';
+        font-size: 1em;
     }
 
     .btn_container {
         position: fixed;
-        top: 60px;
+        top: 50px;
         z-index: 1;
         width: 100%;
         background-color: #f1f2f4;
-        padding: 1.2% 0;
+        padding: 5px 0;
         font-weight: bold;
-        margin-bottom: 5%;
+        /* margin-bottom: 5%; */
         border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
     }
-} /* end of @media only screen and (min-width: 375px) and(max-width: 600px){ */
+
+    .add_new_form_input_container {
+        position: relative;
+        top: -30px;
+    }
+} /* end of @media only screen and (min-width: 480px) and(max-width: 768px){ */
 
 
 
 
 
 
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
     .main_container {
         width: 100vw;
         margin: 0;
@@ -499,14 +512,14 @@ input:focus {
         padding-top: 2%;
     }
 
-} /* end of  @media only screen and (min-width: 600px)  */
+} /* end of  @media only screen and (min-width: 768px) and (max-width: 1200px)  */
 
 
 
 
 
 
-@media only screen  and (min-width: 1024px){
+@media only screen  and (min-width: 1200px){
     .main_container {
         width: 100vw;
         margin: 0;
@@ -631,4 +644,4 @@ input:focus {
         margin: 0px auto;
     }
 
-} /* end of @media only screen and (min-width: 1024px) */
+} /* end of @media only screen and (min-width: 1200px) */

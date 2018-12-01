@@ -13,7 +13,7 @@ a:visited {
     color: white;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 375px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
     .headContainer {
         background-color: #1997A2;
         color: #F2F2F2;
@@ -41,16 +41,17 @@ a:visited {
     }
 
     .sidebar_container {
-        width: 35vw;
-        height: 45vh;
-        background-color: #18757E;
+        width: 37vw;
+        height: 42vh;
+        background-color: #1997A2;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
-        top: 60px !important;
+        top: 50px !important;
         color: white;
+        /* z-index: 2; */
     }
 
     .menus {
@@ -62,13 +63,13 @@ a:visited {
 
 
 
-@media only screen and (min-width: 375px) and (max-width: 600px){
+@media only screen and (min-width: 480px) and (max-width: 768px){
     .headContainer {
         background-color: #1997A2;
         color: #F2F2F2;
-        height: 60px;
+        height: 50px;
         font-size: 1.5em;
-        padding: 1.5% 0;
+        padding: 1.0% 0;
         text-align: center;
         top: 0;
         width: 100%;
@@ -78,8 +79,8 @@ a:visited {
     .dots {
         position: absolute;
         right: 5%;
-        top: 10%;
-        height: 70%;
+        top: 11%;
+        height: 80%;
     }
 
     .header{
@@ -90,16 +91,17 @@ a:visited {
     }
 
     .sidebar_container {
-        width: 35vw;
-        height: 45vh;
-        background-color: #18757E;
+        width: 37vw;
+        height: 42vh;
+        background-color: #1997A2;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
-        top: 60px !important;
+        top: 50px !important;
         color: white;
+        /* z-index: 2; */
     }
 
     .menus {
@@ -111,7 +113,7 @@ a:visited {
 
 
 
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
     .headContainer {
         background-color: #1997A2;
         color: #F2F2F2;
@@ -161,7 +163,7 @@ a:visited {
 
 
 
-@media only screen and (min-width: 768px){
+/* @media only screen and (min-width: 1200px){
     .headContainer{
         background-color: #1997A2;
         color: #F2F2F2;
@@ -172,7 +174,7 @@ a:visited {
         text-align: center;
         z-index: 1;
     }
-    
+
     .dots {
         position: absolute;
         right: 6%;
@@ -192,7 +194,7 @@ a:visited {
         height: 40vh;
         background-color: #18757E; 
         /* font-family: 'Roboto Bold'; */
-        position: fixed !important;
+   /*     position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
@@ -205,11 +207,11 @@ a:visited {
     }
 }
 
+ */
 
 
 
-
-@media only screen and (min-width: 1220px){
+@media only screen and (min-width: 1200px){
     .headContainer{
         background-color: #1997A2;
         color: #F2F2F2;
