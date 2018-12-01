@@ -37,7 +37,7 @@
         position: fixed;
         bottom: 0;
         width: 100vw;
-        height: 50px;
+        height: 55px;
         background-color: #1997A2
     }
 
@@ -70,7 +70,7 @@
         position: fixed;
         bottom: 0;
         width: 100%;
-        height: 115px;
+        height: 65px;
         background-color: #1997A2    }
     
     /* .icon_image {
@@ -79,12 +79,12 @@
     
     .footer_container i {
         width: 25%;;
-        padding-top: 3%;
+        padding-top: 1%;
     }
     
     
     .footer-nav-link i {
-        font-size: 3.2em;
+        font-size: 2.5em;
         text-align: center;
         color: #000;
     }
@@ -103,7 +103,7 @@
         position: fixed;
         bottom: 0;
         width: 100%;
-        height: 115px;
+        height: 65px;
         background-color: #1997A2    }
     
     /* .icon_image {
@@ -112,12 +112,12 @@
     
     .footer_container i {
         width: 25%;;
-        padding-top: 3%;
+        padding-top: 1%;
     }
     
     
     .footer-nav-link i {
-        font-size: 3.2em;
+        font-size: 2.7em;
         text-align: center;
         color: #000;
     }

@@ -14,94 +14,6 @@
 }
 
 
-option {
-    font-size: 0.7em;
-    background-color: white;
-}
-
-.date, .merchant, .amount, .note {
-    background-color: white;
-    box-shadow: none;
-    border-style: none;
-    border-bottom: 1px solid #2EB4BA ;
-    border-top-color: none;
-    font-size: 1.05em;
-}
-
-.plus_tag_button {
-    background-color: white;
-    border: 0.5px solid #2EB4BA;
-    color: rgba(44, 53, 49, 0.747);
-    width: 40%;
-    vertical-align: middle;
-    font-family: 'Roboto';
-    text-align: left;
-    padding-left: 2%;
-}
-
-.drop_down_arrow_icon {
-    margin-left: 2%;
-    line-height: 1.1;
-    font-size: 1.8em;
-    color: rgba(31, 34, 32, 0.842);
-}
-
-.add_tag_icon {
-    font-size: 1.9em;
-    vertical-align: top;
-    margin-left: 10%;
-    color: rgba(31, 34, 32, 0.842);
-    border-radius: 5px;
-}
-
-input:hover {
-    border-bottom: 2.5px solid #2EB4BA;
-}
-
-input:focus {
-    border: 1px solid #2EB4BA;  
-    background-color: white;
-}
-
-
-.tag_buttons {
-    display: inline-block;
-    width: 55%;
-    position: relative;
-    left: 37%;
-}
-
-.custom_tag {
-    background-color: #e6fff2;
-    border: 1px solid #2EB4BA;
-    color: #2C3531;
-    padding: 2% 3%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 2%;
-    cursor: pointer;
-    border-radius: 20px;
-}
-
-.content_container:nth-child(6) {
-    background-color: white;
-    width: 100%;
-    font-weight: bold;
-    font-size: 1.1em;
-    display: block;
-    box-sizing: border-box;
-    line-height: 0.15em;
-    margin-top: 3%;
-}
-
-.content_container:nth-child(6)>.input_label {
-    vertical-align: top;
-    position: relative;
-    padding-top: 3%;
-}
-
-
 
 
 
@@ -137,6 +49,94 @@ input:focus {
         box-sizing: border-box;
         /* text-align: center; */
         line-height: 2.1em;
+    }
+
+    
+    .content_container:nth-child(6) {
+        background-color: white;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.1em;
+        display: block;
+        box-sizing: border-box;
+        line-height: 0.15em;
+        margin-top: 2%;
+    }
+        
+    option {
+        font-size: 0.7em;
+        background-color: white;
+    }
+
+    .date, .merchant, .amount, .note {
+        background-color: white;
+        box-shadow: none;
+        border-style: none;
+        border-bottom: 1px solid #2EB4BA ;
+        border-top-color: none;
+        font-size: 1.05em;
+    }
+
+    .plus_tag_button {
+        background-color: white;
+        border: 0.5px solid #2EB4BA;
+        color: rgba(44, 53, 49, 0.747);
+        width: 40%;
+        vertical-align: middle;
+        font-family: 'Roboto';
+        text-align: left;
+        padding-left: 2%;
+    }
+
+    .drop_down_arrow_icon {
+        margin-left: 2%;
+        line-height: 1.1;
+        font-size: 1.8em;
+        color: rgba(31, 34, 32, 0.842);
+    }
+
+    .add_tag_icon {
+        font-size: 1.9em;
+        vertical-align: top;
+        margin-left: 10%;
+        color: rgba(31, 34, 32, 0.842);
+        border-radius: 5px;
+    }
+
+    input:hover {
+        border-bottom: 2.5px solid #2EB4BA;
+    }
+
+    input:focus {
+        border: 1px solid #2EB4BA;  
+        background-color: white;
+    }
+
+
+    .tag_buttons {
+        display: inline-block;
+        width: 55%;
+        position: relative;
+        left: 37%;
+    }
+
+    .custom_tag {
+        background-color: #e6fff2;
+        border: 1px solid #2EB4BA;
+        color: #2C3531;
+        padding: 2% 3%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 2%;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .content_container:nth-child(6)>.input_label {
+        vertical-align: top;
+        position: relative;
+        padding-top: 3%;
     }
 
     .input_label {
@@ -179,6 +179,72 @@ input:focus {
         border-bottom: 1px solid #2EB4BA;
         border-top-color: none;
         font-size: 1.0em;
+    }
+        
+    option {
+        font-size: 0.7em;
+        background-color: white;
+    }
+
+    .plus_tag_button {
+        background-color: white;
+        border: 0.5px solid #2EB4BA;
+        color: rgba(44, 53, 49, 0.747);
+        width: 40%;
+        vertical-align: middle;
+        font-family: 'Roboto';
+        text-align: left;
+        padding-left: 2%;
+    }
+
+    .drop_down_arrow_icon {
+        margin-left: 2%;
+        line-height: 1.1;
+        font-size: 1.8em;
+        color: rgba(31, 34, 32, 0.842);
+    }
+
+    .add_tag_icon {
+        font-size: 1.9em;
+        vertical-align: top;
+        margin-left: 10%;
+        color: rgba(31, 34, 32, 0.842);
+        border-radius: 5px;
+    }
+
+    input:hover {
+        border-bottom: 2.5px solid #2EB4BA;
+    }
+
+    input:focus {
+        border: 1px solid #2EB4BA;  
+        background-color: white;
+    }
+
+    .tag_buttons {
+        display: inline-block;
+        width: 55%;
+        position: relative;
+        left: 37%;
+    }
+
+    .custom_tag {
+        background-color: #e6fff2;
+        border: 1px solid #2EB4BA;
+        color: #2C3531;
+        padding: 2% 3%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 2%;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .content_container:nth-child(6)>.input_label {
+        vertical-align: top;
+        position: relative;
+        padding-top: 3%;
     }
 
     .merchant, .note {
@@ -269,16 +335,96 @@ input:focus {
         /* text-align: center; */
         line-height: 2.1em;
     }
+        
+    .content_container:nth-child(6) {
+        background-color: white;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.1em;
+        display: block;
+        box-sizing: border-box;
+        line-height: 0.15em;
+        margin-top: 1%;
+    }
 
     .input_label {
         width: 40%;
         height: 30%;;
         text-align: right;
-        padding-right: 20px;
+        padding-right: 40px;
         display: inline-block;
         word-break: break-word;
         vertical-align: top;
     }
+
+        
+    option {
+        font-size: 0.7em;
+        background-color: white;
+    }
+
+    .plus_tag_button {
+        background-color: white;
+        border: 0.5px solid #2EB4BA;
+        color: rgba(44, 53, 49, 0.747);
+        width: 40%;
+        vertical-align: middle;
+        font-family: 'Roboto';
+        text-align: left;
+        padding-left: 2%;
+    }
+
+    .drop_down_arrow_icon {
+        margin-left: 2%;
+        line-height: 1.1;
+        font-size: 1.8em;
+        color: rgba(31, 34, 32, 0.842);
+    }
+
+    .add_tag_icon {
+        font-size: 1.9em;
+        vertical-align: top;
+        margin-left: 10%;
+        color: rgba(31, 34, 32, 0.842);
+        border-radius: 5px;
+    }
+
+    input:hover {
+        border-bottom: 2.5px solid #2EB4BA;
+    }
+
+    input:focus {
+        border: 1px solid #2EB4BA;  
+        background-color: white;
+    }
+
+
+    .tag_buttons {
+        display: inline-block;
+        width: 55%;
+        position: relative;
+        left: 37%;
+    }
+
+    .custom_tag {
+        background-color: #e6fff2;
+        border: 1px solid #2EB4BA;
+        color: #2C3531;
+        padding: 2% 3%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 2%;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .content_container:nth-child(6)>.input_label {
+        vertical-align: top;
+        position: relative;
+        padding-top: 3%;
+    }
+
 
     .tag_label {
         height: 30%;;
@@ -295,7 +441,7 @@ input:focus {
         background-color: white;
         font-size: 1em;
         width: 50%;
-        margin-top: 3%;
+        margin-top: 1%;
     }
 
     select:focus {
@@ -363,6 +509,19 @@ input:focus {
         position: relative;
         top: -30px;
     }
+
+    .checkmark {
+        position: absolute;
+        height: 27px;
+        width: 27px;
+        background-color: white;
+        border: 1px teal solid;
+        border-radius: 50%;
+        float: right;
+        vertical-align: middle;
+        right: 20px;
+        top: 0;
+    }
 } /* end of @media only screen and (min-width: 480px) and(max-width: 768px){ */
 
 
@@ -393,7 +552,7 @@ input:focus {
         font-size: 1.1em;
         display: block;
         box-sizing: border-box;
-        line-height: 1em;
+        line-height: 3;
         /* padding-left: 125px; */
     }
 
@@ -405,7 +564,7 @@ input:focus {
         display: block;
         box-sizing: border-box;
         line-height: 0.15em;
-        margin-top: 0%;
+        margin-top: 3%;
     }
 
     .input_label {
@@ -430,6 +589,77 @@ input:focus {
         background-color: rgba(239, 241, 241, 0.904);
         font-size: 0.9em;
         /* margin-top: 1%; */
+    }
+
+    
+        
+    option {
+        font-size: 0.7em;
+        background-color: white;
+    }
+
+    .plus_tag_button {
+        background-color: white;
+        border: 0.5px solid #2EB4BA;
+        color: rgba(44, 53, 49, 0.747);
+        width: 40%;
+        vertical-align: middle;
+        font-family: 'Roboto';
+        text-align: left;
+        padding-left: 2%;
+    }
+
+    .drop_down_arrow_icon {
+        margin-left: 2%;
+        line-height: 1.1;
+        font-size: 1.8em;
+        color: rgba(31, 34, 32, 0.842);
+    }
+
+    .add_tag_icon {
+        font-size: 1.9em;
+        vertical-align: top;
+        margin-left: 10%;
+        color: rgba(31, 34, 32, 0.842);
+        border-radius: 5px;
+    }
+
+    input:hover {
+        border-bottom: 2.5px solid #2EB4BA;
+    }
+
+    input:focus {
+        border: 1px solid #2EB4BA;  
+        background-color: white;
+    }
+
+
+    .tag_buttons {
+        display: inline-block;
+        width: 55%;
+        position: relative;
+        left: 37%;
+    }
+
+    .custom_tag {
+        background-color: #e6fff2;
+        border: 1px solid #2EB4BA;
+        color: #2C3531;
+        padding: 2% 3%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 2%;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 0.7em;
+    }
+
+    .tag_label {
+        height: 30%;;
+        text-align: center;
+        display: block;
+        word-break: break-word;
     }
 
     .date, .merchant, .amount, .note {
@@ -465,8 +695,7 @@ input:focus {
     }
 
     .cancel_btn {
-        margin-left: 27%;
-        margin-right: 31%;
+        margin-left: 5%;
         background-color: #C9CED2;
         color: #2C3531;
         padding: 0.5%;
@@ -477,6 +706,8 @@ input:focus {
     }
 
     .done_btn {
+        float: right;
+        margin-right: 5%;
         background-color: #A3FFF7;;
         color: #2C3531;
         padding: 0.5%;
@@ -488,7 +719,7 @@ input:focus {
 
     .btn_container {
         position: fixed;
-        top: 65px;
+        top: 55px;
         z-index: 1;
         width: 100%;
         background-color: #f1f2f4;
@@ -498,10 +729,10 @@ input:focus {
     }
 
     .add_new_form_input_container {
-        width: 80%;
+        width: 95%;
         position: relative;
         margin: 0px auto;
-        margin-top: 135px;
+        margin-top: 110px;
     }
 
     .content_container:nth-child(6)>.input_label {
@@ -538,7 +769,7 @@ input:focus {
         font-size: 1.1em;
         display: block;
         box-sizing: border-box;
-        line-height: 1em;
+        line-height: 2;
         /* padding-left: 125px; */
     }
 
@@ -550,7 +781,7 @@ input:focus {
         display: block;
         box-sizing: border-box;
         line-height: 0.15em;
-        margin-top: 0%;
+        margin-top: 1%;
     }
 
     .input_label {
@@ -575,6 +806,82 @@ input:focus {
         background-color: rgba(239, 241, 241, 0.904);
         font-size: 0.9em;
         /* margin-top: 1%; */
+    }
+    
+    option {
+        font-size: 0.7em;
+        background-color: white;
+    }
+
+    .plus_tag_button {
+        background-color: white;
+        border: 0.5px solid #2EB4BA;
+        color: rgba(44, 53, 49, 0.747);
+        width: 40%;
+        vertical-align: middle;
+        font-family: 'Roboto';
+        text-align: left;
+        padding-left: 2%;
+    }
+
+    .drop_down_arrow_icon {
+        margin-left: 2%;
+        line-height: 1.1;
+        font-size: 1.8em;
+        color: rgba(31, 34, 32, 0.842);
+    }
+
+    .add_tag_icon {
+        font-size: 1.9em;
+        vertical-align: top;
+        margin-left: 10%;
+        color: rgba(31, 34, 32, 0.842);
+        border-radius: 5px;
+    }
+
+    input:hover {
+        border-bottom: 2.5px solid #2EB4BA;
+    }
+
+    input:focus {
+        border: 1px solid #2EB4BA;  
+        background-color: white;
+    }
+
+
+    .tag_buttons {
+        display: inline-block;
+        width: 55%;
+        position: relative;
+        left: 37%;
+    }
+
+    .custom_tag {
+        background-color: #e6fff2;
+        border: 1px solid #2EB4BA;
+        color: #2C3531;
+        padding: 2% 3%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 2%;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 0.7em;
+    }
+
+    .content_container:nth-child(6)>.input_label {
+        vertical-align: top;
+        position: relative;
+        padding-top: 3%;
+    }
+
+
+    .tag_label {
+        height: 30%;;
+        text-align: center;
+        display: block;
+        word-break: break-word;
     }
 
     .date, .merchant, .amount, .note {
@@ -610,8 +917,7 @@ input:focus {
     }
 
     .cancel_btn {
-        margin-left: 27%;
-        margin-right: 31%;
+        margin-left: 10%;
         background-color: #C9CED2;
         color: #2C3531;
         padding: 0.5%;
@@ -622,6 +928,8 @@ input:focus {
     }
 
     .done_btn {
+        float: right;
+        margin-right: 10%;
         background-color: #A3FFF7;;
         color: #2C3531;
         padding: 0.5%;
@@ -681,11 +989,86 @@ input:focus {
         background-color: white;
         width: 100%;
         font-weight: bold;
-        font-size: 1.1em;
+        font-size: 1.01em;
         display: block;
         box-sizing: border-box;
-        line-height: 1em;
+        line-height: 1.6;
         /* padding-left: 125px; */
+    }
+       
+    option {
+        font-size: 0.7em;
+        background-color: white;
+    }
+
+    .plus_tag_button {
+        background-color: white;
+        border: 0.5px solid #2EB4BA;
+        color: rgba(44, 53, 49, 0.747);
+        width: 40%;
+        vertical-align: middle;
+        font-family: 'Roboto';
+        text-align: left;
+        padding-left: 2%;
+    }
+
+    .drop_down_arrow_icon {
+        margin-left: 2%;
+        line-height: 1.1;
+        font-size: 1.8em;
+        color: rgba(31, 34, 32, 0.842);
+    }
+
+    .add_tag_icon {
+        font-size: 1.9em;
+        vertical-align: top;
+        margin-left: 10%;
+        color: rgba(31, 34, 32, 0.842);
+        border-radius: 5px;
+    }
+
+    input:hover {
+        border-bottom: 2.5px solid #2EB4BA;
+    }
+
+    input:focus {
+        border: 1px solid #2EB4BA;  
+        background-color: white;
+    }
+
+
+    .tag_buttons {
+        display: inline-block;
+        width: 55%;
+        position: relative;
+        left: 37%;
+    }
+
+    .custom_tag {
+        background-color: #e6fff2;
+        border: 1px solid #2EB4BA;
+        color: #2C3531;
+        padding: 2% 3%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 2%;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 0.7em;
+    }
+
+    .content_container:nth-child(6)>.input_label {
+        vertical-align: top;
+        position: relative;
+        padding-top: 3%;
+    }
+
+    .tag_label {
+        height: 30%;;
+        text-align: center;
+        display: block;
+        word-break: break-word;
     }
 
     .content_container:nth-child(6) {
@@ -756,8 +1139,7 @@ input:focus {
     }
 
     .cancel_btn {
-        margin-left: 27%;
-        margin-right: 31%;
+        margin-left: 16%;
         background-color: #C9CED2;
         color: #2C3531;
         padding: 0.5%;
@@ -768,6 +1150,8 @@ input:focus {
     }
 
     .done_btn {
+        float: right;
+        margin-right: 16%;
         background-color: #A3FFF7;;
         color: #2C3531;
         padding: 0.5%;
@@ -792,7 +1176,7 @@ input:focus {
         width: 80%;
         position: relative;
         margin: 0px auto;
-        margin-top: 135px;
+        margin-top: 150px;
     }
 
     .content_container:nth-child(6)>.input_label {
@@ -831,6 +1215,81 @@ input:focus {
         box-sizing: border-box;
         line-height: 2.2em;
         padding-left: 125px;
+    } 
+        
+    option {
+        font-size: 0.7em;
+        background-color: white;
+    }
+
+    .plus_tag_button {
+        background-color: white;
+        border: 0.5px solid #2EB4BA;
+        color: rgba(44, 53, 49, 0.747);
+        width: 40%;
+        vertical-align: middle;
+        font-family: 'Roboto';
+        text-align: left;
+        padding-left: 2%;
+    }
+
+    .drop_down_arrow_icon {
+        margin-left: 2%;
+        line-height: 1.1;
+        font-size: 1.8em;
+        color: rgba(31, 34, 32, 0.842);
+    }
+
+    .add_tag_icon {
+        font-size: 1.9em;
+        vertical-align: top;
+        margin-left: 10%;
+        color: rgba(31, 34, 32, 0.842);
+        border-radius: 5px;
+    }
+
+    input:hover {
+        border-bottom: 2.5px solid #2EB4BA;
+    }
+
+    input:focus {
+        border: 1px solid #2EB4BA;  
+        background-color: white;
+    }
+
+
+    .tag_buttons {
+        display: inline-block;
+        width: 55%;
+        position: relative;
+        left: 37%;
+    }
+
+    .custom_tag {
+        background-color: #e6fff2;
+        border: 1px solid #2EB4BA;
+        color: #2C3531;
+        padding: 2% 3%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 2%;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .content_container:nth-child(6)>.input_label {
+        vertical-align: top;
+        position: relative;
+        padding-top: 3%;
+    }
+
+
+    .tag_label {
+        height: 30%;;
+        text-align: center;
+        display: block;
+        word-break: break-word;
     }
 
     .content_container:nth-child(6) {
