@@ -48,7 +48,6 @@ class About extends Component {
                                 </tbody>
                             </table>    
                         </div>
-                        <br />
                         <div className="etcInfo">
                             <Link to="/overview">
                                 <div className="domain"><b><i>www.squirrelreceipts.com</i></b>
