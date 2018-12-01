@@ -357,154 +357,156 @@ input:focus {
 
 
 
-    @media only screen and (min-width: 768px){
-        .main_container {
-            width: 100vw;
-            margin: 0;
-            display: block;
-            background-color: white;
-            position: relative;
-            margin: 90px 0;
-            font-size: 1.2em;
-        }
-    
-        /* .form_container {
-            position: relative;
-            margin-top: 5%;
-        } */
-    
-        .content_container {
-            background-color: white;
-            width: 100%;
-            font-weight: bold;
-            font-size: 1.1em;
-            display: block;
-            box-sizing: border-box;
-            line-height: 1em;
-            /* padding-left: 125px; */
-        }
-    
-        .content_container:nth-child(6) {
-            background-color: white;
-            width: 100%;
-            font-weight: bold;
-            font-size: 1.1em;
-            display: block;
-            box-sizing: border-box;
-            line-height: 0.15em;
-            margin-top: 0%;
-        }
-    
-        .input_label {
-            width: 40%;
-            height: 30%;;
-            text-align: right;
-            display: inline-block;
-            /* vertical-align: top; */
-            padding-right: 7%;
-        }
-    
-        .tag_label {
-            width: 35%;
-            height: 30%;;
-            text-align: center;
-            vertical-align: top;
-            display: inline-block;
-            word-break: break-word;
-        }
-    
-        select {
-            background-color: rgba(239, 241, 241, 0.904);
-            font-size: 0.9em;
-            /* margin-top: 1%; */
-        }
-    
-        .date, .merchant, .amount, .note {
-            background-color: white;
-            box-shadow: none;
-            border-style: none;
-            border-bottom: 1px solid #2EB4BA;
-            border-top-color: none;
-            font-size: 0.95em;
-        }
-
-        .note {
-            width: 300px;
-        }
-    
-        .merchant {
-            width: 275px;
-        }
-    
-        .date {
-            width: 235px;
-        }
-    
-        .amount {
-            width: 165px;
-        }
-    
-        .tag_buttons {
-            display: inline-block;
-            width: 40%;
-            position: relative;
-            left: 37%;
-        }
-    
-        .cancel_btn {
-            margin-left: 27%;
-            margin-right: 31%;
-            background-color: #C9CED2;
-            color: #2C3531;
-            padding: 0.5%;
-            font-size: 0.95em;
-            border-radius: 6px;
-            border: 1.0px solid #2C3531;
-            transition-duration: 0.4s;
-        }
-    
-        .done_btn {
-            background-color: #A3FFF7;;
-            color: #2C3531;
-            padding: 0.5%;
-            font-size: 0.95em;
-            border-radius: 6px;
-            border: 1.0px solid #2C3531;
-            transition-duration: 0.4s;
-        }
-    
-        .btn_container {
-            position: fixed;
-            top: 65px;
-            z-index: 1;
-            width: 100%;
-            background-color: #f1f2f4;
-            padding: 0.6% 0;
-            font-weight: bold;
-            border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
-        }
-    
-        .add_new_form_input_container {
-            width: 80%;
-            position: relative;
-            margin: 0px auto;
-            margin-top: 135px;
-        }
-    
-        .content_container:nth-child(6)>.input_label {
-            vertical-align: top;
-            position: relative;
-            padding-top: 2%;
-        }
-
-    } /* @media only screen and (min-width: 768px) */
 
 
+@media only screen and (min-width: 600px){
+    .main_container {
+        width: 100vw;
+        margin: 0;
+        display: block;
+        background-color: white;
+        position: relative;
+        margin: 90px 0;
+        font-size: 1.2em;
+    }
+
+    /* .form_container {
+        position: relative;
+        margin-top: 5%;
+    } */
+
+    .content_container {
+        background-color: white;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.1em;
+        display: block;
+        box-sizing: border-box;
+        line-height: 1em;
+        /* padding-left: 125px; */
+    }
+
+    .content_container:nth-child(6) {
+        background-color: white;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.1em;
+        display: block;
+        box-sizing: border-box;
+        line-height: 0.15em;
+        margin-top: 0%;
+    }
+
+    .input_label {
+        width: 40%;
+        height: 30%;;
+        text-align: right;
+        display: inline-block;
+        /* vertical-align: top; */
+        padding-right: 7%;
+    }
+
+    .tag_label {
+        width: 35%;
+        height: 30%;;
+        text-align: center;
+        vertical-align: top;
+        display: inline-block;
+        word-break: break-word;
+    }
+
+    select {
+        background-color: rgba(239, 241, 241, 0.904);
+        font-size: 0.9em;
+        /* margin-top: 1%; */
+    }
+
+    .date, .merchant, .amount, .note {
+        background-color: white;
+        box-shadow: none;
+        border-style: none;
+        border-bottom: 1px solid #2EB4BA;
+        border-top-color: none;
+        font-size: 0.95em;
+    }
+
+    .note {
+        width: 300px;
+    }
+
+    .merchant {
+        width: 275px;
+    }
+
+    .date {
+        width: 235px;
+    }
+
+    .amount {
+        width: 165px;
+    }
+
+    .tag_buttons {
+        display: inline-block;
+        width: 40%;
+        position: relative;
+        left: 37%;
+    }
+
+    .cancel_btn {
+        margin-left: 27%;
+        margin-right: 31%;
+        background-color: #C9CED2;
+        color: #2C3531;
+        padding: 0.5%;
+        font-size: 0.95em;
+        border-radius: 6px;
+        border: 1.0px solid #2C3531;
+        transition-duration: 0.4s;
+    }
+
+    .done_btn {
+        background-color: #A3FFF7;;
+        color: #2C3531;
+        padding: 0.5%;
+        font-size: 0.95em;
+        border-radius: 6px;
+        border: 1.0px solid #2C3531;
+        transition-duration: 0.4s;
+    }
+
+    .btn_container {
+        position: fixed;
+        top: 65px;
+        z-index: 1;
+        width: 100%;
+        background-color: #f1f2f4;
+        padding: 0.6% 0;
+        font-weight: bold;
+        border-bottom: rgba(128, 128, 128, 0.753) 0.5px solid;
+    }
+
+    .add_new_form_input_container {
+        width: 80%;
+        position: relative;
+        margin: 0px auto;
+        margin-top: 135px;
+    }
+
+    .content_container:nth-child(6)>.input_label {
+        vertical-align: top;
+        position: relative;
+        padding-top: 2%;
+    }
+
+} /* end of  @media only screen and (min-width: 600px)  */
 
 
 
 
-@media only screen and (min-width: 1220px){
+
+
+@media only screen  and (min-width: 1024px){
     .main_container {
         width: 100vw;
         margin: 0;
@@ -629,4 +631,4 @@ input:focus {
         margin: 0px auto;
     }
 
-} /* @media only screen and (min-width: 1220px) */
+} /* end of @media only screen and (min-width: 1024px) */
