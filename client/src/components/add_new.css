@@ -32,6 +32,7 @@
         padding-bottom: 155px;
         overflow: auto;
         color: #15191b;
+        z-index: -1;
     }
     
     .form_container {
@@ -180,11 +181,6 @@
         border-top-color: none;
         font-size: 1.0em;
     }
-        
-    option {
-        font-size: 0.7em;
-        background-color: white;
-    }
 
     .plus_tag_button {
         background-color: white;
@@ -317,6 +313,7 @@
         padding-bottom: 155px;
         overflow: auto;
         color: #15191b;
+        z-index: -1;
     }
     
     .form_container {
@@ -355,12 +352,6 @@
         display: inline-block;
         word-break: break-word;
         vertical-align: top;
-    }
-
-        
-    option {
-        font-size: 0.7em;
-        background-color: white;
     }
 
     .plus_tag_button {
@@ -538,12 +529,8 @@
         position: relative;
         margin: 90px 0;
         font-size: 1.2em;
-    }
-
-    /* .form_container {
-        position: relative;
-        margin-top: 5%;
-    } */
+        z-index: -1;
+    } 
 
     .content_container {
         background-color: white;
@@ -590,14 +577,7 @@
         font-size: 0.9em;
         /* margin-top: 1%; */
     }
-
-    
-        
-    option {
-        font-size: 0.7em;
-        background-color: white;
-    }
-
+ 
     .plus_tag_button {
         background-color: white;
         border: 0.5px solid #2EB4BA;
@@ -755,6 +735,7 @@
         position: relative;
         margin: 90px 0;
         font-size: 1.2em;
+        z-index: -1;
     }
 
     /* .form_container {
@@ -969,7 +950,7 @@
 
 
 
-@media only screen and (min-width: 992px) and (max-width: 1024px) {
+@media only screen and (min-width: 992px) and (max-width: 1023px) {
     .main_container {
         width: 100vw;
         margin: 0;
@@ -978,6 +959,7 @@
         position: relative;
         margin: 90px 0;
         font-size: 1.2em;
+        z-index: -1;
     }
 
     /* .form_container {
@@ -1199,6 +1181,7 @@
         position: relative;
         margin: 90px 0;
         font-size: 1.2em;
+        z-index: -1;
     }
 
     /* .form_container {
@@ -1206,21 +1189,11 @@
         margin-top: 5%;
     } */
 
-    .content_container {
-        background-color: white;
-        width: 100%;
-        font-weight: bold;
-        font-size: 1.1em;
-        display: block;
-        box-sizing: border-box;
-        line-height: 2.2em;
-        padding-left: 125px;
-    } 
         
-    option {
+    /* option {
         font-size: 0.7em;
         background-color: white;
-    }
+    } */
 
     .plus_tag_button {
         background-color: white;
@@ -1257,14 +1230,6 @@
         background-color: white;
     }
 
-
-    .tag_buttons {
-        display: inline-block;
-        width: 55%;
-        position: relative;
-        left: 37%;
-    }
-
     .custom_tag {
         background-color: #e6fff2;
         border: 1px solid #2EB4BA;
@@ -1276,21 +1241,26 @@
         margin: 2%;
         cursor: pointer;
         border-radius: 20px;
+        font-size: 0.9em;
     }
-
-    .content_container:nth-child(6)>.input_label {
-        vertical-align: top;
-        position: relative;
-        padding-top: 3%;
-    }
-
-
+    
     .tag_label {
         height: 30%;;
         text-align: center;
         display: block;
         word-break: break-word;
     }
+
+    .content_container {
+        background-color: white;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.1em;
+        display: block;
+        box-sizing: border-box;
+        line-height: 1.5;
+        padding-left: 125px;
+    } 
 
     .content_container:nth-child(6) {
         background-color: white;
@@ -1301,6 +1271,12 @@
         box-sizing: border-box;
         line-height: 0.15em;
         margin-top: 1%;
+    }
+
+    .content_container:nth-child(6)>.input_label {
+        vertical-align: top;
+        position: relative;
+        padding-top: 1%;
     }
 
     .input_label {
@@ -1327,7 +1303,7 @@
         border-style: none;
         border-bottom: 1px solid #2EB4BA ;
         border-top-color: none;
-        font-size: 0.9em;
+        font-size: 1em;
     }
 
     select {
@@ -1354,14 +1330,14 @@
 
     .tag_buttons {
         display: inline-block;
-        width: 40%;
+        width: 45%;
         position: relative;
         left: 37%;
+        font-size: 0.9em;
     }
 
     .cancel_btn {
-        margin-left: 35%;
-        margin-right: 25%;
+        margin-left: 20%;
         background-color: #C9CED2;
         color: #2C3531;
         padding: 0.5% 0.5%;
@@ -1369,7 +1345,8 @@
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
-        font-family: 'roboto';
+        font-size: 1em;
+        width: 90px;
     }
 
     .done_btn {
@@ -1379,7 +1356,10 @@
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
-        font-family: 'roboto';
+        font-size: 1em;
+        width: 90px;
+        float: right;
+        margin-right: 20%;
     }
 
     .btn_container {
@@ -1394,9 +1374,9 @@
     }
 
     .add_new_form_input_container {
-        width: 55%;
+        width: 85%;
         position: relative;
         margin: 0px auto;
     }
 
-} /* end of @media only screen and (min-width: 1200px) */
+} /* end of @media only screen and (min-width: 1024px) */

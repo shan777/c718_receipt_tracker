@@ -44,7 +44,6 @@ a:visited {
     }
 
     .sidebar_container {
-        width: 40vw;
         height: 300px;
         background-color: #1997A2;
         font-family: 'Roboto Bold';
@@ -94,15 +93,15 @@ a:visited {
     }
 
     .sidebar_container {
-        width: 35vw;
-        height: 45vh;
-        background-color: #18757E;
+        width: 175px;
+        height: 275px;
+        background-color: #1997A2;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
-        top: 60px !important;
+        top: 55px !important;
         color: white;
     }
 
@@ -143,15 +142,15 @@ a:visited {
     }
 
     .sidebar_container {
-        width: 35vw;
-        height: 45vh;
-        background-color: #18757E;
+        width: 175px;
+        height: 275px;
+        background-color: #1997A2;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
-        top: 60px !important;
+        top: 65px !important;
         color: white;
     }
 
@@ -163,7 +162,7 @@ a:visited {
 
 
 
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only screen and (min-width: 992px) and (max-width: 1024px) {
     .headContainer {
         background-color: #1997A2;
         color: #F2F2F2;
@@ -191,15 +190,15 @@ a:visited {
     }
 
     .sidebar_container {
-        width: 35vw;
-        height: 45vh;
-        background-color: #18757E;
+        width: 175px;
+        height: 275px;
+        background-color: #1997A2;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
-        top: 60px !important;
+        top: 65px !important;
         color: white;
     }
 
@@ -213,7 +212,7 @@ a:visited {
 
 
 
-@media only screen and (min-width: 1200px){
+@media only screen and (min-width: 1024px){
     .headContainer{
         background-color: #1997A2;
         color: #F2F2F2;
@@ -228,7 +227,7 @@ a:visited {
     .dots {
         /* display: none; */
         position: absolute;
-        right: 200px;
+        right: 5%;
         top: 11%;
         height: 80%;
     }
@@ -241,15 +240,15 @@ a:visited {
     }
 
     .sidebar_container {
-        width: 200px;
-        height: 300px;
-        background-color: #18757E; 
+        width: 175px;
+        height: 275px;
+        background-color: #1997A2; 
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
-        top: 80px !important;
+        top: 65px !important;
         color: white;
     }
     
