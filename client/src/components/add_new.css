@@ -969,7 +969,7 @@
 
 
 
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only screen and (min-width: 992px) and (max-width: 1024px) {
     .main_container {
         width: 100vw;
         margin: 0;
@@ -1185,12 +1185,12 @@
         padding-top: 2%;
     }
 
-} /* end of  @media only screen and (min-width: 992px) and (max-width: 1200px)  */
+} /* end of  @media only screen and (min-width: 992px) and (max-width: 1024px)  */
 
 
 
 
-@media only screen  and (min-width: 1200px){
+@media only screen  and (min-width: 1024px){
     .main_container {
         width: 100vw;
         margin: 0;
@@ -1300,7 +1300,7 @@
         display: block;
         box-sizing: border-box;
         line-height: 0.15em;
-        margin-top: 0%;
+        margin-top: 1%;
     }
 
     .input_label {
@@ -1321,9 +1321,18 @@
         word-break: break-word;
     }
 
+    .date, .merchant, .amount, .note {
+        background-color: white;
+        box-shadow: none;
+        border-style: none;
+        border-bottom: 1px solid #2EB4BA ;
+        border-top-color: none;
+        font-size: 0.9em;
+    }
+
     select {
         background-color: rgba(239, 241, 241, 0.904);
-        font-size: 1em;
+        font-size: 0.9em;
         margin-top: 1%;
     }
 

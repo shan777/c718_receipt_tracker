@@ -2026,6 +2026,7 @@
     
     .new_tag {
         padding: 8% 3%;
+        width: 85%;
     }
     
     .new_tag_input:focus {
@@ -2076,7 +2077,7 @@
 
     .add_tag_modal_container {
         background-color: white;
-        width: 400px;
+        width: 350px;
         font-weight: bold;
         display: block;
         box-sizing: border-box;
@@ -2087,12 +2088,13 @@
 
     .add_tag_modal_add_btn {
         position: relative;
-        display: inline-block;
         cursor: pointer;
         padding: 1.5%;
         background-color: #A3FFF7;
         width: 80px;
-        left: 50%;
+        float: right;
+        margin-right: 12%;
+        margin-top: 3%;
     }
 
     .add_tag_modal_cancel_btn {
@@ -2101,11 +2103,11 @@
         color: #2C3531;
         cursor: pointer;
         display: inline-block;
-        left: 10%;
+        margin-left: 12%;
         padding: 1.5%;
         background-color: #C9CED2;
         width: 80px;
-        margin-top: 5%;
+        margin-top: 3%;
     }
 
     .new_tag {
