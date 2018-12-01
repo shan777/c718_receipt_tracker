@@ -165,8 +165,8 @@ a:visited {
     }
 
     .sidebar_container {
-        width: 175px;
-        height: 275px;
+        width: 200px;
+        height: 300px;
         background-color: #1997A2;
         font-family: 'Roboto Bold';
         position: fixed !important;

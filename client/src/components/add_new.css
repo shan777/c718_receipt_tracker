@@ -1341,7 +1341,7 @@
 
     .btn_container {
         position: fixed;
-        bottom: 0;
+        top: 65px;
         z-index: 1;
         width: 100%;
         background-color: #f1f2f4;
@@ -1354,6 +1354,7 @@
         width: 85%;
         position: relative;
         margin: 0px auto;
+        margin-top: 154px;
     }
 
 } /* end of @media only screen and (min-width: 1024px) */
