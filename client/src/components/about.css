@@ -140,12 +140,12 @@ div.domain {
     .sqr {
         float: left;
         padding: 2% 3% 0 0;
-        width: 15%;
+        width: 10%;
     }
 
     .about_container p {
         font-size: 18px;
-        padding: 16% 4% 2% 4%;
+        padding: 13% 6% 2%;
         line-height: 1.7;
         margin-top: 0%;
     }
@@ -180,9 +180,25 @@ div.domain {
         padding-left: 1%;
     }
 
+    tr td .html_logo {
+        margin-right: -110%;
+    }
+
+    tr td .css_logo {
+        margin-right: -38%;
+    }
+
+    tr td .js_logo {
+        margin-left: -35%;
+    }
+
+    tr td .react_logo {
+        margin-left: -110%;
+    }
+
     .app_container_top .imgs {
-        width: 75px;
-        height: 75px;
+        width: 80px;
+        height: 80px;
     }
 
     .app_container_bottom {
@@ -190,8 +206,8 @@ div.domain {
     } 
 
     .app_container_bottom .imgs {
-        width: 75px;
-        height: 75px;
+        width: 80px;
+        height: 80px;
     }
 
     div.domain {
@@ -218,17 +234,17 @@ div.domain {
     .sqr {
         float: left;
         padding: 2% 3% 0 0;
-        width: 15%;
+        width: 10%;
     }
 
     .about_container p {
-        font-size: 20px;
-        padding: 14% 4% 2% 4%;
+        font-size: 19px;
+        padding: 13% 7% 2%;
         line-height: 1.7;
     }
 
     .about_container>p>b {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .tech_container {
@@ -257,6 +273,22 @@ div.domain {
         padding-left: 1%;
     }
 
+    tr td .html_logo {
+        margin-right: -110%;
+    }
+
+    tr td .css_logo {
+        margin-right: -38%;
+    }
+
+    tr td .js_logo {
+        margin-left: -35%;
+    }
+
+    tr td .react_logo {
+        margin-left: -110%;
+    }
+
     .app_container_top .imgs {
         width: 90px;
         height: 90px;
@@ -273,13 +305,13 @@ div.domain {
 
     div.domain {
         margin-top: 5%;
-        font-size: 18px;
+        font-size: 20px;
         color: #2EB4BA;
     }
 
     .etcInfo {
         text-align: center;
-        font-size: 16px;
+        font-size: 20px;
     }
 
 } /*end of @media only screen and (min-width: 768px)*/
@@ -296,23 +328,22 @@ div.domain {
     .sqr {
         float: left;
         padding: 1% 3% 0 0;
-        width: 11%;
+        width: 9%;
     }
 
     .about_container p {
         font-size: 22px;
-        padding: 12% 4% 2% 4%;
+        padding: 10% 4% 2%;
         line-height: 1.7;
-        margin-top: -1%;
     }
 
     .about_container>p>b {
-        font-size: 35px;
+        font-size: 30px;
     }
 
     .tech_container {
         width: 100vw;
-        margin-top: 3%;
+        margin-top: 0%;
     }
 
     .tech_title {
@@ -322,7 +353,7 @@ div.domain {
 
     th {
         padding-bottom: 2%;
-        padding-top: 3%;
+        padding-top: 1%;
         font-size: 22px;
     }
 
@@ -343,28 +374,29 @@ div.domain {
     }
 
     .app_container_top .imgs {
-        width: 120px;
-        height: 120px;
+        width: 90px;
+        height: 90px;
     }
 
     .app_container_bottom {
-        margin-top: 5%;
+        margin-top: 2%;
     } 
 
     .app_container_bottom .imgs {
-        width: 120px;
-        height: 120px;
+        width: 90px;
+        height: 90px;
     }
 
     div.domain {
         margin-top: 10%;
-        font-size: 24px;
+        font-size: 22px;
         color: #2EB4BA;
     }
 
     .etcInfo {
         text-align: center;
         font-size: 20px;
+        margin-top: -5%;
     }
 } /* end of @media only screen and (min-width: 992px) */
 
@@ -375,23 +407,23 @@ div.domain {
         width: 100vw;
         margin: 0;
         background-color: #E7FFFE;
+        margin-top: 1%;
     }
 
 	.sqr {
         float: left;
         padding: 1.5% 3% 0 0;
-        width: 9%;
+        width: 8.1%;
     }
 
     .about_container p {
         font-size: 24px;
-        padding: 11% 4% 1% 4%;
+        padding: 6% 4% 1%;
         line-height: 1.7;
-        margin-top: -1%;
-    }
+     }
     
     .about_container>p>b {
-        font-size: 40px;
+        font-size: 30px;
     }
 
     .tech_title {
@@ -401,7 +433,7 @@ div.domain {
 
     .tech_container {
         width: 100vw;
-        margin-top: 0%;
+        margin-top: 2%;
     }
 
     th {
@@ -449,6 +481,7 @@ div.domain {
     .etcInfo {
         text-align: center;
         font-size: 24px;
+        margin-top: 3%;
     }
 } /* end of @media only screen and (min-width: 1220px) */
 
