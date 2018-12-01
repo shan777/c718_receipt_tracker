@@ -8,15 +8,20 @@
     src: url(../../src/assets/fonts/Roboto-Regular.ttf);
 }
 
-@media only screen and (min-width: 600px){
+    
+a:visited {
+    color: white;
+}
 
-    .headContainer{
+
+
+@media only screen and (max-width: 600px){
+    .headContainer {
         background-color: #1997A2;
         color: #F2F2F2;
-        font-family: 'Roboto Bold';
-        height: 60px;
-        font-size: 2em;
-        padding-left: 3%;
+        height: 50px;
+        font-size: 1.5em;
+        padding: 1.0% 0;
         text-align: center;
         top: 0;
         width: 100%;
@@ -39,16 +44,16 @@
     }
 
     .sidebar_container {
-        width: 35vw;
-        height: 45vh;
-        background-color: #40B0B7;
+        height: 300px;
+        background-color: #1997A2;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
-        top: 60px !important;
-        color: #98FFA8;
+        top: 50px !important;
+        color: white;
+        /* z-index: 2; */
     }
 
     .menus {
@@ -57,14 +62,17 @@
 } /*end of @media only screen and (min-width: 600px)*/
 
 
-@media only screen and (min-width: 768px){
-    .headContainer{
+
+
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .headContainer {
         background-color: #1997A2;
         color: #F2F2F2;
-        font-family: 'Roboto Bold';
-        height: 80px;
-        font-size: 3em;
-        padding-left: 3%;
+        height: 55px;
+        font-size: 1.8em;
+        padding: 0.5% 0;
         text-align: center;
         top: 0;
         width: 100%;
@@ -74,31 +82,31 @@
 
     .dots {
         position: absolute;
-        right: 6%;
-        top: 15%;
+        right: 5%;
+        top: 11%;
         height: 80%;
     }
-    
+
     .header{
         position: fixed;
         top: 0;
-        width: 100%;
+        width: 100vw;
         z-index: 1;
     }
-    
+
     .sidebar_container {
-        width: 35vw;
-        height: 40vh;
-        background-color: #40B0B7; 
-        /* font-family: 'Roboto Bold'; */
+        width: 175px;
+        height: 275px;
+        background-color: #1997A2;
+        font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
-        top: 80px !important;
-        color: #98FFA8;
+        top: 55px !important;
+        color: white;
     }
-    
+
     .menus {
         top: 80px;
     }
@@ -123,17 +131,20 @@
 } /*end of @media only screen and (min-width: 992px)*/
 
 
-@media only screen and (min-width: 1220px){
-    .headContainer{
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .headContainer {
         background-color: #1997A2;
         color: #F2F2F2;
-        font-family: 'Roboto Bold';
-        font-size: 4em;
-        padding-left: 0%;
+        height: 65px;
+        font-size: 2.0em;
+        padding: 0.5% 0;
         text-align: center;
         top: 0;
         width: 100%;
-        height: 115px;
         z-index: 1;
         position: fixed;
         padding-top: 14px;
@@ -141,39 +152,47 @@
 
     .dots {
         position: absolute;
-        right: 6%;
-        top: 15%;
-        border: none;
+        right: 5%;
+        top: 8%;
         height: 80%;
     }
-    
+
+    .header{
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: 1;
+    }
+
     .sidebar_container {
-        width: 13vw;
-        height: 40vh;
-        background-color: #40B0B7; 
+        width: 175px;
+        height: 275px;
+        background-color: #1997A2;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
-        top: 80px !important;
-        color: #98FFA8;
+        top: 65px !important;
+        color: white;
     }
-    
+
     .menus {
         top: 80px;
     }
 } /*end of @media only screen and (min-width: 1220px)*/
 
 
-@media only screen and (max-width: 600px){
+
+
+
+@media only screen and (min-width: 992px) and (max-width: 1024px) {
     .headContainer {
         background-color: #1997A2;
         color: #F2F2F2;
-        font-family: 'Roboto Bold';
-        height: 60px;
-        font-size: 1.5em;
-        padding: 12px 0;
+        height: 65px;
+        font-size: 2.0em;
+        padding: 0.5% 0;
         text-align: center;
         top: 0;
         width: 100%;
@@ -195,20 +214,75 @@
     }
 
     .sidebar_container {
-        width: 35vw;
-        height: 45vh;
-        background-color: #40B0B7;
+        width: 175px;
+        height: 275px;
+        background-color: #1997A2;
         font-family: 'Roboto Bold';
         position: fixed !important;
         padding-left: 2%;
         font-size: 17px;
         right: 5%;
-        top: 60px !important;
-        color: #98FFA8;
+        top: 65px !important;
+        color: white;
     }
 
     .menus {
         top: 80px;
     }
+}
+
+
+
+
+
+
+@media only screen and (min-width: 1024px){
+    .headContainer{
+        background-color: #1997A2;
+        color: #F2F2F2;
+        font-family: 'Roboto Bold';
+        font-size: 2.0em;
+        text-align: center;
+        width: 100%;
+        height: 65px;
+        padding-top: 0.3%;
+    }
+
+    .dots {
+        /* display: none; */
+        position: absolute;
+        right: 5%;
+        top: 11%;
+        height: 80%;
+    }
+    
+    .header{
+        position: fixed;
+        top: 0;
+        z-index: 1;
+
+    }
+
+    .sidebar_container {
+        width: 175px;
+        height: 275px;
+        background-color: #1997A2; 
+        font-family: 'Roboto Bold';
+        position: fixed !important;
+        padding-left: 2%;
+        font-size: 17px;
+        right: 5%;
+        top: 65px !important;
+        color: white;
+    }
+    
+    .menus {
+        top: 80px;
+    }
 } /*end of @media only screen and (max-width: 600px)*/
+
+
+
+
+
 

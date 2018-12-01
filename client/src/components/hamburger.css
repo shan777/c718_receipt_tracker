@@ -18,8 +18,7 @@
     text-align: left;
 }
 
-.menu-icons {
-    vertical-align: bottom !important;
+.menu_icons {
+    vertical-align: text-bottom !important;
 }
-
 

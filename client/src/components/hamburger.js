@@ -18,12 +18,12 @@ class Hamburger extends Component {
 		return (
 		<div>
 			<div>
-				<Link to="/overview" className="menu_link"><p><i className="material-icons">list_alt</i> Overview</p></Link>
+				<Link to="/overview" className="menu_link"><p><i className="material-icons menu_icons">list_alt</i> Overview</p></Link>
 				<Link to="/add_new" className="menu_link"><p><i className="material-icons menu_icons">note_add</i> Add New</p></Link>
-				<Link to="/tutorial" className="menu_link"><p><i className="material-icons">perm_device_information</i> Tutorial</p></Link>
-				<Link to="/about_us" className="menu_link"><p><i className="material-icons">group</i> Developers</p></Link>
-				<Link to="/tech" className="menu_link"><p><i className="material-icons">info</i> About</p></Link>
-				<p className="sign_out" onClick={this.signOut.bind(this)}><i className="material-icons">exit_to_app</i> Sign Out</p>
+				<Link to="/tutorial" className="menu_link"><p><i className="material-icons menu_icons">perm_device_information</i> Tutorial</p></Link>
+				<Link to="/about_us" className="menu_link"><p><i className="material-icons menu_icons">group</i> Developers</p></Link>
+				<Link to="/tech" className="menu_link"><p><i className="material-icons menu_icons">info</i> About</p></Link>
+				<p className="sign_out" onClick={this.signOut.bind(this)}><i className="material-icons menu_icons">exit_to_app</i> Sign Out</p>
 			</div>
 		</div>
 		)
