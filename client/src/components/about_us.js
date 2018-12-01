@@ -15,7 +15,7 @@ class AboutUs extends Component{
         return(
             <div className="about_us_container">
             <Link className="info" to="/overview" title="Back to Overview">
-                <i className="material-icons">arrow_back_ios</i>
+                <i className="material-icons back_btn">arrow_back_ios</i>
             </Link>
                 <img className="logo_img" src={meetTeam} alt="squirrel logo" />
                 <div className="everybody">

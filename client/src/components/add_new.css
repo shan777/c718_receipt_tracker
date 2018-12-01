@@ -17,8 +17,6 @@
 
 
 
-
-
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .main_container {
         width: 100vw;
@@ -738,11 +736,6 @@
         z-index: -1;
     }
 
-    /* .form_container {
-        position: relative;
-        margin-top: 5%;
-    } */
-
     .content_container {
         background-color: white;
         width: 100%;
@@ -962,11 +955,6 @@
         z-index: -1;
     }
 
-    /* .form_container {
-        position: relative;
-        margin-top: 5%;
-    } */
-
     .content_container {
         background-color: white;
         width: 100%;
@@ -1183,17 +1171,6 @@
         font-size: 1.2em;
         z-index: -1;
     }
-
-    /* .form_container {
-        position: relative;
-        margin-top: 5%;
-    } */
-
-        
-    /* option {
-        font-size: 0.7em;
-        background-color: white;
-    } */
 
     .plus_tag_button {
         background-color: white;

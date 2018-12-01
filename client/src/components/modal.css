@@ -1,4 +1,168 @@
 @media only screen and (min-width: 320px) and (max-width: 480px) {
+
+.tag_icon {
+    color: white;
+    width: 20px;
+    height: 20px;
+}
+
+.deleteTag{
+    position: absolute;
+    visibility: hidden
+}
+
+#customTag:hover .deleteTag{
+    visibility: visible;
+    color: red;
+}
+
+
+.date1, .merchant1, .amount1, .note1 {
+    background-color: white;
+    box-shadow: none;
+    border-style: none;
+    border-bottom: 1px solid #2EB4BA ;
+    border-top-color: none;
+    font-size: 1.05em;
+}
+
+.update-color{
+    background-color: #a3fff7;
+    border: 0.5px solid #2C3531;
+}
+
+/* add new page tag modal css - input checkbox */
+.custom_tag_icon {
+    color: rgb(241, 136, 16);
+    float: right;
+}
+    
+.each_tag_container {
+    border-bottom: solid 0.5px silver;
+}
+
+.checkbox_label {
+    font-size: 1.2em;
+    position: relative;
+    display: block;
+    padding-left: 25px;
+    padding-bottom: 6px;
+    border-bottom: solid 0.5px silver;
+}
+
+.checkbox_label input:checked  ~ .checkmark {
+    background-color: teal;
+}
+
+.checkmark {
+    position: absolute;
+    height: 27px;
+    width: 27px;
+    background-color: white;
+    border: 1px teal solid;
+    border-radius: 50%;
+    float: right;
+    vertical-align: middle;
+    left: 82vw;
+    top: 0;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+input[type=checkbox] {
+    display: none;
+  }
+
+/* Show the checkmark when checked */
+.checkbox_label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox_label .checkmark:after {
+    position: absolute;
+    left: 7px;
+    width: 8px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    float: right;
+}
+
+.new_tag {
+    padding: 8% 3%;
+  }
+
+.new_tag_input:focus {
+    background-color: white;
+    border-bottom: 2px solid #2EB4BA;
+}
+
+/* add new tag modal cancel button */
+.new_tag+button { 
+    left: 8%;
+    width: 20vw;
+}
+
+.tag_modal_add_btn {
+    position: relative;
+    left: 40%;
+    width: 20vw;
+    display: inline-block;
+    /* font-family: 'Original Surfer'; */
+    cursor: pointer;
+    padding: 1.5%;
+    background-color: #A3FFF7;
+}
+
+.add_tag_modal_container {
+    background-color: white;
+    width: 80%;
+    font-weight: bold;
+    display: block;
+    box-sizing: border-box;
+    padding-bottom: 6%;
+    position: absolute;
+    bottom: -10vh;
+    left: 10vw;
+}
+
+.add_tag_modal_container .tag_header {
+    background-color: rgb(16, 152, 159);
+    color: #F2F2F2;
+    font-family: 'Roboto Bold';
+    padding: 2% 0 2% 9%;
+    font-size: 1.3em;
+}
+
+.delete_modal_container {
+    background-color: white;
+    width: 95%;
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    box-sizing: border-box;
+    line-height: 2.1em;
+    overflow: auto;
+    min-height: 30vh;
+    padding: 8% 0;
+    border: 3px teal solid;
+    position: absolute;
+    bottom: -189%;
+    left: 3%;
+    border-radius: 10px;
+}
+
+
+
+@media only screen and (min-width: 600px){
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
         display: flex;
@@ -794,6 +958,7 @@
         display: inline-block;
         word-break: break-word;
         font-size: 1.05em;
+        margin-bottom: 3%;
     }
 
     .tag_modal_close_btn {

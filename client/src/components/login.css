@@ -33,13 +33,54 @@
     top: 35px;
 }
 
+.login_page_container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #1997A2;
+}
+
+.username {
+    background-color: #DEF2F1;
+    border: 1px solid #def2f1;
+    font-size: 20px;
+    margin-bottom: 5%;
+    padding: 1%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.password {
+    background-color: #DEF2F1; 
+    border: 1px solid #def2f1;
+    font-size: 20px;
+    padding: 1%;
+    text-align: center;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login_btn {
+    background-color: #2E3B3B;
+    border: 1px solid #15191b;
+    color: white;
+    font-size: 25px;
+    margin-top: 5%;
+    padding:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 56%;
+}
+
+.login_container {
+    text-align: center;
+}
+
 @media only screen and (max-width: 600px) {
 /* START @media only screen and (max-width: 600px) */
-    .login_page_container {
-        height: 100vh;
-        width: 100vw;
-        background-color: #1997A2;
-    }
+  
 
     .login_container {
         text-align: center;
@@ -73,9 +114,11 @@
         margin-bottom: 5%;
     }
 
+
     .forgot_password {
         color: #98FFA8;
     }
+
 
     .login_btn {
         background-color: #2E3B3B;
@@ -119,6 +162,53 @@
     } */
 }
 
+@media only screen and (min-width: 600px) {
+
+    .login_logo_sqr{
+        width: 25%;
+        left: 40%;
+    }
+
+    .login_logo_txt{
+        width: 70%;
+        left: 15%;
+    }
+
+    .username{
+        display: block;
+        position: relative;
+        top: 6vh;
+    }
+
+    .password{
+        display: block;
+        position: relative;
+        top: 6vh;
+    }
+
+    .login_btn{
+        position: relative;
+        width: 36%;
+        top: 5vh;
+    }
+
+    .sign_up_button {
+        padding-top: 2%;
+        color: #15191b;
+        font-size: 1.2em;
+        position: relative;
+        top: 5vh;
+    }
+
+    p.error_message {
+        font-size: 1em;
+        position: relative;
+        top: 5vh;
+    }
+
+
+}
+
 
 
 @media only screen and (min-width: 768px) {
@@ -127,6 +217,16 @@
         height: 100vh;
         width: 100vw;
         background-color: #1997A2;
+    }
+
+    .login_logo_sqr{
+        width: 20%;
+        left: 40%;
+    }
+
+    .login_logo_txt{
+        width: 60%;
+        left: 20%;
     }
 
     .login_area {
@@ -165,7 +265,8 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: 3%;
-        width: 56%;
+        width: 102%;
+        top: 6vh;
     }
 
     .forgot_password {
@@ -180,6 +281,8 @@
 
     p.error_message {
         font-size: 1.5em;
+        margin: 0;
+        margin-top: 13px;
     }
 
     label {
@@ -196,9 +299,19 @@
         background-color: #1997A2;
     }
 
+    .login_logo_sqr{
+        width: 15%;
+        left: 42%;
+    }
+
+    .login_logo_txt{
+        width: 49%;
+        left: 24%;
+    }
+
     .login_container {
         display: inline-block;
-        padding-left: 13%;
+        padding-left: 30%;
     }
 
     .username {
@@ -208,7 +321,7 @@
         margin-bottom: 5%;
         padding: 1%;
         text-align: center;
-        width: 70%;
+        width: 100%;
     }
 
     .password {
@@ -217,7 +330,7 @@
         font-size: 35px;
         padding: 1%;
         text-align: center;
-        width: 70%;
+        width: 100%;
     }
 
     .login_btn {
@@ -229,7 +342,7 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: 6%;
-        width: 56%;
+        width: 100%;
     }
 
     .sign_up_container {
@@ -242,7 +355,7 @@
     }
 
     p.error_message {
-        font-size: 2.5em;
+        font-size: 1.3em;
     }
 }
 
@@ -255,11 +368,22 @@
             background-color: #1997A2;
         }
 
+        .login_logo_sqr{
+            width: 12%;
+            left: 43%;
+        }
+    
+        .login_logo_txt{
+            width: 43%;
+            left: 27%;
+        }
+
         .login_container {
             display: inline-block;
             position: relative;
             left: 22%;
             top: 4vh;
+            padding-left: 16%;
         }
     
         .login_area {
@@ -281,7 +405,7 @@
             margin-bottom: 5%;
             padding: 1%;
             text-align: center;
-            width: 70%;
+            width: 100%;
         }
     
         .password {
@@ -290,7 +414,7 @@
             font-size: 28px;
             padding: 1%;
             text-align: center;
-            width: 70%;
+            width: 100%;
         }
     
         .forgot_password {
@@ -306,7 +430,7 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 56%;
+            width: 100%;
         }
     
         .forgot_password {
