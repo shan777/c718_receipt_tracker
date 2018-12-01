@@ -1,60 +1,59 @@
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-
-.tag_icon {
+    .tag_icon {
     color: white;
     width: 20px;
     height: 20px;
-}
+    }
 
-.deleteTag{
+    .deleteTag{
     position: absolute;
     visibility: hidden
-}
+    }
 
-#customTag:hover .deleteTag{
+    #customTag:hover .deleteTag{
     visibility: visible;
     color: red;
-}
+    }
 
 
-.date1, .merchant1, .amount1, .note1 {
+    .date1, .merchant1, .amount1, .note1 {
     background-color: white;
     box-shadow: none;
     border-style: none;
     border-bottom: 1px solid #2EB4BA ;
     border-top-color: none;
     font-size: 1.05em;
-}
+    }
 
-.update-color{
+    .update-color{
     background-color: #a3fff7;
     border: 0.5px solid #2C3531;
-}
+    }
 
-/* add new page tag modal css - input checkbox */
-.custom_tag_icon {
+    /* add new page tag modal css - input checkbox */
+    .custom_tag_icon {
     color: rgb(241, 136, 16);
     float: right;
-}
-    
-.each_tag_container {
-    border-bottom: solid 0.5px silver;
-}
+    }
 
-.checkbox_label {
+    .each_tag_container {
+    border-bottom: solid 0.5px silver;
+    }
+
+    .checkbox_label {
     font-size: 1.2em;
     position: relative;
     display: block;
     padding-left: 25px;
     padding-bottom: 6px;
     border-bottom: solid 0.5px silver;
-}
+    }
 
-.checkbox_label input:checked  ~ .checkmark {
+    .checkbox_label input:checked  ~ .checkmark {
     background-color: teal;
-}
+    }
 
-.checkmark {
+    .checkmark {
     position: absolute;
     height: 27px;
     width: 27px;
@@ -65,25 +64,25 @@
     vertical-align: middle;
     left: 82vw;
     top: 0;
-}
+    }
 
-.checkmark:after {
+    .checkmark:after {
     content: "";
     position: absolute;
     display: none;
-}
+    }
 
-input[type=checkbox] {
+    input[type=checkbox] {
     display: none;
-  }
+    }
 
-/* Show the checkmark when checked */
-.checkbox_label input:checked ~ .checkmark:after {
+    /* Show the checkmark when checked */
+    .checkbox_label input:checked ~ .checkmark:after {
     display: block;
-}
+    }
 
-/* Style the checkmark/indicator */
-.checkbox_label .checkmark:after {
+    /* Style the checkmark/indicator */
+    .checkbox_label .checkmark:after {
     position: absolute;
     left: 7px;
     width: 8px;
@@ -94,24 +93,24 @@ input[type=checkbox] {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
     float: right;
-}
+    }
 
-.new_tag {
+    .new_tag {
     padding: 8% 3%;
-  }
+    }
 
-.new_tag_input:focus {
+    .new_tag_input:focus {
     background-color: white;
     border-bottom: 2px solid #2EB4BA;
-}
+    }
 
-/* add new tag modal cancel button */
-.new_tag+button { 
+    /* add new tag modal cancel button */
+    .new_tag+button { 
     left: 8%;
     width: 20vw;
-}
+    }
 
-.tag_modal_add_btn {
+    .tag_modal_add_btn {
     position: relative;
     left: 40%;
     width: 20vw;
@@ -120,9 +119,9 @@ input[type=checkbox] {
     cursor: pointer;
     padding: 1.5%;
     background-color: #A3FFF7;
-}
+    }
 
-.add_tag_modal_container {
+    .add_tag_modal_container {
     background-color: white;
     width: 80%;
     font-weight: bold;
@@ -132,17 +131,17 @@ input[type=checkbox] {
     position: absolute;
     bottom: -10vh;
     left: 10vw;
-}
+    }
 
-.add_tag_modal_container .tag_header {
+    .add_tag_modal_container .tag_header {
     background-color: rgb(16, 152, 159);
     color: #F2F2F2;
     font-family: 'Roboto Bold';
     padding: 2% 0 2% 9%;
     font-size: 1.3em;
-}
+    }
 
-.delete_modal_container {
+    .delete_modal_container {
     background-color: white;
     width: 95%;
     font-weight: bold;
@@ -158,9 +157,9 @@ input[type=checkbox] {
     bottom: -189%;
     left: 3%;
     border-radius: 10px;
+    }
+
 }
-
-
 
 @media only screen and (min-width: 600px){
     .basic_modal {
