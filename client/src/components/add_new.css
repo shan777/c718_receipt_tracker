@@ -194,12 +194,12 @@
     .drop_down_arrow_icon {
         margin-left: 2%;
         line-height: 1.1;
-        font-size: 1.8em;
+        font-size: 1.6em !important;
         color: rgba(31, 34, 32, 0.842);
     }
 
     .add_tag_icon {
-        font-size: 1.9em;
+        font-size: 1.7em !important;
         vertical-align: top;
         margin-left: 10%;
         color: rgba(31, 34, 32, 0.842);
@@ -366,12 +366,12 @@
     .drop_down_arrow_icon {
         margin-left: 2%;
         line-height: 1.1;
-        font-size: 1.8em;
+        font-size: 1.8em !important;
         color: rgba(31, 34, 32, 0.842);
     }
 
     .add_tag_icon {
-        font-size: 1.9em;
+        font-size: 1.9em !important;
         vertical-align: top;
         margin-left: 10%;
         color: rgba(31, 34, 32, 0.842);
@@ -499,19 +499,7 @@
         top: -30px;
     }
 
-    .checkmark {
-        position: absolute;
-        height: 27px;
-        width: 27px;
-        background-color: white;
-        border: 1px teal solid;
-        border-radius: 50%;
-        float: right;
-        vertical-align: middle;
-        right: 20px;
-        top: 0;
-    }
-} /* end of @media only screen and (min-width: 480px) and(max-width: 768px){ */
+} /* end of @media only screen and (min-width: 480px) and(max-width: 600px){ */
 
 
 
@@ -590,12 +578,12 @@
     .drop_down_arrow_icon {
         margin-left: 2%;
         line-height: 1.1;
-        font-size: 1.8em;
+        font-size: 1.6em;
         color: rgba(31, 34, 32, 0.842);
     }
 
     .add_tag_icon {
-        font-size: 1.9em;
+        font-size: 1.6em;
         vertical-align: top;
         margin-left: 10%;
         color: rgba(31, 34, 32, 0.842);
@@ -719,7 +707,7 @@
         padding-top: 2%;
     }
 
-} /* end of  @media only screen and (min-width: 768px) and (max-width: 768px)  */
+} /* end of  @media only screen and (min-width: 600px) and (max-width: 768px)  */
 
 
 
@@ -801,12 +789,12 @@
     .drop_down_arrow_icon {
         margin-left: 2%;
         line-height: 1.1;
-        font-size: 1.8em;
+        font-size: 1.7em !important;
         color: rgba(31, 34, 32, 0.842);
     }
 
     .add_tag_icon {
-        font-size: 1.9em;
+        font-size: 1.7em !important;
         vertical-align: top;
         margin-left: 10%;
         color: rgba(31, 34, 32, 0.842);
