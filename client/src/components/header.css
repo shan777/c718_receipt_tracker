@@ -113,25 +113,6 @@ a:visited {
 } /*end of @media only screen and (min-width: 768px)*/
 
 
-@media only screen and (min-width: 992px){
-    .headContainer{
-        background-color: #1997A2;
-        color: #F2F2F2;
-        font-family: 'Roboto Bold';
-        font-size: 4em;
-        padding-left: 0%;
-        text-align: center;
-        top: 0;
-        width: 100%;
-        height: 110px;
-        z-index: 1;
-        position: fixed;
-        padding-top: 14px;
-    }
-} /*end of @media only screen and (min-width: 992px)*/
-
-
-
 
 
 
