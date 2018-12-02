@@ -1,3 +1,18 @@
+
+.deleteTag{
+    position: relative;
+    visibility: hidden
+}
+
+#customTag:hover .deleteTag{
+    visibility: visible;
+    color: red;
+}
+
+#customTag{
+    display: inline;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
@@ -335,6 +350,11 @@
         left: 3%;
         border-radius: 10px;
     }  
+
+    .deleteTag{
+        left: 7%;
+        top: 1vh;
+    }
 }
 
 
@@ -677,6 +697,11 @@
         left: 3%;
         border-radius: 10px;
     }   
+
+    .deleteTag{
+        left: 6%;
+        top: 1.5vh;
+    }
 }
 
 
@@ -1023,6 +1048,11 @@
         left: 3%;
         border-radius: 10px;
     }
+
+    .deleteTag{
+        left: 6.5%;
+        top: 1vh;
+    }
 }
 
 
@@ -1132,7 +1162,7 @@
     }
 
     .modal_input_label {
-        width: 38%;
+        width: 39%;
         text-align: right;
         padding-right: 4%;
         display: inline-block;
@@ -1736,6 +1766,15 @@
         left: 3%;
         border-radius: 10px;
     }
+
+    .date1, .merchant1, .amount1, .note1 {
+        width: 32%;
+      }
+
+    .deleteTag{
+        left: 6%;
+        top: 1.5vh;
+    }
 }
 
 
@@ -2091,6 +2130,39 @@
         left: 3%;
         border-radius: 10px;
     }
+
+    .modal_input_label{
+        width: 47%;
+    }
+
+    .modalbtn{
+        margin-left: 29%;
+    }
+
+    .date1, .merchant1, .amount1, .note1 {
+      width: 32%;
+    }
+
+    .date1, .merchant1, .note1, .category1, .select1 {
+        right: 7%;
+        position: relative;
+    }
+
+    .amount1{
+        right: 8%;
+        position: relative;
+    }
+
+    .modal_input_label {
+        position: relative;
+        right: 7%;
+        margin-bottom: 4%;
+    }
+
+    .deleteTag{
+        left: 5.5%;
+        top: 2vh;
+    }
 }
 
 
@@ -2195,6 +2267,7 @@
         display: inline-block;
         word-break: break-word;
         font-size: 1.05em;
+        margin-bottom: 3%;
     }
 
     .tag_modal_close_btn {
@@ -2459,6 +2532,19 @@
         padding: 8% 3%;
         width: 75%;
         margin: 0 auto;
+    }
+
+    .date1, .merchant1, .amount1, .note1 {
+        width: 32%;
+    }
+
+    .date1, .merchant1, .note1, .category1, .select1, .amount1, .modal_input_label {
+        right: 0%;
+    }
+
+    .deleteTag{
+        left: 5%;
+        top: 2.5vh;
     }
 }
 
