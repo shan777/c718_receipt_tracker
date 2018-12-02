@@ -113,7 +113,10 @@ class Modal extends Component{
             return <div className='noTags'> — </div>
         };
         const renderTags = data.map((item, index) => (
-            <button id="customTag" className="custom_tag" type="button" key={index}><i onClick={() => this.openDeleteTag(this.state.receiptId, data[index].tagId)} className="material-icons deleteTag">clear</i># {data[index].tagName}</button>
+           <div id="customTag" >
+                <i onClick={() => this.openDeleteTag(this.state.receiptId, data[index].tagId)} className="material-icons deleteTag">clear</i>
+                <button className="custom_tag" type="button" key={index}># {data[index].tagName}</button>
+           </div>
         ))
         return renderTags;
     }

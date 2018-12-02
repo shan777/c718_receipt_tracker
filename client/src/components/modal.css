@@ -5,13 +5,17 @@
 }
 
 .deleteTag{
-    position: absolute;
+    position: relative;
     visibility: hidden
 }
 
 #customTag:hover .deleteTag{
     visibility: visible;
     color: red;
+}
+
+#customTag{
+    display: inline;
 }
 
 
@@ -338,12 +342,18 @@ input[type=checkbox] {
         padding-top: 4%;
     }
 
+    .deleteTag{
+        left: 5%;
+        bottom: 1vh;
+    }
+
 
 }
 
 
 
 @media only screen and (min-width: 768px){
+
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
         display: flex;
@@ -529,6 +539,11 @@ input[type=checkbox] {
         width: 32%;
       }
 
+    .deleteTag{
+        left: 5%;
+        bottom: 1.5vh;
+    }
+
 }
 
 @media only screen and (min-width: 992px){
@@ -559,6 +574,11 @@ input[type=checkbox] {
         position: relative;
         right: 7%;
         margin-bottom: 4%;
+    }
+
+    .deleteTag{
+        left: 4%;
+        bottom: 2vh;
     }
 
 }
