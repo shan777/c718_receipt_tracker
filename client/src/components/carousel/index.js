@@ -168,18 +168,20 @@ class Carousel extends Component {
                         <img key={src} src={src} alt={text} className="carousel-img" />
                     </Transition>
                 </div>
-                {/* <div className="one_row"> */}
-                <button className="previous_button" onClick={this.changeImg.bind(this, 'previous')}>
-                    <i className="material-icons">keyboard_arrow_left</i>
-                </button>
-                {/* <Indicators onClick={this.directToImage.bind(this)} count={images.length} current={currentIndex} /> */}
 
-                <button className="next_button" onClick={this.changeImg.bind(this, 'next')}>
-                    <i className="material-icons">keyboard_arrow_right</i>
-                </button>
-                <button onClick={this.navigate} className="finished_button">
-                    <i className="material-icons">done_outline</i>
-                </button>
+                <div className="carousel_buttons_container">
+                    <button className="previous_button" onClick={this.changeImg.bind(this, 'previous')}>
+                        <i className="material-icons">keyboard_arrow_left</i>
+                    </button>
+
+                    <button className="next_button" onClick={this.changeImg.bind(this, 'next')}>
+                        <i className="material-icons">keyboard_arrow_right</i>
+                    </button>
+                    
+                    <button onClick={this.navigate} className="finished_button">
+                        <i className="material-icons">done_outline</i>
+                    </button>
+                </div>
                 <Indicators onClick={this.directToImage.bind(this)} count={images.length} current={currentIndex} />
 
             </div>

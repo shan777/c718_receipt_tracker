@@ -1,8 +1,3 @@
-/* @font-face {
-  font-family: 'Original Surfer';
-  src: url(../../assets/fonts/OriginalSurfer-Regular.ttf);
-} */
-@media only screen and (max-width: 600px){
     .carousel-container {
       border: 1px solid #404040;
       border-radius: 8px;
@@ -10,7 +5,12 @@
       min-height: 87vh;
       overflow: hidden;
       position: relative;
-      width: 90vw;
+	  width: 90vw;
+	  max-width: 385px;
+    }
+
+    .carousel_buttons_container {
+      display: block;
     }
 
     .carousel-text {
@@ -137,145 +137,3 @@
       border-radius: 6px;
       border-color: #2C3531;
     }
-}
-
-@media only screen and (min-width: 1220px){
-    .carousel-container {
-      border: 1px solid #404040;
-      border-radius: 18px;
-      display: inline-block;
-      min-height: 87vh;
-      overflow: hidden;
-      position: relative;
-      width: 25vw;
-    }
-
-    .carousel-text {
-        margin-top: 0;
-    }
-
-    .carousel-img {
-        width: 100%;
-        position: absolute;
-    }
-
-    /* Next Image Classes */
-
-    .carousel-next-enter {
-      /* opacity: 0.01; */
-      left: 100%;
-    }
-
-    .carousel-next-enter.carousel-next-enter-active {
-      left: 0;
-      transition: left 500ms ease-in-out;
-    }
-
-    .carousel-next-leave {
-      right: 0;
-    }
-
-    .carousel-next-leave.carousel-next-leave-active {
-      right: 100%;
-      transition: right 500ms ease-in-out;
-    }
-
-    /* Previous Image Classes */
-
-    .carousel-previous-enter {
-      /* opacity: 0.01; */
-      right: 100%;
-    }
-
-    .carousel-previous-enter.carousel-previous-enter-active {
-      right: 0;
-      transition: right 500ms ease-in-out;
-    }
-
-    .carousel-previous-leave {
-      left: 0;
-    }
-
-    .carousel-previous-leave.carousel-previous-leave-active {
-      left: 100%;
-      transition: left 500ms ease-in-out;
-    }
-
-    /* Fade Image Classes */
-
-    .carousel-fade-enter {
-      opacity: 0.01;
-    }
-
-    .carousel-fade-enter.carousel-fade-enter-active {
-      opacity: 1;
-      transition: opacity 500ms ease-in-out;
-    }
-
-    .carousel-fade-leave {
-      opacity: 1;
-    }
-
-    .carousel-fade-leave.carousel-fade-leave-active {
-      opacity: 0.01;
-      transition: opacity 500ms ease-in-out;
-    }
-
-    /* Image Indicator */
-
-    .indicators {
-        display: flex;
-        margin: 20px 0;
-        padding: 5px 20px;
-        position: relative;
-        right: 13%;
-    }
-
-    .indicators .dot {
-        border: 1px solid #404040;
-        border-radius: 50%;
-        cursor: pointer;
-        display: inline-block;
-        height: 10px;
-        margin: auto;
-        width: 10px;
-    }
-
-    .indicators .dot.active {
-        background-color: #404040;
-    }
-
-    .finished_button {
-      position: relative;
-      float: right;
-      border: 1px solid #2EB4BA;
-      background-color: #2EB4BA;
-      color: #98FFA8;
-      bottom: 1vh;
-      font-size: 1.3em;
-      right: 8%;
-    }
-
-    .previous_button{
-      position: relative;
-      border: 1px solid #404040;
-    }
-
-    .next_button {
-      left: 33%;
-      position: relative;
-      border: 1px solid #404040;
-
-    }
-
-    button {
-      /* font-family: 'Original Surfer'; */
-      font-size: 1em;
-      background-color: rgb(183, 188, 192);
-      color: #2C3531;
-      border-radius: 6px;
-      border-color: #2C3531;
-    }
-}
-
-
