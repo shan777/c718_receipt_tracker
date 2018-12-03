@@ -11,13 +11,12 @@ class Footer extends Component {
     }
 
     render() {
-
         return(
             <div className="footer_container">
-                <NavLink to={'/add_new'+this.state.userIDAddressFragment} className="footer-nav-link"><i className="material-icons">library_add</i></NavLink>
-                <NavLink to='/overview' className="footer-nav-link"><i className="material-icons">format_list_bulleted</i></NavLink>
-                <NavLink to='/tutorial' className="footer-nav-link"><i className="material-icons">live_help</i></NavLink>
-                <NavLink to='/about_us' className="footer-nav-link"><i className="material-icons">mood</i></NavLink>
+                <NavLink to='/overview' className="footer-nav-link"><i className="material-icons">list_alt</i></NavLink>
+                <NavLink to={'/add_new'+this.state.userIDAddressFragment} className="footer-nav-link"><i className="material-icons">note_add</i></NavLink>
+                <NavLink to='/tutorial' className="footer-nav-link"><i className="material-icons">perm_device_information</i></NavLink>
+                <NavLink to='/about_us' className="footer-nav-link"><i className="material-icons">group</i></NavLink>
             </div>
         )
     }

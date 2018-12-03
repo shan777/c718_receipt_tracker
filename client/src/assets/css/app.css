@@ -13,39 +13,8 @@ body {
     font-family: 'Roboto';
 }
 
-.app {
-    background-color: #000;
-    color: #FFF;
-    font-family: quest;
-    font-size: 30px;
-    padding: 50px;
-    text-align: center;
-}
-
-.app .logo {
-    height: 220px;
-    filter: drop-shadow(2px 2px 0px #FFF);
-}
-
-.app h1 {
-    color: #61DAFB;
-    font-size: 5em;
-    letter-spacing: 5px;
-    margin: 0.16em;
-    text-shadow: 2px 2px 0 #FFF;
-}
-
-.rotate {
-    animation: spin 10s linear infinite;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+a {
+    text-decoration: none;
 }
 
 /* Carousel CSS */
@@ -53,12 +22,14 @@ body {
     text-align: center;
 }
 
-.flex-container {
+.flex-container { 
     display: flex;
     min-height: 100vh;
     width: 90vw;
-    margin: 0 auto;
+    margin: 0 auto; 
+    background-color: white;
 }
+
 
 .center-all {
     margin: auto;

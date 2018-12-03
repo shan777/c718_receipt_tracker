@@ -15,7 +15,7 @@ const App = () => (
     <Router>
         <div>
             <Route path ="/add_new/:userID?" component={auth(AddNew, false, '/login', true)}/>
-            <Route exact path="/" component={auth(Splash)}/>
+            <Route exact path="/" component = {auth(Login, true, '/overview')}/>
             <Route path="/tutorial" component={Splash}/>
             <Route path ="/overview/:userID?" component={auth(Overview, false, '/login', true)}/>
             <Route path ="/login" component = {auth(Login, true, '/overview')}/>

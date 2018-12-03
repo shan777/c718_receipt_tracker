@@ -12,7 +12,8 @@ module.exports = (app, connection) => {
             connection.query(`SELECT r.ID, r.storeName, r.total, DATE_FORMAT(r.purchaseDate, "%m/%d/%Y") AS purchaseDate, r.category, r.comment
                               FROM receipts AS r
                               WHERE r.userId = ?
-                              AND r.status = 'active';`,
+                              AND r.status = 'active'
+                              ORDER BY r.purchaseDate DESC;`,
                             [userId],
                             (error, rows) => {
                                 if (error){
