@@ -80,14 +80,12 @@
 
 @media only screen and (max-width: 600px) {
 /* START @media only screen and (max-width: 600px) */
-  
-
-    .login_container {
+      .login_container {
         text-align: center;
     }
 
     .login_area {
-        display: inline-block;
+        display: grid;
         padding-top: 8%;
     }
 
@@ -139,7 +137,7 @@
     }
 
     .signup_area {
-        padding-top: 3%;
+        padding-top: 0%;
         color: #15191b;
         font-size: 1.2em;
     }
@@ -163,7 +161,6 @@
 }
 
 @media only screen and (min-width: 600px) {
-
     .login_logo_sqr{
         width: 25%;
         left: 40%;
@@ -178,6 +175,10 @@
         display: block;
         position: relative;
         top: 6vh;
+    }
+
+    .forgot_password {
+        color: #98FFA8;
     }
 
     .password{
@@ -206,7 +207,19 @@
         top: 5vh;
     }
 
+    .signup_area {
+        padding-top: 24%;
+        color: #15191b;
+        font-size: 1.5em;
+    }
 
+    .signup_link, .signup_link:visited {
+        color: #98FFA8;
+    }
+
+    label {
+        margin-bottom: 5%;
+    }
 }
 
 
@@ -279,6 +292,12 @@
         font-size: 25px;
     }
 
+    .signup_area {
+        padding-top: 12%;
+        color: #15191b;
+        font-size: 1.5em;
+    }
+
     p.error_message {
         font-size: 1.5em;
         margin: 0;
@@ -334,7 +353,7 @@
     }
 
     .login_btn {
-        background-color: #2E3B3Bb;
+        background-color: #2E3B3B;
         border: 1px solid #15191b;
         color: white;
         font-size: 35px;
@@ -348,6 +367,12 @@
     .sign_up_container {
         color: white;
         font-size: 32px;
+    }
+
+    .signup_area {
+        padding-top: 26%;
+        color: #15191b;
+        font-size: 1.7em;
     }
 
     label {
@@ -451,6 +476,10 @@
     
         label {
             margin-bottom: 5%;
+        }
+
+        .signup_area {
+            padding-top: 26%;
         }
     
         /* button {
