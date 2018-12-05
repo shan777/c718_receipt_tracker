@@ -505,7 +505,7 @@
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
     .main_container {
-        min-height: o;
+        min-height: 0;
         width: 100vw;
         margin: 0;
         display: block;

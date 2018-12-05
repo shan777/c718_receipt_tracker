@@ -2,11 +2,11 @@
       /* border: 1px solid #404040; */
       /* border-radius: 8px; */
       display: inline-block;
-      /* min-height: 81vh; */
+      height: 85vh;
       overflow: hidden;
       position: relative;
 	    width: 90vw;
-	    max-width: 385px;
+      max-width: 385px;
     }
 
     .carousel_buttons_container {
@@ -19,7 +19,8 @@
 
     .carousel-img {
         width: 100%;
-        /* position: absolute; */
+        height: auto;
+        position: absolute;
     }
 
     /* Next Image Classes */
@@ -137,3 +138,6 @@
       border-radius: 6px;
       border-color: #2C3531;
     }
+
+
+
