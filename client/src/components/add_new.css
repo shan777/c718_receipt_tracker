@@ -505,6 +505,7 @@
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
     .main_container {
+        min-height: 0;
         width: 100vw;
         margin: 0;
         display: block;
@@ -711,6 +712,7 @@
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
     .main_container {
+        height: 0;
         width: 100vw;
         margin: 0;
         display: block;

@@ -36,7 +36,7 @@
 @media only screen and (min-width: 600px){
 
     body{
-        min-height: 100vh;
+        /* min-height: 100vh; */
         width: 100vw;
         margin: 0;
         background-color: white;
@@ -182,7 +182,7 @@
 
 @media only screen and (min-width: 768px){
     body{
-        height: 80vh;
+        /* height: 80vh; */
         width: 100vw;
         margin: 0;
         background-color: white;
@@ -325,7 +325,7 @@
 
 @media only screen and (min-width: 992px){
     body{
-        height: 100vh;
+        /* height: 100vh; */
         width: 100vw;
         margin: 0;
         background-color: white;
@@ -462,7 +462,7 @@
 
 @media only screen and (min-width: 1220px){
     body{
-        height: 100vh;
+        /* height: 100vh; */
         width: 100vw;
         margin: 0;
         background-color: white;
@@ -594,7 +594,7 @@
 @media only screen and (max-width: 600px){
 
     body{
-        height: 100vh;
+        /* height: 100vh; */
         width: 100vw;
         margin: 0;
         background-color: white;

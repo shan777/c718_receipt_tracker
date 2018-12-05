@@ -12,9 +12,9 @@
     box-sizing: border-box;
 }
 
-body {
+/* body {
     min-height: 90vh;
-}
+} */
 
 th {
     padding-bottom: 2%;
