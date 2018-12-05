@@ -1,12 +1,12 @@
     .carousel-container {
-      border: 1px solid #404040;
-      border-radius: 8px;
+      /* border: 1px solid #404040; */
+      /* border-radius: 8px; */
       display: inline-block;
-      min-height: 87vh;
+      /* min-height: 81vh; */
       overflow: hidden;
       position: relative;
-	  width: 90vw;
-	  max-width: 385px;
+	    width: 90vw;
+	    max-width: 385px;
     }
 
     .carousel_buttons_container {
@@ -19,7 +19,7 @@
 
     .carousel-img {
         width: 100%;
-        position: absolute;
+        /* position: absolute; */
     }
 
     /* Next Image Classes */
