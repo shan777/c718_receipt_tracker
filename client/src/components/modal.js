@@ -113,7 +113,7 @@ class Modal extends Component{
             return <div className='noTags'> — </div>
         };
         const renderTags = data.map((item, index) => (
-            <div id="customTag" >
+            <div id="customTag" key={index}>
                 <i onClick={() => this.openDeleteTag(this.state.receiptId, data[index].tagId)} className="material-icons deleteTag">clear</i>
                 <button className="custom_tag" type="button" key={index}># {data[index].tagName}</button>
            </div>
@@ -211,7 +211,7 @@ class Modal extends Component{
                     </div>
                     {
                     (this.state.show) ?
-                    <SelectTags selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                    <SelectTags selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} currentTagsforUpdate={this.state.currentTags} tags={this.state.tags}>
                     </SelectTags>    
                     : (null)
                     }
