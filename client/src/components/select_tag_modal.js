@@ -8,6 +8,10 @@ class SelectTagModal extends Component{
         this.state = {
             tags: {},
         };
+
+        props.currentTags.map((item)=>{
+            this.state.tags[item.tagId] = item;
+        });
     
         this.handleInputChange = this.handleInputChange.bind(this);
         this.createNewTag = this.createNewTag.bind(this);
@@ -34,11 +38,13 @@ class SelectTagModal extends Component{
     
     async createNewTag(){
         const resp = await axios.post('/api/manageTags/getUserTags');
-        const tags = {};
+        const { tags } = this.state;
 
         resp.data.tags.map(tag => {
-            tag.checked = false;
-            tags[tag.tagId] = tag
+            if(!tags[tag.tagId]){
+                tag.checked = false;
+                tags[tag.tagId] = tag
+            }
         });
 
         this.setState({
@@ -111,4 +117,3 @@ class SelectTagModal extends Component{
 }
 
 export default SelectTagModal;
-
