@@ -191,7 +191,7 @@ class AddNewTag extends Component {
                 <Footer/>
                 {
                 (this.state.show) ?
-                    <SelectTagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                    <SelectTagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags} currentTags={this.state.currentTags}>
                     </SelectTagModal>    
                     : (null)
                 }
