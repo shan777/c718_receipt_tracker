@@ -8,10 +8,6 @@ class SelectTagModal extends Component{
         this.state = {
             tags: {},
         };
-
-        props.currentTags.map((item)=>{
-            this.state.tags[item.tagId] = item;
-        });
     
         this.handleInputChange = this.handleInputChange.bind(this);
         this.createNewTag = this.createNewTag.bind(this);
@@ -35,6 +31,12 @@ class SelectTagModal extends Component{
     async componentDidMount() {
         if(this.props.currentTagsforUpdate){
             this.props.currentTagsforUpdate.map((item)=>{
+                item.checked = true;
+                this.state.tags[item.tagId] = item;
+            });
+        }
+        if(this.props.currentTags){
+            this.props.currentTags.map((item)=>{
                 item.checked = true;
                 this.state.tags[item.tagId] = item;
             });
