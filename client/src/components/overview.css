@@ -33,6 +33,9 @@
 }
 
 
+
+
+
 @media only screen and (min-width: 600px){
 
     body{
@@ -85,11 +88,12 @@
     }
     
     .amount_of_purchase{
-        font-size: 1.4em;
         font-family: "Roboto Bold";
         position: absolute;
         right: 0px; 
-        padding-right: 4%;
+        padding-right: 2.5%;
+        float: right;
+        font-size: 1.5em;
     }
     
     .panel{
@@ -126,8 +130,8 @@
         width: 100vw;
         margin: 0;
         border: 0.1px solid #8c8c8c;
-        font-size: 0.6em;
-        padding: 3% 0;
+        font-size: 0.7em;
+        padding: 1% 0;
         left: 0;
     }
     
@@ -180,6 +184,9 @@
      */
 }
 
+
+
+
 @media only screen and (min-width: 768px){
     body{
         /* height: 80vh; */
@@ -196,6 +203,7 @@
         position: relative;
         left: 11%;
         color: #15191b;
+        font-size: 0.8em;
     }
     
     .row{
@@ -226,11 +234,13 @@
     .date_of_purchase{
         top: 1vh;
     }
+
     .amount_of_purchase{
-        left: 46%;
+        left: 40;
         bottom: 2vh;
-        font-size: 2.1em;
-        padding-right: 4%;
+        padding-right: 2.5%;
+        float: right;
+        font-size: 1.9em;
     }
     
     .panel{
@@ -268,7 +278,9 @@
         border: 0.1px solid #8c8c8c;
         left: 0;
         text-align: center;
+        padding: 1%;
     }
+
     .summary>p {
         font-size: 3.5em;
     }
@@ -284,7 +296,6 @@
         opacity: 0;
     }
     
-    
     .edit{
         position: relative;
         height: 3vh;;
@@ -297,6 +308,7 @@
     .accordion_icon{
         font-size: 36px;
     }
+
     .edit_btn{
         float: right;
         position: relative;
@@ -323,6 +335,10 @@
     } */
 }
 
+
+
+
+
 @media only screen and (min-width: 992px){
     body{
         /* height: 100vh; */
@@ -340,6 +356,7 @@
         left: 15%;
         top: 0vh;
         color: #15191b;
+        font-size: 0.7em;
     }
     
     .row{
@@ -371,11 +388,12 @@
     .date_of_purchase{
         top: 1vh;
     }
+
     .amount_of_purchase{
-        left: 47%;
+        left: 0;
         bottom: 2vh;
-        font-size: 2.4em;
-        padding-right: 4%;
+        padding-right: 2.5%;
+        float: right;
     }
     
     .panel{
@@ -412,6 +430,8 @@
         margin: 0;
         border: 0.1px solid #8c8c8c;
         left: 0;
+        padding: 1%;
+        font-size: 0.65em;
     }
     
     .number_of_receipts, .total_amount{
@@ -447,20 +467,38 @@
     } */
 }
 
+
+
+
+
 @media only screen and (min-width: 1024px){
 
     .overview_main_container{
         padding-bottom: 107px;
+        font-size: 0.7em;
+        width: 65%;
     }
 
     .summary{
         bottom: 0;
+        padding: 1%;
+    }
+
+    .amount_of_purchase{
+        left: 0;
+        bottom: 2vh;
+        font-size: 2.4em;
+        padding-right: 2.5%;
+        float: right;
     }
 
 }
 
 
-@media only screen and (min-width: 1220px){
+
+
+
+@media only screen and (min-width: 1200px){
     body{
         /* height: 100vh; */
         width: 100vw;
@@ -474,9 +512,9 @@
         background-color: white;
         padding-bottom: 77px;
         position: relative;
-        left: 15%;
+        left: 13%;
         top: 0vh;
-        font-size: 0.7em;
+        font-size: 0.6em;
         color: #15191b;
     }
     
@@ -509,11 +547,13 @@
     .date_of_purchase{
         top: 1vh;
     }
+
     .amount_of_purchase{
-        left: 57%;
+        left: 0;
         bottom: 2vh;
+        padding-right: 2.5%;
+        float: right;
         font-size: 3em;
-        padding-right: 4%;
     }
     
     .panel{
@@ -551,7 +591,7 @@
         border: 0.1px solid #8c8c8c;
         left: 0;
         padding: 1% 0;
-        font-size: 1em;
+        font-size: 0.81em;
     }
 
     .summary>p{
@@ -590,6 +630,10 @@
         font-size: 1.3em;
     } */
 }
+
+
+
+
 
 @media only screen and (max-width: 600px){
 
@@ -640,11 +684,12 @@
     }
 
     .amount_of_purchase{
-        font-size: 1.4em;
         font-family: "Roboto Bold";
         position: absolute;
         right: 0px; 
-        padding-right: 4%;
+        padding-right: 2.5%;
+        float: right;
+        font-size: 1.4em;
     }
 
     .panel{
