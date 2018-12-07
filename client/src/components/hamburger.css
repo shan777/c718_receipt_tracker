@@ -16,6 +16,7 @@
 .menu_link+p {
     text-decoration: none;
     text-align: left;
+    cursor: pointer;
 }
 
 .menu_icons {

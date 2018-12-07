@@ -72,6 +72,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 56%;
+    cursor: pointer;
 }
 
 .login_container {
@@ -129,6 +130,7 @@
         margin-left: auto;
         margin-right: auto;
         width: 60%;
+        cursor: pointer;
     }
 
     .forgot_password {
@@ -199,6 +201,7 @@
         top: 5vh;
         padding: 0.5%;
         margin-top: 4%;
+        cursor: pointer;
     }
     
 
@@ -289,6 +292,7 @@
         margin-top: 3%;
         width: 102%;
         top: 6vh;
+        cursor: pointer;
     }
 
     .forgot_password {
@@ -371,6 +375,7 @@
         margin-right: auto;
         margin-top: 6%;
         width: 100%;
+        cursor: pointer;
     }
 
     .sign_up_container {
@@ -465,6 +470,7 @@
             margin-left: auto;
             margin-right: auto;
             width: 100%;
+            cursor: pointer;
         }
     
         .forgot_password {
