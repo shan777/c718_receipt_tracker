@@ -452,6 +452,7 @@
     .material-icons {
         vertical-align: top;
         font-size: 38px;
+        cursor: pointer;
     }
     
     /* Bottom Row */
@@ -578,6 +579,7 @@
     .material-icons {
         vertical-align: top;
         font-size: 38px;
+        cursor: pointer;
     }
     
     /* Bottom Row */

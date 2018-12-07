@@ -259,6 +259,7 @@
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
         font-family: 'roboto';
+        cursor: pointer;
     }
 
     .done_btn {
@@ -271,6 +272,7 @@
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
         font-family: 'roboto';
+        cursor: pointer;
     }
 
     .btn_container {
@@ -465,6 +467,7 @@
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
         font-size: 1em;
+        cursor: pointer;
     }
 
     .done_btn {
@@ -477,6 +480,7 @@
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
         font-size: 1em;
+        cursor: pointer;
     }
 
     .btn_container {
@@ -667,6 +671,7 @@
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
+        cursor: pointer;
     }
 
     .done_btn {
@@ -679,6 +684,7 @@
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
+        cursor: pointer;
     }
 
     .btn_container {
@@ -886,6 +892,7 @@
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
+        cursor: pointer;
     }
 
     .done_btn {
@@ -898,6 +905,7 @@
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
+        cursor: pointer;
     }
 
     .btn_container {
@@ -1104,6 +1112,7 @@
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
+        cursor: pointer;
     }
 
     .done_btn {
@@ -1116,6 +1125,7 @@
         border-radius: 6px;
         border: 1.0px solid #2C3531;
         transition-duration: 0.4s;
+        cursor: pointer;
     }
 
     .btn_container {
@@ -1311,6 +1321,7 @@
         transition-duration: 0.4s;
         font-size: 1em;
         width: 90px;
+        cursor: pointer;
     }
 
     .done_btn {
@@ -1324,6 +1335,7 @@
         width: 90px;
         float: right;
         margin-right: 20%;
+        cursor: pointer;
     }
 
     .btn_container {
