@@ -57,10 +57,11 @@
 
     .modalbtn{
         position: relative;
-        margin-left: 20%;
+        margin-left: 24%;
         font-size: 1.0em;
         padding: 1.5%;
         color: #2C3531;
+        cursor: pointer;
     }
 
     .cancel{
@@ -408,6 +409,7 @@
         font-size: 1.0em;
         padding: 1.5%;
         color: #2C3531;
+        cursor: pointer;
     }
 
     .cancel{
@@ -752,10 +754,11 @@
 
     .modalbtn{
         position: relative;
-        margin-left: 20%;
+        margin-left: 25%;
         font-size: 1.0em;
         padding: 1.5%;
         color: #2C3531;
+        cursor: pointer;
     }
 
     .cancel{
@@ -1103,10 +1106,11 @@
 
     .modalbtn{
         position: relative;
-        margin-left: 20%;
+        margin-left: 26%;
         font-size: 1.0em;
         padding: 1.5%;
         color: #2C3531;
+        cursor: pointer;
     }
 
     .cancel{
@@ -1460,10 +1464,11 @@
 
     .modalbtn{
         position: relative;
-        margin-left: 20%;
+        margin-left: 28%;
         font-size: 1.0em;
         padding: 1.5%;
         color: #2C3531;
+        cursor: pointer;
     }
 
     .cancel{
@@ -1828,6 +1833,7 @@
         font-size: 1.0em;
         padding: 1.5%;
         color: #2C3531;
+        cursor: pointer;
     }
 
     .cancel{
@@ -2137,6 +2143,7 @@
 
     .modalbtn{
         margin-left: 29%;
+        cursor: pointer;
     }
 
     .date1, .merchant1, .amount1, .note1 {
@@ -2218,6 +2225,7 @@
         font-size: 1.0em;
         padding: 1.5%;
         color: #2C3531;
+        cursor: pointer;
     }
 
     .modal_container {
