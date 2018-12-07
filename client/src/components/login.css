@@ -394,105 +394,125 @@
 }
 
 
-@media only screen and (min-width: 1220px) {
+
+
+
+@media only screen and (min-width: 1200px) {
     /* START @media only screen and (max-width: 600px) */
-        .login_page_container {
-            height: 100vh;
-            width: 100vw;
-            background-color: #1997A2;
-        }
-
-        .login_logo_sqr{
-            width: 12%;
-            left: 43%;
-        }
-    
-        .login_logo_txt{
-            width: 43%;
-            left: 27%;
-        }
-
-        .login_container {
-            display: inline-block;
-            position: relative;
-            left: 22%;
-            top: 4vh;
-            padding-left: 16%;
-        }
-    
-        .login_area {
-            display: inline-block;
-            padding-top: 4%;
-        }
-    
-        img.login_logo {
-            width: 30%;
-            display: block;
-            position: relative;
-            left: 33%;
-        }
-    
-        .username {
-            background-color: #DEF2F1;
-            border: 1px solid #def2f1;
-            font-size: 25px;
-            margin-bottom: 5%;
-            padding: 1%;
-            text-align: center;
-            width: 100%;
-        }
-    
-        .password {
-            background-color: #DEF2F1;
-            border: 1px solid #def2f1;
-            font-size: 25px;
-            padding: 1%;
-            text-align: center;
-            width: 100%;
-        }
-    
-        .forgot_password {
-            color: #98FFA8;
-        }
-    
-        .login_btn {
-            background-color: #2E3B3B;
-            border: 1px solid #15191b;
-            color: white;
-            padding: 0;
-            font-size: 25px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-        }
-    
-        .forgot_password {
-            padding-bottom: 5%;
-            padding-top: 5%;
-        }
-    
-        .sign_up_container {
-            color: white;
-            font-size: 32px;
-            position: relative;
-            left: 0;
-        }
-    
-        p.error_message {
-            font-size: 1em;
-        }
-    
-        label {
-            margin-bottom: 5%;
-        }
-
-        .signup_area {
-            padding-top: 21%;
-        }
-    
-        /* button {
-            display: block;
-            margin-left: 35%;
-        } */
+    @keyframes login_squirrel {
+        0%   { left:62%; top:80px;}
+        25%  { left:60%; top:50px;}
+        50%  { left:57%; top:78px;}
+        75%  { left:52%; top:2px;}
+        100% { left:46%; top:25px;}
     }
+    
+    .login_logo_sqr {
+        width: 9%;
+        display: block;
+        position: relative;
+        top: 25px;
+        left: 46%;
+        padding-bottom: 3%;
+        animation-name: login_squirrel;
+        animation-delay: 0.5s;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+    }
+
+    .login_page_container {
+        height: 100vh;
+        width: 100vw;
+        background-color: #1997A2;
+    }
+
+    .login_logo_txt{
+        width: 26%;
+        left: 36%;
+        top: -15px;
+    }
+
+    .login_container {
+        display: inline-block;
+        position: relative;
+        left: 22%;
+        top: -30px;
+        padding-left: 16%;
+    }
+
+    .login_area {
+        display: inline-block;
+        padding-top: 7%;
+    }
+
+    img.login_logo {
+        width: 30%;
+        display: block;
+        position: relative;
+        left: 33%;
+    }
+
+    .username {
+        border: 1px solid #def2f1;
+        font-size: 22px;
+        margin-bottom: 5%;
+        padding: 1%;
+        text-align: center;
+        width: 100%;
+    }
+
+    .password {
+        border: 1px solid #def2f1;
+        font-size: 22px;
+        padding: 1%;
+        text-align: center;
+        width: 100%;
+    }
+
+    .forgot_password {
+        color: #98FFA8;
+    }
+
+    .login_btn {
+        background-color: #2E3B3B;
+        border: 1px solid #15191b;
+        color: white;
+        padding: 1.5%;
+        font-size: 24px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        width: 100%;
+    }
+
+    .forgot_password {
+        padding-bottom: 5%;
+        padding-top: 5%;
+    }
+
+    .sign_up_container {
+        color: white;
+        font-size: 32px;
+        position: relative;
+        left: 0;
+    }
+
+    p.error_message {
+        font-size: 1em;
+    }
+
+    label {
+        margin-bottom: 5%;
+    }
+
+    .signup_area {
+        padding-top: 17%;
+        font-size: 1.1em;
+    }
+
+    /* button {
+        display: block;
+        margin-left: 35%;
+    } */
+}
