@@ -50,7 +50,7 @@ class Modal extends Component{
                 tagName: currentTags[i].tagName
             })
         }
-        const updateTags = await axios.post('/api/manageTags/addTagsToReceipt', {receiptId: receiptId, tags: tagArray})
+        const updateTags = await axios.post('/api/manageTags/updateReceiptTags', {receiptId: receiptId, tags: tagArray})
         const update = await axios.post('/api/manageReceipts/updateReceipt', {
             receiptId: receiptId,
             storeName: merchantName,
