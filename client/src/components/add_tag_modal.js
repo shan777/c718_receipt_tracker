@@ -81,6 +81,8 @@ class AddTagModal extends Component{
                             <div className="new_tag">
                                 <label className="new_tag_label">
                                 <input className="new_tag_input" placeholder="Enter new tag name" onChange={ (e) => this.setState({newTagName: e.target.value})}
+                                    pattern="^[a-zA-Z \d]{1,18}$" 
+                                    title="Must be letters/numbers up to 18 characters only."
                                     type="text"
                                     value={newTagName}
                                 />
