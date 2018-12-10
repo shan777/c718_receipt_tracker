@@ -1125,7 +1125,7 @@
 
     .modal_container {
         background-color: white;
-        width: 100%;
+        width: 90%;
         font-weight: bold;
         font-size: 1em;
         display: block;
@@ -1136,6 +1136,8 @@
         padding: 8% 0;
         border: 3px teal solid;
         border-radius: 10px;
+        position: relative;
+        left: 5%;
     }
 
     .tag_modal_container {
@@ -1483,7 +1485,7 @@
 
     .modal_container {
         background-color: white;
-        width: 100%;
+        width: 90%;
         font-weight: bold;
         font-size: 1em;
         display: block;
@@ -1494,6 +1496,8 @@
         padding: 8% 0;
         border: 3px teal solid;
         border-radius: 10px;
+        position: relative;
+        left: 5%;
     }
 
     .tag_modal_container {
@@ -1848,7 +1852,7 @@
 
     .modal_container {
         background-color: white;
-        width: 100%;
+        width: 90%;
         font-weight: bold;
         font-size: 1em;
         display: block;
@@ -1859,6 +1863,8 @@
         padding: 8% 0;
         border: 3px teal solid;
         border-radius: 10px;
+        position: relative;
+        left: 5%;
     }
 
     .tag_modal_container {
@@ -2230,7 +2236,7 @@
 
     .modal_container {
         background-color: white;
-        width: 100%;
+        width: 90%;
         font-weight: bold;
         font-size: 1em;
         display: block;
@@ -2241,6 +2247,8 @@
         padding: 8% 0;
         border: 3px teal solid;
         border-radius: 10px;
+        left: 6%;
+        position: relative;
     }
 
     .tag_modal_container {
