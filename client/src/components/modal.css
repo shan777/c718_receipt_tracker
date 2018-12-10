@@ -1038,7 +1038,7 @@
     
     .delete_modal_container {
         background-color: white;
-        width: 95%;
+        width: 70%;
         font-weight: bold;
         font-size: 1em;
         display: block;
@@ -1050,7 +1050,7 @@
         border: 3px teal solid;
         position: absolute;
         bottom: -189%;
-        left: 3%;
+        left: 15%;
         border-radius: 10px;
     }
 
@@ -1403,7 +1403,7 @@
     
     .delete_modal_container {
         background-color: white;
-        width: 95%;
+        width: 60%;
         font-weight: bold;
         font-size: 1em;
         display: block;
@@ -1415,7 +1415,7 @@
         border: 3px teal solid;
         position: absolute;
         bottom: -189%;
-        left: 3%;
+        left: 20%;
         border-radius: 10px;
     }
 }
@@ -1762,7 +1762,7 @@
     
     .delete_modal_container {
         background-color: white;
-        width: 95%;
+        width: 60%;
         font-weight: bold;
         font-size: 1em;
         display: block;
@@ -1774,7 +1774,7 @@
         border: 3px teal solid;
         position: absolute;
         bottom: -189%;
-        left: 3%;
+        left: 20%;
         border-radius: 10px;
     }
 
@@ -2129,7 +2129,7 @@
     
     .delete_modal_container {
         background-color: white;
-        width: 95%;
+        width: 60%;
         font-weight: bold;
         font-size: 1em;
         display: block;
@@ -2141,7 +2141,7 @@
         border: 3px teal solid;
         position: absolute;
         bottom: -189%;
-        left: 3%;
+        left: 20%;
         border-radius: 10px;
     }
 
@@ -2480,7 +2480,7 @@
     
     .delete_modal_container {
         background-color: white;
-        width: 95%;
+        width: 60%;
         font-weight: bold;
         font-size: 1em;
         display: block;
@@ -2492,7 +2492,7 @@
         border: 3px teal solid;
         position: absolute;
         bottom: -189%;
-        left: 3%;
+        left: 20%;
         border-radius: 10px;
     }
  
