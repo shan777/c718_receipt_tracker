@@ -13,7 +13,7 @@
     display: inline;
 }
 
-.tagPosition{
+.tag_position{
     position: relative;
     left: 7%;
 }
@@ -420,7 +420,6 @@
     .cancel{
         background-color: #f2f2f2;
         border: 0.5px solid #2C3531;
-
     }
 
     .update-color{
@@ -2570,19 +2569,19 @@
         top: 2.5vh;
     }
 
-    .tagPosition{
+    .tag_position{
         left: 11%;
     }
 }
 
 @media only screen and (min-width: 1400px){
-    .tagPosition{
+    .tag_position{
         left: 15%;
     }
 }
 
 @media only screen and (min-width: 1400px){
-    .tagPosition{
+    .tag_position{
         left: 18%;
     }
 }
