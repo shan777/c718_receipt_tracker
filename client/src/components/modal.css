@@ -13,6 +13,11 @@
     display: inline;
 }
 
+.tagPosition{
+    position: relative;
+    left: 7%;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
@@ -2563,6 +2568,22 @@
     .deleteTag{
         left: 5%;
         top: 2.5vh;
+    }
+
+    .tagPosition{
+        left: 11%;
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    .tagPosition{
+        left: 15%;
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    .tagPosition{
+        left: 18%;
     }
 }
 
