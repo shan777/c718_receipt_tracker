@@ -13,6 +13,11 @@
     display: inline;
 }
 
+.tag_position{
+    position: relative;
+    left: 7%;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .basic_modal {
         background-color: rgba(0, 0, 0, .7);
@@ -415,7 +420,6 @@
     .cancel{
         background-color: #f2f2f2;
         border: 0.5px solid #2C3531;
-
     }
 
     .update-color{
@@ -2563,6 +2567,22 @@
     .deleteTag{
         left: 5%;
         top: 2.5vh;
+    }
+
+    .tag_position{
+        left: 11%;
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    .tag_position{
+        left: 15%;
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    .tag_position{
+        left: 18%;
     }
 }
 
