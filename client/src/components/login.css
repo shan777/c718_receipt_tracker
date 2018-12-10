@@ -92,7 +92,7 @@
     }
 
     .login_area {
-        display: grid;
+        display: inline-grid;
         padding-top: 8%;
     }
 
@@ -148,7 +148,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 60%;
+        width: 100%;
         cursor: pointer;
     }
 
@@ -160,7 +160,7 @@
     .signup_area {
         padding-top: 0;
         color: #15191b;
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
     .signup_link, .signup_link:visited {
@@ -287,6 +287,10 @@
         padding-top: 1%;
         font-size: 1.1em;
     }
+
+    .signup_link, .signup_link:visited {
+        color: #98FFA8;
+    }
 }
 
 
@@ -406,6 +410,10 @@
     .signup_area {
         padding-top: 1%;
         font-size: 1.0em;
+    }
+
+    .signup_link, .signup_link:visited {
+        color: #98FFA8;
     }
 }
 
@@ -530,6 +538,10 @@
         font-size: 1.0em;
     }
 
+    .signup_link, .signup_link:visited {
+        color: #98FFA8;
+    }
+
 }
 
 
@@ -651,5 +663,9 @@
     .signup_area {
         padding-top: 5%;
         font-size: 1.0em;
+    }
+
+    .signup_link, .signup_link:visited {
+        color: #98FFA8;
     }
 }
