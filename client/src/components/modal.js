@@ -26,8 +26,6 @@ class Modal extends Component{
     componentDidMount(){
         const currentUser = [...this.props.data.data.receipts];
         let currentReceipt = currentUser[this.props.row]
-
-        this.setState({
             merchantName: currentReceipt.storeName,
             totalAmount: currentReceipt.total,
             dateOfPurchase: `${this.formatDate(currentReceipt.purchaseDate)}`,
@@ -51,7 +49,7 @@ class Modal extends Component{
             })
         }
         const updateTags = await axios.post('/api/manageTags/updateReceiptTags', {receiptId: receiptId, tags: tagArray})
-        const update = await axios.post('/api/manageReceipts/updateReceipt', {
+        const update = await axios.post('/api/manageReceipts/updateReceipt', 
             receiptId: receiptId,
             storeName: merchantName,
             purchaseDate: `${this.formatDate(dateOfPurchase)}`,
@@ -113,7 +111,7 @@ class Modal extends Component{
             return <div className='noTags'> — </div>
         };
         const renderTags = data.map((item, index) => (
-            <div id="customTag" className="tagPosition" key={index}>
+            <div id="customTag" className="tag_position" key={index}>
                 <i onClick={() => this.openDeleteTag(this.state.receiptId, data[index].tagId)} className="material-icons deleteTag">clear</i>
                 <button className="custom_tag" type="button" key={index}># {data[index].tagName}</button>
            </div>
