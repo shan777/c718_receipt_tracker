@@ -26,6 +26,7 @@ class Modal extends Component{
     componentDidMount(){
         const currentUser = [...this.props.data.data.receipts];
         let currentReceipt = currentUser[this.props.row]
+        this.setState({
             merchantName: currentReceipt.storeName,
             totalAmount: currentReceipt.total,
             dateOfPurchase: `${this.formatDate(currentReceipt.purchaseDate)}`,
@@ -49,7 +50,7 @@ class Modal extends Component{
             })
         }
         const updateTags = await axios.post('/api/manageTags/updateReceiptTags', {receiptId: receiptId, tags: tagArray})
-        const update = await axios.post('/api/manageReceipts/updateReceipt', 
+        const update = await axios.post('/api/manageReceipts/updateReceipt', {
             receiptId: receiptId,
             storeName: merchantName,
             purchaseDate: `${this.formatDate(dateOfPurchase)}`,
