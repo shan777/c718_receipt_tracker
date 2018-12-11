@@ -26,6 +26,7 @@ class Modal extends Component{
     componentDidMount(){
         const currentUser = [...this.props.data.data.receipts];
         let currentReceipt = currentUser[this.props.row]
+        this.setState({
             merchantName: currentReceipt.storeName,
             totalAmount: currentReceipt.total,
             dateOfPurchase: `${this.formatDate(currentReceipt.purchaseDate)}`,
