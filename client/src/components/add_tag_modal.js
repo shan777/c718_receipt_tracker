@@ -51,7 +51,6 @@ class AddTagModal extends Component{
         event.preventDefault();
 
         const { newTagName } = this.state;
-
         if(newTagName) {
             const resp = await axios.post('/api/manageTags/addTag', {
                 tagName: newTagName
@@ -62,6 +61,8 @@ class AddTagModal extends Component{
             this.setState({
                 newTagName: ''
             });
+
+            this.props.addNewDirectly(newTagName);
         }
         this.props.handleClose();
 
