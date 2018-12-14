@@ -62,6 +62,8 @@ class AddTagModal extends Component{
             this.setState({
                 newTagName: ''
             });
+
+            this.props.addNewDirectly(newTagName);
         }
         this.props.handleClose();
 
