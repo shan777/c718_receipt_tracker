@@ -27,15 +27,15 @@ class AddNewTag extends Component {
         }
     }
 
-    addNewDirectly = (tagName) => {
+    addNewDirectly = (tagName, tagId) => {
         const newTag = {
             tagName: tagName
         }
         this.setState({
-            currentTags: [newTag]
+            currentTags: [...this.state.currentTags, {tagId: tagId, tagName: tagName}]
         });
     }
-
+    
     selectTags = (tags) => {
         this.setState({
             currentTags: tags

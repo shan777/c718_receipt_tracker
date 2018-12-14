@@ -120,6 +120,15 @@ class Modal extends Component{
         return renderTags;
     }
 
+    addNewDirectly = (tagName, tagId) => {
+        const newTag = {
+            tagName: tagName
+        }
+        this.setState({
+            currentTags: [...this.state.currentTags, {tagId: tagId, tagName: tagName}]
+        });
+    }
+
     tagModalOpen(event){
         event.preventDefault();
         this.setState({
@@ -215,7 +224,7 @@ class Modal extends Component{
                     : (null)
                     }
                     {(this.state.tagModalOpen) ?
-                    <AddTagModal selectTags={this.selectTags} show={this.state.tagModalOpen} handleClose={this.hideAddTagModal} tags={this.props.modalTags}/>
+                    <AddTagModal selectTags={this.selectTags} show={this.state.tagModalOpen} handleClose={this.hideAddTagModal} tags={this.props.modalTags} addNewDirectly={this.addNewDirectly}/>
                     : null
                     }
                     {

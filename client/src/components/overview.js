@@ -120,7 +120,6 @@ class Overveiw extends Component{
         }
 
         const currentUsersReceipts = [...this.state.data.data.receipts];
-
         const total = currentUsersReceipts.map(item => item.total);
         const addTotal = () =>{
             let totalAmount = 0;
@@ -136,6 +135,10 @@ class Overveiw extends Component{
                 <Header push={this.props.history.push} title="OVERVIEW"/>
                 <div className="overview_main_container">
                     {this.makeRow()}
+                    {currentUsersReceipts.length === 0 ? 
+                        <div className="no_receipts">Start by adding some receipts. You can do this by navigating to Add New in the menu.</div>
+                    : null
+                    }
                     <div className="summary">
                     {(currentUsersReceipts.length <= 1) ?
                         <p className="number_of_receipts"><b>{currentUsersReceipts.length}</b> Receipt &nbsp;&nbsp;&nbsp; <b>Total:</b> ${addTotal()}</p>
