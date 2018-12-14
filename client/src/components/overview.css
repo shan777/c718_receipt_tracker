@@ -33,6 +33,13 @@
 }
 
 
+.no_receipts{
+    font-size: 1em;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+
 
 
 
@@ -182,6 +189,11 @@
         right: 1.5%;
     }
      */
+
+     .no_receipts{
+        margin-left: 0;
+        font-size: 1.5em;
+    }
 }
 
 
@@ -333,6 +345,11 @@
         position: relative;
         right: 8%;
     } */
+
+    .no_receipts{
+        text-align: center;
+        font-size: 2em;
+    }
 }
 
 

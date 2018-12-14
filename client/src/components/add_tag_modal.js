@@ -36,7 +36,6 @@ class AddTagModal extends Component{
     async createNewTag(){
         const resp = await axios.post('/api/manageTags/getUserTags');
         const tags = {};
-
         resp.data.tags.map(tag => {
             tag.checked = false;
             tags[tag.tagId] = tag
@@ -51,17 +50,47 @@ class AddTagModal extends Component{
         event.preventDefault();
 
         const { newTagName } = this.state;
+        try{
+            if(newTagName) {
+                const resp = await axios.post('/api/manageTags/addTag', {
+                    tagName: newTagName
+                });
+                const response = await axios.post('/api/manageTags/getUserTags');
+    
+                let respTagId = null;
+                const responseTag = response.data.tags
+                for(let i =0; i < responseTag.length; i ++){
+                    if(responseTag[i].tagName === newTagName){
+                        respTagId = responseTag[i].tagId;
+                    }
+                }
+                this.createNewTag();
+    
+                this.setState({
+                    newTagName: ''
+                });
+            }
+            this.props.addNewDirectly(newTagName, respTagId);
 
-        if(newTagName) {
-            const resp = await axios.post('/api/manageTags/addTag', {
-                tagName: newTagName
-            });
+        }catch(err){
+            const response = await axios.post('/api/manageTags/getUserTags');
+            const responseTag = response.data.tags
+            let respTagId = null;
+            let resptagName = null;
+            for(let i = 0; i < responseTag.length; i++){
+                if(responseTag[i].tagName === newTagName){
+                    resptagName = responseTag[i].tagName;
+                    respTagId = responseTag[i].tagId;
+                }
+            }
 
             this.createNewTag();
-
+    
             this.setState({
                 newTagName: ''
             });
+
+            this.props.addNewDirectly(resptagName, respTagId);
         }
         this.props.handleClose();
 
