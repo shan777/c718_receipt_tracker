@@ -43,8 +43,9 @@ module.exports = (app, connection) => {
                             [userId, tagName],
                             (error, result) => {
                                 if (error) throw error;
-                                if (result.affectedRows > 0){
+                                if (result.affectedRows === 1){
                                     output.success = true;
+                                    output.tagId = result.insertId;
                                     return response.status(200).send(output);
                                 }
                                 output.error = `${result.affectedRows} rows affected`;
