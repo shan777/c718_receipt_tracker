@@ -26,7 +26,6 @@ class Modal extends Component{
     componentDidMount(){
         const currentUser = [...this.props.data.data.receipts];
         let currentReceipt = currentUser[this.props.row]
-
         this.setState({
             merchantName: currentReceipt.storeName,
             totalAmount: currentReceipt.total,
@@ -50,7 +49,7 @@ class Modal extends Component{
                 tagName: currentTags[i].tagName
             })
         }
-        const updateTags = await axios.post('/api/manageTags/addTagsToReceipt', {receiptId: receiptId, tags: tagArray})
+        const updateTags = await axios.post('/api/manageTags/updateReceiptTags', {receiptId: receiptId, tags: tagArray})
         const update = await axios.post('/api/manageReceipts/updateReceipt', {
             receiptId: receiptId,
             storeName: merchantName,
@@ -113,12 +112,21 @@ class Modal extends Component{
             return <div className='noTags'> — </div>
         };
         const renderTags = data.map((item, index) => (
-            <div id="customTag" >
+            <div id="customTag" className="tag_position" key={index}>
                 <i onClick={() => this.openDeleteTag(this.state.receiptId, data[index].tagId)} className="material-icons deleteTag">clear</i>
                 <button className="custom_tag" type="button" key={index}># {data[index].tagName}</button>
            </div>
         ))
         return renderTags;
+    }
+
+    addNewDirectly = (tagName, tagId) => {
+        const newTag = {
+            tagName: tagName
+        }
+        this.setState({
+            currentTags: [...this.state.currentTags, {tagId: tagId, tagName: tagName}]
+        });
     }
 
     tagModalOpen(event){
@@ -211,12 +219,12 @@ class Modal extends Component{
                     </div>
                     {
                     (this.state.show) ?
-                    <SelectTags selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                    <SelectTags selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} currentTagsforUpdate={this.state.currentTags} tags={this.state.tags}>
                     </SelectTags>    
                     : (null)
                     }
                     {(this.state.tagModalOpen) ?
-                    <AddTagModal selectTags={this.selectTags} show={this.state.tagModalOpen} handleClose={this.hideAddTagModal} tags={this.props.modalTags}/>
+                    <AddTagModal selectTags={this.selectTags} show={this.state.tagModalOpen} handleClose={this.hideAddTagModal} tags={this.props.modalTags} addNewDirectly={this.addNewDirectly}/>
                     : null
                     }
                     {

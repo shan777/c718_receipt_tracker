@@ -27,6 +27,15 @@ class AddNewTag extends Component {
         }
     }
 
+    addNewDirectly = (tagName, tagId) => {
+        const newTag = {
+            tagName: tagName
+        }
+        this.setState({
+            currentTags: [...this.state.currentTags, {tagId: tagId, tagName: tagName}]
+        });
+    }
+    
     selectTags = (tags) => {
         this.setState({
             currentTags: tags
@@ -191,13 +200,13 @@ class AddNewTag extends Component {
                 <Footer/>
                 {
                 (this.state.show) ?
-                    <SelectTagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags}>
+                    <SelectTagModal selectTags={this.selectTags} show={this.state.show} handleClose={this.hideModal} tags={this.state.tags} currentTags={this.state.currentTags}>
                     </SelectTagModal>    
                     : (null)
                 }
                 {
                 (this.state.addTagModalShow) ?
-                    <AddTagModal selectTags={this.selectTags} show={this.state.addTagModalShow} handleClose={this.hideAddTagModal} tags={this.state.tags}>
+                    <AddTagModal selectTags={this.selectTags} show={this.state.addTagModalShow} handleClose={this.hideAddTagModal} tags={this.state.tags} addNewDirectly={this.addNewDirectly}>
                     </AddTagModal>    
                     : (null)
                 }

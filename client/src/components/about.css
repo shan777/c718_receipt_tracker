@@ -12,10 +12,6 @@
     box-sizing: border-box;
 }
 
-body {
-    min-height: 90vh;
-}
-
 th {
     padding-bottom: 2%;
 }
@@ -41,6 +37,7 @@ th {
 
 .tech_container {
     width: 100vw;
+    background-color: #E7FFFE;
 }
 
 .tech_container p {
@@ -129,6 +126,9 @@ div.domain {
 }
 
 
+
+
+
 @media only screen and (min-width: 600px){
     .about_container {
         max-height: 100vh;
@@ -145,7 +145,7 @@ div.domain {
 
     .about_container p {
         font-size: 18px;
-        padding: 13% 6% 2%;
+        padding: 11% 6% 2%;
         line-height: 1.7;
         margin-top: 0%;
     }
@@ -223,6 +223,9 @@ div.domain {
 } /* end of @media only screen and (min-width: 600px) */
 
 
+
+
+
 @media only screen and (min-width: 768px){
     .about_container {
         max-height: 100vh;
@@ -239,7 +242,7 @@ div.domain {
 
     .about_container p {
         font-size: 19px;
-        padding: 13% 7% 2%;
+        padding: 10% 7% 2%;
         line-height: 1.7;
     }
 
@@ -317,6 +320,9 @@ div.domain {
 } /*end of @media only screen and (min-width: 768px)*/
 
 
+
+
+
 @media only screen and (min-width: 992px){
     .about_container {
         max-height: 100vh;
@@ -333,7 +339,7 @@ div.domain {
 
     .about_container p {
         font-size: 22px;
-        padding: 10% 4% 2%;
+        padding: 8% 4% 2%;
         line-height: 1.7;
     }
 
@@ -401,13 +407,15 @@ div.domain {
 } /* end of @media only screen and (min-width: 992px) */
 
 
+
+
+
 @media only screen and (min-width: 1220px){
     .about_container {
         max-height: 100vh;
         width: 100vw;
         margin: 0;
         background-color: #E7FFFE;
-        margin-top: 1%;
     }
 
 	.sqr {
