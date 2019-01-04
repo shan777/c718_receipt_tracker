@@ -34,7 +34,7 @@
             formIsValid = false;
             errors["username"] = "Username cannot be empty";
         } else if(typeof fields["username"] !== "undefined"){
-            if(!fields["username"].match(/^(?=.{4,15}$)(?!.*[_]{2})^[a-zA-Z]\w+(?<![_])$/)){
+            if(!fields["username"].match(/^(?=.{4,15}$)(?!.*[_]{2})^[a-zA-Z]\w+$/)){
                 formIsValid = false;
                 errors["username"] = "Invalid Username";
             }      	
@@ -126,7 +126,7 @@
                 <img className="signup_logo" src={squirrel}></img>
                 <form name="contactform" className="contactform" onSubmit= {this.handleSubmit.bind(this)}>
                     <fieldset>
-                        <input pattern="(?=.{4,15}$)(?!.*[_]{2})^[a-zA-Z]\w+(?<![_])$" className="username_input" ref="username" type="text" size="20" placeholder="Username" onChange={this.handleChange.bind(this, "username")} value={this.state.fields["username"]}/>
+                        <input pattern="(?=.{4,15}$)(?!.*[_]{2})^[a-zA-Z]\w+$" className="username_input" ref="username" type="text" size="20" placeholder="Username" onChange={this.handleChange.bind(this, "username")} value={this.state.fields["username"]}/>
                         <div className="guidelines">&nbsp;&nbsp;&nbsp;<i className="material-icons">info</i>&nbsp;<b>Username Guidelines:</b>
                             <ul>
                                 <li>Only letters (a-z), numbers (0-9), and underscores(_)</li>
