@@ -2,6 +2,9 @@ Squirrel Receipts
 
 https://www.squirrelreceipts.com
 
+Squirrel Receipts  is a simple mobile-first CMA (Content Management App) that is designed to store information of receipts to help save space in your wallet. You can Create, Read, Update, and Delete the contents with our easy to use interface.
+
+
 Current feature list:
 1. You can sign up and sign in so you have the control of your own data
 2. You can add receipt(s) in the app with the date, merchant name, total amount, category, and a simple note. 
